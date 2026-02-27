@@ -11,8 +11,10 @@ Verwendung:
 import argparse
 import os
 import sys
+import time
 from pathlib import Path
 
+import requests as req
 from langchain_community.document_loaders import (
     WebBaseLoader,
     PyPDFLoader,
@@ -52,13 +54,30 @@ def split_documents(docs):
     return splitter.split_documents(docs)
 
 
+USER_AGENT = "Athena-KI/1.0 (Gemeinde Pfofeld; +https://github.com/rwkaspar/athena-ki)"
+MAX_RETRIES = 3
+
+
 def ingest_url(url: str):
     """Webseite laden und einspeisen."""
     print(f"📥 Lade URL: {url}")
-    loader = WebBaseLoader(url)
-    docs = loader.load()
-    print(f"   {len(docs)} Dokument(e) geladen")
-    return docs
+    session = req.Session()
+    session.headers.update({"User-Agent": USER_AGENT})
+    loader = WebBaseLoader(url, requests_per_second=1)
+    loader.session = session
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            docs = loader.load()
+            print(f"   {len(docs)} Dokument(e) geladen")
+            return docs
+        except Exception as e:
+            if attempt < MAX_RETRIES:
+                wait = attempt * 2
+                print(f"   ⚠️ Versuch {attempt} fehlgeschlagen, warte {wait}s...")
+                time.sleep(wait)
+            else:
+                print(f"   ❌ Fehlgeschlagen nach {MAX_RETRIES} Versuchen: {e}")
+                return []
 
 
 def ingest_file(filepath: str):
