@@ -10,7 +10,7 @@ Athena ist eine politische Bewegung, die eine KI als Beratungsinstanz nutzt, ver
 
 | Komponente | Technologie |
 |---|---|
-| LLM | Mixtral 8x7B (via Ollama) |
+| LLM | Qwen 2.5 32B (via Ollama) |
 | Embedding | nomic-embed-text (via Ollama) |
 | Vektordatenbank | ChromaDB |
 | RAG-Framework | LangChain |
@@ -31,10 +31,10 @@ git clone https://github.com/DEIN-USERNAME/athena-ki.git
 cd athena-ki
 ```
 
-### 2. Mixtral & Embedding-Modell laden
+### 2. Qwen & Embedding-Modell laden
 
 ```bash
-ollama pull mixtral
+ollama pull qwen2.5:32b
 ollama pull nomic-embed-text
 ```
 
@@ -77,7 +77,7 @@ python generate_post.py --topic "Rentenpolitik" --platform twitter
 
 ```
 athena-ki/
-├── Modelfile              # Ollama Custom Model (Mixtral + System-Prompt)
+├── Modelfile              # Ollama Custom Model (Qwen 2.5 32B + System-Prompt)
 ├── requirements.txt       # Python-Abhängigkeiten
 ├── scripts/
 │   ├── ingest.py          # Dokumente in Wissensbasis einspeisen
@@ -101,7 +101,7 @@ athena-ki/
 
 ## Roadmap
 
-- [x] Mixtral 8x7B als Basis-LLM
+- [x] Qwen 2.5 32B als Basis-LLM
 - [x] System-Prompt & Persönlichkeit
 - [x] RAG-System mit ChromaDB
 - [ ] Wissensbasis befüllen (Grundgesetz, Koalitionsvertrag, Haushaltsdaten)
