@@ -27,7 +27,7 @@ Athena ist eine politische Bewegung, die eine KI als Beratungsinstanz nutzt, ver
 ### 1. Repository klonen
 
 ```bash
-git clone https://github.com/DEIN-USERNAME/athena-ki.git
+git clone https://github.com/rwkaspar/athena-ki.git
 cd athena-ki
 ```
 
