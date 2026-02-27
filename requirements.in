@@ -1,0 +1,11 @@
+langchain
+langchain-classic
+langchain-community
+langchain-ollama
+langchain-chroma
+langchain-text-splitters
+chromadb
+ollama
+pypdf
+beautifulsoup4
+requests

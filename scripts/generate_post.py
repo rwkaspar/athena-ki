@@ -14,9 +14,9 @@ import sys
 from datetime import datetime
 
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.llms import Ollama
-from langchain.chains import RetrievalQA
+from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import OllamaLLM
+from langchain_classic.chains import RetrievalQA
 
 # Konfiguration
 CHROMA_DB_DIR = os.path.join(os.path.dirname(__file__), "..", "athena-db")
@@ -64,7 +64,7 @@ def create_qa_chain():
         persist_directory=CHROMA_DB_DIR,
         embedding_function=embeddings,
     )
-    llm = Ollama(model=LLM_MODEL)
+    llm = OllamaLLM(model=LLM_MODEL, timeout=600)
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),

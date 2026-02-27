@@ -8,13 +8,14 @@ Verwendung:
 """
 
 import argparse
+import time
 import os
 import sys
 
 from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.llms import Ollama
-from langchain.chains import RetrievalQA
+from langchain_ollama import OllamaEmbeddings
+from langchain_ollama import OllamaLLM
+from langchain_classic.chains import RetrievalQA
 
 # Konfiguration
 CHROMA_DB_DIR = os.path.join(os.path.dirname(__file__), "..", "athena-db")
@@ -29,7 +30,7 @@ def create_qa_chain():
         persist_directory=CHROMA_DB_DIR,
         embedding_function=embeddings,
     )
-    llm = Ollama(model=LLM_MODEL)
+    llm = OllamaLLM(model=LLM_MODEL, timeout=600)
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         retriever=vectorstore.as_retriever(search_kwargs={"k": 5}),
@@ -42,6 +43,7 @@ def ask(qa_chain, question: str):
     """Eine Frage stellen und Antwort mit Quellen ausgeben."""
     print(f"\n🔍 Frage: {question}")
     print("⏳ Athena denkt nach...\n")
+    start_time = time.time()
 
     result = qa_chain.invoke(question)
 
@@ -49,6 +51,9 @@ def ask(qa_chain, question: str):
     print("🏛️  ATHENA:")
     print("=" * 60)
     print(result["result"])
+    print("\n" + "-" * 60)
+    elapsed = time.time() - start_time
+    print(f"\n⏱️  Antwortzeit: {elapsed:.1f} Sekunden")
     print("\n" + "-" * 60)
     print("📚 Quellen:")
     for i, doc in enumerate(result["source_documents"], 1):
