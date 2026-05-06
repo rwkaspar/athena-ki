@@ -1,28 +1,57 @@
-# 🏛️ Athena KI
+# Athena KI
 
-**Athena** ist eine KI-gestützte politische Persönlichkeit für Deutschland – evidenzbasiert, überparteilich, transparent und nicht korrumpierbar.
+**Athena** ist ein KI-Beratungsinstrument für faktenbasierte politische Analyse —
+evidenzbasiert, überparteilich, transparent.
 
-## Vision
+## Vision und Pilot-Scope
 
-Athena ist eine politische Bewegung, die eine KI als Beratungsinstanz nutzt, vertreten durch eine menschliche Person. Ziel ist es, Korruption in der Politik zu bekämpfen, indem politische Entscheidungen rein auf Fakten, Daten und Evidenz basieren – frei von persönlichen Interessen, Lobbyismus und Ideologie.
+Fernziel: ein Werkzeug für die geplante Partei **EVIDENZ** (Ein Volk,
+Informiert und Demokratisch Entschieden, Nicht Zufällig) auf Bundesebene.
+Die KI soll Faktenlage, Rechtsrahmen, Optionen und Trade-offs strukturiert
+aufbereiten — die normative Entscheidung bleibt beim Menschen.
 
-## Technischer Stack
+**Aktueller Pilot-Scope: Gemeinde Pfofeld (91378), Landkreis
+Weißenburg-Gunzenhausen, Bayern.** Pfofeld ist bewusst gewählt: kleine
+Domäne, klarer Rechtsrahmen (Bayerische Gemeindeordnung), überschaubare
+Quellenlage, echte Vergleichsfälle in Nachbargemeinden. Die Methodik
+wird hier validiert, bevor sie auf Bundesebene skaliert wird.
 
-| Komponente | Technologie |
+## Methodisches Kernprinzip
+
+Athena liefert **strukturierte Optionsanalyse**, nicht "die beste Lösung".
+Zu jedem Thema werden geliefert:
+
+- belastbare Faktenlage mit Quellen und Verifikationsstatus
+- relevanter Rechtsrahmen
+- mehrere Lösungsoptionen mit expliziten Trade-offs
+- zugrundeliegende Wertannahmen jeder Option
+- empirische Evidenz aus Vergleichsfällen
+
+Wer eine Empfehlung braucht, soll sie sich aus den Optionen selbst bilden.
+
+## Architektur
+
+| Komponente | Aufgabe |
 |---|---|
-| LLM | Qwen 2.5 32B (via Ollama) |
-| Embedding | nomic-embed-text (via Ollama) |
-| Vektordatenbank | ChromaDB |
-| RAG-Framework | LangChain |
-| Infrastruktur | Proxmox LXC Container |
+| **Orchestrierungs-VM** | Python-Pipeline, ChromaDB, Web-Scraping (Ubuntu/Debian, ~6 vCPU / 16 GB RAM / 100 GB SSD) |
+| **Ollama-Server** (separat) | LLM-Inference, im privaten Netz erreichbar (Tailscale/WireGuard) |
+| **LLM** | Qwen3.6 35B-A3B (MoE) als Base, custom Modell `athena` mit Persona-Prompt |
+| **Embeddings** | `nomic-embed-text` |
+| **Vektor-DB** | ChromaDB |
+| **RAG-Framework** | LangChain |
+
+Die Trennung VM ↔ Inference-Server ist beabsichtigt: Inference braucht viel
+RAM/Bandbreite und sollte auf dafür ausgelegter Hardware laufen, die
+Orchestrierungs-VM bleibt schlank.
 
 ## Setup
 
 ### Voraussetzungen
 
-- Server mit mindestens 32GB RAM (empfohlen: 48GB+)
-- [Ollama](https://ollama.com) installiert
-- Python 3.10+
+- Eine Linux-VM für die Orchestrierung (Python 3.10+).
+- Eine separate Maschine mit installiertem [Ollama](https://ollama.com)
+  und ausreichend RAM für das Base-Modell (~25 GB für Qwen3.6 35B-A3B in Q4).
+  Kann auch dieselbe Maschine sein, dann entfällt der Remote-Setup.
 
 ### 1. Repository klonen
 
@@ -31,20 +60,39 @@ git clone https://github.com/rwkaspar/athena-ki.git
 cd athena-ki
 ```
 
-### 2. Qwen & Embedding-Modell laden
+### 2. Modelle auf dem Ollama-Server bereitstellen
+
+Auf dem Inference-Host (oder lokal, falls alles auf einer Maschine):
 
 ```bash
-ollama pull qwen2.5:32b
+ollama pull qwen3.6:35b-a3b
 ollama pull nomic-embed-text
-```
-
-### 3. Athena-Modell erstellen
-
-```bash
 ollama create athena -f Modelfile
 ```
 
-### 4. Python-Umgebung einrichten
+### 3. Remote-Inference (optional)
+
+Wenn Ollama auf einem anderen Host läuft, muss der Service auf einem
+nicht-localhost-Interface lauschen. Per systemd-Override:
+
+```ini
+# /etc/systemd/system/ollama.service.d/override.conf
+[Service]
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+```
+
+Dann `sudo systemctl daemon-reload && sudo systemctl restart ollama`.
+Auf der Orchestrierungs-VM:
+
+```bash
+export OLLAMA_HOST=http://<inference-host>:11434
+```
+
+Achtung: Ollama hat keine Authentifizierung. Den Port nur in einem
+privaten Netz (VPN/Tailscale/WireGuard) erreichbar machen, nicht
+öffentlich.
+
+### 4. Python-Umgebung
 
 ```bash
 python3 -m venv athena-env
@@ -56,59 +104,46 @@ pip install -r requirements.txt
 
 ```bash
 cd scripts
-python ingest.py --url https://www.gesetze-im-internet.de/gg/
+python ingest.py --url https://www.gesetze-bayern.de/Content/Document/BayGO/true
+python ingest.py --dir ../documents/pfofeld/
 ```
 
 ### 6. Athena befragen
 
 ```bash
-python query.py "Was sagt das Grundgesetz zur Menschenwürde?"
+python query.py "Welche Voraussetzungen gelten für eine Bürgerversammlung nach Art. 18 BayGO?"
 python query.py --interactive
-```
-
-### 7. Social Media Posts generieren
-
-```bash
-python generate_post.py "Die Bundesregierung plant eine Erhöhung der Mehrwertsteuer"
-python generate_post.py --topic "Rentenpolitik" --platform twitter
 ```
 
 ## Projektstruktur
 
 ```
 athena-ki/
-├── Modelfile              # Ollama Custom Model (Qwen 2.5 32B + System-Prompt)
+├── claude.md              # Projekt-Kontext, Methodik, Tech-Topologie
+├── Modelfile              # Ollama Custom Model (Persona-Prompt)
 ├── requirements.txt       # Python-Abhängigkeiten
 ├── scripts/
 │   ├── ingest.py          # Dokumente in Wissensbasis einspeisen
-│   ├── query.py           # Athena mit RAG befragen
-│   └── generate_post.py   # Social Media Content generieren
+│   ├── query.py           # Wissensbasis abfragen
+│   └── generate_post.py   # Stellungnahmen generieren (in Überarbeitung)
 ├── prompts/
-│   └── system_prompt.txt  # Athenas Persönlichkeit & Verhalten
-├── documents/             # Rohdokumente (nicht im Repo)
-├── athena-db/             # ChromaDB Vektordatenbank (nicht im Repo)
-└── output/
-    └── posts/             # Generierte Stellungnahmen
+│   └── system_prompt.txt  # archivierter Bundes-Prompt — nicht aktiv
+├── documents/             # Rohdokumente (gitignored)
+├── athena-db/             # ChromaDB (gitignored)
+└── output/posts/          # Generierte Stellungnahmen (gitignored)
 ```
 
-## Athenas Grundprinzipien
+## Aktueller Stand
 
-- **Evidenzbasiert** – Politik auf Basis von Daten, Forschung und Fakten
-- **Überparteilich** – keine Einordnung ins politische Spektrum
-- **Transparent** – jede Entscheidung wird öffentlich begründet
-- **Anti-Korruption** – keine Lobbyabhängigkeiten, keine verdeckten Interessen
-- **Direkt** – klare, verständliche Kommunikation für alle Bürger
-
-## Roadmap
-
-- [x] Qwen 2.5 32B als Basis-LLM
-- [x] System-Prompt & Persönlichkeit
-- [x] RAG-System mit ChromaDB
-- [ ] Wissensbasis befüllen (Grundgesetz, Koalitionsvertrag, Haushaltsdaten)
-- [ ] Social Media Präsenz aufbauen
-- [ ] Echtzeit-Datenanbindung (Nachrichten, Statistiken)
-- [ ] Faktenprüfungs-Modul
-- [ ] Bürger-Chatbot
+- [x] Custom Athena-Modell auf Qwen3.6 35B-A3B-Basis
+- [x] Remote-Inference über Ollama im privaten Netz
+- [x] End-to-end-RAG funktional (klassischer Single-Pass)
+- [ ] Tier-Metadaten beim Ingest (Primär-/Sekundär-/Kommentarquellen)
+- [ ] Hybrid-RAG (statische Rechtsbasis getrennt von tagesaktuellen Quellen)
+- [ ] Strukturierte Optionsanalyse mit JSON-Schema
+- [ ] Critique-Pass (Devil's-Advocate-Stufe)
+- [ ] Notion-Integration als Doku-Layer
+- [ ] EVIDENZ-Skalierung auf Bundesebene
 
 ## Lizenz
 
@@ -116,4 +151,7 @@ MIT
 
 ## Mitmachen
 
-Athena ist ein Open-Source-Projekt. Beiträge sind willkommen! Transparenz ist unser Kernprinzip – deshalb ist der gesamte Code öffentlich.
+Athena ist Open Source. Beiträge sind willkommen — Transparenz ist Kernprinzip
+des Projekts. Bevorzugt sind Beiträge zur Methodik (Pipeline-Stufen,
+Quellen-Hierarchie), zur Wissensbasis kommunaler Primärquellen und zur
+Test-Infrastruktur.

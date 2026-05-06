@@ -1,0 +1,60 @@
+# Quellen-Hierarchie für Athena (siehe claude.md, Abschnitt "Quellen-Hierarchie").
+# Klassifikation erfolgt über die Domain einer URL. Bei File-Ingests ohne Domain
+# greift der Default-Tier; Override per CLI: --tier <N> --source-label <name>.
+#
+# Tier 1 = Primärquellen (Recht, amtliche Statistik) — bevorzugt für Verifikation.
+# Tier 2 = Qualitätsmedien (regional und überregional) — Kontextualisierung.
+# Tier 3 = Kommentar, Lokalblogs, Vereinsmitteilungen — nur transparent gekennzeichnet.
+
+tiers:
+  - rank: 1
+    label: primary_legal
+    description: Bundes-, Landes- und kommunale Rechtsgrundlagen
+    domains:
+      - gesetze-bayern.de
+      - gesetze-im-internet.de
+      - bundesverfassungsgericht.de
+      - bayern.verfassungsgerichtshof.de
+      - pfofeld.de
+      - landkreis-wug.de
+
+  - rank: 1
+    label: primary_statistics
+    description: Amtliche Statistik (Bund, Land, Kreis)
+    domains:
+      - destatis.de
+      - statistik.bayern.de
+      - statistikportal.de
+
+  - rank: 1
+    label: primary_parliament
+    description: Bundestag, Landtag, Drucksachen, Plenarprotokolle
+    domains:
+      - bundestag.de
+      - bayern.landtag.de
+      - dipbt.bundestag.de
+
+  - rank: 2
+    label: regional_media
+    description: Regionale Qualitätsmedien Mittelfranken / Bayern
+    domains:
+      - altmuehl-bote.de
+      - weissenburger-tagblatt.de
+      - br.de
+      - nordbayerischer-kurier.de
+      - nn.de
+
+  - rank: 2
+    label: national_media
+    description: Überregionale Qualitätsmedien
+    domains:
+      - sueddeutsche.de
+      - faz.net
+      - tagesschau.de
+      - zeit.de
+      - spiegel.de
+
+default:
+  rank: 3
+  label: unclassified
+  description: Kommentar, Blogs, Vereinsmitteilungen, nicht klassifizierte Quellen

@@ -1,5 +1,4 @@
 langchain
-langchain-classic
 langchain-community
 langchain-ollama
 langchain-chroma
@@ -9,3 +8,6 @@ ollama
 pypdf
 beautifulsoup4
 requests
+pyyaml
+playwright
+html2text
