@@ -1,0 +1,83 @@
+# Quellen-Hierarchie für Athena Bundesebene.
+# Gleiche Struktur wie source_tiers.yaml (Pfofeld), aber mit bundesweiten Domains.
+
+tiers:
+  - rank: 1
+    label: primary_legal_bund
+    description: Grundgesetz, Bundesgesetze, Verfassungsgericht
+    domains:
+      - gesetze-im-internet.de
+      - bundesverfassungsgericht.de
+      - bundesgerichtshof.de
+      - bgbl.de
+      - eur-lex.europa.eu
+
+  - rank: 1
+    label: primary_statistics_bund
+    description: Amtliche Statistik Bund und Eurostat
+    domains:
+      - destatis.de
+      - statistikportal.de
+      - ec.europa.eu
+      - bundesbank.de
+
+  - rank: 1
+    label: primary_parliament_bund
+    description: Bundestag, Bundesrat, Drucksachen, Plenarprotokolle
+    domains:
+      - bundestag.de
+      - bundesrat.de
+      - dipbt.bundestag.de
+      - europarl.europa.eu
+
+  - rank: 1
+    label: primary_government_bund
+    description: Bundesregierung, Ministerien, Bundeshaushalt
+    domains:
+      - bundesregierung.de
+      - bundesministerium.de
+      - bundeshaushalt.de
+      - bmwk.de
+      - bmf.de
+      - bmas.de
+      - bmi.de
+      - auswaertiges-amt.de
+      - bmbf.de
+      - bmuv.de
+
+  - rank: 1
+    label: primary_expert_bund
+    description: Wissenschaftliche Beiräte, Sachverständigenrat, Bundesrechnungshof, Monopolkommission
+    domains:
+      - sachverstaendigenrat-wirtschaft.de
+      - svr-migration.de
+      - bundesrechnungshof.de
+      - monopolkommission.de
+
+  - rank: 2
+    label: national_media
+    description: Überregionale Qualitätsmedien
+    domains:
+      - sueddeutsche.de
+      - faz.net
+      - tagesschau.de
+      - zeit.de
+      - spiegel.de
+      - handelsblatt.com
+      - dlf.de
+      - deutschlandfunk.de
+
+  - rank: 2
+    label: international_media
+    description: Internationale Qualitätsmedien (für Vergleichsfälle)
+    domains:
+      - politico.eu
+      - reuters.com
+      - bloomberg.com
+      - bbc.com
+      - ft.com
+
+default:
+  rank: 3
+  label: unclassified
+  description: Kommentar, Blogs, Think-Tanks ohne Tier-1-Status, sonstige Quellen

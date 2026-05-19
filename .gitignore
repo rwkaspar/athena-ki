@@ -37,3 +37,6 @@ documents/gesetze/
 documents/statistiken/
 documents/gutachten/
 documents/nachrichten/
+
+# Eingereichte Quellen (User-Submissions, lokal verwaltet)
+submissions/

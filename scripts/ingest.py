@@ -34,13 +34,19 @@ from retrieval import collection_for_source_type
 
 # Konfiguration
 CHROMA_DB_DIR = os.path.join(os.path.dirname(__file__), "..", "athena-db")
-SOURCE_TIERS_PATH = os.path.join(
-    os.path.dirname(__file__), "..", "config", "source_tiers.yaml"
-)
+CONFIG_DIR = os.path.join(os.path.dirname(__file__), "..", "config")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "bge-m3")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
+
+
+def _tiers_path_for(scope: str) -> str:
+    """Pfad zur Tier-YAML für einen Scope. Pfofeld ohne Suffix (Default-Datei),
+    andere Scopes mit Suffix: config/source_tiers_<scope>.yaml."""
+    if scope == "pfofeld":
+        return os.path.join(CONFIG_DIR, "source_tiers.yaml")
+    return os.path.join(CONFIG_DIR, f"source_tiers_{scope}.yaml")
 
 
 def get_embeddings():
@@ -65,19 +71,20 @@ def split_documents(docs):
     return splitter.split_documents(docs)
 
 
-def load_source_tiers():
+def load_source_tiers(scope: str = "pfofeld"):
     """Quellen-Hierarchie aus YAML laden. Bei Fehler: nur Default-Tier."""
     fallback = {"tiers": [], "default": {"rank": 3, "label": "unclassified"}}
+    path = _tiers_path_for(scope)
     try:
-        with open(SOURCE_TIERS_PATH, "r", encoding="utf-8") as f:
+        with open(path, "r", encoding="utf-8") as f:
             cfg = yaml.safe_load(f)
         if not isinstance(cfg, dict) or "default" not in cfg:
-            print(f"   ⚠️ {SOURCE_TIERS_PATH} ohne 'default' — Fallback aktiv")
+            print(f"   ⚠️ {path} ohne 'default' — Fallback aktiv")
             return fallback
         cfg.setdefault("tiers", [])
         return cfg
     except FileNotFoundError:
-        print(f"   ⚠️ {SOURCE_TIERS_PATH} nicht gefunden — alle Quellen werden als Tier 3 klassifiziert")
+        print(f"   ⚠️ {path} nicht gefunden — alle Quellen werden als Tier 3 klassifiziert")
         return fallback
 
 
@@ -251,6 +258,10 @@ def main():
         "--source-label",
         help="Override-Label für alle Dokumente dieses Aufrufs (z. B. 'BayGO PDF 2024')",
     )
+    parser.add_argument(
+        "--scope", choices=["pfofeld", "bund"], default="pfofeld",
+        help="Wissensbasis-Scope. pfofeld = Default (existierende Pilot-Collections); bund = Bundes-Collections",
+    )
 
     args = parser.parse_args()
 
@@ -262,8 +273,8 @@ def main():
         print("❌ --source-label nur zusammen mit --tier nutzen.")
         sys.exit(1)
 
-    print("📚 Lade Quellen-Hierarchie...")
-    tiers_cfg = load_source_tiers()
+    print(f"📚 Lade Quellen-Hierarchie (scope={args.scope})...")
+    tiers_cfg = load_source_tiers(args.scope)
 
     # Dokumente laden
     docs = []
@@ -296,10 +307,12 @@ def main():
     chunks = split_documents(docs)
     print(f"   {len(chunks)} Chunks erstellt")
 
-    # Chunks pro Ziel-Collection (static/fresh) gruppieren
+    # Chunks pro Ziel-Collection (static/fresh) gruppieren — scope-aware
     by_collection: dict[str, list] = {}
     for chunk in chunks:
-        target = collection_for_source_type(chunk.metadata.get("source_type", "fresh"))
+        target = collection_for_source_type(
+            chunk.metadata.get("source_type", "fresh"), args.scope
+        )
         by_collection.setdefault(target, []).append(chunk)
 
     # Embeddings erstellen und in die jeweilige Collection schreiben

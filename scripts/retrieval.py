@@ -1,11 +1,16 @@
 """Athena - geteilte Retrieval-Bausteine für RAG-Pipelines.
 
-Hybrid-RAG mit zwei ChromaDB-Collections:
+Hybrid-RAG mit zwei ChromaDB-Collections pro Scope:
   - 'static': Rechtsgrundlagen, Satzungen, Primärquellen (Tier 1)
   - 'fresh':  News, aktuelle Berichte, Sekundär-/Kommentarquellen (Tier 2/3)
 
-Tier-aware Re-Ranking nutzt die `tier_rank`-Metadaten, die `ingest.py` aus
-`config/source_tiers.yaml` schreibt. Boost-Werte sind LLM-/Domain-Tuning,
+Scopes:
+  - 'pfofeld': Pilot-Wissensbasis. Collections heißen weiterhin 'static'/'fresh'
+    (kein Prefix für Backward-Kompatibilität — bestehende Daten bleiben).
+  - 'bund':    Bundesweite Wissensbasis. Collections 'bund_static'/'bund_fresh'.
+
+Tier-aware Re-Ranking nutzt die `tier_rank`-Metadaten, die `ingest.py` aus der
+zum Scope passenden Tier-YAML schreibt. Boost-Werte sind LLM-/Domain-Tuning,
 nicht Quellen-Pflege — daher hier im Code, nicht in der YAML.
 """
 
@@ -15,24 +20,40 @@ from langchain_chroma import Chroma
 # von deutlich besser passenden Tier-2/3-Chunks überstimmt (Soft-Preference).
 TIER_BOOSTS = {1: 1.0, 2: 0.75, 3: 0.5}
 
-COLLECTION_NAMES = ["static", "fresh"]
+SCOPES = ("pfofeld", "bund")
 
 
-def collection_for_source_type(source_type: str) -> str:
-    """Mapping von source_type-Metadata auf Collection-Namen."""
-    return "static" if source_type == "static" else "fresh"
+def collection_names_for(scope: str) -> list[str]:
+    """Liefert die zwei Collection-Namen (static, fresh) für einen Scope.
+    Pfofeld bleibt ohne Prefix wegen Backward-Kompatibilität."""
+    if scope == "pfofeld":
+        return ["static", "fresh"]
+    return [f"{scope}_static", f"{scope}_fresh"]
 
 
-def get_vectorstores(embeddings, persist_dir: str) -> dict[str, Chroma]:
-    """Beide Collections instanziieren. Leere Collections werden bei der
-    ersten Schreib-/Leseoperation lazy angelegt."""
+# Backward-Compat-Konstante (alte Aufrufer ohne Scope = pfofeld)
+COLLECTION_NAMES = collection_names_for("pfofeld")
+
+
+def collection_for_source_type(source_type: str, scope: str = "pfofeld") -> str:
+    """Mapping von source_type-Metadata auf Collection-Namen für einen Scope."""
+    names = collection_names_for(scope)
+    return names[0] if source_type == "static" else names[1]
+
+
+def get_vectorstores(embeddings, persist_dir: str, scope: str = "pfofeld") -> dict[str, Chroma]:
+    """Beide Collections eines Scopes instanziieren. Rückgabe-Keys sind die
+    *kanonischen* Namen 'static'/'fresh' (damit Aufrufer scope-unabhängig
+    arbeiten können), die tatsächlichen Collection-Namen werden über die
+    Scope-Map aufgelöst."""
+    real_names = collection_names_for(scope)
     return {
-        name: Chroma(
-            collection_name=name,
+        canonical: Chroma(
+            collection_name=real,
             persist_directory=persist_dir,
             embedding_function=embeddings,
         )
-        for name in COLLECTION_NAMES
+        for canonical, real in zip(("static", "fresh"), real_names)
     }
 
 

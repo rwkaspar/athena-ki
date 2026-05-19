@@ -11,3 +11,6 @@ requests
 pyyaml
 playwright
 html2text
+fastapi
+uvicorn
+python-multipart
