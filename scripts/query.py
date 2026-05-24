@@ -157,7 +157,8 @@ def interactive_mode(qa_chain):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Athena - Wissensbasis abfragen"
+        description="Athena - Wissensbasis abfragen",
+        epilog="Ein Projekt von Neotactiq (https://neotactiq.ai) — Support: https://patreon.com/neotactiq · https://ko-fi.com/neotactiq",
     )
     parser.add_argument("question", nargs="?", help="Die Frage an Athena")
     parser.add_argument(

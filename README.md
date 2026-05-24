@@ -155,3 +155,10 @@ Athena ist Open Source. Beiträge sind willkommen — Transparenz ist Kernprinzi
 des Projekts. Bevorzugt sind Beiträge zur Methodik (Pipeline-Stufen,
 Quellen-Hierarchie), zur Wissensbasis kommunaler Primärquellen und zur
 Test-Infrastruktur.
+
+## Support
+
+Athena KI ist ein Projekt von [Neotactiq](https://neotactiq.ai).
+
+- 💜 [Patreon](https://patreon.com/neotactiq) — wiederkehrender Support
+- ☕ [Ko-fi](https://ko-fi.com/neotactiq) — einmaliges Trinkgeld
