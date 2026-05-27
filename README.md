@@ -158,7 +158,7 @@ Test-Infrastruktur.
 
 ## Support
 
-Athena KI ist ein Projekt von [Neotactiq](https://neotactiq.ai).
+Athena KI ist ein Projekt von [NeoTactIQ](https://neotactiq.ai).
 
 - 💜 [Patreon](https://patreon.com/neotactiq) — wiederkehrender Support
 - ☕ [Ko-fi](https://ko-fi.com/neotactiq) — einmaliges Trinkgeld
