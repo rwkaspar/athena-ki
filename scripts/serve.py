@@ -221,6 +221,11 @@ def _get_components(scope: str, provider: str = None):
                 base_url=OLLAMA_HOST,
                 timeout=600,
                 reasoning=False,
+                # num_gpu=0 erzwingt CPU-Inferenz. Die iGPU via ROCm crasht unter
+                # Last bei großem RAG-Kontext ("model runner has unexpectedly
+                # stopped"), CPU ist stabil (siehe claude.md / Projekt-Setup).
+                # Per Env überschreibbar, falls aitest mal stabiles ROCm hat.
+                num_gpu=int(os.getenv("ATHENA_OLLAMA_NUM_GPU", "0")),
             )
         elif provider == "mistral":
             if not MISTRAL_API_KEY:
