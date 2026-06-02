@@ -501,6 +501,20 @@ def sources(scope: str = DEFAULT_SCOPE):
 
 
 SUBMISSIONS_DIR = Path(os.path.join(os.path.dirname(__file__), "..", "submissions")).resolve()
+CONTACT_DIR = Path(os.path.join(os.path.dirname(__file__), "..", "contact")).resolve()
+
+# SMTP-Versand für das Kontaktformular. Optional: ist SMTP_HOST nicht gesetzt,
+# wird die Nachricht NUR als Datei abgelegt (nie verloren), kein Mailversand.
+# Credentials kommen aus Env-Vars, nicht aus dem Repo.
+SMTP_HOST = os.getenv("SMTP_HOST", "")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER", "")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD", "")
+SMTP_FROM = os.getenv("SMTP_FROM", "noreply@evidenz-partei.de")
+SMTP_TO = os.getenv("CONTACT_TO", "kasparrobert@gmail.com")
+SMTP_STARTTLS = os.getenv("SMTP_STARTTLS", "1") not in ("0", "false", "False", "")
+
+CONTACT_CATEGORIES = {"allgemein", "presse", "mitmachen"}
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024  # 10 MB
 ALLOWED_CONTENT_TYPES = {
     "application/pdf",
@@ -602,6 +616,93 @@ async def submit_source(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     return {"id": submission_id, "status": "pending"}
+
+
+class ContactRequest(BaseModel):
+    name: str = Field(default="", max_length=200)
+    email: str = Field(default="", max_length=320)
+    category: str = Field(default="allgemein", max_length=40)
+    message: str = Field(..., min_length=1, max_length=5000)
+    honeypot: str | None = Field(default=None, description="Anti-Spam: muss leer bleiben")
+
+
+_EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+
+
+def _send_contact_email(record: dict) -> str:
+    """Verschickt die Kontaktnachricht per SMTP. Best-effort: liefert Status-String,
+    wirft NICHT (die Datei-Ablage ist die Absicherung). Kein SMTP_HOST → 'disabled'."""
+    if not SMTP_HOST:
+        return "disabled"
+    import smtplib
+    from email.message import EmailMessage
+    try:
+        msg = EmailMessage()
+        msg["Subject"] = f"[EVIDENZ Kontakt] {record['category']} — {record.get('name') or 'ohne Name'}"
+        msg["From"] = SMTP_FROM
+        msg["To"] = SMTP_TO
+        if record.get("email") and _EMAIL_RE.match(record["email"]):
+            msg["Reply-To"] = record["email"]
+        msg.set_content(
+            f"Kategorie: {record['category']}\n"
+            f"Name: {record.get('name') or '—'}\n"
+            f"E-Mail: {record.get('email') or '—'}\n"
+            f"Zeit: {record['submitted_at']}\n"
+            f"IP: {record.get('source_ip') or '—'}\n"
+            f"ID: {record['id']}\n\n"
+            f"{record['message']}\n"
+        )
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as s:
+            if SMTP_STARTTLS:
+                s.starttls()
+            if SMTP_USER:
+                s.login(SMTP_USER, SMTP_PASSWORD)
+            s.send_message(msg)
+        return "sent"
+    except Exception as e:
+        return f"error: {type(e).__name__}: {e}"
+
+
+@app.post("/contact")
+def contact(req: ContactRequest, request: Request):
+    """Kontaktformular. Speichert die Nachricht IMMER als contact/<id>.json
+    (geht nie verloren) und verschickt sie zusätzlich per SMTP, falls konfiguriert.
+    Honeypot-Spamschutz wie /submissions."""
+    if req.honeypot:
+        # Bot: stille Annahme, nichts persistieren
+        return {"id": "noop", "status": "received"}
+
+    message = req.message.strip()
+    if not message:
+        raise HTTPException(status_code=400, detail="Nachricht darf nicht leer sein.")
+    email = (req.email or "").strip()
+    if email and not _EMAIL_RE.match(email):
+        raise HTTPException(status_code=400, detail="Bitte eine gültige E-Mail-Adresse angeben (oder Feld leer lassen).")
+    category = req.category if req.category in CONTACT_CATEGORIES else "allgemein"
+
+    contact_id = uuid.uuid4().hex[:12]
+    record = {
+        "id": contact_id,
+        "submitted_at": datetime.now(timezone.utc).isoformat(),
+        "category": category,
+        "name": (req.name or "").strip()[:200],
+        "email": email,
+        "message": message,
+        "source_ip": (request.client.host if request.client else None),
+        "user_agent": request.headers.get("user-agent", "")[:300],
+    }
+
+    CONTACT_DIR.mkdir(parents=True, exist_ok=True)
+    (CONTACT_DIR / f"{contact_id}.json").write_text(
+        json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+    mail_status = _send_contact_email(record)
+    # Mailfehler nicht an den Nutzer durchreichen — Nachricht ist gespeichert.
+    if mail_status.startswith("error"):
+        print(f"[contact] Mailversand fehlgeschlagen ({contact_id}): {mail_status}", file=sys.stderr)
+
+    return {"id": contact_id, "status": "received"}
 
 
 @app.get("/search")
