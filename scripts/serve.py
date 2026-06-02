@@ -28,6 +28,7 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 import uuid
 from datetime import datetime, timezone
@@ -165,6 +166,20 @@ VACATION_MESSAGE = os.getenv(
     "ATHENA_VACATION_MESSAGE",
     "🏖️ Athena macht gerade Urlaub. Der Analyse-Server ist vorübergehend "
     "offline – schau bald wieder vorbei!",
+)
+
+# Concurrency-Schutz für Ollama-Inferenz: aitest (30 GB RAM) verträgt nur EINE
+# athena-bund-Inferenz gleichzeitig — zwei parallele CPU-Läufe (je ~24 GB)
+# sprengen den RAM, der Ollama-Runner crasht ("model runner has unexpectedly
+# stopped" / RemoteProtocolError). Wir serialisieren daher lokale Inferenz mit
+# einem Lock. Mistral ist eine externe API ohne dieses Limit → kein Lock.
+# Non-blocking: bei Auslastung sofort freundliche Meldung statt Crash/Timeout.
+_OLLAMA_INFERENCE_LOCK = threading.Lock()
+BUSY_MESSAGE = os.getenv(
+    "ATHENA_BUSY_MESSAGE",
+    "⏳ Athena beantwortet gerade eine andere Anfrage. Der lokale Analyse-Server "
+    "kann nur eine Anfrage zur Zeit bearbeiten — bitte versuche es in ein bis "
+    "zwei Minuten erneut.",
 )
 
 ALLOWED_ORIGINS = [
@@ -740,67 +755,81 @@ def _chat_event_stream(req: ChatRequest):
         # Tool-Loop in Honcho speichern können.
         full_assistant_text = ""
 
-        # Tool-Loop — bis zu MAX_TOOL_ITERATIONS Cycles
-        for iteration in range(MAX_TOOL_ITERATIONS + 1):
-            last_is_final = iteration == MAX_TOOL_ITERATIONS
-            # Wir aggregieren den vollständigen AIMessage, streamen aber Tokens live
-            aggregated_chunks: list[AIMessage] = []
-            final_msg: AIMessage | None = None
-            streaming_text = ""
-            for chunk in llm.stream(messages):
-                if not isinstance(chunk, AIMessage):
-                    continue
-                aggregated_chunks.append(chunk)
-                # Bei finaler Iteration (oder wenn das Modell offenbar antwortet statt
-                # Tools zu calln) zeigen wir die Tokens direkt
-                if chunk.content:
-                    content_str = chunk.content if isinstance(chunk.content, str) else str(chunk.content)
-                    if content_str:
-                        streaming_text += content_str
-                        yield _ndjson({"type": "token", "text": content_str})
-            # Aggregate
-            final_msg = aggregated_chunks[0] if aggregated_chunks else AIMessage(content="")
-            for c in aggregated_chunks[1:]:
-                final_msg = final_msg + c
+        # Concurrency-Schutz: lokale Ollama-Inferenz serialisieren (aitest-RAM
+        # erlaubt nur 1 gleichzeitige athena-Inferenz). Mistral = externe API,
+        # kein Lock nötig. Non-blocking: bei Auslastung Busy-Meldung statt Crash.
+        lock_held = False
+        if provider == "ollama":
+            lock_held = _OLLAMA_INFERENCE_LOCK.acquire(blocking=False)
+            if not lock_held:
+                yield _ndjson({"type": "token", "text": BUSY_MESSAGE})
+                yield _ndjson({"type": "done", "elapsed_s": round(time.time() - start, 2), "busy": True})
+                return
+        try:
+            # Tool-Loop — bis zu MAX_TOOL_ITERATIONS Cycles
+            for iteration in range(MAX_TOOL_ITERATIONS + 1):
+                last_is_final = iteration == MAX_TOOL_ITERATIONS
+                # Wir aggregieren den vollständigen AIMessage, streamen aber Tokens live
+                aggregated_chunks: list[AIMessage] = []
+                final_msg: AIMessage | None = None
+                streaming_text = ""
+                for chunk in llm.stream(messages):
+                    if not isinstance(chunk, AIMessage):
+                        continue
+                    aggregated_chunks.append(chunk)
+                    # Bei finaler Iteration (oder wenn das Modell offenbar antwortet statt
+                    # Tools zu calln) zeigen wir die Tokens direkt
+                    if chunk.content:
+                        content_str = chunk.content if isinstance(chunk.content, str) else str(chunk.content)
+                        if content_str:
+                            streaming_text += content_str
+                            yield _ndjson({"type": "token", "text": content_str})
+                # Aggregate
+                final_msg = aggregated_chunks[0] if aggregated_chunks else AIMessage(content="")
+                for c in aggregated_chunks[1:]:
+                    final_msg = final_msg + c
 
-            tool_calls = getattr(final_msg, "tool_calls", None) or []
+                tool_calls = getattr(final_msg, "tool_calls", None) or []
 
-            if not tool_calls or last_is_final:
-                # Kein Tool-Call oder Limit erreicht → wir sind fertig
-                # Die finale Assistant-Antwort merken wir uns für Honcho-Storage.
-                full_assistant_text = streaming_text
-                if last_is_final and tool_calls:
+                if not tool_calls or last_is_final:
+                    # Kein Tool-Call oder Limit erreicht → wir sind fertig
+                    # Die finale Assistant-Antwort merken wir uns für Honcho-Storage.
+                    full_assistant_text = streaming_text
+                    if last_is_final and tool_calls:
+                        yield _ndjson({
+                            "type": "info",
+                            "message": f"Tool-Limit erreicht ({MAX_TOOL_ITERATIONS} Iterationen), letzte Antwort ohne weitere Tools.",
+                        })
+                    break
+
+                # Falls Tokens vor dem Tool-Call schon gestreamt wurden, ignorieren wir
+                # die — das ist im Tool-Use-Modus selten und das Modell wiederholt sich
+                # in der finalen Antwort.
+                if streaming_text:
                     yield _ndjson({
                         "type": "info",
-                        "message": f"Tool-Limit erreicht ({MAX_TOOL_ITERATIONS} Iterationen), letzte Antwort ohne weitere Tools.",
+                        "message": "Antwort vor Tool-Use verworfen — Athena ruft Tool auf.",
                     })
-                break
 
-            # Falls Tokens vor dem Tool-Call schon gestreamt wurden, ignorieren wir
-            # die — das ist im Tool-Use-Modus selten und das Modell wiederholt sich
-            # in der finalen Antwort.
-            if streaming_text:
-                yield _ndjson({
-                    "type": "info",
-                    "message": "Antwort vor Tool-Use verworfen — Athena ruft Tool auf.",
-                })
-
-            # AIMessage mit tool_calls in Historie schreiben
-            messages.append(final_msg)
-            # Jeden Tool-Call ausführen
-            for call in tool_calls:
-                yield _ndjson({
-                    "type": "tool_call",
-                    "name": call.get("name"),
-                    "args": call.get("args"),
-                })
-                tool_output, evt = _run_tool_call(call)
-                yield _ndjson(evt)
-                messages.append(ToolMessage(
-                    content=tool_output if isinstance(tool_output, str) else str(tool_output),
-                    tool_call_id=call.get("id") or call.get("name", ""),
-                ))
-            # nächste Iteration
+                # AIMessage mit tool_calls in Historie schreiben
+                messages.append(final_msg)
+                # Jeden Tool-Call ausführen
+                for call in tool_calls:
+                    yield _ndjson({
+                        "type": "tool_call",
+                        "name": call.get("name"),
+                        "args": call.get("args"),
+                    })
+                    tool_output, evt = _run_tool_call(call)
+                    yield _ndjson(evt)
+                    messages.append(ToolMessage(
+                        content=tool_output if isinstance(tool_output, str) else str(tool_output),
+                        tool_call_id=call.get("id") or call.get("name", ""),
+                    ))
+                # nächste Iteration
+        finally:
+            if lock_held:
+                _OLLAMA_INFERENCE_LOCK.release()
 
         # Honcho: User-Message + Assistant-Antwort speichern (best-effort)
         if memory_active and memory_session_id and full_assistant_text:
