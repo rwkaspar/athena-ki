@@ -349,6 +349,10 @@ def main():
         "--topics",
         help="Kommaseparierte Themen-Tags für alle Dokumente dieses Aufrufs (z. B. 'klima,energie,eu-recht')",
     )
+    parser.add_argument(
+        "--allow-index", action="store_true",
+        help="Qualitäts-Schutz übergehen — auch Navigations-/Index-Seiten einlesen (normalerweise abgewiesen)",
+    )
 
     args = parser.parse_args()
 
@@ -378,6 +382,29 @@ def main():
     if not docs:
         print("❌ Keine Dokumente geladen.")
         sys.exit(1)
+
+    # Ingest-Schutz: Navigations-/Index-/Fehlerseiten abweisen (sie blähen die
+    # Wissensbasis mit inhaltslosem Menü-Text auf). Mit --allow-index überstimmbar.
+    # Bei HTML-URLs wird zusätzlich das rohe HTML für die präzise Link-Dichte
+    # geholt (zuverlässigstes Signal); PDFs/Dateien laufen über die Text-Heuristik.
+    if not args.allow_index:
+        from content_quality import assess
+        full_text = "\n".join((d.page_content or "") for d in docs)
+        raw_html = ""
+        if args.url and not _looks_like_pdf(args.url):
+            try:
+                import requests as _rq
+                raw_html = _rq.get(args.url, timeout=URL_TIMEOUT_S,
+                                   headers={"User-Agent": USER_AGENT}).text
+            except Exception:
+                raw_html = ""
+        verdict = assess(full_text, title=(docs[0].metadata.get("title") if docs else ""), html=raw_html)
+        if not verdict["is_document"]:
+            print(f"⛔ Abgewiesen: {verdict['reason']}")
+            print("   Das sieht nach Navigations-/Index-/Fehlerseite aus, kein echtes Dokument.")
+            print("   → Konkrete Dokument-URL angeben, per scripts/crawl.py die Dokumente ernten,")
+            print("     oder mit --allow-index erzwingen.")
+            sys.exit(2)
 
     # Tier-Metadaten anreichern
     docs = enrich_metadata(

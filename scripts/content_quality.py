@@ -35,13 +35,31 @@ def _sentences(text: str) -> int:
     return sum(1 for p in parts if len(p.strip()) > 40)
 
 
-def assess(text: str, title: str = "") -> dict:
+def link_word_ratio(html: str) -> float:
+    """Anteil der Wörter, die innerhalb von <a>…</a> stehen, an allen Wörtern.
+    Das verlässlichste Signal Index-Seite vs. Dokument: Navigations-/Index-
+    Seiten sind fast nur Links (~0.8), echte Dokumente kaum (~0.1).
+    Liefert -1, wenn kein HTML übergeben (Signal nicht verfügbar)."""
+    if not html:
+        return -1.0
+    link_text = " ".join(re.findall(r"<a\b[^>]*>(.*?)</a>", html, re.S | re.I))
+    link_text = re.sub(r"<[^>]+>", " ", link_text)
+    lw = len(link_text.split())
+    plain = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", html, flags=re.S)
+    plain = re.sub(r"<[^>]+>", " ", plain)
+    total = len(plain.split())
+    return lw / total if total else 1.0
+
+
+def assess(text: str, title: str = "", html: str = "") -> dict:
     """Bewertet einen Seiteninhalt. Liefert dict mit:
       - is_document: bool — True wenn echtes Dokument (genug Fließtext)
       - is_error: bool — Fehler-/Schutzseite
       - reason: str — kurze Begründung
       - metrics: rohe Kennzahlen
-    """
+
+    Wenn html übergeben wird, ist die Link-Wort-Dichte das Hauptkriterium
+    (zuverlässiger als die Text-Heuristik). Ohne html → Text-Heuristik."""
     t = (text or "").strip()
     low = t.lower()
     title_low = (title or "").lower()
@@ -67,22 +85,30 @@ def assess(text: str, title: str = "") -> dict:
     words = len(t.split())
     avg_words_per_line = words / n_lines if n_lines else 0
     boiler_hits = sum(1 for p in BOILERPLATE_PHRASES if p in low)
+    lwr = link_word_ratio(html)  # -1 wenn kein html
 
     metrics = {
         "len": len(t), "lines": n_lines, "short_line_ratio": round(short_ratio, 2),
         "sentences": sentences, "words": words,
         "avg_words_per_line": round(avg_words_per_line, 1), "boilerplate_hits": boiler_hits,
+        "link_word_ratio": round(lwr, 2),
     }
 
-    # 4) Entscheidung: Navigations-Seite, wenn überwiegend kurze Zeilen + wenig Sätze
-    #    Echtes Dokument: viele vollständige Sätze, längere Zeilen.
-    if short_ratio > 0.75 and sentences < 15:
-        return {"is_document": False, "is_error": False,
-                "reason": f"Navigations-/Index-Seite ({int(short_ratio*100)}% kurze Zeilen, nur {sentences} Sätze)",
+    # 4a) Hauptkriterium wenn HTML da: Link-Wort-Dichte. >0.55 = überwiegend
+    #     Links = Navigations-/Index-Seite. Sehr trennscharf (Doku ~0.1, Index ~0.8).
+    if lwr >= 0:
+        if lwr > 0.55:
+            return {"is_document": False, "is_error": False,
+                    "reason": f"Navigations-/Index-Seite (Link-Wort-Anteil {int(lwr*100)}%)",
+                    "metrics": metrics}
+        return {"is_document": True, "is_error": False,
+                "reason": f"Dokument (Link-Wort-Anteil {int(lwr*100)}%, {words} Wörter)",
                 "metrics": metrics}
-    if sentences < 8 and avg_words_per_line < 6:
+
+    # 4b) Fallback ohne HTML: Text-Heuristik, konservativ (im Zweifel durchlassen).
+    if short_ratio > 0.85 and sentences < 8 and words < 250:
         return {"is_document": False, "is_error": False,
-                "reason": f"kaum Fließtext ({sentences} Sätze, {avg_words_per_line} Wörter/Zeile)",
+                "reason": f"Navigations-/Index-Seite ({int(short_ratio*100)}% kurze Zeilen, {sentences} Sätze, {words} Wörter)",
                 "metrics": metrics}
 
     return {"is_document": True, "is_error": False,
