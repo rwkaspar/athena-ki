@@ -864,30 +864,51 @@ def _stream_llm_with_heartbeat(llm, messages):
         yield (kind, payload)
 
 
-def _retrieve_evidenz_position(vectorstores, query: str, k: int = 4):
-    """Sucht semantisch NUR in den EVIDENZ-Positions-Chunks (topics enthält
-    'evidenz-position') und liefert die thematisch passendsten Chunks. So ist
-    die dokumentierte EVIDENZ-Haltung bei jeder Anfrage garantiert im Kontext,
-    statt im Vektor-Wettbewerb mit den großen Gutachten unterzugehen.
-    Liefert [] wenn keine relevante Position existiert (Score-Schwelle)."""
-    out = []
+def _retrieve_evidenz_position(vectorstores, query: str, probe_k: int = 4, max_chunks: int = 30):
+    """Findet die thematisch passende EVIDENZ-Position und liefert sie KOMPLETT.
+
+    Zweistufig: (1) semantisch in den Positions-Chunks die relevanteste *Quelle*
+    bestimmen (where_document $contains 'EVIDENZ-Position'); (2) ALLE Chunks
+    genau dieser Quelle holen — sonst fehlen Kernaussagen (z.B. '53%'), die
+    nicht im Top-Probe-Treffer liegen. Eine Position ist kurz genug, um ganz in
+    den Kontext zu passen. Liefert [] wenn nichts thematisch passt."""
+    # Stufe 1: relevanteste Positions-Quelle(n) per Probe finden
+    best_sources = []
     for vs in vectorstores.values():
         try:
-            # Volltext-Filter: nur Chunks, die "EVIDENZ-Position" enthalten
-            # (jede Parteiprogramm-Position trägt das im Titel/Text). LangChain
-            # reicht where_document an ChromaDB durch.
             hits = vs.similarity_search_with_relevance_scores(
-                query, k=k, where_document={"$contains": "EVIDENZ-Position"}
+                query, k=probe_k, where_document={"$contains": "EVIDENZ-Position"}
             )
         except Exception:
             hits = []
         for doc, score in hits:
             if score is not None and score < 0.15:
-                continue  # thematisch zu fern → keine passende Position
-            doc.metadata["_evidenz_position"] = True
-            out.append(doc)
-    # beste zuerst (max k chunks gesamt)
-    return out[:k]
+                continue
+            src = doc.metadata.get("source")
+            if src and src not in best_sources:
+                best_sources.append(src)
+    if not best_sources:
+        return []
+    # Nur die Top-2 Positions-Quellen vollständig laden (gegen Kontext-Überlauf)
+    best_sources = best_sources[:2]
+
+    # Stufe 2: ALLE Chunks dieser Quelle(n) holen, in Originalreihenfolge
+    out = []
+    for vs in vectorstores.values():
+        for src in best_sources:
+            try:
+                got = vs.get(where={"source": src})
+            except Exception:
+                continue
+            docs_meta = list(zip(got.get("documents") or [], got.get("metadatas") or []))
+            # nach chunk-index sortieren falls vorhanden, sonst Originalreihenfolge
+            def _idx(dm):
+                return (dm[1] or {}).get("chunk_index", 0) if dm[1] else 0
+            for content, meta in sorted(docs_meta, key=_idx):
+                from langchain_core.documents import Document
+                m = dict(meta or {}); m["_evidenz_position"] = True
+                out.append(Document(page_content=content, metadata=m))
+    return out[:max_chunks]
 
 
 def _chat_event_stream(req: ChatRequest):
