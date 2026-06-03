@@ -108,10 +108,14 @@ def classify_source(source: str, tiers_cfg: dict) -> tuple[str, int]:
     return tiers_cfg["default"]["label"], tiers_cfg["default"]["rank"]
 
 
-def enrich_metadata(docs, tiers_cfg, override_rank=None, override_label=None):
+def enrich_metadata(docs, tiers_cfg, override_rank=None, override_label=None, topics=None):
     """Tier-Metadaten und Ingest-Zeitstempel auf Dokument-Ebene anhängen.
     Override greift für alle übergebenen Dokumente — z. B. wenn ein PDF
-    explizit als Tier 1 markiert werden soll."""
+    explizit als Tier 1 markiert werden soll.
+
+    topics: optionaler kommaseparierter String von Themen-Tags. ChromaDB-
+    Metadaten können keine Listen speichern, daher als String abgelegt und
+    beim Filtern geparst (siehe /sources)."""
     now = datetime.now(timezone.utc).isoformat()
     for doc in docs:
         source = doc.metadata.get("source", "")
@@ -126,33 +130,112 @@ def enrich_metadata(docs, tiers_cfg, override_rank=None, override_label=None):
             "source_type": "static" if rank == 1 else "fresh",
             "ingested_at": now,
         })
+        if topics:
+            doc.metadata["topics"] = topics
     return docs
 
 
 USER_AGENT = "Athena-KI/1.0 (Gemeinde Pfofeld; +https://github.com/rwkaspar/athena-ki)"
 MAX_RETRIES = 3
+URL_TIMEOUT_S = 60          # Timeout für HTML-Loads
+PDF_DOWNLOAD_TIMEOUT_S = 120  # PDFs koennen groesser sein
+MIN_RAW_TEXT_LEN = 200      # weniger als das gilt als "leer" -> Fallback
 
 
-def ingest_url(url: str):
-    """Webseite laden und einspeisen."""
-    print(f"📥 Lade URL: {url}")
-    session = req.Session()
-    session.headers.update({"User-Agent": USER_AGENT})
-    loader = WebBaseLoader(url, requests_per_second=1)
-    loader.session = session
+def _looks_like_pdf(url: str) -> bool:
+    """Heuristik: URL endet auf .pdf (mit oder ohne Query)."""
+    path = urlparse(url).path.lower()
+    return path.endswith(".pdf")
+
+
+def ingest_pdf_url(url: str):
+    """PDF herunterladen (mit Timeout) und ueber PyPDFLoader parsen.
+    Vermeidet das Haengen von WebBaseLoader bei PDF-URLs."""
+    print(f"📥 Lade PDF: {url}")
+    import tempfile
+    headers = {"User-Agent": USER_AGENT, "Accept": "application/pdf,*/*"}
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            docs = loader.load()
-            print(f"   {len(docs)} Dokument(e) geladen")
-            return docs
+            r = req.get(url, headers=headers, timeout=PDF_DOWNLOAD_TIMEOUT_S, stream=True, allow_redirects=True)
+            r.raise_for_status()
+            ctype = r.headers.get("Content-Type", "").lower()
+            if "pdf" not in ctype and "application/octet-stream" not in ctype:
+                print(f"   ⚠️ Content-Type ist '{ctype}', kein PDF")
+                # nicht abbrechen — manche Server senden text/html und liefern trotzdem PDF
+            with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
+                for chunk in r.iter_content(chunk_size=64*1024):
+                    if chunk:
+                        tmp.write(chunk)
+                tmp_path = tmp.name
+            size = os.path.getsize(tmp_path)
+            print(f"   PDF geladen: {size} Bytes -> {tmp_path}")
+            if size < 1024:
+                print(f"   ⚠️ PDF verdaechtig klein, ueberspringe")
+                os.unlink(tmp_path)
+                return []
+            try:
+                loader = PyPDFLoader(tmp_path)
+                docs = loader.load()
+                # source-Metadaten auf Original-URL setzen, nicht Temp-Pfad
+                for d in docs:
+                    d.metadata["source"] = url
+                print(f"   {len(docs)} Seite(n) geladen aus PDF")
+                return docs
+            finally:
+                os.unlink(tmp_path)
         except Exception as e:
             if attempt < MAX_RETRIES:
                 wait = attempt * 2
-                print(f"   ⚠️ Versuch {attempt} fehlgeschlagen, warte {wait}s...")
+                print(f"   ⚠️ Versuch {attempt} fehlgeschlagen: {type(e).__name__}: {e}, warte {wait}s...")
                 time.sleep(wait)
             else:
                 print(f"   ❌ Fehlgeschlagen nach {MAX_RETRIES} Versuchen: {e}")
                 return []
+
+
+def ingest_url(url: str, *, allow_render_fallback: bool = True):
+    """Dispatcher: PDF -> ingest_pdf_url, sonst HTML via WebBaseLoader mit
+    Timeout, bei leerem Ergebnis automatisch Fallback auf ingest_url_rendered."""
+    if _looks_like_pdf(url):
+        return ingest_pdf_url(url)
+
+    print(f"📥 Lade URL: {url}")
+    session = req.Session()
+    session.headers.update({"User-Agent": USER_AGENT})
+    loader = WebBaseLoader(
+        url,
+        requests_per_second=1,
+        requests_kwargs={"timeout": URL_TIMEOUT_S},
+    )
+    loader.session = session
+    docs = []
+    for attempt in range(1, MAX_RETRIES + 1):
+        try:
+            docs = loader.load()
+            print(f"   {len(docs)} Dokument(e) geladen")
+            break
+        except Exception as e:
+            if attempt < MAX_RETRIES:
+                wait = attempt * 2
+                print(f"   ⚠️ Versuch {attempt} fehlgeschlagen ({type(e).__name__}: {e}), warte {wait}s...")
+                time.sleep(wait)
+            else:
+                print(f"   ❌ Fehlgeschlagen nach {MAX_RETRIES} Versuchen: {e}")
+                docs = []
+
+    # Auto-Render-Fallback wenn Ergebnis leer/duenn
+    total_chars = sum(len((d.page_content or "").strip()) for d in docs)
+    if allow_render_fallback and total_chars < MIN_RAW_TEXT_LEN:
+        print(f"   ↪ HTML-Lader lieferte nur {total_chars} Zeichen, versuche JS-Render-Fallback...")
+        try:
+            rendered = ingest_url_rendered(url)
+            rendered_chars = sum(len((d.page_content or "").strip()) for d in rendered)
+            if rendered_chars > total_chars:
+                print(f"   ✓ Render-Fallback lieferte {rendered_chars} Zeichen statt {total_chars}")
+                return rendered
+        except Exception as e:
+            print(f"   ⚠️ Render-Fallback fehlgeschlagen: {type(e).__name__}: {e}")
+    return docs
 
 
 def ingest_url_rendered(url: str, wait_selector: str | None = None):
@@ -262,6 +345,10 @@ def main():
         "--scope", choices=["pfofeld", "bund"], default="pfofeld",
         help="Wissensbasis-Scope. pfofeld = Default (existierende Pilot-Collections); bund = Bundes-Collections",
     )
+    parser.add_argument(
+        "--topics",
+        help="Kommaseparierte Themen-Tags für alle Dokumente dieses Aufrufs (z. B. 'klima,energie,eu-recht')",
+    )
 
     args = parser.parse_args()
 
@@ -297,6 +384,7 @@ def main():
         docs, tiers_cfg,
         override_rank=args.tier,
         override_label=args.source_label,
+        topics=args.topics,
     )
     print("\n🏷️  Tier-Verteilung:")
     for (rank, label), n in _summarize_tiers(docs):
