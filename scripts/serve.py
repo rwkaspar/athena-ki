@@ -827,6 +827,43 @@ def _run_tool_call(call: dict) -> tuple[str, dict]:
     }
 
 
+HEARTBEAT_INTERVAL = float(os.getenv("ATHENA_HEARTBEAT_S", "15"))
+
+
+def _stream_llm_with_heartbeat(llm, messages):
+    """Wrappt llm.stream() in einem Thread und liefert dazwischen 'keepalive'-
+    Marker, solange noch kein Chunk da ist. Grund: CPU-Inferenz braucht beim
+    Prompt-Processing großer Kontexte zig Sekunden bis zum ersten Token — ohne
+    fließende Bytes bricht Cloudflare die Verbindung mit 524 (Timeout) ab.
+    Yields entweder ('chunk', AIMessage) oder ('keepalive', None)."""
+    import queue
+    import threading
+    q: "queue.Queue" = queue.Queue()
+
+    def worker():
+        try:
+            for chunk in llm.stream(messages):
+                q.put(("chunk", chunk))
+        except Exception as e:
+            q.put(("error", e))
+        finally:
+            q.put(("end", None))
+
+    t = threading.Thread(target=worker, daemon=True)
+    t.start()
+    while True:
+        try:
+            kind, payload = q.get(timeout=HEARTBEAT_INTERVAL)
+        except queue.Empty:
+            yield ("keepalive", None)
+            continue
+        if kind == "end":
+            break
+        if kind == "error":
+            raise payload
+        yield (kind, payload)
+
+
 def _chat_event_stream(req: ChatRequest):
     """Sync-Generator über die Athena-Pipeline. Liefert ndjson-bytes pro Event.
     Wird direkt von /chat (als StreamingResponse) und vom OpenAI-Adapter genutzt."""
@@ -942,7 +979,12 @@ def _chat_event_stream(req: ChatRequest):
                 aggregated_chunks: list[AIMessage] = []
                 final_msg: AIMessage | None = None
                 streaming_text = ""
-                for chunk in llm.stream(messages):
+                for kind, chunk in _stream_llm_with_heartbeat(llm, messages):
+                    if kind == "keepalive":
+                        # Hält die Verbindung warm während langer CPU-Denkpausen
+                        # (gegen Cloudflare-524). Client ignoriert keepalive-Events.
+                        yield _ndjson({"type": "keepalive"})
+                        continue
                     if not isinstance(chunk, AIMessage):
                         continue
                     aggregated_chunks.append(chunk)
