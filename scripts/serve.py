@@ -864,6 +864,32 @@ def _stream_llm_with_heartbeat(llm, messages):
         yield (kind, payload)
 
 
+def _retrieve_evidenz_position(vectorstores, query: str, k: int = 4):
+    """Sucht semantisch NUR in den EVIDENZ-Positions-Chunks (topics enthält
+    'evidenz-position') und liefert die thematisch passendsten Chunks. So ist
+    die dokumentierte EVIDENZ-Haltung bei jeder Anfrage garantiert im Kontext,
+    statt im Vektor-Wettbewerb mit den großen Gutachten unterzugehen.
+    Liefert [] wenn keine relevante Position existiert (Score-Schwelle)."""
+    out = []
+    for vs in vectorstores.values():
+        try:
+            # Volltext-Filter: nur Chunks, die "EVIDENZ-Position" enthalten
+            # (jede Parteiprogramm-Position trägt das im Titel/Text). LangChain
+            # reicht where_document an ChromaDB durch.
+            hits = vs.similarity_search_with_relevance_scores(
+                query, k=k, where_document={"$contains": "EVIDENZ-Position"}
+            )
+        except Exception:
+            hits = []
+        for doc, score in hits:
+            if score is not None and score < 0.15:
+                continue  # thematisch zu fern → keine passende Position
+            doc.metadata["_evidenz_position"] = True
+            out.append(doc)
+    # beste zuerst (max k chunks gesamt)
+    return out[:k]
+
+
 def _chat_event_stream(req: ChatRequest):
     """Sync-Generator über die Athena-Pipeline. Liefert ndjson-bytes pro Event.
     Wird direkt von /chat (als StreamingResponse) und vom OpenAI-Adapter genutzt."""
@@ -888,23 +914,53 @@ def _chat_event_stream(req: ChatRequest):
             use_tier_boost=True,
             include_unverified=req.include_unverified,
         )
+        # EVIDENZ-Positionen GARANTIERT mitliefern (themen-gematcht), damit die
+        # dokumentierte Parteihaltung nicht im Vektor-Wettbewerb untergeht.
+        evidenz_docs = _retrieve_evidenz_position(vectorstores, req.message)
+        # Doppelungen vermeiden (Position evtl. schon in docs)
+        doc_sources = {d.metadata.get("source") for d in docs}
+        evidenz_docs = [e for e in evidenz_docs if e.metadata.get("source") not in doc_sources]
+
         seen = []
         has_unverified = False
-        for d in docs:
+        has_evidenz_position = bool(evidenz_docs) or any(
+            "evidenz-position" in str(d.metadata.get("topics", "")) for d in docs)
+        for d in docs + evidenz_docs:
             src = d.metadata.get("source", "?")
             if d.metadata.get("tier_rank") == 0:
                 has_unverified = True
             if src not in seen:
                 seen.append(src)
         yield _ndjson({"type": "sources", "sources": seen, "provider": provider,
-                       "includes_unverified": has_unverified})
+                       "includes_unverified": has_unverified,
+                       "includes_evidenz_position": has_evidenz_position})
 
+        # Kontext: normale Quellen + (klar getrennt) die dokumentierte EVIDENZ-Position
+        context_text = format_docs(docs)
+        if evidenz_docs:
+            context_text += (
+                "\n\n=== DOKUMENTIERTE EVIDENZ-POSITION (Parteiprogramm v0.1) ===\n"
+                + format_docs(evidenz_docs)
+            )
         # Initialer Nachrichten-Stack
         user_prompt = PROMPT_TEMPLATE.format(
-            context=format_docs(docs),
+            context=context_text,
             question=req.message,
         )
         system_blocks = [SYSTEM_PROMPT_ADDITIONAL]
+        # Wenn eine EVIDENZ-Position vorliegt: Athena soll sie als dokumentiertes
+        # Faktum referieren (NICHT als eigene Empfehlung) — klar getrennt von der
+        # neutralen Optionsanalyse.
+        if has_evidenz_position:
+            system_blocks.append(
+                "Im Kontext findest du unter 'DOKUMENTIERTE EVIDENZ-POSITION' die vom "
+                "Parteiprogramm v0.1 beschlossene Haltung von EVIDENZ. Wenn die Frage "
+                "nach der EVIDENZ-Position fragt oder eine solche vorliegt, gib sie "
+                "transparent als dokumentierte Parteiposition wieder (z. B. 'EVIDENZ "
+                "hat sich laut Parteiprogramm für … entschieden, weil …') — klar "
+                "getrennt von der neutralen Faktenlage/Optionsanalyse. Das ist KEINE "
+                "eigene Empfehlung von dir, sondern das Referieren eines Beschlusses."
+            )
         # Bei Mistral hat das Modell keine eingebakene Persona — die kommt aus
         # SCOPE_PERSONA, vorne im SystemMessage-Stack.
         if provider == "mistral" and req.scope in SCOPE_PERSONA:
