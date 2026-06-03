@@ -170,7 +170,15 @@ TEXTAUSZUG:
     ingest_status = "not_ingested"
     rec = verdict.get("recommendation")
     if rec in ("approve", "needs_human") and not verdict.get("error"):
-        topics = ",".join(verdict.get("topics") or [])
+        # Athenas vorgeschlagener Rang wird als 'vorläufig-tierN'-Tag mitgeführt:
+        # retrieval.py gewichtet die unverifizierte Quelle damit gemäß ihrer
+        # vermuteten Qualität (statt pauschal niedrigstem Boost). Bei der
+        # menschlichen Verifizierung wird dieser Tag wieder entfernt.
+        topic_list = list(verdict.get("topics") or [])
+        st = verdict.get("suggested_tier")
+        if st in (1, 2, 3):
+            topic_list.append(f"vorläufig-tier{st}")
+        topics = ",".join(topic_list)
         label = (verdict.get("publisher") or "User-Submission")[:120]
         rc = _ingest_as_tier0(meta, submission_dir, label, topics)
         ingest_status = "ingested_tier0" if rc == 0 else f"ingest_failed_rc{rc}"

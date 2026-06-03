@@ -14,6 +14,8 @@ zum Scope passenden Tier-YAML schreibt. Boost-Werte sind LLM-/Domain-Tuning,
 nicht Quellen-Pflege — daher hier im Code, nicht in der YAML.
 """
 
+import re
+
 from langchain_chroma import Chroma
 
 # Primärquellen schlagen knapp ähnlich-relevante Sekundärquellen, werden aber
@@ -102,10 +104,30 @@ def tier_aware_retrieve(
         # Tier 0 = unverifiziert: nur einbeziehen, wenn ausdrücklich gewünscht.
         if rank == 0 and not include_unverified:
             continue
-        boost = TIER_BOOSTS.get(rank, TIER_BOOSTS[3]) if use_tier_boost else 1.0
+        if not use_tier_boost:
+            boost = 1.0
+        elif rank == 0:
+            # Unverifiziert: nach Athenas vorgeschlagenem Rang gewichten (aus dem
+            # 'vorläufig-tierN'-Tag), aber gedämpft (×0.7), weil nicht menschlich
+            # geprüft. Ohne Vorschlag → niedrigster Boost.
+            boost = TIER_BOOSTS[0]
+            sug = _suggested_tier_from_topics(doc.metadata.get("topics", ""))
+            if sug in TIER_BOOSTS:
+                boost = TIER_BOOSTS[sug] * 0.7
+        else:
+            boost = TIER_BOOSTS.get(rank, TIER_BOOSTS[3])
         combined = similarity * boost
         doc.metadata["_similarity"] = round(similarity, 4)
         doc.metadata["_combined_score"] = round(combined, 4)
         scored.append((doc, combined))
     scored.sort(key=lambda x: -x[1])
     return [d for d, _ in scored[:k]]
+
+
+def _suggested_tier_from_topics(topics: str) -> int | None:
+    """Liest Athenas vorgeschlagenen Rang aus einem 'vorläufig-tierN'-Tag im
+    kommaseparierten topics-String. None, wenn keiner gesetzt ist."""
+    if not topics:
+        return None
+    m = re.search(r"vorläufig-tier([123])", topics)
+    return int(m.group(1)) if m else None

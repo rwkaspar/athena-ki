@@ -86,6 +86,13 @@ def _update_tier0_chunks(meta: dict, new_tier: int, label: str) -> int:
                 m["tier_label"] = label
                 m["source_type"] = "static" if new_tier == 1 else "fresh"
                 m["verified_at"] = datetime.now(timezone.utc).isoformat()
+                # 'vorläufig-tierN'-Tag entfernen — die Quelle ist nun echt
+                # verifiziert, der vorläufige Rang ist gegenstandslos.
+                topics = (m.get("topics") or "")
+                if topics:
+                    kept = [t for t in topics.split(",")
+                            if t.strip() and not t.strip().startswith("vorläufig-tier")]
+                    m["topics"] = ",".join(kept)
             coll.update(ids=ids, metadatas=metas)
             affected += len(ids)
     return affected

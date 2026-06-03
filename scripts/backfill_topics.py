@@ -15,6 +15,7 @@ import json
 import os
 import re
 import sys
+import time
 from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -62,6 +63,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--scope", default="bund", choices=["pfofeld", "bund"])
     p.add_argument("--limit", type=int, default=0, help="max. N Quellen (0=alle)")
+    p.add_argument("--delay", type=float, default=2.0, help="Pause zwischen LLM-Calls (s) gegen Rate-Limit")
     p.add_argument("--dry-run", action="store_true", help="nur anzeigen, nicht schreiben")
     args = p.parse_args()
 
@@ -101,19 +103,33 @@ def main():
                 print(f"[dry] würde taggen: {e['title'][:60]}  ({len(e['ids'])} chunks)")
                 done += 1
                 continue
-            tags = classify(llm, e["title"], e["sample"])
+            # Retry mit Backoff bei Rate-Limit (429)
+            tags = []
+            for attempt in range(4):
+                try:
+                    tags = classify(llm, e["title"], e["sample"])
+                    break
+                except Exception as ex:
+                    if "429" in str(ex) or "rate" in str(ex).lower():
+                        wait = args.delay * (attempt + 1) * 4
+                        print(f"[wait] Rate-Limit, warte {wait:.0f}s …", file=sys.stderr)
+                        time.sleep(wait)
+                    else:
+                        print(f"[err] {e['title'][:40]}: {type(ex).__name__}", file=sys.stderr)
+                        break
             if not tags:
                 print(f"[skip] keine Tags für {e['title'][:50]}", file=sys.stderr)
                 continue
             topics_str = ",".join(tags)
             # alle chunks dieser Quelle updaten
             cur = coll.get(ids=e["ids"])
-            new_metas = cur.get("metadatas") or []
+            new_metas = [m or {} for m in (cur.get("metadatas") or [])]
             for m in new_metas:
                 m["topics"] = topics_str
             coll.update(ids=e["ids"], metadatas=new_metas)
             done += 1
             print(f"[ok] {e['title'][:55]} → {topics_str}")
+            time.sleep(args.delay)  # Drosselung gegen Rate-Limit
 
     print(f"\nFertig. {done} Quellen getaggt{' (dry-run)' if args.dry_run else ''}.")
 
