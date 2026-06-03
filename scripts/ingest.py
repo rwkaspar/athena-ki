@@ -334,8 +334,8 @@ def main():
         help="CSS-Selector, auf den nach dem Laden gewartet wird (nur mit --render)",
     )
     parser.add_argument(
-        "--tier", type=int, choices=[1, 2, 3],
-        help="Override-Tier für alle Dokumente dieses Aufrufs (1=Primär, 2=Medien, 3=Kommentar)",
+        "--tier", type=int, choices=[0, 1, 2, 3],
+        help="Override-Tier für alle Dokumente dieses Aufrufs (0=unverifiziert, 1=Primär, 2=Medien, 3=Kommentar)",
     )
     parser.add_argument(
         "--source-label",

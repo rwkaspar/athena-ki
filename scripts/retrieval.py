@@ -18,7 +18,10 @@ from langchain_chroma import Chroma
 
 # Primärquellen schlagen knapp ähnlich-relevante Sekundärquellen, werden aber
 # von deutlich besser passenden Tier-2/3-Chunks überstimmt (Soft-Preference).
-TIER_BOOSTS = {1: 1.0, 2: 0.75, 3: 0.5}
+# Tier 0 = unverifiziert (öffentlich eingereicht, Athena-vorgeprüft, aber NICHT
+# menschlich freigegeben). Per Default vom Retrieval ausgeschlossen; nur mit
+# include_unverified=True einbezogen, dann mit niedrigstem Boost.
+TIER_BOOSTS = {0: 0.4, 1: 1.0, 2: 0.75, 3: 0.5}
 
 SCOPES = ("pfofeld", "bund")
 
@@ -68,10 +71,15 @@ def tier_aware_retrieve(
     k: int,
     fetch_k: int,
     use_tier_boost: bool = True,
+    include_unverified: bool = False,
 ):
     """Aus jeder Collection top-fetch_k Kandidaten holen, mit Tier-Boost re-ranken,
     top-k zurückgeben. Bei use_tier_boost=False wird nur fusioniert, nicht gewichtet
     (für A/B-Vergleich mit reiner Vektor-Ähnlichkeit über beide Collections).
+
+    include_unverified: Tier 0 (öffentlich eingereicht, nicht menschlich
+    freigegeben) wird per Default AUSGESCHLOSSEN. Nur mit True einbezogen —
+    schützt die normalen Analysen vor potenziell manipulierten Quellen.
 
     Erhält pro Doc:
       - doc.metadata['_collection']     : Herkunfts-Collection
@@ -91,6 +99,9 @@ def tier_aware_retrieve(
     scored = []
     for doc, similarity in candidates:
         rank = doc.metadata.get("tier_rank", 3)
+        # Tier 0 = unverifiziert: nur einbeziehen, wenn ausdrücklich gewünscht.
+        if rank == 0 and not include_unverified:
+            continue
         boost = TIER_BOOSTS.get(rank, TIER_BOOSTS[3]) if use_tier_boost else 1.0
         combined = similarity * boost
         doc.metadata["_similarity"] = round(similarity, 4)

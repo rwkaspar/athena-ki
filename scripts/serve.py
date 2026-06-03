@@ -41,7 +41,7 @@ import requests
 # das Scripts-Verzeichnis finden, in dem retrieval/tools/etc. liegen.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from fastapi import FastAPI, File, Form, HTTPException, Request, UploadFile
+from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from langchain_chroma import Chroma
@@ -284,6 +284,10 @@ class ChatRequest(BaseModel):
         default=False,
         description="Bei true: vor Anfrage Honcho-History laden (in Prompt einbauen), nach Antwort User+Assistant-Message speichern. Default false — kein Memory.",
     )
+    include_unverified: bool = Field(
+        default=False,
+        description="Bei true werden auch unverifizierte (Tier-0) Quellen ins Retrieval einbezogen — öffentlich eingereicht, Athena-vorgeprüft, aber NICHT menschlich freigegeben. Default false (nur verifizierte Quellen).",
+    )
 
 
 # --------------------------------------------------------------------------- #
@@ -477,8 +481,17 @@ def _collect_sources(scope: str) -> list[dict]:
                 "chunks": 0,
                 "ingested_at": None,
                 "title": meta.get("title") if meta else None,
+                "topics": [],
             })
             entry["chunks"] += 1
+            # topics ist ein kommaseparierter String in den Chunk-Metadaten
+            # (ChromaDB kann keine Listen) → zu Liste parsen, dedupliziert.
+            raw_topics = (meta or {}).get("topics") or ""
+            if raw_topics:
+                for t in raw_topics.split(","):
+                    t = t.strip()
+                    if t and t not in entry["topics"]:
+                        entry["topics"].append(t)
             ts = (meta or {}).get("ingested_at")
             if ts and (entry["ingested_at"] is None or ts > entry["ingested_at"]):
                 entry["ingested_at"] = ts
@@ -535,9 +548,23 @@ def _safe_filename(name: str) -> str:
     return base[:120] or "upload"
 
 
+def _trigger_auto_review(submission_id: str):
+    """Stößt die Vorab-Bewertung (auto_review.py) für eine Submission an.
+    Läuft als BackgroundTask, schreibt Ergebnis an meta.json + log.jsonl.
+    Pflegt NICHTS ein — finale Freigabe bleibt manuell."""
+    try:
+        from auto_review import review_submission
+        sub_dir = SUBMISSIONS_DIR / "pending" / submission_id
+        if sub_dir.exists():
+            review_submission(sub_dir)
+    except Exception as e:
+        print(f"[auto_review] fehlgeschlagen für {submission_id}: {type(e).__name__}: {e}", file=sys.stderr)
+
+
 @app.post("/submissions")
 async def submit_source(
     request: Request,
+    background_tasks: BackgroundTasks,
     kind: str = Form(..., description="'url' oder 'file'"),
     url: str | None = Form(None),
     note: str | None = Form(None),
@@ -546,7 +573,8 @@ async def submit_source(
     honeypot: str | None = Form(None, description="Anti-Spam: muss leer bleiben"),
 ):
     """Reicht eine neue Quelle ein. Landet in submissions/pending/<id>/, wird
-    durch scripts/review_submissions.py manuell freigegeben."""
+    automatisch von Athena vorab bewertet (auto_review), die finale Freigabe
+    macht ein Mensch (scripts/review_submissions.py)."""
     if honeypot:
         # stille Annahme, aber nicht persistieren — Bots merken nichts
         return {"id": "noop", "status": "received"}
@@ -615,6 +643,8 @@ async def submit_source(
     (target / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
     )
+    # Athena bewertet die Quelle asynchron vorab (Herausgeber/Relevanz/Tags).
+    background_tasks.add_task(_trigger_auto_review, submission_id)
     return {"id": submission_id, "status": "pending"}
 
 
@@ -705,6 +735,39 @@ def contact(req: ContactRequest, request: Request):
     return {"id": contact_id, "status": "received"}
 
 
+CONTACT_LOG_FIELDS = (  # nur diese Felder gehen nach außen — NIE Einreicher-Daten
+    "id", "submitted_at", "reviewed_at", "source", "domain", "scope",
+    "publisher", "publisher_trust", "relevant", "suggested_tier",
+    "topics", "recommendation", "summary", "status", "verified",
+)
+SUBMISSIONS_LOG = SUBMISSIONS_DIR / "log.jsonl"
+
+
+@app.get("/submissions-log")
+def submissions_log(limit: int = 50):
+    """Öffentliches Prüf-Protokoll: anonymisierte Bewertungen eingereichter
+    Quellen (kein source_ip, keine E-Mail). Neueste zuerst."""
+    limit = max(1, min(limit, 200))
+    entries = []
+    if SUBMISSIONS_LOG.exists():
+        try:
+            lines = SUBMISSIONS_LOG.read_text(encoding="utf-8").splitlines()
+        except Exception:
+            lines = []
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rec = json.loads(line)
+            except Exception:
+                continue
+            # nur whitelisted Felder rausgeben (defensive Anonymisierung)
+            entries.append({k: rec.get(k) for k in CONTACT_LOG_FIELDS if k in rec})
+    entries.reverse()  # neueste zuerst
+    return {"total": len(entries), "entries": entries[:limit]}
+
+
 @app.get("/search")
 def search(q: str, k: int = 10, scope: str = DEFAULT_SCOPE):
     """Volltextsuche über beide Collections eines Scopes, ohne LLM."""
@@ -786,13 +849,18 @@ def _chat_event_stream(req: ChatRequest):
             vectorstores, req.message,
             k=RETRIEVER_K, fetch_k=RETRIEVER_FETCH_K,
             use_tier_boost=True,
+            include_unverified=req.include_unverified,
         )
         seen = []
+        has_unverified = False
         for d in docs:
             src = d.metadata.get("source", "?")
+            if d.metadata.get("tier_rank") == 0:
+                has_unverified = True
             if src not in seen:
                 seen.append(src)
-        yield _ndjson({"type": "sources", "sources": seen, "provider": provider})
+        yield _ndjson({"type": "sources", "sources": seen, "provider": provider,
+                       "includes_unverified": has_unverified})
 
         # Initialer Nachrichten-Stack
         user_prompt = PROMPT_TEMPLATE.format(

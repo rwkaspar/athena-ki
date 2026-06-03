@@ -96,6 +96,26 @@ def _fetch_sample(meta: dict, submission_dir: Path) -> tuple[str, str]:
             return fname, f"[Lesen fehlgeschlagen: {type(e).__name__}: {e}]"
 
 
+def _ingest_as_tier0(meta: dict, submission_dir: Path, label: str, topics: str) -> int:
+    """Pflegt die Quelle als Tier 0 (unverifiziert) via ingest.py ein. Liefert rc."""
+    import subprocess
+    ingest_script = Path(__file__).parent / "ingest.py"
+    scope = meta.get("scope", "pfofeld")
+    args = [sys.executable, str(ingest_script),
+            "--tier", "0", "--source-label", label, "--scope", scope]
+    if topics:
+        args.extend(["--topics", topics])
+    if meta.get("kind") == "url":
+        args.extend(["--url", meta["url"], "--render"])
+    else:
+        args.extend(["--file", str(submission_dir / meta["filename"])])
+    try:
+        return subprocess.call(args, timeout=300)
+    except Exception as e:
+        print(f"[ingest tier0] {type(e).__name__}: {e}", file=sys.stderr)
+        return 1
+
+
 def review_submission(submission_dir: Path) -> dict:
     """Bewertet eine Submission. Schreibt Ergebnis an meta.json + log.jsonl.
     Pflegt NICHTS ein. Liefert das Bewertungs-dict."""
@@ -143,6 +163,22 @@ TEXTAUSZUG:
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
+    # Auto-Ingest als TIER 0 (unverifiziert), wenn Athena nicht ablehnt.
+    # Tier 0 ist im Retrieval per Default ausgeschlossen → keine Vergiftung der
+    # normalen Analysen. Die Hochstufung auf Tier 1-3 macht ein Mensch
+    # (review_submissions.py). Bei "reject" wird nichts eingepflegt.
+    ingest_status = "not_ingested"
+    rec = verdict.get("recommendation")
+    if rec in ("approve", "needs_human") and not verdict.get("error"):
+        topics = ",".join(verdict.get("topics") or [])
+        label = (verdict.get("publisher") or "User-Submission")[:120]
+        rc = _ingest_as_tier0(meta, submission_dir, label, topics)
+        ingest_status = "ingested_tier0" if rc == 0 else f"ingest_failed_rc{rc}"
+        verdict["ingest_status"] = ingest_status
+        (submission_dir / "meta.json").write_text(
+            json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
+
     # in öffentlichen Log schreiben (anonymisiert — KEINE Einreicher-Daten)
     log_entry = {
         "id": meta["id"],
@@ -158,7 +194,11 @@ TEXTAUSZUG:
         "topics": verdict.get("topics"),
         "recommendation": verdict.get("recommendation"),
         "summary": verdict.get("summary"),
-        "status": "reviewed",  # noch nicht eingepflegt — wartet auf menschliche Freigabe
+        # status: ingested_tier0 = als unverifiziert aufgenommen (per Default vom
+        # Retrieval aus, wartet auf menschl. Hochstufung); rejected = abgelehnt.
+        "status": ("rejected" if rec == "reject" or verdict.get("error")
+                   else ingest_status),
+        "verified": False,  # wird True bei menschlicher Freigabe (Tier 1-3)
     }
     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(LOG_PATH, "a", encoding="utf-8") as f:
