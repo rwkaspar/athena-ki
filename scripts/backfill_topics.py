@@ -26,17 +26,25 @@ from retrieval import collection_names_for
 CHROMA_DB_DIR = Path(__file__).parent.parent / "athena-db"
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
 REVIEW_MODEL = os.getenv("ATHENA_REVIEW_MODEL", "mistral-large-latest")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_TAG_MODEL = os.getenv("ATHENA_TAG_MODEL", "qwen3.5:latest")
 
 # gleiche Leitplanken wie auto_review (Konsistenz)
 from auto_review import SUGGESTED_TAGS
 
 
-def _build_llm():
-    from langchain_mistralai import ChatMistralAI
-    if not MISTRAL_API_KEY:
-        raise RuntimeError("MISTRAL_API_KEY nicht gesetzt.")
-    return ChatMistralAI(model=REVIEW_MODEL, api_key=MISTRAL_API_KEY,
-                         temperature=0.1, max_retries=2, timeout=90)
+def _build_llm(provider: str):
+    """provider='mistral' (API, rate-limited) oder 'ollama' (lokal auf aitest,
+    kein Limit, blockiert den Mistral-Chat-Key nicht). Default ollama."""
+    if provider == "mistral":
+        from langchain_mistralai import ChatMistralAI
+        if not MISTRAL_API_KEY:
+            raise RuntimeError("MISTRAL_API_KEY nicht gesetzt.")
+        return ChatMistralAI(model=REVIEW_MODEL, api_key=MISTRAL_API_KEY,
+                             temperature=0.1, max_retries=2, timeout=90)
+    from langchain_ollama import ChatOllama
+    return ChatOllama(model=OLLAMA_TAG_MODEL, base_url=OLLAMA_HOST,
+                      temperature=0.1, timeout=120, reasoning=False, num_gpu=0)
 
 
 def classify(llm, title: str, sample: str) -> list[str]:
@@ -63,12 +71,14 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--scope", default="bund", choices=["pfofeld", "bund"])
     p.add_argument("--limit", type=int, default=0, help="max. N Quellen (0=alle)")
-    p.add_argument("--delay", type=float, default=2.0, help="Pause zwischen LLM-Calls (s) gegen Rate-Limit")
+    p.add_argument("--provider", default="ollama", choices=["ollama", "mistral"],
+                   help="ollama=lokal/kein Limit (Default), mistral=API/rate-limited")
+    p.add_argument("--delay", type=float, default=0.0, help="Pause zwischen LLM-Calls (s); für mistral ~2-4 gegen Rate-Limit")
     p.add_argument("--dry-run", action="store_true", help="nur anzeigen, nicht schreiben")
     args = p.parse_args()
 
     client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
-    llm = None if args.dry_run else _build_llm()
+    llm = None if args.dry_run else _build_llm(args.provider)
 
     # Quellen pro Collection sammeln: source → (chunk_ids, sample, title, hat_topics)
     done = 0
