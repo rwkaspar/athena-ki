@@ -41,6 +41,68 @@ def load_meta(submission_dir: Path) -> dict:
     return json.loads((submission_dir / "meta.json").read_text(encoding="utf-8"))
 
 
+CHROMA_DB_DIR = Path(__file__).parent.parent / "athena-db"
+
+
+def _source_value(meta: dict) -> str:
+    """Der 'source'-Metadatenwert, unter dem die Chunks in ChromaDB liegen."""
+    return meta["url"] if meta.get("kind") == "url" else str(
+        (Path(meta["_dir"]) / meta["filename"])) if meta.get("_dir") else meta.get("filename", "")
+
+
+def _update_tier0_chunks(meta: dict, new_tier: int, label: str) -> int:
+    """Tier-0-Chunks dieser Quelle auf new_tier hochstufen (verifizieren) ODER
+    bei new_tier<0 löschen. Operiert direkt auf ChromaDB. Liefert Anzahl Chunks.
+
+    Eingereichte Quellen sind nach auto_review bereits als Tier 0 in der DB —
+    die Freigabe ändert nur das tier_rank-Metadatum, kein Re-Ingest nötig."""
+    import chromadb
+    from retrieval import collection_names_for
+    scope = meta.get("scope", "pfofeld")
+    source_url = meta.get("url") if meta.get("kind") == "url" else None
+    client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
+    affected = 0
+    for coll_name in collection_names_for(scope):
+        try:
+            coll = client.get_collection(coll_name)
+        except Exception:
+            continue
+        # Chunks dieser Quelle mit tier_rank 0 finden
+        where = {"$and": [{"source": source_url}, {"tier_rank": 0}]} if source_url else {"tier_rank": 0}
+        try:
+            got = coll.get(where=where)
+        except Exception:
+            continue
+        ids = got.get("ids") or []
+        if not ids:
+            continue
+        if new_tier < 0:
+            coll.delete(ids=ids)
+            affected += len(ids)
+        else:
+            metas = got.get("metadatas") or []
+            for m in metas:
+                m["tier_rank"] = new_tier
+                m["tier_label"] = label
+                m["source_type"] = "static" if new_tier == 1 else "fresh"
+                m["verified_at"] = datetime.now(timezone.utc).isoformat()
+            coll.update(ids=ids, metadatas=metas)
+            affected += len(ids)
+    return affected
+
+
+def _log_status(submission_id: str, new_status: str, extra: dict | None = None):
+    """Status im öffentlichen Prüf-Protokoll (log.jsonl) nachführen — hängt eine
+    Statuszeile an, damit die Seite den finalen Zustand (verified/rejected) zeigt."""
+    log_path = SUBMISSIONS_DIR / "log.jsonl"
+    entry = {"id": submission_id, "status": new_status,
+             "updated_at": datetime.now(timezone.utc).isoformat()}
+    if extra:
+        entry.update(extra)
+    with open(log_path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
 def print_summary(idx: int, total: int, submission_dir: Path, meta: dict) -> None:
     print("\n" + "=" * 70)
     print(f"[{idx}/{total}]  ID: {meta.get('id')}  ·  eingereicht: {meta.get('submitted_at')}")
@@ -53,6 +115,14 @@ def print_summary(idx: int, total: int, submission_dir: Path, meta: dict) -> Non
     if meta.get("note"):
         print(f"  Notiz: {meta['note'][:300]}")
     print(f"  Quelle (IP): {meta.get('source_ip')}  ·  UA: {(meta.get('user_agent') or '')[:80]}")
+    # Athenas automatische Vorab-Bewertung als Entscheidungshilfe
+    ar = meta.get("auto_review")
+    if ar:
+        print("  " + "-" * 66)
+        print(f"  🤖 ATHENA: {ar.get('recommendation','?').upper()}  ·  {ar.get('summary','')}")
+        print(f"     Herausgeber: {ar.get('publisher','?')}  (Vertrauen: {ar.get('publisher_trust','?')})")
+        print(f"     Relevant: {ar.get('relevant')}  ·  Tier-Vorschlag: {ar.get('suggested_tier')}  ·  Status: {ar.get('ingest_status','-')}")
+        print(f"     Tags: {', '.join(ar.get('topics') or []) or '—'}")
     print(f"  Dir: {submission_dir}")
     print("=" * 70)
 
@@ -98,31 +168,51 @@ def prompt(text: str, default: str | None = None) -> str:
 
 def review_one(submission_dir: Path) -> str:
     meta = load_meta(submission_dir)
+    ar = meta.get("auto_review") or {}
+    already_tier0 = (ar.get("ingest_status") == "ingested_tier0")
     while True:
         action = prompt("Aktion ([a]pprove / [r]eject / [s]kip / [q]uit)", "s").lower()
         if action in ("a", "approve"):
-            tier_str = prompt("Tier (1=Primär, 2=Medien, 3=Kommentar)", "1")
+            default_tier = str(ar.get("suggested_tier") or 1)
+            tier_str = prompt("Tier (1=Primär, 2=Medien, 3=Kommentar)", default_tier)
             if tier_str not in ("1", "2", "3"):
                 print("  ❌ ungültiges Tier")
                 continue
-            label = prompt("Source-Label", "User-Submission")
-            rc = ingest_submission(submission_dir, meta, int(tier_str), label)
-            if rc != 0:
-                print(f"  ⚠️ Ingest fehlgeschlagen (rc={rc}), Submission bleibt pending")
-                return "fail"
+            label = prompt("Source-Label", (ar.get("publisher") or "User-Submission")[:120])
+            if already_tier0:
+                # Quelle ist schon als Tier 0 in ChromaDB → nur hochstufen (verifizieren)
+                n = _update_tier0_chunks(meta, int(tier_str), label)
+                if n == 0:
+                    print("  ⚠️ Keine Tier-0-Chunks gefunden — fällt auf Re-Ingest zurück.")
+                    rc = ingest_submission(submission_dir, meta, int(tier_str), label)
+                    if rc != 0:
+                        print(f"  ⚠️ Ingest fehlgeschlagen (rc={rc})"); return "fail"
+                else:
+                    print(f"  ✓ {n} Chunks von Tier 0 → Tier {tier_str} hochgestuft (verifiziert)")
+            else:
+                rc = ingest_submission(submission_dir, meta, int(tier_str), label)
+                if rc != 0:
+                    print(f"  ⚠️ Ingest fehlgeschlagen (rc={rc}), Submission bleibt pending")
+                    return "fail"
             move_to(submission_dir, APPROVED_DIR, extra_meta={
                 "approved_at": datetime.now(timezone.utc).isoformat(),
                 "approved_tier": int(tier_str),
                 "approved_label": label,
             })
-            print(f"  ✓ ingestiert und nach approved/ verschoben")
+            _log_status(meta["id"], "verified", {"verified": True, "tier": int(tier_str)})
+            print(f"  ✓ freigegeben (Tier {tier_str}) und nach approved/ verschoben")
             return "approve"
         elif action in ("r", "reject"):
-            reason = prompt("Grund (optional)", "irrelevant / kein Bezug Pfofeld / Kommunalrecht")
+            reason = prompt("Grund (optional)", "irrelevant / unseriös / kein Bezug")
+            if already_tier0:
+                # Tier-0-Chunks aus ChromaDB entfernen (waren nur unverifiziert drin)
+                n = _update_tier0_chunks(meta, -1, "")
+                print(f"  🗑️  {n} Tier-0-Chunks aus der Wissensbasis gelöscht")
             move_to(submission_dir, REJECTED_DIR, extra_meta={
                 "rejected_at": datetime.now(timezone.utc).isoformat(),
                 "reject_reason": reason,
             })
+            _log_status(meta["id"], "rejected", {"reject_reason": reason})
             print(f"  ✗ nach rejected/ verschoben")
             return "reject"
         elif action in ("s", "skip", ""):
