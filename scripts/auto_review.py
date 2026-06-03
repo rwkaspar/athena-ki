@@ -33,6 +33,11 @@ LOG_PATH = SUBMISSIONS_DIR / "log.jsonl"
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
 REVIEW_MODEL = os.getenv("ATHENA_REVIEW_MODEL", "mistral-large-latest")
+# Provider für die Bewertung: 'mistral' (Default, gründlicher) oder 'ollama'
+# (lokal/kein Rate-Limit, für Batch-Crawl mit vielen Quellen).
+REVIEW_PROVIDER = os.getenv("ATHENA_REVIEW_PROVIDER", "mistral")
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_REVIEW_MODEL = os.getenv("ATHENA_REVIEW_OLLAMA_MODEL", "athena-bund")
 
 # Tag-Leitplanken: bevorzugte Begriffe für Konsistenz. Das LLM darf neue Tags
 # vergeben, soll aber zuerst hier passende wählen (verhindert Wildwuchs).
@@ -60,7 +65,12 @@ REVIEW_SCHEMA_HINT = """Antworte AUSSCHLIESSLICH mit einem JSON-Objekt, keine Er
 }"""
 
 
-def _build_llm():
+def _build_llm(provider: str = None):
+    provider = provider or REVIEW_PROVIDER
+    if provider == "ollama":
+        from langchain_ollama import ChatOllama
+        return ChatOllama(model=OLLAMA_REVIEW_MODEL, base_url=OLLAMA_HOST,
+                          temperature=0.1, timeout=180, reasoning=False, num_gpu=0)
     from langchain_mistralai import ChatMistralAI
     if not MISTRAL_API_KEY:
         raise RuntimeError("MISTRAL_API_KEY nicht gesetzt — Review-Pipeline braucht Mistral.")
@@ -116,7 +126,7 @@ def _ingest_as_tier0(meta: dict, submission_dir: Path, label: str, topics: str) 
         return 1
 
 
-def review_submission(submission_dir: Path) -> dict:
+def review_submission(submission_dir: Path, provider: str = None) -> dict:
     """Bewertet eine Submission. Schreibt Ergebnis an meta.json + log.jsonl.
     Pflegt NICHTS ein. Liefert das Bewertungs-dict."""
     meta = json.loads((submission_dir / "meta.json").read_text(encoding="utf-8"))
@@ -144,7 +154,7 @@ TEXTAUSZUG:
 
 {REVIEW_SCHEMA_HINT}"""
 
-    llm = _build_llm()
+    llm = _build_llm(provider)
     raw = llm.invoke(prompt)
     content = raw.content if hasattr(raw, "content") else str(raw)
     # JSON aus der Antwort extrahieren
