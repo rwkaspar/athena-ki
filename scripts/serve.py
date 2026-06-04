@@ -253,7 +253,8 @@ def _get_components(scope: str, provider: str = None):
                 api_key=MISTRAL_API_KEY,
                 temperature=0.3,
                 max_retries=2,
-                timeout=120,
+                timeout=180,
+                max_tokens=8000,  # vollständige Optionsanalysen + EVIDENZ-Position
             )
         else:
             raise HTTPException(status_code=400, detail=f"Provider {provider!r} nicht implementiert.")
@@ -864,6 +865,27 @@ def _stream_llm_with_heartbeat(llm, messages):
         yield (kind, payload)
 
 
+# Mindest-Relevanz, ab der eine Positions-Quelle als themen-passend gilt.
+# Empirisch kalibriert (bge-m3, mit meta-bereinigtem Probe-Query): echte Themen-
+# Treffer >=0.21, themenfremd <=0.185. 0.20 trennt sauber. Restliche Grenzfälle
+# (themenfremder Treffer knapp über Schwelle) fängt das LLM-Themen-Gate im Prompt.
+EVIDENZ_POSITION_MIN_SCORE = 0.20
+
+# Meta-Wörter, die das Probe-Embedding generisch zu ALLEN Positions-Chunks ziehen
+# ("Was ist die EVIDENZ-Position zu X" → matcht jede Position). Vor dem Probe raus,
+# damit nur das Sachthema (X) embeddet wird.
+_POSITION_META_RE = re.compile(
+    r"(?i)\b(evidenz[- ]?position|evidenz|parteiprogramm|partei|position|haltung|"
+    r"beschluss|beschlossen|athena|standpunkt|meinung)\b"
+)
+
+
+def _strip_position_meta(query: str) -> str:
+    """Entfernt Meta-Wörter, damit der Probe nur das Sachthema embeddet."""
+    stripped = _POSITION_META_RE.sub("", query).strip()
+    return stripped or query  # nie leer proben
+
+
 def _retrieve_evidenz_position(vectorstores, query: str, probe_k: int = 4, max_chunks: int = 30):
     """Findet die thematisch passende EVIDENZ-Position und liefert sie KOMPLETT.
 
@@ -872,17 +894,22 @@ def _retrieve_evidenz_position(vectorstores, query: str, probe_k: int = 4, max_c
     genau dieser Quelle holen — sonst fehlen Kernaussagen (z.B. '53%'), die
     nicht im Top-Probe-Treffer liegen. Eine Position ist kurz genug, um ganz in
     den Kontext zu passen. Liefert [] wenn nichts thematisch passt."""
-    # Stufe 1: relevanteste Positions-Quelle(n) per Probe finden
+    # Stufe 1: relevanteste Positions-Quelle(n) per Probe finden.
+    # Meta-Wörter raus, damit nur das Sachthema embeddet (sonst matcht jede Position).
+    probe_query = _strip_position_meta(query)
     best_sources = []
     for vs in vectorstores.values():
         try:
             hits = vs.similarity_search_with_relevance_scores(
-                query, k=probe_k, where_document={"$contains": "EVIDENZ-Position"}
+                probe_query, k=probe_k, where_document={"$contains": "EVIDENZ-Position"}
             )
         except Exception:
             hits = []
         for doc, score in hits:
-            if score is not None and score < 0.15:
+            # Relevanzschwelle: themenfremde Positionen NICHT injizieren, sonst
+            # erfindet das LLM eine Parteihaltung wo keine existiert. Empirisch
+            # kalibriert: echte Themen-Treffer ~0.40-0.46, themenfremd <=0.21.
+            if score is not None and score < EVIDENZ_POSITION_MIN_SCORE:
                 continue
             src = doc.metadata.get("source")
             if src and src not in best_sources:
@@ -938,14 +965,20 @@ def _chat_event_stream(req: ChatRequest):
         # EVIDENZ-Positionen GARANTIERT mitliefern (themen-gematcht), damit die
         # dokumentierte Parteihaltung nicht im Vektor-Wettbewerb untergeht.
         evidenz_docs = _retrieve_evidenz_position(vectorstores, req.message)
+        # Themen-Relevanz wird ALLEIN durch den (schwellen-gefilterten) Probe in
+        # _retrieve_evidenz_position bestimmt. Quellen merken BEVOR dedupliziert wird,
+        # damit das Flag korrekt bleibt, auch wenn die Position schon in docs steckt.
+        position_sources = {d.metadata.get("source") for d in evidenz_docs}
         # Doppelungen vermeiden (Position evtl. schon in docs)
         doc_sources = {d.metadata.get("source") for d in docs}
         evidenz_docs = [e for e in evidenz_docs if e.metadata.get("source") not in doc_sources]
 
         seen = []
         has_unverified = False
-        has_evidenz_position = bool(evidenz_docs) or any(
-            "evidenz-position" in str(d.metadata.get("topics", "")) for d in docs)
+        # GUARD: NICHT über lose Topic-Tags normaler RAG-Treffer triggern — sonst gilt
+        # eine Position als "vorhanden", wo der Probe themenfern gefiltert hat und das
+        # LLM dann eine Haltung erfindet. Allein der themen-relevante Probe zählt.
+        has_evidenz_position = bool(position_sources)
         for d in docs + evidenz_docs:
             src = d.metadata.get("source", "?")
             if d.metadata.get("tier_rank") == 0:
@@ -980,7 +1013,23 @@ def _chat_event_stream(req: ChatRequest):
                 "transparent als dokumentierte Parteiposition wieder (z. B. 'EVIDENZ "
                 "hat sich laut Parteiprogramm für … entschieden, weil …') — klar "
                 "getrennt von der neutralen Faktenlage/Optionsanalyse. Das ist KEINE "
-                "eigene Empfehlung von dir, sondern das Referieren eines Beschlusses."
+                "eigene Empfehlung von dir, sondern das Referieren eines Beschlusses. "
+                "THEMEN-GATE: Präsentiere die dokumentierte Position NUR, wenn sie das "
+                "konkrete Thema der Frage tatsächlich behandelt. Behandelt sie ein "
+                "anderes Thema, schreibe ausdrücklich 'EVIDENZ hat zu dieser Frage noch "
+                "keine dokumentierte Position beschlossen.' und gib NICHT die "
+                "themenfremde Position als Antwort aus."
+            )
+        else:
+            # GUARD: Ohne dokumentierte Position darf Athena KEINE erfinden.
+            system_blocks.append(
+                "WICHTIG: Zu dieser Frage liegt im Kontext KEINE dokumentierte "
+                "EVIDENZ-Position vor. Erfinde unter keinen Umständen eine Parteihaltung, "
+                "einen Beschluss, einen Programm-Abschnitt oder ein Aktenzeichen. Wenn "
+                "nach der EVIDENZ-Position gefragt wird oder ein Abschnitt dazu erwartet "
+                "würde, schreibe ausdrücklich: 'EVIDENZ hat zu dieser Frage noch keine "
+                "dokumentierte Position beschlossen.' Liefere ausschließlich die neutrale "
+                "Faktenlage und Optionsanalyse, keine erfundene Position."
             )
         # Bei Mistral hat das Modell keine eingebakene Persona — die kommt aus
         # SCOPE_PERSONA, vorne im SystemMessage-Stack.

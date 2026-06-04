@@ -43,7 +43,17 @@ def generate(topic: str, provider: str) -> tuple[str, list]:
         "Quellenangaben), ## Rechtsrahmen, ## Die Optionen mit Trade-offs "
         "(2-4 Optionen, je Pro/Contra), und falls eine dokumentierte EVIDENZ-"
         "Position vorliegt ## Die EVIDENZ-Position (als Beschluss referiert, "
-        "klar getrennt). Keine eigene Empfehlung. Sachlich, präzise, mit Quellen."
+        "klar getrennt). Keine eigene Empfehlung. Sachlich, präzise, mit Quellen.\n\n"
+        "WICHTIG: Nenne konkrete Zahlen (Statistiken, Beträge, Aktenzeichen) NUR, "
+        "wenn sie eindeutig im RAG-Quellenkontext belegt sind. Erfinde KEINE Zahlen. "
+        "Wo eine Zahl nötig wäre, aber nicht belegt ist, schreibe '[Zahl prüfen]' "
+        "statt zu raten. Halte dich kompakt genug, dass die Antwort vollständig "
+        "inklusive der EVIDENZ-Position abgeschlossen wird.\n\n"
+        "GUARD: Erfinde KEINE EVIDENZ-Position. Wenn im Kontext keine dokumentierte "
+        "EVIDENZ-Position zu dieser Frage vorliegt, schreibe im Abschnitt "
+        "## Die EVIDENZ-Position ausschließlich: 'EVIDENZ hat zu dieser Frage noch "
+        "keine dokumentierte Position beschlossen.' — und erfinde weder "
+        "Programm-Abschnitte noch Beschlüsse noch Aktenzeichen."
     )
     payload = json.dumps({"message": brief, "scope": "bund",
                           "provider": provider, "use_memory": False}).encode()
@@ -83,15 +93,21 @@ def main():
     today = date.today().isoformat()
     slug = args.slug or _slugify(args.topic)
     fname = f"{today}-{slug}.md"
-    title = args.topic if args.topic.endswith("?") else args.topic
-    teaser = text.strip().split("\n")[0][:200] if text.strip() else ""
+    title = args.topic.strip()
+    # teaser = erste echte Prosa-Zeile (kein ---, keine ##-Überschrift, kein >)
+    teaser = ""
+    for ln in (l.strip() for l in text.strip().splitlines()):
+        if not ln or ln.startswith(("---", "#", ">", "|", "*", "-")):
+            continue
+        teaser = ln[:200]
+        break
 
     src_md = "\n".join(f"- {s}" for s in sources) if sources else "- (Quellen prüfen)"
     front = (
         "---\n"
         f"title: {title}\n"
         f"date: {today}\n"
-        f"topic: {args.topic[:40]}\n"
+        f"topic: {args.topic.strip()}\n"
         "status: draft\n"
         f"teaser: {teaser}\n"
         "---\n\n"
