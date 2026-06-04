@@ -308,11 +308,14 @@ def batch_athena(pending, decision: str, dry_run: bool, max_tier: int | None) ->
     return counts
 
 
-def review_pending_missing(pending, provider: str, dry_run: bool) -> dict:
+def review_pending_missing(pending, provider: str, dry_run: bool, delay: float = 1.5) -> dict:
     """Holt Athenas Auto-Bewertung für Submissions ohne Verdict nach (z.B. nach
-    Rate-Limit-Fehlern im Cleanup). Schreibt in ChromaDB (Tier 0) → uvicorn muss aus."""
+    Rate-Limit-Fehlern im Cleanup). Schreibt in ChromaDB (Tier 0) → uvicorn muss aus.
+    Throttle (delay) gegen Mistral-Rate-Limit (429). Der Vorfilter in auto_review
+    spart bei Müll-Kandidaten den LLM-Call ganz."""
+    import time as _t
     from auto_review import review_submission
-    counts = {"missing": 0, "reviewed": 0, "error": 0}
+    counts = {"missing": 0, "reviewed": 0, "prefiltered": 0, "error": 0}
     for sub_dir in pending:
         meta = load_meta(sub_dir)
         if meta.get("auto_review"):
@@ -325,7 +328,11 @@ def review_pending_missing(pending, provider: str, dry_run: bool) -> dict:
         try:
             v = review_submission(sub_dir, provider=provider)
             counts["reviewed"] += 1
-            print(f"  {v.get('recommendation','?'):12} | {ident}")
+            if v.get("prefiltered"):
+                counts["prefiltered"] += 1
+            else:
+                _t.sleep(delay)  # nur nach echtem LLM-Call drosseln
+            print(f"  {v.get('recommendation','?'):12} {'(vorfilter)' if v.get('prefiltered') else '':11} | {ident}")
         except Exception as e:
             counts["error"] += 1
             print(f"  ERROR {type(e).__name__}: {str(e)[:40]} | {ident}")
@@ -344,6 +351,8 @@ def main():
                         help="Auto-Bewertung für Submissions ohne Verdict nachholen")
     parser.add_argument("--provider", default="mistral", choices=["ollama", "mistral"],
                         help="Provider für --review-pending (Default mistral)")
+    parser.add_argument("--review-delay", type=float, default=1.5,
+                        help="Sekunden zwischen LLM-Bewertungen bei --review-pending (Rate-Limit)")
     parser.add_argument("--max-tier", type=int, default=None,
                         help="Bei --accept-athena nur Tier<=N automatisch freigeben, Rest manuell")
     parser.add_argument("--dry-run", action="store_true", help="Nur zeigen, nichts ändern")
@@ -371,7 +380,7 @@ def main():
 
     if args.review_pending:
         print(f"[review] hole fehlende Auto-Bewertungen nach (provider={args.provider}) …")
-        print(review_pending_missing(pending, args.provider, args.dry_run))
+        print(review_pending_missing(pending, args.provider, args.dry_run, args.review_delay))
         pending = list_pending()  # Verdicts aktualisiert
 
     if args.reject_athena:

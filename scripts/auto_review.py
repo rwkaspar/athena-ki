@@ -142,12 +142,57 @@ def _ingest_as_tier0(meta: dict, submission_dir: Path, label: str, topics: str) 
         return 1
 
 
+# Vorfilter: URLs, die nie ein Inhaltsdokument sind (Navigation/Funktion/Konto).
+# Solche Kandidaten gar nicht erst an den LLM schicken — spart Calls/Rate-Limit.
+_PREFILTER_URL_RE = re.compile(
+    r"/(datenschutz|impressum|kontakt|login|logout|anmelden|registrier|passwort|"
+    r"spenden|spende|mitglied|mitarbeiter|team|ueber-uns|ueber_uns|about|karriere|"
+    r"jobs|stellenangebote|newsletter|presse|suche|search|sitemap|mediathek|"
+    r"veranstaltung|termine|datenschutzhinweise|barrierefrei|leichte-sprache|"
+    r"gebaerdensprache|cookie|agb|nutzungsbedingungen|warenkorb|account|profil)\b"
+    r"|/(feed|rss)(/|$)|\.(json|xml|ics|rss)(\?|$)|/(en|fr|es|it)/",
+    re.I,
+)
+
+
+def _prefilter(meta: dict, source: str, sample: str):
+    """Deterministischer Vorfilter VOR dem LLM-Call. Liefert ein Verdict-dict, wenn
+    der Kandidat ohne LLM entschieden werden kann (Müll/abruffehler), sonst None."""
+    # 1) Abruf fehlgeschlagen → LLM könnte auch nichts beurteilen → needs_human.
+    if sample.startswith("[") and ("fehlgeschlagen" in sample or "ohne extrahierbaren" in sample):
+        return {"recommendation": "needs_human", "relevant": None, "prefiltered": True,
+                "suggested_tier": None, "topics": [], "publisher": None,
+                "summary": "Vorfilter: Inhalt nicht abrufbar — manuell prüfen."}
+    # 2) URL ist klar Navigation/Funktion (nur bei URLs).
+    if meta.get("kind") == "url" and _PREFILTER_URL_RE.search(source):
+        return {"recommendation": "reject", "relevant": False, "prefiltered": True,
+                "suggested_tier": None, "topics": [], "publisher": None,
+                "summary": "Vorfilter: Navigations-/Funktionsseite, kein Inhaltsdokument."}
+    # 3) Inhalt ist kein Dokument (zu kurz / Navigationstext) — content_quality.
+    try:
+        from content_quality import assess
+        a = assess(sample, title=meta.get("note") or "")
+        if not a.get("is_document") and not a.get("is_error"):
+            return {"recommendation": "reject", "relevant": False, "prefiltered": True,
+                    "suggested_tier": None, "topics": [], "publisher": None,
+                    "summary": f"Vorfilter: kein Inhaltsdokument ({a.get('reason','zu wenig Inhalt')})."}
+    except Exception:
+        pass
+    return None  # → LLM-Bewertung
+
+
 def review_submission(submission_dir: Path, provider: str = None) -> dict:
     """Bewertet eine Submission. Schreibt Ergebnis an meta.json + log.jsonl.
     Pflegt NICHTS ein. Liefert das Bewertungs-dict."""
     meta = json.loads((submission_dir / "meta.json").read_text(encoding="utf-8"))
     source, sample = _fetch_sample(meta, submission_dir)
     domain = urlparse(meta["url"]).netloc if meta.get("kind") == "url" else "(Datei-Upload)"
+
+    # Vorfilter: offensichtlichen Müll ohne LLM-Call aussortieren.
+    pre = _prefilter(meta, source, sample)
+    if pre is not None:
+        verdict = pre
+        return _finalize_review(submission_dir, meta, source, domain, verdict)
 
     prompt = f"""Du bist die strenge Quellen-Prüfung von EVIDENZ, einer faktenbasierten politischen Bewegung in Deutschland. Eine Person hat eine Quelle für die Wissensbasis vorgeschlagen. Bewerte sie KRITISCH — die Wissensbasis darf nicht durch unseriöse oder manipulative Quellen vergiftet werden.
 
@@ -180,8 +225,14 @@ TEXTAUSZUG:
     except Exception as e:
         verdict = {"error": f"JSON-Parse: {e}", "raw": content[:500]}
 
+    return _finalize_review(submission_dir, meta, source, domain, verdict)
+
+
+def _finalize_review(submission_dir, meta, source, domain, verdict):
+    """Verdict zeitstempeln, an meta.json schreiben, ggf. Tier-0 ingestieren, loggen.
+    Gemeinsamer Abschluss für LLM-Bewertung UND Vorfilter-Entscheidung."""
     verdict["reviewed_at"] = datetime.now(timezone.utc).isoformat()
-    verdict["model"] = REVIEW_MODEL
+    verdict.setdefault("model", REVIEW_MODEL)
 
     # an meta.json anhängen
     meta["auto_review"] = verdict
