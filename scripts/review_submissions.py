@@ -144,7 +144,8 @@ def ingest_submission(submission_dir: Path, meta: dict, tier: int, label: str) -
         "--scope", scope,
     ]
     if meta["kind"] == "url":
-        args.extend(["--url", meta["url"], "--render"])
+        # kein erzwungenes --render: ingest_url dispatcht PDF/HTML selbst (Render-Fallback).
+        args.extend(["--url", meta["url"]])
     else:
         file_path = submission_dir / meta["filename"]
         args.extend(["--file", str(file_path)])
@@ -230,16 +231,161 @@ def review_one(submission_dir: Path) -> str:
             print(f"  ? '{action}' nicht verstanden")
 
 
+def _uvicorn_active() -> bool:
+    try:
+        out = subprocess.run(
+            ["systemctl", "--user", "is-active", "athena-uvicorn.service"],
+            capture_output=True, text=True,
+            env={**os.environ, "XDG_RUNTIME_DIR": f"/run/user/{os.getuid()}"},
+        ).stdout.strip()
+        return out == "active"
+    except FileNotFoundError:
+        return False
+
+
+def _approve(sub_dir: Path, meta: dict, tier: int, label: str) -> str:
+    """Eine Submission freigeben (Tier-0 hochstufen oder re-ingestieren)."""
+    ar = meta.get("auto_review") or {}
+    if ar.get("ingest_status") == "ingested_tier0":
+        n = _update_tier0_chunks(meta, tier, label)
+        if n == 0:  # nichts hochzustufen → Fallback Re-Ingest
+            if ingest_submission(sub_dir, meta, tier, label) != 0:
+                return "fail"
+    else:
+        if ingest_submission(sub_dir, meta, tier, label) != 0:
+            return "fail"
+    move_to(sub_dir, APPROVED_DIR, extra_meta={
+        "approved_at": datetime.now(timezone.utc).isoformat(),
+        "approved_tier": tier, "approved_label": label, "approved_by": "batch:athena",
+    })
+    _log_status(meta["id"], "verified", {"verified": True, "tier": tier})
+    return "approve"
+
+
+def _reject(sub_dir: Path, meta: dict, reason: str) -> str:
+    if (meta.get("auto_review") or {}).get("ingest_status") == "ingested_tier0":
+        _update_tier0_chunks(meta, -1, "")
+    move_to(sub_dir, REJECTED_DIR, extra_meta={
+        "rejected_at": datetime.now(timezone.utc).isoformat(),
+        "reject_reason": reason, "rejected_by": "batch:athena",
+    })
+    _log_status(meta["id"], "rejected", {"reject_reason": reason})
+    return "reject"
+
+
+def batch_athena(pending, decision: str, dry_run: bool, max_tier: int | None) -> dict:
+    """Stapel-Entscheidung nach Athenas Empfehlung. decision = approve|reject."""
+    counts = {"matched": 0, "done": 0, "fail": 0, "skipped_tier": 0}
+    for sub_dir in pending:
+        meta = load_meta(sub_dir)
+        ar = meta.get("auto_review") or {}
+        if ar.get("recommendation") != decision:
+            continue
+        counts["matched"] += 1
+        if decision == "approve":
+            tier = int(ar.get("suggested_tier") or 1)
+            if max_tier is not None and tier > max_tier:
+                counts["skipped_tier"] += 1
+                continue  # unsicherere Tiers manuell lassen
+            label = (ar.get("publisher") or meta.get("url") or "Quelle")[:120]
+            ident = (meta.get("url") or meta.get("filename") or "")[:70]
+            if dry_run:
+                print(f"  [approve→T{tier}] {ident}")
+                counts["done"] += 1
+                continue
+            res = _approve(sub_dir, meta, tier, label)
+            counts["done" if res == "approve" else "fail"] += 1
+            print(f"  {'✓' if res=='approve' else '✗FAIL'} T{tier} | {ident}")
+        else:  # reject
+            ident = (meta.get("url") or meta.get("filename") or "")[:70]
+            if dry_run:
+                print(f"  [reject] {ident}")
+                counts["done"] += 1
+                continue
+            _reject(sub_dir, meta, "Athena: " + (ar.get("summary") or "irrelevant")[:120])
+            counts["done"] += 1
+            print(f"  🗑️  {ident}")
+    return counts
+
+
+def review_pending_missing(pending, provider: str, dry_run: bool) -> dict:
+    """Holt Athenas Auto-Bewertung für Submissions ohne Verdict nach (z.B. nach
+    Rate-Limit-Fehlern im Cleanup). Schreibt in ChromaDB (Tier 0) → uvicorn muss aus."""
+    from auto_review import review_submission
+    counts = {"missing": 0, "reviewed": 0, "error": 0}
+    for sub_dir in pending:
+        meta = load_meta(sub_dir)
+        if meta.get("auto_review"):
+            continue
+        counts["missing"] += 1
+        ident = (meta.get("url") or meta.get("filename") or "")[:70]
+        if dry_run:
+            print(f"  [re-review] {ident}")
+            continue
+        try:
+            v = review_submission(sub_dir, provider=provider)
+            counts["reviewed"] += 1
+            print(f"  {v.get('recommendation','?'):12} | {ident}")
+        except Exception as e:
+            counts["error"] += 1
+            print(f"  ERROR {type(e).__name__}: {str(e)[:40]} | {ident}")
+    return counts
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--list", action="store_true", help="Nur Pending-Liste anzeigen")
     parser.add_argument("--id", help="Nur eine bestimmte Submission bearbeiten")
+    parser.add_argument("--accept-athena", action="store_true",
+                        help="Stapel: alle von Athena 'approve'-empfohlenen freigeben (Tier-Vorschlag)")
+    parser.add_argument("--reject-athena", action="store_true",
+                        help="Stapel: alle von Athena 'reject'-empfohlenen löschen")
+    parser.add_argument("--review-pending", action="store_true",
+                        help="Auto-Bewertung für Submissions ohne Verdict nachholen")
+    parser.add_argument("--provider", default="mistral", choices=["ollama", "mistral"],
+                        help="Provider für --review-pending (Default mistral)")
+    parser.add_argument("--max-tier", type=int, default=None,
+                        help="Bei --accept-athena nur Tier<=N automatisch freigeben, Rest manuell")
+    parser.add_argument("--dry-run", action="store_true", help="Nur zeigen, nichts ändern")
+    parser.add_argument("--allow-uvicorn", action="store_true",
+                        help="Schutz übergehen (NICHT empfohlen — Korruptionsrisiko)")
     args = parser.parse_args()
+
+    # SCHUTZ: Freigabe/Reject/Re-Review schreiben direkt in ChromaDB. Läuft uvicorn,
+    # droht dieselbe Index-Korruption wie beim Cleanup-Vorfall. Daher abbrechen.
+    writes = (args.accept_athena or args.reject_athena or args.review_pending
+              or not (args.list or args.dry_run))
+    if writes and not args.dry_run and not args.allow_uvicorn and _uvicorn_active():
+        sys.exit(
+            "[review] ABBRUCH: athena-uvicorn läuft — paralleler ChromaDB-Schreibzugriff "
+            "würde den Vektorindex beschädigen.\n"
+            "  Erst stoppen:  systemctl --user stop athena-uvicorn.service\n"
+            "  Danach Review, dann uvicorn wieder starten.\n"
+            "  (Override: --allow-uvicorn)"
+        )
 
     pending = list_pending()
     if not pending:
         print("Keine pending Submissions.")
         return
+
+    if args.review_pending:
+        print(f"[review] hole fehlende Auto-Bewertungen nach (provider={args.provider}) …")
+        print(review_pending_missing(pending, args.provider, args.dry_run))
+        pending = list_pending()  # Verdicts aktualisiert
+
+    if args.reject_athena:
+        print("[review] Stapel-Reject (Athena: reject) …")
+        print(batch_athena(pending, "reject", args.dry_run, None))
+        pending = list_pending()
+
+    if args.accept_athena:
+        print(f"[review] Stapel-Approve (Athena: approve{', Tier<=%d'%args.max_tier if args.max_tier else ''}) …")
+        print(batch_athena(pending, "approve", args.dry_run, args.max_tier))
+        pending = list_pending()
+
+    if args.accept_athena or args.reject_athena or args.review_pending:
+        return  # Stapel-Modus fertig — kein interaktiver Lauf
 
     if args.list:
         print(f"{len(pending)} pending Submission(s):\n")

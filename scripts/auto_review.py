@@ -84,7 +84,20 @@ def _fetch_sample(meta: dict, submission_dir: Path) -> tuple[str, str]:
         url = meta.get("url", "")
         try:
             import requests
-            r = requests.get(url, timeout=20, headers={"User-Agent": "Athena-KI/1.0 (+review)"})
+            headers = {"User-Agent": "Athena-KI/1.0 (+review)"}
+            # PDF-URLs: herunterladen + Text extrahieren (requests+Tag-Strip ergäbe
+            # nur Binär-Müll → LLM bewertet ins Leere → fälschlich needs_human/reject).
+            if urlparse(url).path.lower().endswith(".pdf"):
+                import tempfile
+                from pypdf import PdfReader
+                r = requests.get(url, timeout=30, headers={**headers, "Accept": "application/pdf,*/*"})
+                with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as tmp:
+                    tmp.write(r.content); tmp.flush()
+                    reader = PdfReader(tmp.name)
+                    text = " ".join((p.extract_text() or "") for p in reader.pages[:5])
+                text = re.sub(r"\s+", " ", text).strip()
+                return url, text[:4000] or "[PDF ohne extrahierbaren Text]"
+            r = requests.get(url, timeout=20, headers=headers)
             text = re.sub(r"<[^>]+>", " ", r.text)
             text = re.sub(r"\s+", " ", text).strip()
             return url, text[:4000]
@@ -116,7 +129,10 @@ def _ingest_as_tier0(meta: dict, submission_dir: Path, label: str, topics: str) 
     if topics:
         args.extend(["--topics", topics])
     if meta.get("kind") == "url":
-        args.extend(["--url", meta["url"], "--render"])
+        # KEIN erzwungenes --render: ingest_url() dispatcht PDF→PyPDFLoader bzw.
+        # HTML→WebBaseLoader und rendert nur bei Bedarf (Fallback). --render würde
+        # Playwright auch auf PDF-URLs zwingen ("Download is starting" → Fehler).
+        args.extend(["--url", meta["url"]])
     else:
         args.extend(["--file", str(submission_dir / meta["filename"])])
     try:
