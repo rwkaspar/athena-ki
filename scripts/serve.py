@@ -175,11 +175,21 @@ VACATION_MESSAGE = os.getenv(
 # einem Lock. Mistral ist eine externe API ohne dieses Limit → kein Lock.
 # Non-blocking: bei Auslastung sofort freundliche Meldung statt Crash/Timeout.
 _OLLAMA_INFERENCE_LOCK = threading.Lock()
+# Warteschlange: Anfragen warten der Reihe nach auf den einen Inferenz-Slot, statt
+# abgewiesen zu werden. Tiefe begrenzt → kein unbegrenztes Auflaufen (Crash-Schutz).
+_OLLAMA_QUEUE_LOCK = threading.Lock()
+_OLLAMA_QUEUE_DEPTH = 0  # aktuell wartende + aktive Ollama-Anfragen
+MAX_OLLAMA_QUEUE = int(os.getenv("ATHENA_MAX_QUEUE", "6"))  # 1 aktiv + 5 wartend
 BUSY_MESSAGE = os.getenv(
     "ATHENA_BUSY_MESSAGE",
     "⏳ Athena beantwortet gerade eine andere Anfrage. Der lokale Analyse-Server "
     "kann nur eine Anfrage zur Zeit bearbeiten — bitte versuche es in ein bis "
     "zwei Minuten erneut.",
+)
+QUEUE_FULL_MESSAGE = os.getenv(
+    "ATHENA_QUEUE_FULL_MESSAGE",
+    "⏳ Die Warteschlange ist gerade voll — zu viele gleichzeitige Anfragen. "
+    "Bitte versuche es in ein bis zwei Minuten erneut.",
 )
 
 ALLOWED_ORIGINS = [
@@ -467,11 +477,24 @@ def _collect_sources(scope: str) -> list[dict]:
     vectorstores, _ = _get_components(scope)
     by_source: dict[str, dict] = {}
     for collection_name, vs in vectorstores.items():
-        try:
-            data = vs.get()
-        except Exception:
-            continue
-        for meta in data.get("metadatas", []) or []:
+        # Paginiert lesen: ein einzelnes vs.get() über die ganze Collection sprengt
+        # ab ~32k Records die SQLite-Variablen-Grenze ("too many SQL variables").
+        # Nur Metadaten nötig (keine Dokumenttexte) → spart zusätzlich Speicher.
+        metadatas = []
+        offset, page = 0, 10000
+        while True:
+            try:
+                data = vs.get(include=["metadatas"], limit=page, offset=offset)
+            except Exception as e:
+                print(f"[sources] {collection_name} get(offset={offset}) Fehler: "
+                      f"{type(e).__name__}: {str(e)[:80]}", file=sys.stderr)
+                break
+            batch = data.get("metadatas") or []
+            metadatas.extend(batch)
+            if len(batch) < page:
+                break
+            offset += len(batch)
+        for meta in metadatas:
             src = (meta or {}).get("source") or "(unbekannt)"
             entry = by_source.setdefault(src, {
                 "source": src,
@@ -1087,16 +1110,30 @@ def _chat_event_stream(req: ChatRequest):
         # Tool-Loop in Honcho speichern können.
         full_assistant_text = ""
 
-        # Concurrency-Schutz: lokale Ollama-Inferenz serialisieren (aitest-RAM
-        # erlaubt nur 1 gleichzeitige athena-Inferenz). Mistral = externe API,
-        # kein Lock nötig. Non-blocking: bei Auslastung Busy-Meldung statt Crash.
+        # Concurrency-Schutz: lokale Ollama-Inferenz serialisieren (aitest erlaubt
+        # nur 1 gleichzeitige athena-Inferenz). Mistral = externe API, kein Lock.
+        # Warteschlange statt Abweisung: Anfragen warten der Reihe nach; Tiefe ist
+        # begrenzt (MAX_OLLAMA_QUEUE) → kein unbegrenztes Auflaufen (Crash-Schutz).
         lock_held = False
+        queued = False
         if provider == "ollama":
-            lock_held = _OLLAMA_INFERENCE_LOCK.acquire(blocking=False)
-            if not lock_held:
-                yield _ndjson({"type": "token", "text": BUSY_MESSAGE})
-                yield _ndjson({"type": "done", "elapsed_s": round(time.time() - start, 2), "busy": True})
-                return
+            global _OLLAMA_QUEUE_DEPTH
+            with _OLLAMA_QUEUE_LOCK:
+                if _OLLAMA_QUEUE_DEPTH >= MAX_OLLAMA_QUEUE:
+                    yield _ndjson({"type": "token", "text": QUEUE_FULL_MESSAGE})
+                    yield _ndjson({"type": "done", "elapsed_s": round(time.time() - start, 2), "queue_full": True})
+                    return
+                _OLLAMA_QUEUE_DEPTH += 1
+                position = _OLLAMA_QUEUE_DEPTH  # 1 = sofort dran
+            queued = True
+            if position > 1:
+                yield _ndjson({"type": "info",
+                               "message": f"In der Warteschlange (Position {position - 1} vor dir) — bleib dran."})
+            # Blockierend mit Timeout warten, dabei Keepalive senden (gegen CF-524)
+            while not lock_held:
+                lock_held = _OLLAMA_INFERENCE_LOCK.acquire(timeout=HEARTBEAT_INTERVAL)
+                if not lock_held:
+                    yield _ndjson({"type": "keepalive"})
         try:
             # Tool-Loop — bis zu MAX_TOOL_ITERATIONS Cycles
             for iteration in range(MAX_TOOL_ITERATIONS + 1):
@@ -1167,6 +1204,9 @@ def _chat_event_stream(req: ChatRequest):
         finally:
             if lock_held:
                 _OLLAMA_INFERENCE_LOCK.release()
+            if queued:
+                with _OLLAMA_QUEUE_LOCK:
+                    _OLLAMA_QUEUE_DEPTH -= 1
 
         # Honcho: User-Message + Assistant-Antwort speichern (best-effort)
         if memory_active and memory_session_id and full_assistant_text:
