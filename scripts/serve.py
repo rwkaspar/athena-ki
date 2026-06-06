@@ -1019,13 +1019,24 @@ def _chat_event_stream(req: ChatRequest):
         # eine Position als "vorhanden", wo der Probe themenfern gefiltert hat und das
         # LLM dann eine Haltung erfindet. Allein der themen-relevante Probe zählt.
         has_evidenz_position = bool(position_sources)
+        # source_meta: pro Quelle lesbarer Titel (für die Anzeige statt roher URL).
+        # title = kurzer Anzeigetitel, title_full = vollständiger Originaltitel (Hover).
+        source_meta = {}
         for d in docs + evidenz_docs:
             src = d.metadata.get("source", "?")
             if d.metadata.get("tier_rank") == 0:
                 has_unverified = True
             if src not in seen:
                 seen.append(src)
-        yield _ndjson({"type": "sources", "sources": seen, "provider": provider,
+            if src not in source_meta:
+                m = d.metadata or {}
+                source_meta[src] = {
+                    "title": m.get("title") or None,
+                    "title_full": m.get("title_full") or m.get("title") or None,
+                    "tier_label": m.get("tier_label"),
+                }
+        yield _ndjson({"type": "sources", "sources": seen, "source_meta": source_meta,
+                       "provider": provider,
                        "includes_unverified": has_unverified,
                        "includes_evidenz_position": has_evidenz_position})
 
