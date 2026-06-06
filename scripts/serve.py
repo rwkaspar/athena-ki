@@ -1070,6 +1070,26 @@ def _chat_event_stream(req: ChatRequest):
                 "dokumentierte Position beschlossen.' Liefere ausschließlich die neutrale "
                 "Faktenlage und Optionsanalyse, keine erfundene Position."
             )
+        # ACHSEN-GUARD (immer aktiv): Fragen nach eindimensionaler ideologischer
+        # Selbstverortung (links-rechts, progressiv-konservativ, "welches Lager",
+        # "wie SPD/Grüne/CDU/AfD") darf Athena NICHT beantworten, indem sie EVIDENZ
+        # selbst auf der Achse verortet — das wäre eine Wertung und widerspricht der
+        # Methode. EVIDENZ lehnt die eindimensionale Achse bewusst ab.
+        system_blocks.append(
+            "ACHSEN-FRAMING (zwingend): Wenn nach der Einordnung von EVIDENZ auf einer "
+            "Links-Rechts-Achse, im politischen Spektrum, in einem 'Lager', oder im "
+            "Vergleich zu anderen Parteien (SPD, Grüne, CDU, FDP, AfD, Linke …) gefragt "
+            "wird, ordne EVIDENZ NICHT selbst auf dieser Achse ein und vergib KEINE "
+            "Partei-Etiketten ('links', 'linksliberal', 'konservativ', 'wie SPD/Grüne'). "
+            "Übersetze auch den Wertekanon (§§) NICHT in Links-Rechts-Vokabular — der "
+            "Kanon ist bewusst orthogonal zur Achse. Weise das eindimensionale Framing "
+            "stattdessen transparent zurück: EVIDENZ verortet sich nicht auf der "
+            "Links-Rechts-Achse, sondern bewertet jedes Politikfeld evidenzbasiert anhand "
+            "der Wertannahmen des Kanons (§1–§7). Referiere dann die dokumentierten "
+            "Feld-Positionen NEUTRAL und ohne Partei-Label. Stelle klar: Ob jemand eine "
+            "einzelne Position EXTERN als 'links' oder 'rechts' liest, ist eine wertende "
+            "Fremdzuschreibung, nicht Teil der EVIDENZ-Position."
+        )
         # Bei Mistral hat das Modell keine eingebakene Persona — die kommt aus
         # SCOPE_PERSONA, vorne im SystemMessage-Stack.
         if provider == "mistral" and req.scope in SCOPE_PERSONA:
