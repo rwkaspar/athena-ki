@@ -195,6 +195,11 @@ def main():
         n = delete_source(args.scope, seed)
         grand["deleted_chunks"] += n
         grand["seeds"] += 1
+        # Audit: Entfernung einer echten Quelle protokollieren (einsehbar via /source-removals)
+        from source_audit import log_removal
+        log_removal(seed, reason="Navigations-/Index-Seite, keine echte Quelle — Inhalte als Einzelquellen geerntet",
+                    actor="cleanup_index_sources", n_chunks=n, scope=args.scope,
+                    extra={"harvested_docs": harvested})
         print(f"  🗑️  Index-Seite gelöscht ({n} chunks, {harvested} Dokumente geerntet)", file=sys.stderr)
 
     print(f"\nFertig. {json.dumps(grand, ensure_ascii=False)}")

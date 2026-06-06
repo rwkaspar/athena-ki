@@ -809,6 +809,17 @@ def submissions_log(limit: int = 50):
     return {"total": len(entries), "entries": entries[:limit]}
 
 
+@app.get("/source-removals")
+def source_removals(limit: int = 200):
+    """Öffentliches Entfernungs-Protokoll: welche ECHTEN Quellen mit welcher
+    Begründung aus der Wissensbasis entfernt wurden. Neueste zuerst.
+    (Leerer Müll/Orphans wird bewusst NICHT protokolliert.)"""
+    from source_audit import read_removals
+    limit = max(1, min(limit, 1000))
+    rows = read_removals(limit=limit)
+    return {"total": len(rows), "removals": rows}
+
+
 @app.get("/search")
 def search(q: str, k: int = 10, scope: str = DEFAULT_SCOPE):
     """Volltextsuche über beide Collections eines Scopes, ohne LLM."""
