@@ -246,6 +246,16 @@ def _get_components(scope: str, provider: str = None):
                 base_url=OLLAMA_HOST,
                 timeout=600,
                 reasoning=False,
+                # Niedrige Temperatur: ohne explizites Setzen nutzt Ollama Default
+                # 0.8 → das Modell paraphrasiert und lässt bei jedem Lauf andere
+                # konkrete Zahlen der EVIDENZ-Position weg (z.B. das 53%-Rentenniveau
+                # nur in ~1/4 der Läufe). Empirisch belegt: bei 0.1-0.3 bleiben alle
+                # Zahlen zuverlässig erhalten. Faktentreue > Kreativität.
+                temperature=float(os.getenv("ATHENA_OLLAMA_TEMPERATURE", "0.15")),
+                # Kontextfenster explizit setzen, damit die (am Ende angehängte)
+                # dokumentierte Position bei mehreren RAG-Quellen nicht abgeschnitten
+                # wird. Per Env anpassbar.
+                num_ctx=int(os.getenv("ATHENA_OLLAMA_NUM_CTX", "8192")),
                 # num_gpu=0 erzwingt CPU-Inferenz. Die iGPU via ROCm crasht unter
                 # Last bei großem RAG-Kontext ("model runner has unexpectedly
                 # stopped"), CPU ist stabil (siehe claude.md / Projekt-Setup).
@@ -1037,6 +1047,12 @@ def _chat_event_stream(req: ChatRequest):
                 "hat sich laut Parteiprogramm für … entschieden, weil …') — klar "
                 "getrennt von der neutralen Faktenlage/Optionsanalyse. Das ist KEINE "
                 "eigene Empfehlung von dir, sondern das Referieren eines Beschlusses. "
+                "ZAHLEN-TREUE (zwingend): Übernimm ALLE konkreten Zahlen, Prozentsätze, "
+                "Beträge und Jahreszahlen der dokumentierten Position WORTGETREU aus dem "
+                "Kontext (z. B. Rentenniveau 53 %, Demografie-Beitrag 2,5 %, Beitragssatz "
+                "21 %→18 %, Renteneintritt 67). Fasse die Position NICHT zusammenfassend "
+                "zusammen und lasse KEINE der genannten Zahlen weg — fehlende Zahlen sind "
+                "ein Fehler. Erfinde umgekehrt keine Zahlen, die nicht im Kontext stehen. "
                 "THEMEN-GATE: Präsentiere die dokumentierte Position NUR, wenn sie das "
                 "konkrete Thema der Frage tatsächlich behandelt. Behandelt sie ein "
                 "anderes Thema, schreibe ausdrücklich 'EVIDENZ hat zu dieser Frage noch "
