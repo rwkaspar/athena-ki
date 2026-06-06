@@ -780,6 +780,7 @@ CONTACT_LOG_FIELDS = (  # nur diese Felder gehen nach außen — NIE Einreicher-
     "id", "submitted_at", "reviewed_at", "source", "domain", "scope",
     "publisher", "publisher_trust", "relevant", "suggested_tier",
     "topics", "recommendation", "summary", "status", "verified",
+    "reject_reason", "tier", "updated_at",
 )
 SUBMISSIONS_LOG = SUBMISSIONS_DIR / "log.jsonl"
 
@@ -789,7 +790,11 @@ def submissions_log(limit: int = 50):
     """Öffentliches Prüf-Protokoll: anonymisierte Bewertungen eingereichter
     Quellen (kein source_ip, keine E-Mail). Neueste zuerst."""
     limit = max(1, min(limit, 200))
-    entries = []
+    # Pro Quelle (id) ALLE Log-Zeilen mergen — die Status-Updates (_log_status)
+    # hängen nur Teilfelder an; spätere Zeilen gewinnen. So entsteht je Quelle EIN
+    # aktueller Eintrag statt vieler Zwischenstände.
+    merged: dict[str, dict] = {}
+    order: list[str] = []
     if SUBMISSIONS_LOG.exists():
         try:
             lines = SUBMISSIONS_LOG.read_text(encoding="utf-8").splitlines()
@@ -803,10 +808,32 @@ def submissions_log(limit: int = 50):
                 rec = json.loads(line)
             except Exception:
                 continue
-            # nur whitelisted Felder rausgeben (defensive Anonymisierung)
-            entries.append({k: rec.get(k) for k in CONTACT_LOG_FIELDS if k in rec})
+            sid = rec.get("id")
+            if not sid:
+                continue
+            if sid not in merged:
+                merged[sid] = {}
+                order.append(sid)
+            merged[sid].update({k: v for k, v in rec.items() if v is not None})
+    entries = []
+    for sid in order:
+        rec = merged[sid]
+        st = str(rec.get("status", ""))
+        # Technische Ingest-Fehler sind KEINE Review-Entscheidung → nicht im Protokoll.
+        if st.startswith("ingest_failed"):
+            continue
+        entries.append({k: rec.get(k) for k in CONTACT_LOG_FIELDS if k in rec})
     entries.reverse()  # neueste zuerst
-    return {"total": len(entries), "entries": entries[:limit]}
+    counts = {"verified": 0, "rejected": 0, "pending": 0}
+    for e in entries:
+        st = str(e.get("status", ""))
+        if st == "rejected":
+            counts["rejected"] += 1
+        elif e.get("verified") or st == "verified":
+            counts["verified"] += 1
+        else:
+            counts["pending"] += 1
+    return {"total": len(entries), "counts": counts, "entries": entries[:limit]}
 
 
 @app.get("/source-removals")

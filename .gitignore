@@ -41,3 +41,10 @@ documents/nachrichten/
 # Eingereichte Quellen (User-Submissions, lokal verwaltet)
 submissions/
 contact/
+
+# Secrets & lokale Artefakte (nie committen)
+api.key
+*.key
+.env
+backups/
+logs/
