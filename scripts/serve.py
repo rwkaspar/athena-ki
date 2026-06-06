@@ -252,10 +252,13 @@ def _get_components(scope: str, provider: str = None):
                 # nur in ~1/4 der Läufe). Empirisch belegt: bei 0.1-0.3 bleiben alle
                 # Zahlen zuverlässig erhalten. Faktentreue > Kreativität.
                 temperature=float(os.getenv("ATHENA_OLLAMA_TEMPERATURE", "0.15")),
-                # Kontextfenster explizit setzen, damit die (am Ende angehängte)
-                # dokumentierte Position bei mehreren RAG-Quellen nicht abgeschnitten
-                # wird. Per Env anpassbar.
-                num_ctx=int(os.getenv("ATHENA_OLLAMA_NUM_CTX", "8192")),
+                # Kontextfenster: muss groß genug sein, dass der komplette Prompt
+                # (System + 3 Guards + bis zu 7 RAG-Quellen + volle EVIDENZ-Position
+                # + Gesprächshistorie) NICHT das ganze Fenster füllt — sonst bleibt
+                # kein Platz zum Generieren und die Antwort bricht nach 1 Token ab
+                # (vage Folgefragen holen viele Quellen → 8192 reichte nicht). 16384
+                # lässt ausreichend Generierungs-Spielraum; iGPU/GTT trägt den KV-Cache.
+                num_ctx=int(os.getenv("ATHENA_OLLAMA_NUM_CTX", "16384")),
                 # num_gpu=0 erzwingt CPU-Inferenz. Die iGPU via ROCm crasht unter
                 # Last bei großem RAG-Kontext ("model runner has unexpectedly
                 # stopped"), CPU ist stabil (siehe claude.md / Projekt-Setup).
@@ -308,6 +311,10 @@ class ChatRequest(BaseModel):
     include_unverified: bool = Field(
         default=False,
         description="Bei true werden auch unverifizierte (Tier-0) Quellen ins Retrieval einbezogen — öffentlich eingereicht, Athena-vorgeprüft, aber NICHT menschlich freigegeben. Default false (nur verifizierte Quellen).",
+    )
+    history: list[dict] | None = Field(
+        default=None,
+        description="Client-seitiger Gesprächsverlauf: Liste von {role: 'user'|'assistant', content: str} der vorigen Turns. Wird als echte Dialog-Nachrichten vor die aktuelle Frage gestellt, damit Folgefragen Kontext haben — ohne server-seitiges Memory (Honcho).",
     )
 
 
@@ -1137,8 +1144,31 @@ def _chat_event_stream(req: ChatRequest):
                         "message": f"Honcho-Memory: neue Session {memory_session_id} (keine History).",
                     })
 
+        # Client-seitiger Gesprächsverlauf (ohne Honcho): die vorigen Turns als
+        # echte Dialog-Nachrichten VOR die aktuelle (RAG-augmentierte) Frage stellen.
+        # Begrenzt auf die letzten Turns + Längen-Cap, damit num_ctx nicht überläuft.
+        HISTORY_MAX_MSGS = 8        # letzte 8 Nachrichten (~4 Turns)
+        HISTORY_MAX_CHARS = 2000    # pro Nachricht
+        history_msgs: list = []
+        if req.history:
+            for turn in req.history[-HISTORY_MAX_MSGS:]:
+                if not isinstance(turn, dict):
+                    continue
+                role = (turn.get("role") or "").lower()
+                content = (turn.get("content") or "").strip()[:HISTORY_MAX_CHARS]
+                if not content:
+                    continue
+                if role in ("user", "human"):
+                    history_msgs.append(HumanMessage(content=content))
+                elif role in ("assistant", "ai", "athena"):
+                    history_msgs.append(AIMessage(content=content))
+            if history_msgs:
+                yield _ndjson({"type": "info",
+                               "message": f"Gesprächskontext: {len(history_msgs)} vorige Nachricht(en) berücksichtigt."})
+
         messages: list = [
             SystemMessage(content="\n\n".join(system_blocks)),
+            *history_msgs,
             HumanMessage(content=user_prompt),
         ]
 
