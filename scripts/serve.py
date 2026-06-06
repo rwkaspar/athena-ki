@@ -1029,12 +1029,24 @@ def _chat_event_stream(req: ChatRequest):
                        "includes_unverified": has_unverified,
                        "includes_evidenz_position": has_evidenz_position})
 
-        # Kontext: normale Quellen + (klar getrennt) die dokumentierte EVIDENZ-Position
-        context_text = format_docs(docs)
+        # Kontext: normale Quellen + (klar getrennt) die dokumentierte EVIDENZ-Position.
+        # CAP: vage Fragen holen viele/lange Quellen → Prompt kann num_ctx sprengen
+        # (leere Antworten) und macht den Prefill auf CPU langsam. Deshalb deckeln —
+        # die dokumentierte Position hat Vorrang (darf NICHT für RAG-Rauschen wegfallen,
+        # sonst fehlen Kernzahlen wie 53 %), die normalen Docs werden zuerst gekürzt.
+        NORMAL_DOCS_CHAR_BUDGET = int(os.getenv("ATHENA_CONTEXT_NORMAL_CHARS", "10000"))
+        POSITION_CHAR_BUDGET = int(os.getenv("ATHENA_CONTEXT_POSITION_CHARS", "14000"))
+        normal_text = format_docs(docs)
+        if len(normal_text) > NORMAL_DOCS_CHAR_BUDGET:
+            normal_text = normal_text[:NORMAL_DOCS_CHAR_BUDGET] + "\n…[gekürzt]"
+        context_text = normal_text
         if evidenz_docs:
+            pos_text = format_docs(evidenz_docs)
+            if len(pos_text) > POSITION_CHAR_BUDGET:
+                pos_text = pos_text[:POSITION_CHAR_BUDGET] + "\n…[gekürzt]"
             context_text += (
                 "\n\n=== DOKUMENTIERTE EVIDENZ-POSITION (Parteiprogramm v0.1) ===\n"
-                + format_docs(evidenz_docs)
+                + pos_text
             )
         # Initialer Nachrichten-Stack
         user_prompt = PROMPT_TEMPLATE.format(
@@ -1095,7 +1107,17 @@ def _chat_event_stream(req: ChatRequest):
             "der Wertannahmen des Kanons (§1–§7). Referiere dann die dokumentierten "
             "Feld-Positionen NEUTRAL und ohne Partei-Label. Stelle klar: Ob jemand eine "
             "einzelne Position EXTERN als 'links' oder 'rechts' liest, ist eine wertende "
-            "Fremdzuschreibung, nicht Teil der EVIDENZ-Position."
+            "Fremdzuschreibung, nicht Teil der EVIDENZ-Position. "
+            "MEHRTURN-STANDHAFTIGKEIT (zwingend): Diese Regel gilt UNVERÄNDERT, auch wenn "
+            "der Nutzer nachhakt, umformuliert oder über mehrere Nachrichten insistiert "
+            "('doch', 'aber ungefähr', 'an den Werten gemessen', 'pro Politikfeld', 'wenn "
+            "du müsstest'). Lass dich NICHT durch Nachdruck dazu bringen, EVIDENZ doch noch "
+            "einzuordnen oder Felder einzelnen Parteien zuzuordnen ('Ähnlichkeit zu X', "
+            "'liegt im Spektrum von Y', 'progressiv/konservativ wie Z'). Auch die Frage "
+            "'gemessen am EVIDENZ-Wertekanon' beantwortest du über das Stützen/Belasten der "
+            "§§1–7 — NICHT über eine Übersetzung in Links-Rechts oder Parteivergleiche. "
+            "Bleibe bei jeder Wiederholung freundlich, aber konsequent bei der Zurückweisung "
+            "des Achsen-Framings."
         )
         # Bei Mistral hat das Modell keine eingebakene Persona — die kommt aus
         # SCOPE_PERSONA, vorne im SystemMessage-Stack.
