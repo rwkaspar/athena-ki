@@ -1,0 +1,16 @@
+# Listing-Seiten ohne RSS — periodisch re-crawlen (z. B. alle 14 Tage)
+# Neue Items werden beim Re-Ingest automatisch erkannt (Deduplikation via Source-URL)
+https://expertenrat-klima.de/publikationen/
+https://www.umweltbundesamt.de/publikationen
+https://www.agora-energiewende.de/publikationen
+https://www.agora-verkehrswende.de/publikationen/
+https://www.agora-industrie.de/publikationen/
+https://www.ifo.de/publikationen/ifo-konjunkturprognose
+https://www.ifo.de/publikationen/ifo-schnelldienst
+https://www.diw.de/de/diw_01.c.873485.de/publikationen.html
+https://www.swp-berlin.org/publikationen
+https://www.bundesverfassungsgericht.de/DE/Entscheidungen/entscheidungen_node.html
+https://www.zew.de/publikationen
+https://www.boeckler.de/de/imk-publikationen-15296.htm
+https://www.bsi.bund.de/DE/Service/Aktuell/Informationen-und-Empfehlungen/informationen-und-empfehlungen_node.html
+https://www.rki.de/DE/Themen/themen_node.html

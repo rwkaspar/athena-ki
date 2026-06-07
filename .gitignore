@@ -49,3 +49,5 @@ api.key
 backups/
 logs/
 .chroma_mode
+*.bak
+*.bak-*

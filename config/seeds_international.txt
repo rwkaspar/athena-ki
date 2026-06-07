@@ -1,0 +1,107 @@
+# Athena — Internationale Forschungs- und Studienquellen
+# ------------------------------------------------------
+# Seed-URLs für rss_watch.py / crawl.py / manuelles Einreichen.
+# Jede Quelle landet als Tier-0-Submission und durchläuft auto_review.py, das
+# - publisher_trust prüft,
+# - thematische Topics setzt,
+# - country + transferability_de bewertet (siehe REVIEW_SCHEMA_HINT).
+# Verifizierter Tier-Rang wird erst durch menschliche Freigabe vergeben.
+#
+# Format: ein URL pro Zeile, Kommentar mit "#". Leerzeilen / Sektions-Header
+# erlaubt — Crawler ignoriert alles vor dem ersten "http".
+#
+# Auswahl-Kriterium: institutionelle Forschungsquellen mit nachvollziehbarer
+# Methodik, in der jeweiligen Politikdebatte zitiert. KEINE Think-Tanks mit
+# verdeckter Finanzierung, keine reinen Advocacy-Seiten.
+
+# === 1. Wirtschaft / Fiskal / Geldpolitik ===
+https://www.oecd.org/en/topics/economic-policy.html
+https://www.oecd.org/en/publications/oecd-economic-surveys-germany.html
+https://www.imf.org/en/Publications/WEO
+https://www.imf.org/en/Countries/DEU
+https://www.worldbank.org/en/research
+https://www.ecb.europa.eu/pub/research/working-papers/html/index.en.html
+https://www.bis.org/forum/research.htm
+https://www.nber.org/papers
+https://ifs.org.uk/publications
+https://www.cesifo.org/en/publications/working-papers
+https://cepr.org/publications/discussion-papers
+
+# === 2. Klima / Energie / Umwelt ===
+https://www.iea.org/reports
+https://www.irena.org/publications
+https://www.ipcc.ch/reports/
+https://www.unep.org/resources
+https://www.carbonbrief.org/
+https://www.rff.org/publications/
+https://www.iisd.org/publications
+https://about.bnef.com/blog/
+https://www.lse.ac.uk/granthaminstitute/publications/
+
+# === 3. Sozialpolitik / Arbeit / Rente / BGE ===
+https://www.ilo.org/global/research/publications/lang--en/index.htm
+https://www.oecd.org/en/topics/social-policy.html
+https://www.oecd.org/en/topics/pensions.html
+https://www.iza.org/publications/dp
+https://www.povertyactionlab.org/evaluations
+# BGE-Experimente:
+https://www.kela.fi/web/en/basic-income-experiment
+https://www.givedirectly.org/research-at-give-directly/
+https://basicincome.stanford.edu/research/
+https://www.brookings.edu/topic/poverty-and-inequality/
+
+# === 4. Migration / Asyl / Integration ===
+https://www.oecd.org/en/topics/migration.html
+https://www.migrationpolicy.org/research
+https://www.unhcr.org/global-trends
+https://www.iom.int/publications
+https://wol.iza.org/topics/migration-policy
+
+# === 5. Gesundheit / Public Health ===
+https://www.who.int/publications
+https://www.commonwealthfund.org/publications
+https://www.kff.org/health-policy-101/
+https://www.thelancet.com/journals/lanpub/home
+
+# === 6. KI / Digitalpolitik ===
+https://hai.stanford.edu/research/publications
+https://www.adalovelaceinstitute.org/our-work/
+https://www.brookings.edu/topic/artificial-intelligence/
+https://oecd.ai/en/wonk/documents
+https://cdt.org/insights/
+
+# === 7. Verteidigung / Sicherheit / Außenpolitik ===
+https://www.sipri.org/publications
+https://www.rand.org/topics/national-security.html
+https://www.iiss.org/publications/
+https://www.atlanticcouncil.org/issue/security-and-defense/
+https://carnegieendowment.org/research/?lang=en
+https://ecfr.eu/publications/
+
+# === 8. Demografie / Bevölkerung ===
+https://population.un.org/wpp/
+https://www.iiasa.ac.at/web/home/research/researchPrograms/PopulationandJustSocietiesProgram.html
+https://www.prb.org/resources/
+
+# === 9. Bildung / PISA / Hochschule ===
+https://www.oecd.org/en/topics/policy-issues/education.html
+https://pisa.oecd.org/
+https://timssandpirls.bc.edu/
+https://www.worldbank.org/en/topic/education
+
+# === 10. Steuern / Schuldenbremse / Fiskalregeln ===
+https://www.imf.org/en/Topics/fiscal-policies
+https://www.taxpolicycenter.org/publications
+https://eml.berkeley.edu/~saez/
+https://wid.world/news-article/
+
+# === 11. Rechtsstaat / Korruption / Demokratie ===
+https://www.transparency.org/en/cpi
+https://www.idea.int/data-tools/data/global-state-democracy-indices
+https://www.v-dem.net/data/
+https://freedomhouse.org/report/freedom-world
+
+# === 12. Vergleichende Politikfeldanalyse (umbrella) ===
+https://www.oecd.org/en/publications.html
+https://ec.europa.eu/info/publications_en
+https://www.epc.eu/en/publications
