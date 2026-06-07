@@ -56,11 +56,10 @@ def _update_tier0_chunks(meta: dict, new_tier: int, label: str) -> int:
 
     Eingereichte Quellen sind nach auto_review bereits als Tier 0 in der DB —
     die Freigabe ändert nur das tier_rank-Metadatum, kein Re-Ingest nötig."""
-    import chromadb
-    from retrieval import collection_names_for
+    from retrieval import collection_names_for, get_chroma_client
     scope = meta.get("scope", "pfofeld")
     source_url = meta.get("url") if meta.get("kind") == "url" else None
-    client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
+    client = get_chroma_client()
     affected = 0
     for coll_name in collection_names_for(scope):
         try:
@@ -360,11 +359,15 @@ def main():
                         help="Schutz übergehen (NICHT empfohlen — Korruptionsrisiko)")
     args = parser.parse_args()
 
-    # SCHUTZ: Freigabe/Reject/Re-Review schreiben direkt in ChromaDB. Läuft uvicorn,
-    # droht dieselbe Index-Korruption wie beim Cleanup-Vorfall. Daher abbrechen.
+    # SCHUTZ: Freigabe/Reject/Re-Review schreiben direkt in ChromaDB. Im EMBEDDED-
+    # Modus droht bei laufendem uvicorn Index-Korruption (Cleanup-Vorfall) → abbrechen.
+    # Im SERVER-Modus (chroma_server_mode) serialisiert der Server die Zugriffe →
+    # paralleles Reviewen ist sicher, kein Stopp nötig.
+    from retrieval import chroma_server_mode
     writes = (args.accept_athena or args.reject_athena or args.review_pending
               or not (args.list or args.dry_run))
-    if writes and not args.dry_run and not args.allow_uvicorn and _uvicorn_active():
+    if (writes and not args.dry_run and not args.allow_uvicorn
+            and not chroma_server_mode() and _uvicorn_active()):
         sys.exit(
             "[review] ABBRUCH: athena-uvicorn läuft — paralleler ChromaDB-Schreibzugriff "
             "würde den Vektorindex beschädigen.\n"

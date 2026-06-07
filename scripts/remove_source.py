@@ -21,6 +21,7 @@ import sys
 
 os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 import chromadb
+from retrieval import get_chroma_client, chroma_server_mode
 from source_audit import log_removal
 
 DB = os.path.join(os.path.dirname(__file__), "..", "athena-db")
@@ -37,7 +38,7 @@ def main():
     ap.add_argument("--force", action="store_true", help="auch bei aktivem uvicorn löschen")
     a = ap.parse_args()
 
-    client = chromadb.PersistentClient(path=DB)
+    client = get_chroma_client()
     per = {}
     total = 0
     for cn in SCOPE_COLLECTIONS[a.scope]:
@@ -60,12 +61,14 @@ def main():
         print("\n(DRY-RUN — nichts gelöscht. Mit --apply ausführen, uvicorn vorher stoppen.)")
         return
 
-    active = subprocess.run(["systemctl", "--user", "is-active", "athena-uvicorn"],
-                            capture_output=True, text=True).stdout.strip()
-    if active == "active" and not a.force:
-        print("\n[ABBRUCH] athena-uvicorn ist AKTIV — erst stoppen "
-              "(systemctl --user stop athena-uvicorn) oder --force.", file=sys.stderr)
-        sys.exit(1)
+    # Im Server-Modus serialisiert der Chroma-Server die Zugriffe → kein Stopp nötig.
+    if not chroma_server_mode():
+        active = subprocess.run(["systemctl", "--user", "is-active", "athena-uvicorn"],
+                                capture_output=True, text=True).stdout.strip()
+        if active == "active" and not a.force:
+            print("\n[ABBRUCH] athena-uvicorn ist AKTIV — erst stoppen "
+                  "(systemctl --user stop athena-uvicorn) oder --force.", file=sys.stderr)
+            sys.exit(1)
 
     for cn, ids in per.items():
         if ids:

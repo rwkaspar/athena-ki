@@ -14,9 +14,49 @@ zum Scope passenden Tier-YAML schreibt. Boost-Werte sind LLM-/Domain-Tuning,
 nicht Quellen-Pflege — daher hier im Code, nicht in der YAML.
 """
 
+import os
 import re
 
+import chromadb
 from langchain_chroma import Chroma
+
+_HERE = os.path.dirname(__file__)
+_DB_PATH = os.path.join(_HERE, "..", "athena-db")
+_MODE_MARKER = os.path.join(_HERE, "..", ".chroma_mode")
+
+
+def _chroma_mode() -> str:
+    """'http' (Server-Modus) oder 'embedded'. Reihenfolge: Env ATHENA_CHROMA_HTTP
+    überschreibt, sonst Marker-Datei .chroma_mode, sonst 'embedded' (Fallback).
+    Die Marker-Datei sorgt dafür, dass ALLE Zugreifer (uvicorn + CLI-Skripte)
+    denselben Modus nutzen — sonst öffnet ein Script embedded und kollidiert mit
+    dem Server (genau die Korruption, die wir vermeiden wollen)."""
+    v = os.getenv("ATHENA_CHROMA_HTTP")
+    if v is not None:
+        return "http" if v == "1" else "embedded"
+    try:
+        with open(_MODE_MARKER) as f:
+            return f.read().strip().lower() or "embedded"
+    except FileNotFoundError:
+        return "embedded"
+
+
+def chroma_server_mode() -> bool:
+    """True, wenn ChromaDB im Server-Modus läuft. Dann sind parallele Writes
+    sicher (der Server serialisiert) → CLI-Skripte müssen uvicorn NICHT stoppen."""
+    return _chroma_mode() == "http"
+
+
+def get_chroma_client():
+    """Gemeinsamer ChromaDB-Client für uvicorn UND CLI-Skripte.
+    Server-Modus → HttpClient (ein Besitzer-Server serialisiert Zugriffe →
+    parallele Reads/Writes ohne Korruption, KEIN uvicorn-Stopp). Sonst embedded."""
+    if _chroma_mode() == "http":
+        return chromadb.HttpClient(
+            host=os.getenv("ATHENA_CHROMA_HOST", "127.0.0.1"),
+            port=int(os.getenv("ATHENA_CHROMA_PORT", "8001")),
+        )
+    return chromadb.PersistentClient(path=os.getenv("ATHENA_CHROMA_PATH") or _DB_PATH)
 
 # Primärquellen schlagen knapp ähnlich-relevante Sekundärquellen, werden aber
 # von deutlich besser passenden Tier-2/3-Chunks überstimmt (Soft-Preference).
@@ -52,6 +92,16 @@ def get_vectorstores(embeddings, persist_dir: str, scope: str = "pfofeld") -> di
     arbeiten können), die tatsächlichen Collection-Namen werden über die
     Scope-Map aufgelöst."""
     real_names = collection_names_for(scope)
+    if _chroma_mode() == "http":
+        client = get_chroma_client()
+        return {
+            canonical: Chroma(
+                client=client,
+                collection_name=real,
+                embedding_function=embeddings,
+            )
+            for canonical, real in zip(("static", "fresh"), real_names)
+        }
     return {
         canonical: Chroma(
             collection_name=real,

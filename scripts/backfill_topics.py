@@ -21,7 +21,7 @@ from pathlib import Path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import chromadb
-from retrieval import collection_names_for
+from retrieval import collection_names_for, get_chroma_client
 
 CHROMA_DB_DIR = Path(__file__).parent.parent / "athena-db"
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
@@ -77,7 +77,7 @@ def main():
     p.add_argument("--dry-run", action="store_true", help="nur anzeigen, nicht schreiben")
     args = p.parse_args()
 
-    client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
+    client = get_chroma_client()
     llm = None if args.dry_run else _build_llm(args.provider)
 
     # Quellen pro Collection sammeln: source → (chunk_ids, sample, title, hat_topics)

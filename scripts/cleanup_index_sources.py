@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import chromadb
 from crawl import crawl
 from auto_review import review_submission
-from retrieval import collection_names_for
+from retrieval import collection_names_for, get_chroma_client
 
 CHROMA_DB_DIR = Path(__file__).parent.parent / "athena-db"
 SUBMISSIONS_DIR = Path(__file__).parent.parent / "submissions"
@@ -71,7 +71,7 @@ def rank_documents(docs: list[dict]) -> list[dict]:
 
 
 def find_index_sources(scope: str) -> list[str]:
-    client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
+    client = get_chroma_client()
     urls = set()
     for coll_name in collection_names_for(scope):
         try:
@@ -86,7 +86,7 @@ def find_index_sources(scope: str) -> list[str]:
 
 
 def delete_source(scope: str, url: str) -> int:
-    client = chromadb.PersistentClient(path=str(CHROMA_DB_DIR))
+    client = get_chroma_client()
     n = 0
     for coll_name in collection_names_for(scope):
         try:
@@ -129,10 +129,11 @@ def main():
                    help="Schutz übergehen und trotz laufendem uvicorn ingestieren (NICHT empfohlen)")
     args = p.parse_args()
 
-    # SCHUTZ gegen DB-Korruption: ChromaDB verträgt keinen parallelen Multi-Prozess-
-    # Schreibzugriff. Läuft uvicorn (hält dieselbe DB offen), würde der Bulk-Ingest
-    # den hnswlib-Index zerstören (siehe Vorfall bund_fresh). Daher abbrechen.
-    if not args.dry_run and not args.allow_uvicorn:
+    # SCHUTZ gegen DB-Korruption: ChromaDB (embedded) verträgt keinen parallelen
+    # Multi-Prozess-Schreibzugriff. Im SERVER-Modus serialisiert der Chroma-Server
+    # die Zugriffe → kein Stopp nötig, Guard übersprungen.
+    from retrieval import chroma_server_mode
+    if not args.dry_run and not args.allow_uvicorn and not chroma_server_mode():
         import subprocess
         try:
             active = subprocess.run(

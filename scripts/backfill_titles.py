@@ -16,6 +16,7 @@ Der --apply-Pfad bricht ab, wenn athena-uvicorn aktiv ist (Override: --force).
 import os, sys, re, subprocess
 os.environ.setdefault("ANONYMIZED_TELEMETRY", "False")
 import chromadb
+from retrieval import get_chroma_client, chroma_server_mode
 
 DB = os.path.join(os.path.dirname(__file__), "..", "athena-db")
 APPLY = "--apply" in sys.argv
@@ -77,7 +78,7 @@ def derive_from_text(text: str):
 
 
 def main():
-    client = chromadb.PersistentClient(path=DB)
+    client = get_chroma_client()
     # source -> {ids_by_collection, current_title, first_text, first_idx}
     src = {}
     for cname in [c.name for c in client.list_collections()]:
@@ -137,13 +138,14 @@ def main():
         print("\n(DRY-RUN — nichts geschrieben. Mit --apply ausführen, uvicorn vorher stoppen.)")
         return
 
-    # Schreibschutz
-    active = subprocess.run(["systemctl", "--user", "is-active", "athena-uvicorn"],
-                            capture_output=True, text=True).stdout.strip()
-    if active == "active" and not FORCE:
-        print("\n[ABBRUCH] athena-uvicorn ist AKTIV — erst stoppen "
-              "(systemctl --user stop athena-uvicorn) oder --force.", file=sys.stderr)
-        sys.exit(1)
+    # Schreibschutz nur im embedded-Modus — im Server-Modus sind parallele Writes sicher.
+    if not chroma_server_mode():
+        active = subprocess.run(["systemctl", "--user", "is-active", "athena-uvicorn"],
+                                capture_output=True, text=True).stdout.strip()
+        if active == "active" and not FORCE:
+            print("\n[ABBRUCH] athena-uvicorn ist AKTIV — erst stoppen "
+                  "(systemctl --user stop athena-uvicorn) oder --force.", file=sys.stderr)
+            sys.exit(1)
 
     written = 0
     for cname in {c for _, _, _, _, cols in plan for c in cols}:
