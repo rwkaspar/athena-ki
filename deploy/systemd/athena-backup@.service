@@ -1,0 +1,7 @@
+[Unit]
+Description=Athena Backup (%i) → NAS
+After=network-online.target athena-chroma.service
+
+[Service]
+Type=oneshot
+ExecStart=/home/robert/athena-ki/scripts/backup_athena.sh %i

@@ -51,3 +51,4 @@ logs/
 .chroma_mode
 *.bak
 *.bak-*
+.backup.env

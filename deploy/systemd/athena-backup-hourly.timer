@@ -1,0 +1,8 @@
+[Unit]
+Description=Athena Backup hourly (alle 4h)
+[Timer]
+OnCalendar=*-*-* 00/4:00:00
+Persistent=true
+Unit=athena-backup@hourly.service
+[Install]
+WantedBy=timers.target

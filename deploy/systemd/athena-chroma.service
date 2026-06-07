@@ -1,0 +1,12 @@
+[Unit]
+Description=Athena ChromaDB Server (Single-Owner, ersetzt embedded-Zugriff)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/robert/athena-ki/athena-env/bin/chroma run --path /home/robert/athena-ki/athena-db --host 127.0.0.1 --port 8001
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target
