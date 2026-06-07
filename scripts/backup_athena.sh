@@ -44,7 +44,7 @@ ls -1t "$STAGE/$TIER"/athena_${TIER}_*.tar.gz 2>/dev/null | tail -n +$((KEEP+1))
 
 # Push zum NAS (rsync-Daemon-Protokoll, kein SSH).
 if [ -n "${NAS_RSYNC_TARGET:-}" ] && [ -n "${RSYNC_PASSWORD:-}" ]; then
-  RSYNC_PASSWORD="$RSYNC_PASSWORD" rsync -a --timeout=120 \
+  RSYNC_PASSWORD="$RSYNC_PASSWORD" rsync -a --mkpath --timeout=120 \
     "$ARCHIVE" "${NAS_RSYNC_TARGET%/}/$TIER/"
   echo "[backup] ✅ Synced to NAS ($TIER)"
 else
