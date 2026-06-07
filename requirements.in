@@ -14,3 +14,4 @@ html2text
 fastapi
 uvicorn
 python-multipart
+langchain-mistralai

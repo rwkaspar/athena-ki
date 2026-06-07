@@ -1,82 +1,223 @@
-# Quellen-Hierarchie für Athena Bundesebene.
-# Gleiche Struktur wie source_tiers.yaml (Pfofeld), aber mit bundesweiten Domains.
-
 tiers:
-  - rank: 1
-    label: primary_legal_bund
-    description: Grundgesetz, Bundesgesetze, Verfassungsgericht
-    domains:
-      - gesetze-im-internet.de
-      - bundesverfassungsgericht.de
-      - bundesgerichtshof.de
-      - bgbl.de
-      - eur-lex.europa.eu
-
-  - rank: 1
-    label: primary_statistics_bund
-    description: Amtliche Statistik Bund und Eurostat
-    domains:
-      - destatis.de
-      - statistikportal.de
-      - ec.europa.eu
-      - bundesbank.de
-
-  - rank: 1
-    label: primary_parliament_bund
-    description: Bundestag, Bundesrat, Drucksachen, Plenarprotokolle
-    domains:
-      - bundestag.de
-      - bundesrat.de
-      - dipbt.bundestag.de
-      - europarl.europa.eu
-
-  - rank: 1
-    label: primary_government_bund
-    description: Bundesregierung, Ministerien, Bundeshaushalt
-    domains:
-      - bundesregierung.de
-      - bundesministerium.de
-      - bundeshaushalt.de
-      - bmwk.de
-      - bmf.de
-      - bmas.de
-      - bmi.de
-      - auswaertiges-amt.de
-      - bmbf.de
-      - bmuv.de
-
-  - rank: 1
-    label: primary_expert_bund
-    description: Wissenschaftliche Beiräte, Sachverständigenrat, Bundesrechnungshof, Monopolkommission
-    domains:
-      - sachverstaendigenrat-wirtschaft.de
-      - svr-migration.de
-      - bundesrechnungshof.de
-      - monopolkommission.de
-
-  - rank: 2
-    label: national_media
-    description: Überregionale Qualitätsmedien
-    domains:
-      - sueddeutsche.de
-      - faz.net
-      - tagesschau.de
-      - zeit.de
-      - spiegel.de
-      - handelsblatt.com
-      - dlf.de
-      - deutschlandfunk.de
-
-  - rank: 2
-    label: international_media
-    description: Internationale Qualitätsmedien (für Vergleichsfälle)
-    domains:
-      - politico.eu
-      - reuters.com
-      - bloomberg.com
-      - bbc.com
-      - ft.com
-
+- rank: 1
+  label: primary_legal_bund
+  description: Grundgesetz, Bundesgesetze, Verfassungsgericht
+  domains:
+  - gesetze-im-internet.de
+  - bundesverfassungsgericht.de
+  - bundesgerichtshof.de
+  - bgbl.de
+  - eur-lex.europa.eu
+- rank: 1
+  label: primary_statistics_bund
+  description: Amtliche Statistik Bund und Eurostat
+  domains:
+  - destatis.de
+  - statistikportal.de
+  - ec.europa.eu
+  - bundesbank.de
+- rank: 1
+  label: primary_parliament_bund
+  description: Bundestag, Bundesrat, Drucksachen, Plenarprotokolle
+  domains:
+  - bundestag.de
+  - bundesrat.de
+  - dipbt.bundestag.de
+  - europarl.europa.eu
+- rank: 1
+  label: primary_government_bund
+  description: Bundesregierung, Ministerien, Bundeshaushalt
+  domains:
+  - bundesregierung.de
+  - bundesministerium.de
+  - bundeshaushalt.de
+  - bmwk.de
+  - bmf.de
+  - bmas.de
+  - bmi.de
+  - auswaertiges-amt.de
+  - bmbf.de
+  - bmuv.de
+- rank: 1
+  label: primary_expert_bund
+  description: Gesetzlich oder regierungsamtlich bestellte Sachverständigenräte und
+    Rechnungshöfe
+  domains:
+  - sachverstaendigenrat-wirtschaft.de
+  - svr-migration.de
+  - umweltrat.de
+  - wbgu.de
+  - expertenrat-klima.de
+  - leopoldina.org
+  - acatech.de
+  - bundesrechnungshof.de
+  - monopolkommission.de
+  - ethikrat.org
+  - bibb.de
+  - svrbildung.de
+- rank: 1
+  label: primary_agency_bund
+  description: Bundesoberbehörden und nachgeordnete Fachbehörden
+  domains:
+  - bundesbank.de
+  - bafa.de
+  - uba.de
+  - dwd.de
+  - bafg.de
+  - bfn.de
+  - kba.de
+  - bag.bund.de
+  - destatis.de
+  - bnetza.de
+  - bafin.de
+  - rki.de
+  - pei.de
+  - bfr.bund.de
+  - bsi.bund.de
+  - bka.de
+  - bsh.de
+  - bamf.de
+  - bfdi.bund.de
+  - bmvg.de
+  - bundeswehr.de
+  - kfw.de
+  - bundesfinanzministerium.de
+  - statistik.arbeitsagentur.de
+  - lobbyregister.bundestag.de
+  - umweltbundesamt.de
+- rank: 1
+  label: primary_science_bund
+  description: Forschungseinrichtungen und wissenschaftliche Institute mit überparteilichem
+    Auftrag
+  domains:
+  - pik-potsdam.de
+  - iass-potsdam.de
+  - mcc-berlin.net
+  - diw.de
+  - ifo.de
+  - iwkoeln.de
+  - rwi-essen.de
+  - zew.de
+  - dgap.org
+  - swp-berlin.org
+  - giga-hamburg.de
+  - hsfk.de
+  - mpg.de
+  - helmholtz.de
+  - leibniz-gemeinschaft.de
+  - fraunhofer.de
+  - wzb.eu
+  - iab.de
+  - ifsh.de
+  - boeckler.de
+  - bicc.de
+  - dipf.de
+  - iqb.hu-berlin.de
+  - stifterverband.org
+  - rusi.org
+  - carnegieendowment.org
+- rank: 1
+  label: primary_international_bund
+  description: Internationale Gremien, Behörden und Vergleichsdaten (UN, EU, OECD,
+    Partnerstaaten)
+  domains:
+  - ipcc.ch
+  - unhcr.org
+  - sipri.org
+  - oecd.org
+  - oecd.ai
+  - coe.int
+  - wid.world
+  - frontex.europa.eu
+  - insee.fr
+  - hatvp.fr
+  - autoriteitpersoonsgegevens.nl
+  - robodebt.royalcommission.gov.au
+  - skatteverket.se
+  - skatteetaten.no
+  - estv.admin.ch
+  - imf.org
+  - worldbank.org
+  - eba.europa.eu
+  - eiopa.europa.eu
+  - curia.europa.eu
+  - citizensassembly.ie
+  - kmk.org
+- rank: 2
+  label: party_foundations
+  description: Parteinahe Stiftungen — methodisch wertvoll, aber definitionsgemäß
+    nicht überparteilich; daher Tier 2 statt Tier 1
+  domains:
+  - kas.de
+  - fes.de
+  - boell.de
+  - rosalux.de
+  - freiheit.org
+  - hss.de
+  - desiderius-erasmus-stiftung.de
+- rank: 2
+  label: policy_think_tanks
+  description: Politische Think Tanks und NGOs mit programmatischer Ausrichtung (überparteilich,
+    aber agenda-getrieben)
+  domains:
+  - agora-energiewende.de
+  - agora-verkehrswende.de
+  - agora-industrie.de
+  - agora-international.de
+  - mercator.org
+  - bertelsmann-stiftung.de
+  - germanwatch.org
+  - oeko.de
+  - dezernatzukunft.org
+  - algorithmwatch.org
+  - transparency.de
+  - mehr-demokratie.de
+  - mediendienst-integration.de
+  - der-paritaetische.de
+  - diakonie.de
+  - caritas.de
+  - bpb.de
+- rank: 2
+  label: national_media
+  description: Überregionale Qualitätsmedien
+  domains:
+  - sueddeutsche.de
+  - faz.net
+  - tagesschau.de
+  - zeit.de
+  - spiegel.de
+  - handelsblatt.com
+  - dlf.de
+  - deutschlandfunk.de
+- rank: 2
+  label: international_media
+  description: Internationale Qualitätsmedien (für Vergleichsfälle)
+  domains:
+  - politico.eu
+  - reuters.com
+  - bloomberg.com
+  - bbc.com
+  - ft.com
+- rank: 1
+  label: primary_health_bund
+  description: Bundesoberbehörden + GKV-Strukturen + medizinische Selbstverwaltung
+  domains:
+  - rki.de
+  - pei.de
+  - bfarm.de
+  - kbv.de
+  - gkv-spitzenverband.de
+  - aok.de
+  - wido.de
+  - gbe-bund.de
+- rank: 1
+  label: primary_education_bund
+  description: Bildungsstatistik, Schul-/Hochschulforschung, KMK
+  domains:
+  - iqb.hu-berlin.de
+  - kmk.org
+  - dipf.de
+  - stifterverband.org
 default:
   rank: 3
   label: unclassified

@@ -60,9 +60,25 @@ REVIEW_SCHEMA_HINT = """Antworte AUSSCHLIESSLICH mit einem JSON-Objekt, keine Er
   "suggested_tier": 1|2|3,
   "tier_reasoning": "kurz: 1=Primärquelle (Gesetz/Statistik/Gericht/Behörde), 2=Qualitätsmedien, 3=Kommentar/Blog",
   "topics": ["tag1", "tag2"],
+  "country": "ISO-3166-Alpha-2 des Herausgebers (z. B. DE, US, GB, FR, INT für UN/OECD/EU)",
+  "is_international": true|false,
+  "transferability_de": {
+    "applies": "n/a|direct|partial|limited|context_only",
+    "score": 0,
+    "rationale": "1-2 Sätze: wie übertragbar auf deutsche Verhältnisse (Rechtsrahmen, Wohlfahrtsstaat-Niveau, Lohn-/Steuerstruktur, Größenordnung)?",
+    "caveats": ["konkrete Unterschiede, je 1 kurze Phrase"]
+  },
   "recommendation": "approve|reject|needs_human",
   "summary": "1 Satz Gesamtfazit für den menschlichen Reviewer"
-}"""
+}
+
+Regeln zu transferability_de:
+- Bei deutschen Quellen (Herausgeber DE-staatlich/-zivil, deutsches Recht/Daten): applies="n/a", score=null/0, rationale="DE-Quelle", caveats=[].
+- Bei internationalen Quellen: applies != n/a, score 1-5 (5 = nahezu direkt übertragbar, 1 = nur als Hintergrund), rationale + caveats verpflichtend.
+- "direct" = gleiche Institutionen/Recht (z. B. EU-Recht, OECD-Methodik direkt anwendbar).
+- "partial" = ähnliches System mit klaren Unterschieden (z. B. UK NHS-Studie zu DE-Gesundheit).
+- "limited" = strukturelle Unterschiede dominieren (z. B. US-Sozialstaat-Studie).
+- "context_only" = nur als Vergleich, kein Politik-Input."""
 
 
 def _build_llm(provider: str = None):
@@ -255,6 +271,16 @@ def _finalize_review(submission_dir, meta, source, domain, verdict):
         st = verdict.get("suggested_tier")
         if st in (1, 2, 3):
             topic_list.append(f"vorläufig-tier{st}")
+        # Land + Übertragbarkeit als Pseudo-Tags ins Retrieval-Index — so kann die
+        # Quellen-Seite (build.py/serve.py) Badges rendern, ohne ein neues Feld
+        # durch die ganze Ingest-Pipeline schleifen zu müssen.
+        country = (verdict.get("country") or "").strip().upper()
+        if country and country != "DE":
+            topic_list.append(f"country:{country}")
+        tr = verdict.get("transferability_de") or {}
+        applies = (tr.get("applies") or "").strip().lower()
+        if applies and applies != "n/a":
+            topic_list.append(f"transfer:{applies}")
         topics = ",".join(topic_list)
         label = (verdict.get("publisher") or "User-Submission")[:120]
         rc = _ingest_as_tier0(meta, submission_dir, label, topics)
@@ -277,6 +303,9 @@ def _finalize_review(submission_dir, meta, source, domain, verdict):
         "relevant": verdict.get("relevant"),
         "suggested_tier": verdict.get("suggested_tier"),
         "topics": verdict.get("topics"),
+        "country": verdict.get("country"),
+        "is_international": verdict.get("is_international"),
+        "transferability_de": verdict.get("transferability_de"),
         "recommendation": verdict.get("recommendation"),
         "summary": verdict.get("summary"),
         # status: ingested_tier0 = als unverifiziert aufgenommen (per Default vom
