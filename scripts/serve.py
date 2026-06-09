@@ -217,10 +217,26 @@ _vectorstores_by_scope: dict[str, dict] = {}
 _llm_by_key: dict[tuple[str, str], object] = {}  # (provider, scope) -> bound llm
 
 
+def _ollama_keep_alive():
+    """keep_alive für Ollama. -1/Zahlen → int (Ollama: -1 = für immer geladen,
+    sonst Sekunden); Dauer-Strings wie '30m' bleiben String. Wichtig: der STRING
+    '-1' wird von Ollama als Dauer fehlinterpretiert ('missing unit') → 400."""
+    v = os.getenv("ATHENA_OLLAMA_KEEP_ALIVE", "-1")
+    try:
+        return int(v)
+    except ValueError:
+        return v
+
+
 def _get_embeddings():
     global _embeddings
     if _embeddings is None:
-        _embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=OLLAMA_HOST)
+        _embeddings = OllamaEmbeddings(
+            model=EMBEDDING_MODEL, base_url=OLLAMA_HOST,
+            # Embedding-Modell ebenfalls warm halten (wird bei jedem Retrieval
+            # gebraucht; Kaltstart = stille Wartezeit vor dem ersten Token).
+            keep_alive=_ollama_keep_alive(),
+        )
     return _embeddings
 
 
@@ -264,6 +280,13 @@ def _get_components(scope: str, provider: str = None):
                 # stopped"), CPU ist stabil (siehe claude.md / Projekt-Setup).
                 # Per Env überschreibbar, falls aitest mal stabiles ROCm hat.
                 num_gpu=int(os.getenv("ATHENA_OLLAMA_NUM_GPU", "0")),
+                # Modell geladen HALTEN. Ollama-Default (OLLAMA_KEEP_ALIVE=30s auf
+                # aitest) entlädt das Modell zwischen Anfragen → jeder Besucher nach
+                # einer Pause zahlt Kaltstart + Prefill (~112s gemessen) → so lange
+                # Stille kappt die Verbindung (Cloudflare-524/Mobil). keep_alive=-1
+                # hält NUR das Live-Modell warm (nicht Test-Modelle). RAM auf aitest
+                # reicht (23 GB von 64 GB). Per Env anpassbar.
+                keep_alive=_ollama_keep_alive(),
             )
         elif provider == "mistral":
             if not MISTRAL_API_KEY:
@@ -1359,18 +1382,95 @@ def _chat_event_stream(req: ChatRequest):
         yield _ndjson({"type": "error", "message": f"{type(e).__name__}: {e}"})
 
 
+# --------------------------------------------------------------------------- #
+# Resumable Chat-Jobs: Die Antwort läuft serverseitig in einem Hintergrund-Thread
+# zu Ende und wird gepuffert — unabhängig davon, ob der Client verbunden bleibt.
+# Bricht die Verbindung ab (Handy-Display aus, Netz-Blip), holt der Client die
+# fehlenden Events per /chat/resume?job_id=…&offset=… nach. In-Memory + TTL
+# (überlebt Client-Disconnect, NICHT einen Server-Neustart — für Mobile-Reconnect
+# innerhalb von Minuten ausreichend).
+_CHAT_JOBS: dict[str, dict] = {}
+_CHAT_JOBS_LOCK = threading.Lock()
+CHAT_JOB_TTL = float(os.getenv("ATHENA_CHAT_JOB_TTL", "900"))  # 15 min
+_STREAM_HEADERS = {"Cache-Control": "no-cache, no-transform", "X-Accel-Buffering": "no"}
+
+
+def _cleanup_chat_jobs():
+    now = time.time()
+    for k in [k for k, j in _CHAT_JOBS.items() if now - j["ts"] > CHAT_JOB_TTL]:
+        _CHAT_JOBS.pop(k, None)
+
+
+def _run_chat_job(job_id: str, req: ChatRequest):
+    """Läuft im Hintergrund-Thread bis zum Ende, puffert alle (nicht-keepalive)
+    Events in den Job — auch wenn der Client längst weg ist."""
+    job = _CHAT_JOBS[job_id]
+    try:
+        for chunk in _chat_event_stream(req):
+            line = chunk.decode("utf-8") if isinstance(chunk, (bytes, bytearray)) else str(chunk)
+            if '"keepalive"' in line:
+                continue  # transient, nicht puffern (offset bleibt stabil)
+            job["events"].append(line)
+            job["ts"] = time.time()
+    except Exception as e:
+        job["events"].append(
+            _ndjson({"type": "error", "message": f"interner Fehler: {type(e).__name__}"}).decode("utf-8")
+        )
+    finally:
+        job["status"] = "done"
+        job["ts"] = time.time()
+
+
+def _tail_chat_job(job_id: str, offset: int = 0):
+    """Streamt gepufferte Events ab `offset`; wartet auf neue, bis der Job fertig
+    ist. Keepalive gegen CF-524-Timeout."""
+    job = _CHAT_JOBS.get(job_id)
+    if job is None:
+        yield _ndjson({"type": "error", "message": "Sitzung abgelaufen — bitte neu fragen.", "expired": True})
+        yield _ndjson({"type": "done", "elapsed_s": 0, "expired": True})
+        return
+    i = max(0, offset)
+    last = time.time()
+    while True:
+        events = job["events"]
+        if i < len(events):
+            yield events[i].encode("utf-8")
+            i += 1
+            last = time.time()
+            continue
+        if job["status"] != "running":
+            break
+        if time.time() - last >= HEARTBEAT_INTERVAL:
+            yield _ndjson({"type": "keepalive"})
+            last = time.time()
+        time.sleep(0.1)
+
+
 @app.post("/chat")
 def chat(req: ChatRequest):
-    """Streaming-Endpoint. NDJSON-Events: sources, tool_call, tool_result,
-    token, done, error. Tool-Loop ist server-seitig, der Client sieht nur
-    Events und finale Tokens."""
+    """Streaming-Endpoint (NDJSON: job, sources, token, done, error …).
+    Die Antwort wird serverseitig gepuffert (resumable): erstes Event ist
+    {type:'job', job_id}. Bricht die Verbindung ab, holt der Client den Rest
+    via /chat/resume nach."""
+    job_id = uuid.uuid4().hex
+    with _CHAT_JOBS_LOCK:
+        _cleanup_chat_jobs()
+        _CHAT_JOBS[job_id] = {"events": [], "status": "running", "ts": time.time()}
+    threading.Thread(target=_run_chat_job, args=(job_id, req), daemon=True).start()
+
+    def gen():
+        yield _ndjson({"type": "job", "job_id": job_id})
+        yield from _tail_chat_job(job_id, 0)
+
+    return StreamingResponse(gen(), media_type="application/x-ndjson", headers=_STREAM_HEADERS)
+
+
+@app.get("/chat/resume")
+def chat_resume(job_id: str, offset: int = 0):
+    """Liefert die gepufferten Events eines laufenden/fertigen Jobs ab `offset`
+    nach — für Reconnect nach Verbindungsabbruch."""
     return StreamingResponse(
-        _chat_event_stream(req),
-        media_type="application/x-ndjson",
-        headers={
-            "Cache-Control": "no-cache, no-transform",
-            "X-Accel-Buffering": "no",
-        },
+        _tail_chat_job(job_id, offset), media_type="application/x-ndjson", headers=_STREAM_HEADERS
     )
 
 
