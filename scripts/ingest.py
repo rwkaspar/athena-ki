@@ -54,6 +54,26 @@ def get_embeddings():
     return OllamaEmbeddings(model=EMBEDDING_MODEL, base_url=OLLAMA_HOST)
 
 
+def _make_vectorstore(collection_name, embeddings):
+    """Vectorstore für eine Collection bauen — server-aware.
+
+    Im Chroma-Server-Modus (chroma run, athena-chroma:8001) MÜSSEN Schreibzugriffe
+    über den HTTP-Client laufen; ein paralleles embedded-Öffnen von athena-db
+    würde den Index korrumpieren. Sonst klassisch embedded."""
+    from retrieval import chroma_server_mode, get_chroma_client
+    if chroma_server_mode():
+        return Chroma(
+            collection_name=collection_name,
+            client=get_chroma_client(),
+            embedding_function=embeddings,
+        )
+    return Chroma(
+        collection_name=collection_name,
+        persist_directory=CHROMA_DB_DIR,
+        embedding_function=embeddings,
+    )
+
+
 def get_vectorstore(embeddings):
     """ChromaDB Vektordatenbank laden oder erstellen."""
     return Chroma(
@@ -431,14 +451,12 @@ def main():
         by_collection.setdefault(target, []).append(chunk)
 
     # Embeddings erstellen und in die jeweilige Collection schreiben
-    print(f"\n💾 Speichere in ChromaDB ({CHROMA_DB_DIR})...")
+    from retrieval import chroma_server_mode
+    _dest = "Server athena-chroma:8001" if chroma_server_mode() else CHROMA_DB_DIR
+    print(f"\n💾 Speichere in ChromaDB ({_dest})...")
     embeddings = get_embeddings()
     for collection_name, batch in by_collection.items():
-        vectorstore = Chroma(
-            collection_name=collection_name,
-            persist_directory=CHROMA_DB_DIR,
-            embedding_function=embeddings,
-        )
+        vectorstore = _make_vectorstore(collection_name, embeddings)
         vectorstore.add_documents(batch)
         print(f"   ✅ {len(batch)} Chunks → Collection '{collection_name}'")
     print(f"   Datenbank: {CHROMA_DB_DIR}")
