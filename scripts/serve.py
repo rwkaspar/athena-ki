@@ -402,7 +402,12 @@ def _honcho_append(workspace_id: str, session_id: str, peer_id: str, content: st
 
 @app.get("/health")
 def health():
-    return {"status": "ok"}
+    try:
+        import upload_security as _us
+        clamd_ok = _us.clamd_available()
+    except Exception:  # noqa: BLE001 — Health darf nie crashen
+        clamd_ok = False
+    return {"status": "ok", "clamd": "up" if clamd_ok else "down"}
 
 
 # --------------------------------------------------------------------------- #
@@ -652,7 +657,8 @@ async def submit_source(
 
     submission_id = uuid.uuid4().hex[:12]
     target = SUBMISSIONS_DIR / "pending" / submission_id
-    target.mkdir(parents=True, exist_ok=True)
+    # Verzeichnis wird erst nach bestandener Validierung/Scan angelegt (s. u.),
+    # damit abgelehnte Uploads keine leeren Hüllen hinterlassen.
 
     meta: dict = {
         "id": submission_id,
@@ -694,16 +700,63 @@ async def submit_source(
             raise HTTPException(status_code=413, detail="Datei zu groß (max 10 MB).")
         if not data:
             raise HTTPException(status_code=400, detail="Datei ist leer.")
+
+        # SCHUTZSCHICHT 1 — Virenscan der rohen Bytes (clamd, INSTREAM).
+        # Vor jedem Schreiben aufs Dateisystem. Funde werden nie persistiert.
+        import upload_security as _us
+        try:
+            _us.scan_bytes(data)
+        except _us.InfectedError as e:
+            raise HTTPException(
+                status_code=422,
+                detail=f"Datei abgelehnt: Schadsoftware erkannt ({e.signature}).",
+            )
+        except _us.ScanError as e:
+            print(f"[upload] Virenscan nicht möglich: {e}", file=sys.stderr)
+            raise HTTPException(
+                status_code=503,
+                detail="Virenscan derzeit nicht verfügbar — Upload vorübergehend "
+                       "nicht möglich. Bitte später erneut versuchen.",
+            )
+
         safe_name = _safe_filename(file.filename or f"upload{ext}")
         if not safe_name.lower().endswith(ext):
             safe_name = f"{safe_name}{ext}"
-        (target / safe_name).write_bytes(data)
-        meta["filename"] = safe_name
-        meta["size_bytes"] = len(data)
-        meta["content_type"] = file.content_type
+
+        target.mkdir(parents=True, exist_ok=True)
+        if ext == ".pdf":
+            # SCHUTZSCHICHT 2+3 — PDF NICHT im Serverprozess parsen, sondern im
+            # isolierten Sandbox-Container; nur den Text behalten, das binäre
+            # Original verwerfen (es wird nie aufs Dateisystem geschrieben).
+            try:
+                text = _us.extract_pdf_text(data)
+            except _us.SandboxError as e:
+                raise HTTPException(
+                    status_code=422,
+                    detail=f"PDF konnte nicht sicher verarbeitet werden: {e}",
+                )
+            text_name = f"{safe_name[:-4]}.txt"
+            (target / text_name).write_text(text, encoding="utf-8")
+            meta["filename"] = text_name
+            meta["original_filename"] = safe_name
+            meta["original_format"] = "pdf"
+            meta["original_discarded"] = True   # Binär-PDF bewusst nicht gespeichert
+            meta["pdf_text_extracted"] = True
+            meta["sandbox_parsed"] = True
+            meta["size_bytes"] = len(text.encode("utf-8"))
+            meta["original_size_bytes"] = len(data)
+            meta["content_type"] = "text/plain"
+        else:
+            # TXT/MD: bereits Text, durch den Virenscan gelaufen → unverändert ablegen.
+            (target / safe_name).write_bytes(data)
+            meta["filename"] = safe_name
+            meta["size_bytes"] = len(data)
+            meta["content_type"] = file.content_type
+        meta["virus_scanned"] = True
     else:
         raise HTTPException(status_code=400, detail="kind muss 'url' oder 'file' sein.")
 
+    target.mkdir(parents=True, exist_ok=True)  # idempotent; legt URL-Submissions-Dir an
     (target / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
     )
