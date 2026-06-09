@@ -65,6 +65,65 @@ def get_chroma_client():
 # include_unverified=True einbezogen, dann mit niedrigstem Boost.
 TIER_BOOSTS = {0: 0.4, 1: 1.0, 2: 0.75, 3: 0.5}
 
+# Hybride Suche: rein semantische Ähnlichkeit (bge-m3) verfehlt benannte
+# Fachbegriffe, deren Quelltext metaphorisch/thematisch weit weg liegt — z. B.
+# matcht "Rasenmähermethode" eher Landwirtschaft (Mähen) als die haushalts-
+# politische Definition. Darum zusätzlich eine lexikalische $contains-Suche nach
+# den seltenen Begriffen der Frage. Treffer bekommen einen Ähnlichkeits-Boden,
+# weil ein exakter Begriffstreffer ein starkes Relevanzsignal ist, das der
+# Embedding-Score unterschätzt.
+LEXICAL_SIM_FLOOR = 0.6      # Mindest-"Ähnlichkeit" für exakte Begriffstreffer
+LEXICAL_MIN_TERM_LEN = 7     # nur lange/seltene Tokens lexikalisch nachschlagen
+LEXICAL_MAX_TERMS = 3        # höchstens so viele Begriffe pro Frage
+LEXICAL_HITS_PER_TERM = 5    # höchstens so viele Treffer je Begriff/Collection
+# Häufige lange Wörter, die KEINE Fachbegriffe sind (würden sonst Lärm ziehen).
+_LEXICAL_STOPWORDS = {
+    "welche", "welcher", "welches", "warum", "weshalb", "wieso", "stehst",
+    "stehen", "meinst", "meinen", "bedeutet", "eigentlich", "zwischen",
+    "möchte", "sollte", "sollten", "würde", "würden", "können", "könnte",
+    "deiner", "deinem", "deinen", "unsere", "unserer", "unseren",
+}
+
+
+# Häufige Fugen-Endungen deutscher Komposita. Schreibt die Frage ein Wort
+# ("Rasenmähermethode"), die Quelle aber getrennt/gebindestrichelt
+# ("Rasenmäher-Methode"), findet ein $contains das Compound nicht — darum
+# zusätzlich den distinktiven Wortstamm (Präfix vor der Endung) durchsuchen.
+_COMPOUND_TAILS = (
+    "methoden", "methode", "verfahren", "prinzipien", "prinzip", "modelle",
+    "modell", "systeme", "system", "politik", "strategie", "konzept",
+    "regelung", "ansatz", "ansätze", "satz", "bremse", "modell",
+)
+
+
+def _expand_compound(tok: str):
+    """Den Begriff selbst liefern, plus — falls er auf eine bekannte Fugen-
+    Endung endet — den vorderen Wortstamm (z. B. Rasenmähermethode→Rasenmäher)."""
+    yield tok
+    low = tok.lower()
+    for tail in _COMPOUND_TAILS:
+        if low.endswith(tail) and len(tok) - len(tail) >= 6:
+            yield tok[: len(tok) - len(tail)]
+            break
+
+
+def _salient_terms(query: str) -> list[str]:
+    """Seltene/lange Begriffe aus der Frage für die lexikalische Suche, inkl.
+    Komposita-Stämme. Stoppwörter raus, Reihenfolge erhalten, dedupliziert,
+    gekappt."""
+    out = []
+    seen = set()
+    for tok in re.findall(r"[A-Za-zÄÖÜäöüß]{%d,}" % LEXICAL_MIN_TERM_LEN, query):
+        for cand in _expand_compound(tok):
+            low = cand.lower()
+            if len(cand) < 6 or low in _LEXICAL_STOPWORDS or low in seen:
+                continue
+            seen.add(low)
+            out.append(cand)
+            if len(out) >= LEXICAL_MAX_TERMS:
+                return out
+    return out
+
 SCOPES = ("pfofeld", "bund")
 
 
@@ -147,6 +206,34 @@ def tier_aware_retrieve(
         for doc, similarity in cands:
             doc.metadata["_collection"] = name
             candidates.append((doc, similarity))
+
+    # HYBRID: lexikalische $contains-Suche nach seltenen Begriffen der Frage.
+    # Holt benannte Fachbegriffe in den Pool, die die Vektorsuche verfehlt.
+    for term in _salient_terms(query):
+        for name, vs in vectorstores.items():
+            try:
+                hits = vs.similarity_search_with_relevance_scores(
+                    query, k=LEXICAL_HITS_PER_TERM,
+                    where_document={"$contains": term},
+                )
+            except Exception:
+                hits = []
+            for doc, similarity in hits:
+                doc.metadata["_collection"] = name
+                doc.metadata["_lexical_term"] = term
+                # exakter Begriffstreffer = starkes Signal → Ähnlichkeits-Boden
+                candidates.append((doc, max(similarity, LEXICAL_SIM_FLOOR)))
+
+    # Dedup: derselbe Chunk kann aus Vektor- UND lexikalischer Suche kommen
+    # (oder mehrfach lexikalisch). Höchste Ähnlichkeit je Chunk behalten.
+    best: dict[tuple, tuple] = {}
+    for doc, similarity in candidates:
+        key = (doc.metadata.get("source"), doc.metadata.get("chunk_index"),
+               doc.page_content[:120])
+        cur = best.get(key)
+        if cur is None or similarity > cur[1]:
+            best[key] = (doc, similarity)
+    candidates = list(best.values())
 
     scored = []
     for doc, similarity in candidates:
