@@ -44,11 +44,35 @@ OLLAMA_REVIEW_MODEL = os.getenv("ATHENA_REVIEW_OLLAMA_MODEL", "athena-bund")
 SUGGESTED_TAGS = [
     "direkte-demokratie", "wahlrecht", "parteienfinanzierung", "lobbyregulierung",
     "schuldenbremse", "haushalt", "steuersystem", "ki-regulation", "digitalpolitik",
-    "buergergeld", "sozialpolitik", "parlamentarismus", "rente", "demografie",
+    "bürgergeld", "sozialpolitik", "parlamentarismus", "rente", "demografie",
     "klima", "energie", "migration", "asyl", "verteidigung", "sicherheit",
-    "aussenpolitik", "eu-recht", "grundgesetz", "bundesrecht", "statistik",
+    "außenpolitik", "eu-recht", "grundgesetz", "bundesrecht", "statistik",
     "rechtsprechung", "wirtschaft", "bildung", "gesundheit", "umwelt",
 ]
+
+# Tag-Aliase: gleichbedeutende Schreibweisen, die das LLM gelegentlich produziert,
+# auf den kanonischen Begriff abbilden. Wird vor jedem Schreiben angewendet —
+# meta.json, log.jsonl und ChromaDB-Metadaten via ingest.py — damit die Quellen-
+# Seite und das Retrieval einheitliche Tags bekommen.
+TAG_ALIASES = {
+    "aussenpolitik": "außenpolitik",
+    "aussenspolitik": "außenpolitik",
+    "buergergeld": "bürgergeld",
+}
+
+
+def _normalize_topics(topics):
+    """Topic-Liste deduplizieren + Aliase auflösen. Reihenfolge bleibt erhalten."""
+    seen, out = set(), []
+    for t in topics or []:
+        raw = (t or "").strip()
+        if not raw:
+            continue
+        canon = TAG_ALIASES.get(raw.lower(), raw)
+        if canon not in seen:
+            seen.add(canon)
+            out.append(canon)
+    return out
 
 REVIEW_SCHEMA_HINT = """Antworte AUSSCHLIESSLICH mit einem JSON-Objekt, keine Erklärung davor/danach:
 {
@@ -249,6 +273,11 @@ def _finalize_review(submission_dir, meta, source, domain, verdict):
     Gemeinsamer Abschluss für LLM-Bewertung UND Vorfilter-Entscheidung."""
     verdict["reviewed_at"] = datetime.now(timezone.utc).isoformat()
     verdict.setdefault("model", REVIEW_MODEL)
+    # Topics zentral normalisieren: Aliase auflösen (z. B. aussenpolitik →
+    # außenpolitik) + Duplikate raus. Alles, was downstream geschrieben wird
+    # (meta.json, log.jsonl, ChromaDB-Metadaten) sieht so die kanonische Form.
+    if "topics" in verdict:
+        verdict["topics"] = _normalize_topics(verdict.get("topics"))
 
     # an meta.json anhängen
     meta["auto_review"] = verdict
