@@ -940,6 +940,22 @@ VERIFY_SECRET = os.getenv("ATHENA_VERIFY_SECRET") or (
 VERIFY_COOKIE = "evidenz_verify"
 VERIFY_TTL = 7 * 24 * 3600
 
+# Einfaches In-Memory-Rate-Limit (pro IP + Aktion). Gegen Registrierungs-Spam
+# und Login-Brute-Force. Reicht für eine Single-Instance; bei Mehrfach-Workern
+# müsste es geteilt werden (dann Redis o. Ä.).
+_RL_BUCKETS: dict = {}
+
+
+def _rate_ok(ip: str, action: str, max_n: int, window_s: int) -> bool:
+    now = time.time()
+    key = (action, ip or "?")
+    b = _RL_BUCKETS.setdefault(key, [])
+    b[:] = [t for t in b if now - t < window_s]
+    if len(b) >= max_n:
+        return False
+    b.append(now)
+    return True
+
 
 def _verify_make_cookie(role: str, email: str = "") -> str:
     exp = int(time.time()) + VERIFY_TTL
@@ -1021,6 +1037,9 @@ def _verify_require(request: Request) -> dict:
 
 @app.post("/verify/login")
 async def verify_login(request: Request):
+    ip = request.client.host if request.client else "?"
+    if not _rate_ok(ip, "login", 12, 600):
+        raise HTTPException(status_code=429, detail="Zu viele Login-Versuche. Bitte später erneut.")
     body = await request.json()
     email = (body.get("email") or "").strip().lower()
     pw = body.get("password") or ""
@@ -1138,9 +1157,14 @@ async def verify_decide(request: Request):
 async def verify_register(request: Request):
     """Reviewer-Registrierung (auch parteifremd). E-Mail-Bestätigung nötig.
     Reviewer dürfen NUR advisory abstimmen, nicht final entscheiden."""
+    ip = request.client.host if request.client else "?"
+    if not _rate_ok(ip, "register", 3, 3600):
+        raise HTTPException(status_code=429, detail="Zu viele Registrierungen. Bitte später erneut.")
     body = await request.json()
     email = (body.get("email") or "").strip().lower()
     pw = body.get("password") or ""
+    if not body.get("consent"):
+        raise HTTPException(status_code=400, detail="Bitte der Datenspeicherung zustimmen.")
     if not _EMAIL_RE.match(email):
         raise HTTPException(status_code=400, detail="Ungültige E-Mail.")
     if len(pw) < 8:
@@ -1151,9 +1175,10 @@ async def verify_register(request: Request):
         raise HTTPException(status_code=409, detail="E-Mail bereits registriert.")
     salt = uuid.uuid4().hex
     token = uuid.uuid4().hex + uuid.uuid4().hex
+    now_iso = datetime.now(timezone.utc).isoformat()
     users[email] = {"email": email, "pw_salt": salt, "pw_hash": _hash_pw(str(pw), salt),
                     "verified": False, "verify_token": token, "role": "reviewer",
-                    "created_at": datetime.now(timezone.utc).isoformat()}
+                    "created_at": now_iso, "consent_at": now_iso}
     _accounts_save(users)
     link = f"{SITE_BASE}/api/athena/verify/confirm?token={token}&email={email}"
     sent = _send_email(email, "EVIDENZ — E-Mail bestätigen",
