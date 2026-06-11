@@ -1054,7 +1054,8 @@ async def verify_login(request: Request):
             raise HTTPException(status_code=401, detail="E-Mail oder Passwort falsch.")
         if not u.get("verified"):
             raise HTTPException(status_code=403, detail="E-Mail noch nicht bestätigt.")
-        role, cookie_email = "reviewer", email
+        # Rolle aus dem Account (server-seitig gesetzt; Selbstregistrierung bleibt 'reviewer').
+        role, cookie_email = (u.get("role") or "reviewer"), email
     resp = JSONResponse({"ok": True, "role": role, "email": cookie_email})
     resp.set_cookie(VERIFY_COOKIE, _verify_make_cookie(role, cookie_email), max_age=VERIFY_TTL,
                     httponly=True, secure=True, samesite="lax", path="/")
