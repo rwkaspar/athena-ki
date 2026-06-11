@@ -77,6 +77,11 @@ def _fetch(url: str) -> tuple[str, str]:
         r = requests.get(url, timeout=TIMEOUT, headers={"User-Agent": USER_AGENT})
     except Exception:
         return "", ""
+    # Tote/funktionslose Seiten (404/410/5xx …) NICHT ernten und nicht weiterverfolgen.
+    # Ohne diesen Check kommt z. B. eine 404-Seite als HTML zurück und ihre Links
+    # (oder eine .pdf-URL mit 404) landen als vermeintliche Dokumente in der Queue.
+    if r.status_code >= 400:
+        return "dead", ""
     ct = r.headers.get("content-type", "").lower()
     if "pdf" in ct or url.lower().split("?")[0].endswith(".pdf"):
         return "pdf", ""
@@ -126,6 +131,9 @@ def crawl(seed: str, depth: int, max_pages: int):
         ct = fetched[0]
         time.sleep(CRAWL_DELAY)
 
+        if ct == "dead":
+            skipped.append({"url": url, "reason": "toter Link (HTTP >= 400)"})
+            continue
         if ct == "pdf":
             documents.append({"url": url, "type": "pdf", "depth": d})
             continue
