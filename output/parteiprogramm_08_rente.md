@@ -96,6 +96,8 @@ Zwei gezielte Faktenprüfungen wurden durchgeführt (Tragfähigkeit Rentenniveau
 - **Politikfeld 7 (Bürgergeld Achse C)**: Grundrente und Bürgergeld-Vollintegration sind komplementär. Wer trotz Bürgerversicherung+53 % unter Existenzminimum bleibt, wird über NES aufgestockt
 - **Politikfeld 4 (Schuldenbremse)**: Generationenkapital-Begrenzung auf 10 Mrd konsistent mit Generationen-Konto-Test (Netto-Nutzen-Nachweis-Pflicht)
 - **Politikfeld 1 (Direktdemokratie)**: Strukturreform wie Bürgerversicherung-Beamtenintegration als Kandidat für Bürgerrat-Verfahren
+- **Politikfeld 12 (Gesundheit — Bürgerversicherung)**: Die Renten-Bürgerversicherung (Säule A: alle inkl. Beamte/Politiker zahlen ein) hat ihr Pendant in der **GKV-Bürgerversicherung** — gleiche §1/§2-Logik, konsistent fortgeführt.
+- **Politikfeld 7a (Abgeordneten-Diäten)**: Der Einbezug der Politiker in die gesetzliche Renten- (und Kranken-)versicherung ist dort als Privilegienabbau verankert.
 
 ## Quellen
 
