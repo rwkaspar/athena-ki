@@ -155,7 +155,12 @@ def enrich_metadata(docs, tiers_cfg, override_rank=None, override_label=None, to
     return docs
 
 
-USER_AGENT = "Athena-KI/1.0 (Gemeinde Pfofeld; +https://github.com/rwkaspar/athena-ki)"
+# Browser-UA für den Download: viele Behörden-/Institutsseiten (Cloudflare/WAF,
+# z. B. expertenrat-klima.de, destatis) antworten Bot-UAs mit 400/403. Beim Ingest
+# laden wir ein bereits MENSCHLICH freigegebenes Einzeldokument — Browser-UA ist hier
+# angemessen (die Discovery-/Crawl-Phase identifiziert sich weiter als Athena-KI).
+USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+              "Chrome/124.0 Safari/537.36")
 MAX_RETRIES = 3
 URL_TIMEOUT_S = 60          # Timeout für HTML-Loads
 PDF_DOWNLOAD_TIMEOUT_S = 120  # PDFs koennen groesser sein
