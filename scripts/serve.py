@@ -941,30 +941,75 @@ VERIFY_COOKIE = "evidenz_verify"
 VERIFY_TTL = 7 * 24 * 3600
 
 
-def _verify_make_cookie(role: str) -> str:
+def _verify_make_cookie(role: str, email: str = "") -> str:
     exp = int(time.time()) + VERIFY_TTL
-    msg = f"{role}:{exp}"
+    msg = f"{role}|{email}|{exp}"
     sig = hmac.new(VERIFY_SECRET.encode(), msg.encode(), hashlib.sha256).hexdigest()
-    return base64.urlsafe_b64encode(f"{msg}:{sig}".encode()).decode()
+    return base64.urlsafe_b64encode(f"{msg}|{sig}".encode()).decode()
 
 
 def _verify_session(request: Request):
-    if not VERIFY_PASSWORD:
+    if not VERIFY_SECRET:
         return None
     raw = request.cookies.get(VERIFY_COOKIE)
     if not raw:
         return None
     try:
         dec = base64.urlsafe_b64decode(raw.encode()).decode()
-        role, exp, sig = dec.rsplit(":", 2)
-        good = hmac.new(VERIFY_SECRET.encode(), f"{role}:{exp}".encode(), hashlib.sha256).hexdigest()
+        role, email, exp, sig = dec.split("|", 3)
+        good = hmac.new(VERIFY_SECRET.encode(), f"{role}|{email}|{exp}".encode(), hashlib.sha256).hexdigest()
         if not hmac.compare_digest(sig, good):
             return None
         if int(exp) < time.time():
             return None
-        return {"role": role}
+        return {"role": role, "email": email}
     except Exception:
         return None
+
+
+# --- Reviewer-Accounts (Phase 2): JSON-Store + Passwort-Hash + Mailversand ---
+ACCOUNTS_FILE = SUBMISSIONS_DIR / "accounts.json"
+SITE_BASE = os.getenv("EVIDENZ_SITE_BASE", "https://evidenz-partei.de")
+
+
+def _accounts_load() -> dict:
+    if ACCOUNTS_FILE.exists():
+        try:
+            return json.loads(ACCOUNTS_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+    return {}
+
+
+def _accounts_save(d: dict):
+    ACCOUNTS_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ACCOUNTS_FILE.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _hash_pw(pw: str, salt: str) -> str:
+    return hashlib.pbkdf2_hmac("sha256", pw.encode(), bytes.fromhex(salt), 120000).hex()
+
+
+def _send_email(to: str, subject: str, body: str) -> str:
+    if not SMTP_HOST:
+        return "disabled"
+    import smtplib
+    from email.message import EmailMessage
+    try:
+        msg = EmailMessage()
+        msg["Subject"] = subject
+        msg["From"] = SMTP_FROM
+        msg["To"] = to
+        msg.set_content(body)
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT, timeout=15) as s:
+            if SMTP_STARTTLS:
+                s.starttls()
+            if SMTP_USER:
+                s.login(SMTP_USER, SMTP_PASSWORD)
+            s.send_message(msg)
+        return "sent"
+    except Exception as e:
+        return f"error: {type(e).__name__}: {e}"
 
 
 def _verify_require(request: Request) -> dict:
@@ -976,14 +1021,23 @@ def _verify_require(request: Request) -> dict:
 
 @app.post("/verify/login")
 async def verify_login(request: Request):
-    if not VERIFY_PASSWORD:
-        raise HTTPException(status_code=503, detail="Verify nicht konfiguriert.")
     body = await request.json()
+    email = (body.get("email") or "").strip().lower()
     pw = body.get("password") or ""
-    if not hmac.compare_digest(str(pw), VERIFY_PASSWORD):
-        raise HTTPException(status_code=401, detail="Falsches Passwort.")
-    resp = JSONResponse({"ok": True, "role": "admin"})
-    resp.set_cookie(VERIFY_COOKIE, _verify_make_cookie("admin"), max_age=VERIFY_TTL,
+    if not email:
+        # Admin-Login (nur Passwort)
+        if not VERIFY_PASSWORD or not hmac.compare_digest(str(pw), VERIFY_PASSWORD):
+            raise HTTPException(status_code=401, detail="Falsches Passwort.")
+        role, cookie_email = "admin", ""
+    else:
+        u = _accounts_load().get(email)
+        if not u or not hmac.compare_digest(_hash_pw(str(pw), u["pw_salt"]), u["pw_hash"]):
+            raise HTTPException(status_code=401, detail="E-Mail oder Passwort falsch.")
+        if not u.get("verified"):
+            raise HTTPException(status_code=403, detail="E-Mail noch nicht bestätigt.")
+        role, cookie_email = "reviewer", email
+    resp = JSONResponse({"ok": True, "role": role, "email": cookie_email})
+    resp.set_cookie(VERIFY_COOKIE, _verify_make_cookie(role, cookie_email), max_age=VERIFY_TTL,
                     httponly=True, secure=True, samesite="lax", path="/")
     return resp
 
@@ -991,7 +1045,8 @@ async def verify_login(request: Request):
 @app.get("/verify/me")
 def verify_me(request: Request):
     s = _verify_session(request)
-    return {"authed": bool(s), "role": (s or {}).get("role"), "configured": bool(VERIFY_PASSWORD)}
+    return {"authed": bool(s), "role": (s or {}).get("role"),
+            "email": (s or {}).get("email"), "configured": bool(VERIFY_SECRET)}
 
 
 @app.post("/verify/logout")
@@ -1003,12 +1058,18 @@ def verify_logout():
 
 @app.get("/verify/pending")
 def verify_pending(request: Request):
-    _verify_require(request)
+    sess = _verify_require(request)
     from review_submissions import list_pending, load_meta, _source_value
+    is_admin = sess["role"] == "admin"
     out = []
     for d in list_pending():
         m = load_meta(d)
         ar = m.get("auto_review") or {}
+        votes = m.get("advisory_votes") or []
+        # Default: advisory-Stimmen NUR für Admin sichtbar (kein Groupthink/Brigading).
+        adv = ([{"vote": v.get("vote"), "reason": v.get("reason"), "email": v.get("email"),
+                 "at": v.get("at")} for v in votes] if is_admin else [])
+        my = next((v for v in votes if v.get("email") == sess.get("email")), None) if sess.get("email") else None
         out.append({
             "id": m.get("id"), "kind": m.get("kind"), "source": _source_value(m),
             "note": m.get("note"), "submitted_at": m.get("submitted_at"),
@@ -1019,13 +1080,17 @@ def verify_pending(request: Request):
                 "relevant": ar.get("relevant"), "suggested_tier": ar.get("suggested_tier"),
                 "topics": ar.get("topics"), "country": ar.get("country"),
             },
+            "advisory_votes": adv, "vote_count": len(votes),
+            "my_vote": {"vote": my.get("vote"), "reason": my.get("reason")} if my else None,
         })
-    return {"total": len(out), "pending": out}
+    return {"total": len(out), "pending": out, "role": sess["role"]}
 
 
 @app.post("/verify/decide")
 async def verify_decide(request: Request):
     sess = _verify_require(request)
+    if sess["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Nur Admin/Kern darf final entscheiden.")
     body = await request.json()
     sid = (body.get("id") or "").strip()
     decision = (body.get("decision") or "").strip()
@@ -1067,6 +1132,82 @@ async def verify_decide(request: Request):
         _log_status(sid, "needs_clarification", {"clarification_note": reason, "decided_via": "web"})
         return {"ok": True, "decision": "klaerung"}
     raise HTTPException(status_code=400, detail="decision muss ja|nein|klaerung sein.")
+
+
+@app.post("/verify/register")
+async def verify_register(request: Request):
+    """Reviewer-Registrierung (auch parteifremd). E-Mail-Bestätigung nötig.
+    Reviewer dürfen NUR advisory abstimmen, nicht final entscheiden."""
+    body = await request.json()
+    email = (body.get("email") or "").strip().lower()
+    pw = body.get("password") or ""
+    if not _EMAIL_RE.match(email):
+        raise HTTPException(status_code=400, detail="Ungültige E-Mail.")
+    if len(pw) < 8:
+        raise HTTPException(status_code=400, detail="Passwort min. 8 Zeichen.")
+    users = _accounts_load()
+    ex = users.get(email)
+    if ex and ex.get("verified"):
+        raise HTTPException(status_code=409, detail="E-Mail bereits registriert.")
+    salt = uuid.uuid4().hex
+    token = uuid.uuid4().hex + uuid.uuid4().hex
+    users[email] = {"email": email, "pw_salt": salt, "pw_hash": _hash_pw(str(pw), salt),
+                    "verified": False, "verify_token": token, "role": "reviewer",
+                    "created_at": datetime.now(timezone.utc).isoformat()}
+    _accounts_save(users)
+    link = f"{SITE_BASE}/api/athena/verify/confirm?token={token}&email={email}"
+    sent = _send_email(email, "EVIDENZ — E-Mail bestätigen",
+        "Hallo,\n\nbestätige deine Registrierung als Quellen-Reviewer bei EVIDENZ über diesen Link:\n"
+        f"{link}\n\nAls Reviewer kannst du eingereichte Quellen bewerten (Pro/Contra/Unklar mit "
+        "Begründung) — die finale Entscheidung trifft das Kernteam.\n\nWenn du das nicht warst, "
+        "ignoriere diese Mail.\n")
+    return {"ok": True, "email_status": sent}
+
+
+@app.get("/verify/confirm")
+def verify_confirm(token: str = "", email: str = ""):
+    from fastapi.responses import HTMLResponse
+    def page(msg):
+        return HTMLResponse(
+            "<!doctype html><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'>"
+            "<body style='font-family:system-ui;background:#0e1116;color:#e6edf3;text-align:center;padding:3rem'>"
+            f"<h2>{msg}</h2><p><a style='color:#f59e0b' href='/verify.html'>→ Zum Login</a></p>")
+    users = _accounts_load()
+    key = (email or "").strip().lower()
+    u = users.get(key)
+    if not token or not u or u.get("verify_token") != token:
+        return page("Link ungültig oder bereits verwendet.")
+    u["verified"] = True
+    u["verify_token"] = None
+    _accounts_save(users)
+    return page("✓ E-Mail bestätigt. Du kannst dich jetzt anmelden.")
+
+
+@app.post("/verify/vote")
+async def verify_vote(request: Request):
+    """Advisory-Stimme eines Reviewers (oder Admins): pro|contra|unklar + Begründung.
+    Nicht bindend; wird an der Submission gespeichert."""
+    sess = _verify_session(request)
+    if not sess or sess["role"] not in ("reviewer", "admin"):
+        raise HTTPException(status_code=401, detail="nicht angemeldet")
+    body = await request.json()
+    sid = (body.get("id") or "").strip()
+    vote = (body.get("vote") or "").strip()
+    reason = (body.get("reason") or "").strip()[:2000]
+    if vote not in ("pro", "contra", "unklar"):
+        raise HTTPException(status_code=400, detail="vote muss pro|contra|unklar sein.")
+    from review_submissions import load_meta
+    sub_dir = SUBMISSIONS_DIR / "pending" / sid
+    if not sid or not sub_dir.exists():
+        raise HTTPException(status_code=404, detail="Submission nicht gefunden.")
+    meta = load_meta(sub_dir)
+    voter = sess.get("email") or "admin"
+    votes = [v for v in (meta.get("advisory_votes") or []) if v.get("email") != voter]
+    votes.append({"email": voter, "vote": vote, "reason": reason,
+                  "at": datetime.now(timezone.utc).isoformat()})
+    meta["advisory_votes"] = votes
+    (sub_dir / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    return {"ok": True, "vote": vote}
 
 
 @app.get("/search")
