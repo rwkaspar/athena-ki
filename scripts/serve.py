@@ -24,6 +24,9 @@ Endpunkte:
 """
 
 import asyncio
+import base64
+import hashlib
+import hmac
 import json
 import os
 import re
@@ -43,7 +46,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from fastapi import BackgroundTasks, FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from langchain_chroma import Chroma
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage, ToolMessage
 from langchain_core.prompts import PromptTemplate
@@ -921,6 +924,149 @@ def source_removals(limit: int = 200):
     limit = max(1, min(limit, 1000))
     rows = read_removals(limit=limit)
     return {"total": len(rows), "removals": rows}
+
+
+# --------------------------------------------------------------------------- #
+# VERIFY: geschützte mobile Quellen-Freigabe (Phase 1 — Admin/Kern-Reviewer).
+# Login per Passwort (Env), signiertes httpOnly-Session-Cookie. Schreibt über
+# den Chroma-Server-Modus in die Live-Wissensbasis (kein uvicorn-Stopp nötig).
+# Rollen-ready: Cookie trägt eine Rolle; advisory-Reviewer (Phase 2) kommen
+# später als eigene Rolle dazu.
+# --------------------------------------------------------------------------- #
+VERIFY_PASSWORD = os.getenv("ATHENA_VERIFY_PASSWORD", "")
+VERIFY_SECRET = os.getenv("ATHENA_VERIFY_SECRET") or (
+    hashlib.sha256(("evidenz-verify::" + VERIFY_PASSWORD).encode()).hexdigest()
+    if VERIFY_PASSWORD else "")
+VERIFY_COOKIE = "evidenz_verify"
+VERIFY_TTL = 7 * 24 * 3600
+
+
+def _verify_make_cookie(role: str) -> str:
+    exp = int(time.time()) + VERIFY_TTL
+    msg = f"{role}:{exp}"
+    sig = hmac.new(VERIFY_SECRET.encode(), msg.encode(), hashlib.sha256).hexdigest()
+    return base64.urlsafe_b64encode(f"{msg}:{sig}".encode()).decode()
+
+
+def _verify_session(request: Request):
+    if not VERIFY_PASSWORD:
+        return None
+    raw = request.cookies.get(VERIFY_COOKIE)
+    if not raw:
+        return None
+    try:
+        dec = base64.urlsafe_b64decode(raw.encode()).decode()
+        role, exp, sig = dec.rsplit(":", 2)
+        good = hmac.new(VERIFY_SECRET.encode(), f"{role}:{exp}".encode(), hashlib.sha256).hexdigest()
+        if not hmac.compare_digest(sig, good):
+            return None
+        if int(exp) < time.time():
+            return None
+        return {"role": role}
+    except Exception:
+        return None
+
+
+def _verify_require(request: Request) -> dict:
+    s = _verify_session(request)
+    if not s:
+        raise HTTPException(status_code=401, detail="nicht angemeldet")
+    return s
+
+
+@app.post("/verify/login")
+async def verify_login(request: Request):
+    if not VERIFY_PASSWORD:
+        raise HTTPException(status_code=503, detail="Verify nicht konfiguriert.")
+    body = await request.json()
+    pw = body.get("password") or ""
+    if not hmac.compare_digest(str(pw), VERIFY_PASSWORD):
+        raise HTTPException(status_code=401, detail="Falsches Passwort.")
+    resp = JSONResponse({"ok": True, "role": "admin"})
+    resp.set_cookie(VERIFY_COOKIE, _verify_make_cookie("admin"), max_age=VERIFY_TTL,
+                    httponly=True, secure=True, samesite="lax", path="/")
+    return resp
+
+
+@app.get("/verify/me")
+def verify_me(request: Request):
+    s = _verify_session(request)
+    return {"authed": bool(s), "role": (s or {}).get("role"), "configured": bool(VERIFY_PASSWORD)}
+
+
+@app.post("/verify/logout")
+def verify_logout():
+    resp = JSONResponse({"ok": True})
+    resp.delete_cookie(VERIFY_COOKIE, path="/")
+    return resp
+
+
+@app.get("/verify/pending")
+def verify_pending(request: Request):
+    _verify_require(request)
+    from review_submissions import list_pending, load_meta, _source_value
+    out = []
+    for d in list_pending():
+        m = load_meta(d)
+        ar = m.get("auto_review") or {}
+        out.append({
+            "id": m.get("id"), "kind": m.get("kind"), "source": _source_value(m),
+            "note": m.get("note"), "submitted_at": m.get("submitted_at"),
+            "ingest_status": ar.get("ingest_status"),
+            "athena": {
+                "recommendation": ar.get("recommendation"), "summary": ar.get("summary"),
+                "publisher": ar.get("publisher"), "publisher_trust": ar.get("publisher_trust"),
+                "relevant": ar.get("relevant"), "suggested_tier": ar.get("suggested_tier"),
+                "topics": ar.get("topics"), "country": ar.get("country"),
+            },
+        })
+    return {"total": len(out), "pending": out}
+
+
+@app.post("/verify/decide")
+async def verify_decide(request: Request):
+    sess = _verify_require(request)
+    body = await request.json()
+    sid = (body.get("id") or "").strip()
+    decision = (body.get("decision") or "").strip()
+    reason = (body.get("reason") or "").strip()[:2000]
+    tier_in = body.get("tier")
+    from review_submissions import (load_meta, _update_tier0_chunks, _log_status,
+                                    move_to, ingest_submission, APPROVED_DIR, REJECTED_DIR)
+    sub_dir = SUBMISSIONS_DIR / "pending" / sid
+    if not sid or not sub_dir.exists():
+        raise HTTPException(status_code=404, detail="Submission nicht gefunden.")
+    meta = load_meta(sub_dir)
+    ar = meta.get("auto_review") or {}
+    if decision == "ja":
+        tier = int(tier_in) if str(tier_in) in ("1", "2", "3") else int(ar.get("suggested_tier") or 3)
+        label = (ar.get("publisher") or "User-Submission")[:120]
+        if ar.get("ingest_status") == "ingested_tier0":
+            n = _update_tier0_chunks(meta, tier, label)
+            ingest_note = f"{n} Chunks Tier0→{tier}"
+            if n == 0:
+                ingest_note = f"re-ingest rc={ingest_submission(sub_dir, meta, tier, label)}"
+        else:
+            ingest_note = f"ingest rc={ingest_submission(sub_dir, meta, tier, label)}"
+        move_to(sub_dir, APPROVED_DIR, extra_meta={
+            "approved_at": datetime.now(timezone.utc).isoformat(),
+            "approved_tier": tier, "approved_label": label,
+            "decided_by": sess["role"], "decision_reason": reason})
+        _log_status(sid, "verified", {"verified": True, "tier": tier,
+                    "decided_via": "web", "decision_reason": reason})
+        return {"ok": True, "decision": "ja", "tier": tier, "ingest": ingest_note}
+    if decision == "nein":
+        if ar.get("ingest_status") == "ingested_tier0":
+            _update_tier0_chunks(meta, -1, "")
+        move_to(sub_dir, REJECTED_DIR, extra_meta={
+            "rejected_at": datetime.now(timezone.utc).isoformat(),
+            "reject_reason": reason, "decided_by": sess["role"]})
+        _log_status(sid, "rejected", {"reject_reason": reason, "decided_via": "web"})
+        return {"ok": True, "decision": "nein"}
+    if decision == "klaerung":
+        _log_status(sid, "needs_clarification", {"clarification_note": reason, "decided_via": "web"})
+        return {"ok": True, "decision": "klaerung"}
+    raise HTTPException(status_code=400, detail="decision muss ja|nein|klaerung sein.")
 
 
 @app.get("/search")
