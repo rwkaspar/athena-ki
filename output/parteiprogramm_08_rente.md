@@ -32,6 +32,8 @@ Zwei gezielte Faktenprüfungen wurden durchgeführt (Tragfähigkeit Rentenniveau
 - **Begründung:** §1 (Sorgepflicht, Existenzminimum) konsequent angewandt. DIW-Projektion: ohne Reform Altersarmut ~20 % bis 2040. Österreich mit 55 % Rentenniveau hat geringste Altersarmut in EU.
 - Übergangslogik: 53 % bleibt langfristig wichtig, weil Säule C (AP7) erst für die heute geborene Generation voll wirkt. Die nächsten 30-40 Jahre tragen Säulen A+B die Hauptlast.
 
+**Finanzierung — ein bewusster Vertrauensvorschuss:** Die heute regierende 48 %-Haltelinie kostet laut IW Köln (Pimpertz) allein rund **+7–8 Mrd €/Jahr** zusätzlichen Bundeszuschuss (Zieljahr 2035). EVIDENZ zielt mit **53 %** höher und finanziert das **primär über die verbreiterte Bürgerversicherungs-Basis (Säule A)** statt über wachsende Steuerzuschüsse. Dass diese Gegenfinanzierung das höhere Niveau vollständig trägt, ist nicht garantiert — und genau das benennen wir offen: Hier gehen wir **bewusst einen Vertrauensvorschuss** ein. Die Begründung: **§1 (Existenzminimum im Alter) wiegt schwerer als die fiskalische Punktlandung.** Lieber das armutsfeste Niveau anstreben und über die jährliche Beitragssatz- und Bundeszuschuss-Prüfung **nachjustieren** (reversibel, §6), als sehenden Auges auf den Sinkpfad Richtung ~43 % zu gehen und damit Altersarmut (~20 % bis 2040 laut DIW) festzuschreiben. Der Vertrauensvorschuss ist also kein Rechenfehler, sondern eine **dokumentierte Wertentscheidung** — überprüfbar und korrigierbar, nicht in Stein gemeißelt.
+
 ### Säule C — Schwedenfonds AP7 als individuelle Zusatzsäule
 
 - **2,5 % des Brutto-Einkommens** verpflichtend in einen staatlichen kostenfreien Standard-Aktienfonds (Modell AP7 Schweden)
