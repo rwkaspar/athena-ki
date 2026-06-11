@@ -1,0 +1,236 @@
+{
+  "schema_version": "1.0",
+  "slug": "diaeten",
+  "title": "Abgeordneten-Diäten & Privilegien",
+  "lead": "Die Höhe der Abgeordneten-Diäten und ihre Sonderregelungen bei Sozialversicherung und Altersvorsorge sind seit Jahrzehnten Gegenstand politischer Debatten. EVIDENZ fordert eine grundlegende Reform, die Transparenz, Gleichbehandlung und fiskalische Verantwortung vereint.",
+  "stand": "2026-06-11",
+  "facts_at_a_glance": [
+    {
+      "label": "Aktuelle Diätenhöhe (seit Juli 2025)",
+      "value": "11.833 € brutto/Monat",
+      "source_title": "Bundesgesetzblatt – Gesetz zur Anpassung der Abgeordnetenentschädigung",
+      "source_url": "https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&jumpTo=bgbl125s0001.pdf",
+      "verified": true
+    },
+    {
+      "label": "Medianeinkommen in Deutschland (2024)",
+      "value": "ca. 2.000 € netto/Monat (Vollzeit)",
+      "source_title": "Statistisches Bundesamt – Verdienststrukturerhebung",
+      "source_url": "https://www.destatis.de/DE/Themen/Arbeit/Verdienste/Verdienststrukturerhebung/_inhalt.html",
+      "verified": false
+    },
+    {
+      "label": "Anteil der Abgeordneten mit Nebeneinkünften (20. Legislaturperiode)",
+      "value": "ca. 40 % (über 250 Abgeordnete)",
+      "source_title": "Abgeordnetenwatch – Transparenzbericht",
+      "source_url": "https://www.abgeordnetenwatch.de/nebeneinkuenfte",
+      "verified": false
+    },
+    {
+      "label": "Kosten der Altersentschädigung für Abgeordnete (2025)",
+      "value": "ca. 120 Mio. € jährlich",
+      "source_title": "Bundeshaushaltsplan – Einzelplan 02",
+      "source_url": "https://www.bundeshaushalt.de",
+      "verified": false
+    },
+    {
+      "label": "Übergangsgeld für ausgeschiedene Abgeordnete (aktuell)",
+      "value": "bis zu 18 Monate bei mindestens 5 Jahren Mandat",
+      "source_title": "Abgeordnetengesetz (AbgG) § 18",
+      "source_url": "https://www.gesetze-im-internet.de/abgg/__18.html",
+      "verified": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "Grundgesetz Art. 48 Abs. 3",
+      "summary": "Garantie einer angemessenen, die Unabhängigkeit sichernden Entschädigung für Abgeordnete.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_48.html"
+    },
+    {
+      "rule": "BVerfG-Urteil vom 05.11.1975 (2 BvR 193/74)",
+      "summary": "Diäten müssen amtsangemessen sein und dürfen nicht zu einer finanziellen Abhängigkeit führen. Gleichzeitig dürfen sie nicht als „Belohnung“ für politische Tätigkeit ausgestaltet sein.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+    },
+    {
+      "rule": "Abgeordnetengesetz (AbgG) § 11",
+      "summary": "Regelung der Höhe und Anpassung der Abgeordnetenentschädigung sowie der Altersentschädigung.",
+      "url": "https://www.gesetze-im-internet.de/abgg/__11.html"
+    },
+    {
+      "rule": "Sozialgesetzbuch V (SGB V) und VI (SGB VI)",
+      "summary": "Regelungen zur gesetzlichen Kranken- und Rentenversicherung, von denen Abgeordnete derzeit ausgenommen sind.",
+      "url": "https://www.gesetze-im-internet.de/sgb_5/ https://www.gesetze-im-internet.de/sgb_6/"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Unterstützt eine moderate Anpassung der Diäten, lehnt jedoch radikale Kürzungen ab. Für mehr Transparenz bei Nebeneinkünften und eine schrittweise Angleichung an die gesetzliche Rentenversicherung.",
+      "key_claims": [
+        "Diäten müssen die Unabhängigkeit der Abgeordneten sichern.",
+        "Nebeneinkünfte müssen vollständig offengelegt werden.",
+        "Altersvorsorge sollte schrittweise in die GRV überführt werden."
+      ],
+      "position_source": "SPD-Bundestagsfraktion – Positionspapier zur Diätenreform (2024)",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise gestützt",
+        "summary": "Die SPD-Position ist mit dem BVerfG-Urteil von 1975 vereinbar, da sie die Amtsangemessenheit betont. Die Forderung nach Transparenz bei Nebeneinkünften ist empirisch gestützt, während die schrittweise Überführung in die GRV datenmäßig offen ist (Kosten und langfristige Auswirkungen unklar).",
+        "empirical_check": "Transparenzforderungen sind durch Studien zu Korruptionsprävention gestützt (z. B. Transparency International). Die schrittweise GRV-Integration ist jedoch nicht ausreichend quantifiziert.",
+        "tier1_sources": [
+          "https://www.transparency.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Unabhängigkeit der Abgeordneten hat Priorität vor Kosteneinsparungen. · Schrittweise Reformen sind sozialverträglicher als radikale Einschnitte."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Befürwortet eine Beibehaltung der aktuellen Diätenhöhe, da diese die Verantwortung des Amtes widerspiegele. Für eine Beibehaltung der privaten Krankenversicherung und der eigenständigen Altersvorsorge, jedoch mit strengeren Transparenzregeln für Nebeneinkünfte.",
+      "key_claims": [
+        "Diäten müssen die besondere Verantwortung des Mandats widerspiegeln.",
+        "Private Krankenversicherung sichert bessere medizinische Versorgung.",
+        "Altersvorsorge muss unabhängig von der GRV bleiben, um politische Neutralität zu wahren."
+      ],
+      "position_source": "CDU/CSU-Fraktionsbeschluss zur Diätenpolitik (2025)",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise widerlegt + teilweise gestützt",
+        "summary": "Die Beibehaltung der aktuellen Diätenhöhe widerspricht dem BVerfG-Urteil von 1975, das eine „amtsangemessene“ Entschädigung fordert, ohne diese als „Belohnung“ zu verstehen. Die Begründung der privaten KV ist empirisch widerlegt (GKV bietet vergleichbare Leistungen). Die Transparenzforderungen sind jedoch gestützt.",
+        "empirical_check": "Studien des Wissenschaftlichen Instituts der AOK (WIdO) zeigen, dass die GKV vergleichbare Leistungen bietet. Die Beibehaltung der eigenständigen Altersvorsorge ist datenmäßig offen (Kosten-Nutzen-Analyse fehlt).",
+        "tier1_sources": [
+          "https://www.wido.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Politiker verdienen eine privilegierte Behandlung aufgrund ihrer Verantwortung. · Private KV ist der GKV überlegen (trotz fehlender empirischer Belege)."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Für eine deutliche Absenkung der Diäten auf das 3- bis 4-fache des Medianeinkommens. Vollständige Integration in GKV und GRV, Abschaffung der eigenständigen Altersvorsorge. Strengere Regeln für Nebeneinkünfte und Übergangsgelder.",
+      "key_claims": [
+        "Diäten müssen sich am gesellschaftlichen Median orientieren.",
+        "Sonderregelungen für Politiker untergraben das Vertrauen in die Demokratie.",
+        "GKV und GRV gelten für alle – auch für Abgeordnete."
+      ],
+      "position_source": "Bündnis 90/Die Grünen – Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Die Forderung nach einer Orientierung am Medianeinkommen ist mit dem BVerfG-Urteil vereinbar, sofern die Amtsangemessenheit gewahrt bleibt. Die vollständige Integration in GKV/GRV ist empirisch gestützt (Gleichbehandlung), jedoch ist die konkrete Höhe der Diätenkürzung datenmäßig offen (Auswirkungen auf Rekrutierung von Kandidaten unklar).",
+        "empirical_check": "GKV-Integration ist kostenneutral oder sogar kostensenkend (Studien des GKV-Spitzenverbands). Die Auswirkungen auf die Attraktivität des Mandats sind jedoch nicht ausreichend untersucht.",
+        "tier1_sources": [
+          "https://www.gkv-spitzenverband.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Gleichbehandlung hat Vorrang vor Sonderregelungen. · Vertrauen in die Demokratie ist wichtiger als finanzielle Privilegien."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Gegen Kürzungen der Diäten, da diese die Unabhängigkeit der Abgeordneten gefährden. Für Beibehaltung der privaten KV und eigenständigen Altersvorsorge. Nebeneinkünfte sollen transparent, aber nicht gedeckelt werden.",
+      "key_claims": [
+        "Diätenkürzungen gefährden die Unabhängigkeit der Abgeordneten.",
+        "Private KV und eigenständige Altersvorsorge sind effizienter als die GKV/GRV.",
+        "Nebeneinkünfte sind Ausdruck beruflicher Freiheit und sollten nicht eingeschränkt werden."
+      ],
+      "position_source": "FDP-Bundestagsfraktion – Positionspapier zur Diätenpolitik (2025)",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise widerlegt",
+        "summary": "Die Behauptung, Diätenkürzungen gefährdeten die Unabhängigkeit, ist empirisch nicht gestützt (BVerfG-Urteil fordert lediglich „amtsangemessene“ Entschädigung). Die Effizienz der privaten KV/Altersvorsorge ist widerlegt (höhere Verwaltungskosten, keine besseren Leistungen). Die Ablehnung von Deckelungen bei Nebeneinkünften widerspricht Transparenzforderungen.",
+        "empirical_check": "Studien des DIW zeigen, dass die GKV kostengünstiger ist als private KV. Die eigenständige Altersvorsorge für Abgeordnete verursacht höhere Kosten als die GRV (Bundesrechnungshof).",
+        "tier1_sources": [
+          "https://www.diw.de/",
+          "https://www.bundesrechnungshof.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Marktmechanismen sind staatlichen Systemen überlegen. · Berufliche Freiheit hat Vorrang vor Transparenz."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Für eine radikale Absenkung der Diäten auf das 2-fache des Medianeinkommens. Vollständige Abschaffung der eigenständigen Altersvorsorge und Integration in GKV/GRV. Übergangsgeld auf 3 Monate begrenzen, Nebeneinkünfte verbieten.",
+      "key_claims": [
+        "Diäten müssen sich am Einkommen der Arbeiter:innen orientieren.",
+        "Sonderregelungen für Politiker sind undemokratisch.",
+        "Nebeneinkünfte sind mit dem Mandat unvereinbar."
+      ],
+      "position_source": "Die Linke – Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise widerlegt + teilweise gestützt",
+        "summary": "Die Forderung nach einer radikalen Absenkung der Diäten widerspricht dem BVerfG-Urteil, das eine „amtsangemessene“ Entschädigung fordert. Die Integration in GKV/GRV ist empirisch gestützt, während das Verbot von Nebeneinkünften datenmäßig offen ist (Auswirkungen auf die Rekrutierung von Kandidaten unklar).",
+        "empirical_check": "GKV/GRV-Integration ist kostenneutral (Studien des GKV-Spitzenverbands). Die Auswirkungen eines Nebeneinkünfteverbots auf die Attraktivität des Mandats sind nicht ausreichend untersucht.",
+        "tier1_sources": [
+          "https://www.gkv-spitzenverband.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Gleichheit hat Vorrang vor Amtsangemessenheit. · Nebeneinkünfte sind per se korruptionsanfällig."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Für eine Beibehaltung der aktuellen Diätenhöhe, da diese die Bedeutung des Mandats unterstreiche. Gegen Integration in GKV/GRV, da diese Systeme „marode“ seien. Für eine Beibehaltung der eigenständigen Altersvorsorge und lockere Regeln für Nebeneinkünfte.",
+      "key_claims": [
+        "Diäten müssen die Würde des Amtes widerspiegeln.",
+        "GKV und GRV sind nicht leistungsfähig genug für Abgeordnete.",
+        "Nebeneinkünfte sind Ausdruck beruflicher Erfahrung und sollten nicht eingeschränkt werden."
+      ],
+      "position_source": "AfD-Bundestagsfraktion – Positionspapier zur Diätenpolitik (2025)",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Die Beibehaltung der aktuellen Diätenhöhe widerspricht dem BVerfG-Urteil, das eine „amtsangemessene“ Entschädigung fordert, ohne diese als „Belohnung“ zu verstehen. Die Ablehnung der GKV/GRV ist empirisch widerlegt (GKV bietet vergleichbare Leistungen, GRV ist stabil). Die Forderung nach lockeren Nebeneinkünfteregeln widerspricht Transparenzforderungen.",
+        "empirical_check": "Studien des Wissenschaftlichen Instituts der AOK (WIdO) und des DIW zeigen, dass GKV und GRV leistungsfähig sind. Die Beibehaltung der eigenständigen Altersvorsorge verursacht höhere Kosten (Bundesrechnungshof).",
+        "tier1_sources": [
+          "https://www.wido.de/",
+          "https://www.diw.de/",
+          "https://www.bundesrechnungshof.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Politiker verdienen eine privilegierte Behandlung. · Staatliche Sozialsysteme sind per se ineffizient."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Für eine Absenkung der Diäten auf das 3-fache des Medianeinkommens. Vollständige Integration in GKV und GRV, Abschaffung der eigenständigen Altersvorsorge. Übergangsgeld auf 6 Monate begrenzen, Nebeneinkünfte streng deckeln.",
+      "key_claims": [
+        "Diäten müssen sich am gesellschaftlichen Median orientieren.",
+        "Sonderregelungen für Politiker sind ein Symbol der Ungerechtigkeit.",
+        "GKV und GRV gelten für alle – auch für Abgeordnete."
+      ],
+      "position_source": "BSW – Gründungsprogramm 2024",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise gestützt",
+        "summary": "Die Forderung nach einer Orientierung am Medianeinkommen ist mit dem BVerfG-Urteil vereinbar, sofern die Amtsangemessenheit gewahrt bleibt. Die Integration in GKV/GRV ist empirisch gestützt (Gleichbehandlung), während die konkrete Höhe der Diätenkürzung datenmäßig offen ist (Auswirkungen auf Rekrutierung unklar).",
+        "empirical_check": "GKV/GRV-Integration ist kostenneutral (Studien des GKV-Spitzenverbands). Die Auswirkungen auf die Attraktivität des Mandats sind jedoch nicht ausreichend untersucht.",
+        "tier1_sources": [
+          "https://www.gkv-spitzenverband.de/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
+        ],
+        "value_assumptions": "Gleichbehandlung ist ein zentraler Wert. · Vertrauen in die Demokratie wird durch symbolische Reformen gestärkt."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Abgeordneten-Diäten an das 3,5-fache des Medianeinkommens koppeln (~7.000 €/Monat), jährlich dynamisiert. Integration in GKV und GRV, Übergangsgeld auf 6 Monate, Nebeneinkünfte deckeln + Transparenz, eigenständige Altersentschädigung abschaffen.",
+    "konkret": "1. Diäten auf 3,5 × Medianeinkommen (~7.000 €/Monat) senken, jährlich an die Medianentwicklung angepasst. 2. Pflichtmitgliedschaft in GKV und GRV für alle Abgeordneten. 3. Übergangsgeld auf 6 Monate begrenzen. 4. Nebeneinkünfte auf 10 % der Diäten deckeln und vollständig offenlegen. 5. Eigenständige Altersentschädigung abschaffen und in die GRV überführen.",
+    "warum": "Die Reform wahrt die amtsangemessene Entschädigung laut BVerfG-Diätenurteil, vermeidet aber eine beliebige Absenkung. Die Integration in GKV/GRV stärkt die Glaubwürdigkeit und Gleichbehandlung. Die Deckelung von Nebeneinkünften und die Begrenzung des Übergangsgelds reduzieren Privilegien. Fiskalisch ist der Effekt symbolisch (niedriger zweistelliger Mio-Bereich), der Wert liegt in der Signalwirkung: bewusster Selbstschaden als Glaubwürdigkeitssignal.",
+    "wertannahmen": "Gleichbehandlung aller Bürger:innen vor dem Gesetz ist ein zentraler demokratischer Wert. · Transparenz und Verzicht auf Privilegien stärken das Vertrauen in die Demokratie. · Symbolische Reformen können reale Glaubwürdigkeitsgewinne erzielen.",
+    "trade_offs_eingestanden": "Die Diätenkürzung könnte die Attraktivität des Mandats für hochqualifizierte Kandidaten verringern. Die Integration in GKV/GRV könnte kurzfristig höhere Beiträge für Abgeordnete bedeuten. Die Deckelung von Nebeneinkünften könnte die Rekrutierung von Experten aus der Wirtschaft erschweren.",
+    "url": "https://evidenz-partei.de/programm/abgeordnete-diaeten.html"
+  },
+  "evidenz_link": "https://evidenz-partei.de/programm/abgeordnete-diaeten.html",
+  "methodik_note": "Die Analyse basiert auf öffentlich zugänglichen Quellen, Parteiprogrammen und empirischen Studien. Zahlen und Quellen wurden, wo möglich, mit Tier-1-Quellen verknüpft, bedürfen jedoch vor Veröffentlichung einer finalen Verifizierung.",
+  "draft_status": "Entwurf v1 (Mistral) — Partei-Positionen und Zahlen vor Veröffentlichung Tier-1 zu verifizieren."
+}

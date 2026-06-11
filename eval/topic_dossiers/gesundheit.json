@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0",
+  "slug": "gesundheit",
+  "title": "Gesundheit — Bürgerversicherung: Vollintegration der Krankenversicherung",
+  "lead": "Die Bürgerversicherung soll alle Einwohner:innen in ein solidarisches, einkommensabhängiges System integrieren und die Trennung zwischen gesetzlicher und privater Krankenversicherung aufheben.",
+  "stand": "2026-06-11",
+  "facts_at_a_glance": [
+    {
+      "label": "Anteil der Bevölkerung in der PKV (2023)",
+      "value": "ca. 11 % (8,7 Mio. Versicherte)",
+      "source_title": "PKV-Verband, Jahresbericht 2023",
+      "source_url": "https://www.pkv.de/verband/statistiken/jahresberichte/",
+      "verified": false
+    },
+    {
+      "label": "Beitragsbemessungsgrenze GKV (2024)",
+      "value": "5.175 € monatlich (West) / 4.950 € monatlich (Ost)",
+      "source_title": "Bundesministerium für Gesundheit, Sozialversicherungs-Rechengrößenverordnung 2024",
+      "source_url": "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung/beitragsbemessungsgrenze.html",
+      "verified": false
+    },
+    {
+      "label": "Durchschnittlicher Zusatzbeitrag GKV (2024)",
+      "value": "1,6 %",
+      "source_title": "GKV-Spitzenverband, Pressemitteilung Januar 2024",
+      "source_url": "https://www.gkv-spitzenverband.de/presse/pressemitteilungen_2024/pressemitteilung_106123.jsp",
+      "verified": false
+    },
+    {
+      "label": "Anteil der Beamten in der PKV (2022)",
+      "value": "ca. 90 %",
+      "source_title": "Statistisches Bundesamt, Versorgungsempfänger des öffentlichen Dienstes",
+      "source_url": "https://www.destatis.de/DE/Themen/Staat/Oeffentlicher-Dienst/Tabellen/versorgungsempfaenger-beamte.html",
+      "verified": false
+    },
+    {
+      "label": "Altersrückstellungen in der PKV (2023)",
+      "value": "ca. 300 Mrd. €",
+      "source_title": "PKV-Verband, Jahresbericht 2023",
+      "source_url": "https://www.pkv.de/verband/statistiken/jahresberichte/",
+      "verified": false
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "Art. 74 Abs. 1 Nr. 12 GG",
+      "summary": "Konkurrierende Gesetzgebung des Bundes für die Sozialversicherung, einschließlich der Krankenversicherung.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_74.html"
+    },
+    {
+      "rule": "§ 1 SGB V",
+      "summary": "Aufgaben der gesetzlichen Krankenversicherung: Gesundheit der Versicherten zu erhalten, wiederherzustellen oder ihren Gesundheitszustand zu bessern.",
+      "url": "https://www.sozialgesetzbuch-sgb.de/sgbv/1.html"
+    },
+    {
+      "rule": "BVerfG, 1 BvR 1148/13",
+      "summary": "Altersrückstellungen in der PKV unterliegen nicht dem Schutz des Art. 14 GG (Eigentumsgarantie).",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2015/07/rs20150707_1bvr114813.html"
+    },
+    {
+      "rule": "§ 257 SGB V",
+      "summary": "Beihilfeberechtigte Personen (z. B. Beamte) können sich privat krankenversichern und erhalten Beihilfe zu den Kosten.",
+      "url": "https://www.sozialgesetzbuch-sgb.de/sgbv/257.html"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Befürwortet eine Bürgerversicherung mit Integration aller Bevölkerungsgruppen, einschließlich Beamter und Selbstständiger. Beitragsbemessungsgrenze soll schrittweise angehoben oder aufgehoben werden. PKV soll als Zusatzversicherung erhalten bleiben.",
+      "key_claims": [
+        "„Die Bürgerversicherung ist ein zentraler Baustein für mehr Gerechtigkeit im Gesundheitssystem.“",
+        "„Alle müssen nach ihrer Leistungsfähigkeit einzahlen – das schafft Solidarität.“",
+        "„Die PKV kann als Zusatzversicherung weiterbestehen, aber nicht als Vollversicherung.“"
+      ],
+      "position_source": "SPD-Gesundheitsprogramm 2025, Beschluss Parteitag 2024",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Die SPD-Position zur Bürgerversicherung ist in der Grundausrichtung (Solidarprinzip, Integration aller Gruppen) empirisch gestützt, insbesondere durch Studien zur Umverteilungswirkung (z. B. DIW). Die Behauptung, die PKV könne problemlos als Zusatzversicherung weiterbestehen, ist jedoch teilweise widerlegt, da dies zu Risikoselektion und höheren Kosten für die GKV führen könnte (ifo-Institut).",
+        "empirical_check": "Studien zeigen, dass eine Bürgerversicherung die Umverteilung verbessert (DIW 2021), aber die konkrete Ausgestaltung der PKV-Überführung unklar bleibt. Die Annahme, Beamte würden ohne Kompensation integriert, ist politisch umstritten und empirisch nicht abschließend geklärt.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
+          "https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/folgen-einer-buergerversicherung-fuer-die-gesetzliche"
+        ],
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird priorisiert. · Marktmechanismen (§3 EVIDENZ-Wertekanon) werden zugunsten von Umverteilung eingeschränkt."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Lehnt eine Bürgerversicherung ab und setzt auf das duale System aus GKV und PKV. Beitragsbemessungsgrenze soll erhalten bleiben. PKV soll als Vollversicherung für Besserverdiener und Beamte fortbestehen. Forderung nach stärkerer Wettbewerbsorientierung in der GKV.",
+      "key_claims": [
+        "„Das duale System hat sich bewährt und garantiert Wahlfreiheit.“",
+        "„Eine Bürgerversicherung würde die Qualität der medizinischen Versorgung gefährden.“",
+        "„Die PKV ist ein wichtiger Innovationsmotor für das Gesundheitssystem.“"
+      ],
+      "position_source": "CDU/CSU-Gesundheitspapier 2024, Beschluss Bundesparteitag 2023",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise widerlegt + teilweise gestützt",
+        "summary": "Die Behauptung, das duale System garantiere Wahlfreiheit, ist teilweise gestützt (PKV als Option für Besserverdiener). Die Aussage, eine Bürgerversicherung gefährde die Versorgungsqualität, ist jedoch widerlegt: Studien zeigen, dass Länder mit Einheitsversicherung (z. B. Schweiz) vergleichbare oder bessere Outcomes aufweisen (OECD Health at a Glance). Die Innovationskraft der PKV ist empirisch umstritten (DIW 2020).",
+        "empirical_check": "Die PKV trägt zur Finanzierung von Innovationen bei, aber der Nettoeffekt auf das Gesamtsystem ist unklar. Die Behauptung, die GKV sei weniger leistungsfähig, ist widerlegt (z. B. durch vergleichende Studien zur Effizienz).",
+        "tier1_sources": [
+          "https://www.oecd.org/health/health-at-a-glance/",
+          "https://www.diw.de/de/diw_01.c.793534.de/publikationen/wochenberichte/2020_40_1/duales_krankenversicherungssystem__kein_vorbild_fuer_die_zukunft.html"
+        ],
+        "value_assumptions": "Wettbewerb (§3 EVIDENZ-Wertekanon) wird priorisiert. · Tradition (§4 EVIDENZ-Wertekanon) des dualen Systems wird betont."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Befürworten eine Bürgerversicherung mit vollständiger Integration aller Bevölkerungsgruppen, einschließlich Kapitalerträge. Beitragsbemessungsgrenze soll aufgehoben werden. PKV soll als Zusatzversicherung erhalten bleiben, aber keine Neuverträge für Vollversicherungen. Altersrückstellungen sollen übertragbar sein.",
+      "key_claims": [
+        "„Gesundheit darf keine Frage des Geldbeutels sein – alle müssen solidarisch einzahlen.“",
+        "„Die PKV muss als Vollversicherung abgeschafft werden, um Risikoselektion zu verhindern.“",
+        "„Kapitalerträge müssen in die Finanzierung einbezogen werden.“"
+      ],
+      "position_source": "Bündnis 90/Die Grünen, Wahlprogramm 2025, Kapitel Gesundheit",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise gestützt",
+        "summary": "Die Forderung nach Integration aller Gruppen und Aufhebung der Beitragsbemessungsgrenze ist empirisch gestützt (DIW, ifo), da dies die Umverteilung stärkt. Die Einbeziehung von Kapitalerträgen ist datenmäßig offen, da deren Erfassbarkeit und administrative Umsetzung unklar sind. Die Abschaffung der PKV-Vollversicherung ist teilweise gestützt, da sie Risikoselektion reduziert, aber die Übertragbarkeit von Altersrückstellungen ist rechtlich und fiskalisch komplex (BVerfG-Urteil 2015).",
+        "empirical_check": "Studien zeigen, dass eine Bürgerversicherung die Umverteilung verbessert, aber die konkreten Effekte auf die Beitragssätze sind unklar. Die Einbeziehung von Kapitalerträgen ist administrativ herausfordernd (BMF 2022).",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
+          "https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/folgen-einer-buergerversicherung-fuer-die-gesetzliche"
+        ],
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird stark gewichtet. · Gerechtigkeit (§3(iii) EVIDENZ-Wertekanon) rechtfertigt Eingriffe in Marktmechanismen."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Lehnt eine Bürgerversicherung ab und setzt auf Wettbewerb zwischen GKV und PKV. Beitragsbemessungsgrenze soll erhalten bleiben. PKV soll als Vollversicherung fortbestehen, mit stärkerer Portabilität von Altersrückstellungen. Forderung nach mehr Wahlfreiheit und weniger staatlicher Regulierung.",
+      "key_claims": [
+        "„Wettbewerb schafft bessere Versorgung und mehr Effizienz.“",
+        "„Eine Bürgerversicherung wäre ein Schritt in Richtung Einheitskasse und würde die Qualität senken.“",
+        "„Die PKV ist ein wichtiger Baustein für die Finanzierung des Gesundheitssystems.“"
+      ],
+      "position_source": "FDP-Gesundheitspapier 2024, Beschluss Bundesparteitag 2023",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise widerlegt + teilweise gestützt",
+        "summary": "Die FDP-Position ist teilweise gestützt, was die Bedeutung von Wettbewerb für Effizienz angeht (ifo-Institut). Die Behauptung, eine Bürgerversicherung senke die Qualität, ist jedoch widerlegt (OECD-Vergleiche). Die Portabilität von Altersrückstellungen ist rechtlich möglich (BVerfG 2015), aber die konkreten Effekte auf die PKV sind unklar. Die Behauptung, die PKV sei systemrelevant, ist empirisch umstritten (DIW 2020).",
+        "empirical_check": "Wettbewerb kann Effizienzgewinne bringen, aber die PKV führt auch zu Risikoselektion und höheren Verwaltungskosten (DIW). Die Qualität der Versorgung ist in Ländern mit Einheitsversicherung nicht schlechter (OECD).",
+        "tier1_sources": [
+          "https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/wettbewerb-in-der-gesetzlichen-krankenversicherung",
+          "https://www.oecd.org/health/health-at-a-glance/"
+        ],
+        "value_assumptions": "Wettbewerb (§3 EVIDENZ-Wertekanon) wird priorisiert. · Freiheit (§1 EVIDENZ-Wertekanon) der Versicherten wird betont."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Fordert eine solidarische Bürgerversicherung mit vollständiger Integration aller Bevölkerungsgruppen, einschließlich Kapitalerträge und Vermögen. Beitragsbemessungsgrenze soll aufgehoben werden. PKV soll als Vollversicherung abgeschafft werden, Altersrückstellungen sollen in die GKV überführt werden. Finanzierung soll durch eine Vermögensabgabe ergänzt werden.",
+      "key_claims": [
+        "„Gesundheit ist ein Menschenrecht – das System muss solidarisch und bedarfsorientiert sein.“",
+        "„Die PKV ist ein Privileg für Reiche und muss abgeschafft werden.“",
+        "„Kapitalerträge und Vermögen müssen zur Finanzierung herangezogen werden.“"
+      ],
+      "position_source": "Die Linke, Wahlprogramm 2025, Kapitel Gesundheit",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "datenmäßig offen + teilweise widerlegt",
+        "summary": "Die Forderung nach einer solidarischen Bürgerversicherung ist empirisch teilweise gestützt (DIW), aber die Einbeziehung von Vermögen und Kapitalerträgen ist datenmäßig offen, da deren administrative Umsetzbarkeit unklar ist (BMF 2022). Die Abschaffung der PKV ist teilweise gestützt, aber die Überführung der Altersrückstellungen in die GKV ist rechtlich und fiskalisch umstritten (BVerfG 2015). Die Behauptung, die PKV sei ein „Privileg für Reiche“, ist teilweise widerlegt, da auch Geringverdiener in der PKV versichert sind (z. B. Beamte mit Beihilfe).",
+        "empirical_check": "Studien zeigen, dass eine Bürgerversicherung die Umverteilung verbessert, aber die konkreten Effekte auf die Beitragssätze sind unklar. Die Einbeziehung von Vermögen ist administrativ herausfordernd (BMF).",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
+          "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Oeffentliche_Finanzen/Steuern/2022-03-16-vermoegensabgabe.html"
+        ],
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird absolut priorisiert. · Gerechtigkeit (§3(iii) EVIDENZ-Wertekanon) rechtfertigt starke Umverteilung."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Lehnt eine Bürgerversicherung ab und setzt auf das duale System. PKV soll als Vollversicherung fortbestehen, mit stärkerer Portabilität von Altersrückstellungen. Beitragsbemessungsgrenze soll erhalten bleiben. Forderung nach weniger staatlicher Regulierung und mehr „Eigenverantwortung“. Kritik an „Zwangssolidarität“.",
+      "key_claims": [
+        "„Die Bürgerversicherung ist ein Angriff auf die Freiheit der Bürger.“",
+        "„Das duale System hat sich bewährt und muss erhalten bleiben.“",
+        "„Die GKV ist ineffizient und bürokratisch – mehr Wettbewerb ist nötig.“"
+      ],
+      "position_source": "AfD-Gesundheitspapier 2024, Beschluss Bundesparteitag 2023",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise widerlegt + teilweise gestützt",
+        "summary": "Die AfD-Position ist teilweise gestützt, was die Bedeutung von Wahlfreiheit angeht. Die Behauptung, die GKV sei ineffizient, ist jedoch widerlegt: Studien zeigen, dass die GKV im internationalen Vergleich kostengünstiger ist (OECD Health at a Glance). Die Kritik an „Zwangssolidarität“ ist eine normative Aussage ohne empirische Grundlage. Die Portabilität von Altersrückstellungen ist rechtlich möglich (BVerfG 2015), aber die konkreten Effekte auf die PKV sind unklar.",
+        "empirical_check": "Die GKV ist im internationalen Vergleich effizient (OECD). Die Behauptung, die Bürgerversicherung sei ein „Angriff auf die Freiheit“, ist eine Wertaussage ohne empirische Basis.",
+        "tier1_sources": [
+          "https://www.oecd.org/health/health-at-a-glance/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2015/07/rs20150707_1bvr114813.html"
+        ],
+        "value_assumptions": "Freiheit (§1 EVIDENZ-Wertekanon) wird absolut priorisiert. · Wettbewerb (§3 EVIDENZ-Wertekanon) wird betont, Solidarität (§2) abgelehnt."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Befürwortet eine Bürgerversicherung mit vollständiger Integration aller Bevölkerungsgruppen, einschließlich Kapitalerträge. Beitragsbemessungsgrenze soll aufgehoben werden. PKV soll als Vollversicherung abgeschafft werden, Altersrückstellungen sollen übertragbar sein. Forderung nach stärkerer staatlicher Steuerung und weniger Einfluss privater Akteure.",
+      "key_claims": [
+        "„Gesundheit ist kein Markt – das System muss solidarisch und demokratisch kontrolliert sein.“",
+        "„Die PKV ist ein Relikt des Neoliberalismus und gehört abgeschafft.“",
+        "„Kapitalerträge müssen in die Finanzierung einbezogen werden, um die Beitragslast gerecht zu verteilen.“"
+      ],
+      "position_source": "BSW-Gesundheitspapier 2024, Beschluss Gründungsparteitag 2024",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "analysiert",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Die Forderung nach einer Bürgerversicherung ist empirisch teilweise gestützt (DIW), aber die Abschaffung der PKV ist umstritten: Studien zeigen, dass dies Risikoselektion reduziert, aber die Übertragbarkeit von Altersrückstellungen ist rechtlich und fiskalisch komplex (BVerfG 2015). Die Einbeziehung von Kapitalerträgen ist datenmäßig offen, da deren administrative Umsetzbarkeit unklar ist (BMF 2022). Die Behauptung, die PKV sei „neoliberal“, ist eine normative Aussage ohne empirische Grundlage.",
+        "empirical_check": "Studien zeigen, dass eine Bürgerversicherung die Umverteilung verbessert, aber die konkreten Effekte auf die Beitragssätze sind unklar. Die Einbeziehung von Kapitalerträgen ist administrativ herausfordernd (BMF).",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
+          "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Oeffentliche_Finanzen/Steuern/2022-03-16-vermoegensabgabe.html"
+        ],
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird absolut priorisiert. · Staatliche Steuerung (§3(ii) EVIDENZ-Wertekanon) wird betont, Marktmechanismen abgelehnt."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Vollintegration in eine GKV-Bürgerversicherung: Alle Einwohner:innen zahlen einkommensabhängig ein, inklusive Beamte, Selbstständige und Kapitalerträge. Beitragsbemessungsgrenze wird aufgehoben. PKV-Vollversicherung: keine Neuverträge, Bestand mit Bestandsschutz und Übertragbarkeit der Altersrückstellungen. Private Zusatzversicherungen bleiben erlaubt.",
+    "konkret": "beitragsbasis: Einkommen (inkl. Kapitalerträge), keine Beitragsbemessungsgrenze.; zielgruppen: Alle Einwohner:innen, inkl. Beamte, Politiker:innen, Selbstständige.; pkv: Keine Neuverträge für Vollversicherungen; Bestandsschutz für bestehende Verträge mit Übertragbarkeit der Altersrückstellungen (BVerfG 1 BvR 1148/13). Private Zusatzversicherungen bleiben erlaubt.; finanzierung: Beitragsfinanziert, fiskalisch für den Bundeshaushalt ~neutral (GKV ist beitragsfinanziert).; verteilungseffekte: GKV-interne Beitragssenkung durch breitere Risikostreuung und höhere Einnahmen.",
+    "warum": "§2 EVIDENZ-Wertekanon (Solidarität) wird stark gestützt. §3 (Marktmechanismen) wird belastet, aber über §3(iii) (Gerechtigkeit) gerechtfertigt. §4 (Tradition des dualen Systems) wird bewusst aufgegeben, da es zu Ungleichheiten führt.",
+    "wertannahmen": "solidaritaet: §2: Alle tragen nach Leistungsfähigkeit bei, unabhängig von Risiko oder Status.; gerechtigkeit: §3(iii): Umverteilung reduziert soziale Ungleichheit im Gesundheitssystem.; tradition: §4: Das duale System wird als historisch überholt und ungerecht bewertet.",
+    "trade_offs_eingestanden": "Marktmechanismen (§3) werden eingeschränkt, um Solidarität (§2) und Gerechtigkeit (§3(iii)) zu stärken. Die PKV als Vollversicherung wird abgeschafft, um Risikoselektion zu verhindern, was die Wahlfreiheit (§1) einschränkt. Die Übertragbarkeit von Altersrückstellungen mildert diesen Trade-off ab.",
+    "url": "https://evidenz-partei.de/programm/gesundheit.html#buergerversicherung"
+  },
+  "evidenz_link": "https://evidenz-partei.de/programm/gesundheit.html",
+  "methodik_note": "Partei-Positionen basieren auf öffentlich zugänglichen Programmen und Beschlüssen; empirische Überprüfung erfolgte anhand von Studien und amtlichen Quellen, soweit verfügbar.",
+  "draft_status": "Entwurf v1 (Mistral) — Partei-Positionen und Zahlen vor Veröffentlichung Tier-1 zu verifizieren."
+}
