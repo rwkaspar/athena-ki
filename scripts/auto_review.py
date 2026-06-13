@@ -232,7 +232,7 @@ def review_submission(submission_dir: Path, provider: str = None) -> dict:
     pre = _prefilter(meta, source, sample)
     if pre is not None:
         verdict = pre
-        return _finalize_review(submission_dir, meta, source, domain, verdict)
+        return _finalize_review(submission_dir, meta, source, domain, verdict, sample)
 
     prompt = f"""Du bist die strenge Quellen-Prüfung von EVIDENZ, einer faktenbasierten politischen Bewegung in Deutschland. Eine Person hat eine Quelle für die Wissensbasis vorgeschlagen. Bewerte sie KRITISCH — die Wissensbasis darf nicht durch unseriöse oder manipulative Quellen vergiftet werden.
 
@@ -265,14 +265,29 @@ TEXTAUSZUG:
     except Exception as e:
         verdict = {"error": f"JSON-Parse: {e}", "raw": content[:500]}
 
-    return _finalize_review(submission_dir, meta, source, domain, verdict)
+    return _finalize_review(submission_dir, meta, source, domain, verdict, sample)
 
 
-def _finalize_review(submission_dir, meta, source, domain, verdict):
+def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
     """Verdict zeitstempeln, an meta.json schreiben, ggf. Tier-0 ingestieren, loggen.
     Gemeinsamer Abschluss für LLM-Bewertung UND Vorfilter-Entscheidung."""
     verdict["reviewed_at"] = datetime.now(timezone.utc).isoformat()
     verdict.setdefault("model", REVIEW_MODEL)
+
+    # Sprache erkennen und MARKIEREN (nicht filtern). Fremdsprachige Quellen
+    # werden nicht stumm verworfen, sondern als "wartet auf sprachkundige Prüfung"
+    # gekennzeichnet — ein sprachkundiger Reviewer kann sie heben (z. B. relevante
+    # arabische Quellen ohne deutsche Übersetzung) oder als Sprachfassung verlinken.
+    try:
+        from lang_detect import detect, is_foreign
+        lang = detect(sample) if sample else {"code": "unknown", "name": "unbekannt"}
+        verdict["lang"] = lang["code"]
+        verdict["lang_name"] = lang["name"]
+        meta["lang"] = lang["code"]
+        if is_foreign(lang["code"]):
+            meta["needs_language_review"] = True
+    except Exception:
+        pass
     # Topics zentral normalisieren: Aliase auflösen (z. B. aussenpolitik →
     # außenpolitik) + Duplikate raus. Alles, was downstream geschrieben wird
     # (meta.json, log.jsonl, ChromaDB-Metadaten) sieht so die kanonische Form.

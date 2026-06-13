@@ -1094,6 +1094,11 @@ def verify_pending(request: Request):
             "id": m.get("id"), "kind": m.get("kind"), "source": _source_value(m),
             "note": m.get("note"), "submitted_at": m.get("submitted_at"),
             "ingest_status": ar.get("ingest_status"),
+            # Sprache: fremdsprachige Quellen werden markiert, nicht gefiltert —
+            # ein sprachkundiger Reviewer kann sie bewerten/verlinken.
+            "lang": m.get("lang") or ar.get("lang"),
+            "lang_name": ar.get("lang_name"),
+            "needs_language_review": bool(m.get("needs_language_review")),
             "athena": {
                 "recommendation": ar.get("recommendation"), "summary": ar.get("summary"),
                 "publisher": ar.get("publisher"), "publisher_trust": ar.get("publisher_trust"),
