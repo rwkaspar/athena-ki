@@ -82,7 +82,19 @@
           "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
           "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32014R0651"
         ],
-        "value_assumptions": "Annahme: Industriestandort-Erhalt > marktwirtschaftliche Reallokation; staatliche Steuerung des Strompreises ist legitim."
+        "value_assumptions": "Annahme: Industriestandort-Erhalt > marktwirtschaftliche Reallokation; staatliche Steuerung des Strompreises ist legitim.",
+        "claim_assessments": [
+          {
+            "claim": "Industrie-Strompreis-Bremse erhält Wertschöpfung",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW 2024 zeigt zielgerichteten Effekt nur für energie-intensive Branchen, nicht für die gesamte Wertschöpfung."
+          },
+          {
+            "claim": "Beschleunigte Genehmigung halbiert Ausbau-Zeit",
+            "verdict": "widerlegt",
+            "reason": "Empirische Daten der EEG-Novelle 2023 zeigen zwar eine Beschleunigung, aber keine Halbierung der Bauzeit."
+          }
+        ]
       }
     },
     {
@@ -103,7 +115,19 @@
           "https://www.destatis.de/DE/Themen/Staat/Steuern/Steueraufkommen/",
           "https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien/erneuerbare-energien-in-zahlen"
         ],
-        "value_assumptions": "Annahme: Versorgungssicherheit und Preisbezahlbarkeit > Pfadtreue Erneuerbare-Nur; Technologieoffenheit als Wert."
+        "value_assumptions": "Annahme: Versorgungssicherheit und Preisbezahlbarkeit > Pfadtreue Erneuerbare-Nur; Technologieoffenheit als Wert.",
+        "claim_assessments": [
+          {
+            "claim": "Kernenergie-Wiederaufnahme senkt Strompreise und CO₂",
+            "verdict": "teilweise widerlegt",
+            "reason": "Bauzeit von 12-15 Jahren macht Kernenergie kurz-/mittelfristig irrelevant für Strompreise; CO₂-Effekt durch 2023er Abschaltung nur kurzfristig durch fossile Erzeugung kompensiert, langfristig durch Erneuerbare ausgeglichen."
+          },
+          {
+            "claim": "Stromsteuer-Senkung entlastet sofort",
+            "verdict": "gestützt",
+            "reason": "Stromsteuer-Senkung wirkt direkt auf den Strompreis und ist fiskalisch mit ~7 Mrd. €/Jahr unterlegt."
+          }
+        ]
       }
     },
     {
@@ -124,7 +148,19 @@
           "https://www.agora-energiewende.de/publikationen",
           "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/"
         ],
-        "value_assumptions": "Annahme: Klimaziel überwiegt Versorgungs-Resilienz-Marge; Technologieoffenheit verzögert Pfad."
+        "value_assumptions": "Annahme: Klimaziel überwiegt Versorgungs-Resilienz-Marge; Technologieoffenheit verzögert Pfad.",
+        "claim_assessments": [
+          {
+            "claim": "100 % Erneuerbare bis 2035 sind machbar",
+            "verdict": "teilweise gestützt",
+            "reason": "Fraunhofer ISE-Studien zeigen 80-95 % bis 2035 als plausibel, 100 % hängt jedoch von ungesicherten Saisonspeichern, Wasserstoff-Infrastruktur und H2-Importen ab."
+          },
+          {
+            "claim": "Vorgezogener Kohleausstieg ist ohne Versorgungslücke möglich",
+            "verdict": "gestützt",
+            "reason": "Marktdaten 2024 und BNetzA bestätigen, dass Kohle bereits unwirtschaftlich ist und der Ausstieg primär eine Frage des Strukturwandels, nicht der Versorgungssicherheit."
+          }
+        ]
       }
     },
     {
@@ -145,7 +181,19 @@
           "https://www.iter.org/",
           "https://www.zew.de/publikationen"
         ],
-        "value_assumptions": "Annahme: Marktmechanismen sind effizienter als Subventionen; Pro-Kopf-Verteilung erfasst Gerechtigkeit besser als Branchen-Schutz."
+        "value_assumptions": "Annahme: Marktmechanismen sind effizienter als Subventionen; Pro-Kopf-Verteilung erfasst Gerechtigkeit besser als Branchen-Schutz.",
+        "claim_assessments": [
+          {
+            "claim": "Klimageld ist effizienteste Entlastung",
+            "verdict": "gestützt",
+            "reason": "DIW und IW bestätigen die ökonomische Effizienz der Pro-Kopf-Rückverteilung."
+          },
+          {
+            "claim": "Industrie-Strompreis-Subventionen verzerren Wettbewerb",
+            "verdict": "teilweise gestützt",
+            "reason": "EU-Beihilferecht und ökonomische Theorie stützen die Kritik, aber empirische Studien zeigen auch reale Leakage-Risiken bei Preisdifferenzen."
+          }
+        ]
       }
     },
     {
@@ -166,7 +214,19 @@
           "https://www.monopolkommission.de/de/publikationen.html",
           "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Monitoring/start.html"
         ],
-        "value_assumptions": "Annahme: Daseinsvorsorge in öffentlicher Hand > Markt-Effizienz; Profite Energiekonzerne werten als nicht-legitimierte Rente."
+        "value_assumptions": "Annahme: Daseinsvorsorge in öffentlicher Hand > Markt-Effizienz; Profite Energiekonzerne werten als nicht-legitimierte Rente.",
+        "claim_assessments": [
+          {
+            "claim": "Vergesellschaftung senkt Strompreise und ermöglicht Investitionen",
+            "verdict": "offen",
+            "reason": "Keine empirische Vergleichsbasis im deutschen Kontext vorhanden; theoretische Argumente für und gegen Effekte existieren, aber keine belastbare Datenlage."
+          },
+          {
+            "claim": "Privatisierung verteuerte den Strommarkt",
+            "verdict": "teilweise widerlegt",
+            "reason": "Preissteigerungen ab 2008 sind nicht allein auf Privatisierung zurückzuführen, sondern auch auf EEG-Umlage, CO₂-Kosten und Gaspreis-Schock."
+          }
+        ]
       }
     },
     {
@@ -187,7 +247,19 @@
           "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/",
           "https://www.entsoe.eu/data/"
         ],
-        "value_assumptions": "Annahme: nationale Energiebezahlbarkeit > Klima-Pfadtreue und außenpolitische Bindung an die NATO/EU."
+        "value_assumptions": "Annahme: nationale Energiebezahlbarkeit > Klima-Pfadtreue und außenpolitische Bindung an die NATO/EU.",
+        "claim_assessments": [
+          {
+            "claim": "Atomausstieg hat Strompreis und CO₂ getrieben",
+            "verdict": "teilweise widerlegt",
+            "reason": "Der isolierte Effekt des Atomausstiegs auf den Strompreis wird auf 2-8 €/MWh geschätzt, während der Preisrückgang 2023/24 primär auf sinkende Gaspreise und Erneuerbaren-Ausbau zurückging; CO₂-Emissionen stiegen nicht signifikant durch den Atomausstieg."
+          },
+          {
+            "claim": "Russland-Gas wäre billiger als LNG",
+            "verdict": "teilweise gestützt",
+            "reason": "Pipeline-Gas aus Russland war 2019-2021 günstiger (20-30 €/MWh), LNG-Spot 2024 liegt bei 30-35 €/MWh, aber die Differenz verringert sich und geopolitische Risiken sind nicht quantifiziert."
+          }
+        ]
       }
     },
     {
@@ -208,7 +280,19 @@
           "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Monitoring/start.html",
           "https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien/erneuerbare-energien-in-zahlen"
         ],
-        "value_assumptions": "Annahme: Industriebezahlbarkeit > außenpolitische Position gegenüber Russland; Energie-Realpolitik > Werte-Außenpolitik."
+        "value_assumptions": "Annahme: Industriebezahlbarkeit > außenpolitische Position gegenüber Russland; Energie-Realpolitik > Werte-Außenpolitik.",
+        "claim_assessments": [
+          {
+            "claim": "Russland-Sanktionen treiben deutsche Energiepreise und Deindustrialisierung",
+            "verdict": "teilweise widerlegt",
+            "reason": "Kausalattribution an Sanktionen ist empirisch nicht belegbar, da parallele Treiber (globale Gasnachfrage, Atomausstieg, CO₂-Preis) die Preisentwicklung beeinflussen und Großhandelspreise 2024 auf Vor-Krise-Niveau liegen."
+          },
+          {
+            "claim": "Atomausstieg überstürzt",
+            "verdict": "widerlegt",
+            "reason": "Der Atomausstieg wurde 2011 beschlossen und über 12 Jahre umgesetzt, was die Charakterisierung als „überstürzt“ substanzlos macht."
+          }
+        ]
       }
     }
   ],

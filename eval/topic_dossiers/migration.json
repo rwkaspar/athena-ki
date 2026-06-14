@@ -76,7 +76,19 @@
           "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
           "https://www.gesetze-im-internet.de/asylvfg_1992/"
         ],
-        "value_assumptions": "Annahme: Asylrecht individuell (Art. 16a) bleibt; Integration vor Begrenzung; Arbeitsmarkt-Logik primär gegenüber Sicherheitslogik."
+        "value_assumptions": "Annahme: Asylrecht individuell (Art. 16a) bleibt; Integration vor Begrenzung; Arbeitsmarkt-Logik primär gegenüber Sicherheitslogik.",
+        "claim_assessments": [
+          {
+            "claim": "Asylverfahren beschleunigen verkürzt Sozialleistungen-Bezugsdauer",
+            "verdict": "gestützt",
+            "reason": "IAB-Studien belegen, dass schnellere Verfahren die Bezugsdauer von AsylbLG-Leistungen reduzieren."
+          },
+          {
+            "claim": "Integration in den Arbeitsmarkt ist die wirksamste Migrationspolitik",
+            "verdict": "teilweise gestützt",
+            "reason": "Arbeitsmarktintegration erhöht langfristig das Steueraufkommen, ist aber an Bedingungen wie Mindestlohn und Sprachkompetenz geknüpft."
+          }
+        ]
       }
     },
     {
@@ -97,7 +109,19 @@
           "https://curia.europa.eu/juris/document/document.jsf?docid=242563",
           "https://www.unhcr.org/news/news-releases/unhcr-warning-uk-rwanda-asylum-plan"
         ],
-        "value_assumptions": "Annahme: Externalisierung des Asylverfahrens ist legitim; Reduktion der Zugangszahlen wiegt schwerer als Verfahrens-Individualität."
+        "value_assumptions": "Annahme: Externalisierung des Asylverfahrens ist legitim; Reduktion der Zugangszahlen wiegt schwerer als Verfahrens-Individualität.",
+        "claim_assessments": [
+          {
+            "claim": "Drittstaaten-Asylverfahren senken Asylanträge erheblich",
+            "verdict": "widerlegt",
+            "reason": "Es gibt keinen belastbaren empirischen Nachweis für eine erhebliche Senkung der Asylanträge durch Drittstaaten-Modelle im deutschen Kontext oder durch das britische Ruanda-Modell."
+          },
+          {
+            "claim": "Zurückweisungen an Grenzen sind rechtlich möglich",
+            "verdict": "teilweise widerlegt",
+            "reason": "EuGH-Urteile setzen enge rechtliche Grenzen für Zurückweisungen an Grenzen, was deren pauschale Möglichkeit infrage stellt."
+          }
+        ]
       }
     },
     {
@@ -118,7 +142,19 @@
           "https://www.zew.de/publikationen",
           "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx"
         ],
-        "value_assumptions": "Annahme: Migrations-Logik humanitär-gesetzlich; langfristige Kosten-Nutzen-Bilanz wiegt schwerer als kurzfristige Belastung."
+        "value_assumptions": "Annahme: Migrations-Logik humanitär-gesetzlich; langfristige Kosten-Nutzen-Bilanz wiegt schwerer als kurzfristige Belastung.",
+        "claim_assessments": [
+          {
+            "claim": "Resettlement-Programme reduzieren irreguläre Migration",
+            "verdict": "teilweise widerlegt",
+            "reason": "UNHCR-Daten zeigen, dass die globale Resettlement-Quote unter 1% der Schutzsuchenden liegt, was auf eine geringe empirische Wirkung auf die Gesamtmigration hindeutet."
+          },
+          {
+            "claim": "Schnelle Arbeitsmarkt-Integration ist fiskalisch positiv binnen 10 Jahren",
+            "verdict": "teilweise gestützt",
+            "reason": "ZEW und RWI-Studien belegen einen fiskalisch positiven Effekt erst nach ca. 8-12 Jahren, wobei kürzere Zeithorizonte Netto-Kosten aufweisen."
+          }
+        ]
       }
     },
     {
@@ -139,7 +175,19 @@
           "https://www.oecd.org/migration/international-migration-outlook-2024",
           "https://www.gesetze-im-internet.de/aufenthg_2004/"
         ],
-        "value_assumptions": "Annahme: ökonomischer Nutzen ist Hauptkriterium; humanitäre Migration als separates Spur ohne Beeinträchtigung der Erwerbsmigration."
+        "value_assumptions": "Annahme: ökonomischer Nutzen ist Hauptkriterium; humanitäre Migration als separates Spur ohne Beeinträchtigung der Erwerbsmigration.",
+        "claim_assessments": [
+          {
+            "claim": "Punkte-System nach kanadischem Vorbild deckt Fachkräftebedarf",
+            "verdict": "teilweise gestützt",
+            "reason": "Das kanadische System zeigt hohe Selektivität und gute Arbeitsmarktintegration, aber die Gesamtmigration war pro Kopf höher als in Deutschland, und die Übertragbarkeit auf deutsche Strukturen ist begrenzt."
+          },
+          {
+            "claim": "Effizientere Asylverfahren senken Verwaltungskosten",
+            "verdict": "offen",
+            "reason": "Die vorliegende Analyse enthält keine empirischen Daten zur Kostenwirkung effizienterer Asylverfahren in Deutschland."
+          }
+        ]
       }
     },
     {
@@ -160,7 +208,19 @@
           "https://www.unhcr.org/global-trends",
           "https://www.europarl.europa.eu/doceo/document/TA-9-2022-0211_DE.html"
         ],
-        "value_assumptions": "Annahme: humanitäre Logik primär; AsylbLG-Differenzierung als grundrechts-problematisch eingestuft."
+        "value_assumptions": "Annahme: humanitäre Logik primär; AsylbLG-Differenzierung als grundrechts-problematisch eingestuft.",
+        "claim_assessments": [
+          {
+            "claim": "AsylbLG verschlechtert Integration und ist diskriminierend",
+            "verdict": "teilweise gestützt",
+            "reason": "BVerfG-Urteil 1 BvL 10/10 bestätigt verfassungswidrige Leistungssätze, aber Kausalität zur Integration bleibt umstritten."
+          },
+          {
+            "claim": "Externalisierung an Frontex verletzt internationales Recht",
+            "verdict": "teilweise gestützt",
+            "reason": "NGO-Berichte und UNHCR dokumentieren Push-Backs, aber EuGH-Verfahren sind noch nicht abgeschlossen."
+          }
+        ]
       }
     },
     {
@@ -182,7 +242,19 @@
           "https://www.kfn.de/publikationen/",
           "https://www.coe.int/de/web/conventions/full-list?module=treaty-detail&treatynum=117"
         ],
-        "value_assumptions": "Annahme: Bruttokosten-Logik primär; ethnisch-kulturelle Homogenität als implizit höherwertig gegenüber Integration; Sicherheits-Logik vor Verfahrens-Individualität."
+        "value_assumptions": "Annahme: Bruttokosten-Logik primär; ethnisch-kulturelle Homogenität als implizit höherwertig gegenüber Integration; Sicherheits-Logik vor Verfahrens-Individualität.",
+        "claim_assessments": [
+          {
+            "claim": "Asylzuwanderung kostet jährlich Milliarden netto, die für Rente/Bildung fehlen",
+            "verdict": "teilweise widerlegt",
+            "reason": "Netto-Kosten bestehen nur in den ersten 5-7 Jahren; ab ca. 12 Jahren ist die Bilanz fiskal-positiv (ZEW/IAB)."
+          },
+          {
+            "claim": "PKS zeigt überproportionale Tatverdächtigen-Quoten bei Zuwanderern",
+            "verdict": "teilweise gestützt",
+            "reason": "Rohdaten zeigen höhere Quoten, aber nach demografischer Korrektur und ohne ausländerrechtliche Delikte reduziert sich der Unterschied erheblich (BKA, KFN)."
+          }
+        ]
       }
     },
     {
@@ -203,7 +275,19 @@
           "https://www.mindestlohn-kommission.de/DE/Bericht/bericht_node.html",
           "https://www.destatis.de/DE/Themen/Arbeit/Verdienste/_inhalt.html"
         ],
-        "value_assumptions": "Annahme: Verteilungswirkung auf einheimische Niedriglohnempfänger ist Hauptkriterium; humanitäre vs. ökonomische Logik werden zugunsten der ökonomischen aufgelöst."
+        "value_assumptions": "Annahme: Verteilungswirkung auf einheimische Niedriglohnempfänger ist Hauptkriterium; humanitäre vs. ökonomische Logik werden zugunsten der ökonomischen aufgelöst.",
+        "claim_assessments": [
+          {
+            "claim": "Hohe Zuwanderung drückt Löhne im Niedriglohnsektor",
+            "verdict": "teilweise widerlegt",
+            "reason": "Deutsche Studien (IAB, Mindestlohnkommission) finden keine signifikanten Effekte, und die Niedriglohn-Quote ist trotz Migration leicht rückläufig."
+          },
+          {
+            "claim": "Asylrecht muss restriktiver werden, ohne Menschenrechte zu verletzen",
+            "verdict": "offen",
+            "reason": "Die vorliegende Analyse enthält keine empirischen Daten zur Wirkung restriktiverer Asylpolitik auf Löhne oder Menschenrechte."
+          }
+        ]
       }
     }
   ],

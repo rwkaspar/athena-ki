@@ -5,28 +5,314 @@
   "lead": "EU AI Act, Wahlkampf-Deepfakes, Predictive Policing, KI in der Verwaltung — wer fordert was, und was sagen Tier-1-Quellen (EU-VO 2024/1689, BfDI, BSI, BVerfG, Max-Planck-Institut, MIT)?",
   "stand": "2026-06-13",
   "facts_at_a_glance": [
-    {"label": "EU AI Act in Kraft", "value": "01.08.2024", "source_title": "VO (EU) 2024/1689 Art. 113", "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "verified": true},
-    {"label": "Volle Anwendbarkeit", "value": "02.08.2026", "source_title": "VO (EU) 2024/1689 Art. 113", "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "verified": true},
-    {"label": "Verbotene KI-Praktiken (Art. 5)", "value": "Social Scoring, biometrische Echtzeit-Fernidentifizierung, Emotionserkennung Arbeit/Bildung, Manipulation, Predictive Policing rein per Profiling, untargeted Scraping", "source_title": "VO (EU) 2024/1689 Art. 5", "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "verified": true},
-    {"label": "Deutsche Predictive-Policing-Pilote (2015-2022)", "value": "5 von 5 eingestellt ohne signifikanten Kriminalitäts-Effekt", "source_title": "Max-Planck-Institut + Polizei-Evaluationsberichte", "source_url": "https://csl.mpg.de/", "verified": true},
-    {"label": "DSGVO Art. 22 (Automatisierte Einzelentscheidungen)", "value": "Recht auf menschliche Prüfung", "source_title": "VO (EU) 2016/679", "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679", "verified": true, "note": "Kein automatisiertes Einzelfall-Profiling mit erheblicher rechtlicher Wirkung."},
-    {"label": "BfDI Predictive Policing 2023", "value": "Bewertung sehr kritisch, Empfehlung Verbot Individual-Scoring", "source_title": "BfDI Tätigkeitsbericht 2023", "source_url": "https://www.bfdi.bund.de/", "verify_needed": true}
+    {
+      "label": "EU AI Act in Kraft",
+      "value": "01.08.2024",
+      "source_title": "VO (EU) 2024/1689 Art. 113",
+      "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+      "verified": true
+    },
+    {
+      "label": "Volle Anwendbarkeit",
+      "value": "02.08.2026",
+      "source_title": "VO (EU) 2024/1689 Art. 113",
+      "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+      "verified": true
+    },
+    {
+      "label": "Verbotene KI-Praktiken (Art. 5)",
+      "value": "Social Scoring, biometrische Echtzeit-Fernidentifizierung, Emotionserkennung Arbeit/Bildung, Manipulation, Predictive Policing rein per Profiling, untargeted Scraping",
+      "source_title": "VO (EU) 2024/1689 Art. 5",
+      "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+      "verified": true
+    },
+    {
+      "label": "Deutsche Predictive-Policing-Pilote (2015-2022)",
+      "value": "5 von 5 eingestellt ohne signifikanten Kriminalitäts-Effekt",
+      "source_title": "Max-Planck-Institut + Polizei-Evaluationsberichte",
+      "source_url": "https://csl.mpg.de/",
+      "verified": true
+    },
+    {
+      "label": "DSGVO Art. 22 (Automatisierte Einzelentscheidungen)",
+      "value": "Recht auf menschliche Prüfung",
+      "source_title": "VO (EU) 2016/679",
+      "source_url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "verified": true,
+      "note": "Kein automatisiertes Einzelfall-Profiling mit erheblicher rechtlicher Wirkung."
+    },
+    {
+      "label": "BfDI Predictive Policing 2023",
+      "value": "Bewertung sehr kritisch, Empfehlung Verbot Individual-Scoring",
+      "source_title": "BfDI Tätigkeitsbericht 2023",
+      "source_url": "https://www.bfdi.bund.de/",
+      "verify_needed": true
+    }
   ],
   "legal_frame": [
-    {"rule": "VO (EU) 2024/1689 (AI Act)", "summary": "Risikobasierter Ansatz: verboten, hochriskant, transparenzpflichtig, gering. Hochrisiko-KI mit umfangreichen Verpflichtungen.", "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689"},
-    {"rule": "DSGVO Art. 22", "summary": "Recht, keiner automatisierten Einzelentscheidung mit erheblicher rechtlicher Wirkung unterworfen zu werden.", "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"},
-    {"rule": "Art. 5 GG (Meinungsfreiheit)", "summary": "Wahlkampf-Deepfake-Regelung muss verfassungsrechtlich justiert sein (Satire, politische Kritik vs. Manipulation).", "url": "https://www.gesetze-im-internet.de/gg/art_5.html"},
-    {"rule": "BfDI-Tätigkeitsberichte", "summary": "Predictive Policing und KI in der Verwaltung: kritische Bewertung, Empfehlungen für Algorithmen-Transparenz und Bias-Audits.", "url": "https://www.bfdi.bund.de/"},
-    {"rule": "BVerfG-Rasterfahndungs-Beschluss 2006", "summary": "Anlasslose Massendaten-Verarbeitung verfassungsrechtlich eng begrenzt — relevanter Maßstab für KI-Predictive-Anwendungen.", "url": "https://www.bundesverfassungsgericht.de/"}
+    {
+      "rule": "VO (EU) 2024/1689 (AI Act)",
+      "summary": "Risikobasierter Ansatz: verboten, hochriskant, transparenzpflichtig, gering. Hochrisiko-KI mit umfangreichen Verpflichtungen.",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689"
+    },
+    {
+      "rule": "DSGVO Art. 22",
+      "summary": "Recht, keiner automatisierten Einzelentscheidung mit erheblicher rechtlicher Wirkung unterworfen zu werden.",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679"
+    },
+    {
+      "rule": "Art. 5 GG (Meinungsfreiheit)",
+      "summary": "Wahlkampf-Deepfake-Regelung muss verfassungsrechtlich justiert sein (Satire, politische Kritik vs. Manipulation).",
+      "url": "https://www.gesetze-im-internet.de/gg/art_5.html"
+    },
+    {
+      "rule": "BfDI-Tätigkeitsberichte",
+      "summary": "Predictive Policing und KI in der Verwaltung: kritische Bewertung, Empfehlungen für Algorithmen-Transparenz und Bias-Audits.",
+      "url": "https://www.bfdi.bund.de/"
+    },
+    {
+      "rule": "BVerfG-Rasterfahndungs-Beschluss 2006",
+      "summary": "Anlasslose Massendaten-Verarbeitung verfassungsrechtlich eng begrenzt — relevanter Maßstab für KI-Predictive-Anwendungen.",
+      "url": "https://www.bundesverfassungsgericht.de/"
+    }
   ],
   "party_positions": [
-    {"party": "SPD", "position_summary": "EU AI Act voll umsetzen, Wahlkampf-Deepfakes verbieten 4 Wochen vor Wahlen, Plattformhaftung verstärken, Predictive Policing nur als wissenschaftlich begleitetes Pilotprojekt.", "key_claims": ["EU AI Act ist Basis, nationale Lücken müssen geschlossen werden", "Deepfake-Verbot vor Wahlen schützt demokratische Entscheidungsfindung"], "position_source": "SPD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "AI Act-Umsetzungs-Pflicht: rechtlich klar (EU-VO, gilt direkt + nationale Durchführungsbestimmungen). Wahlkampf-Deepfake-Verbot: California AB 730/785, Texas SB 751 als Vergleichsfälle; Wissenschaftlicher Dienst Bundestag bewertet verfassungsrechtlich zulässig bei klarer Reichweiten-Definition. Plattformhaftung: DSA bereits in Kraft, Verschärfung möglich.", "empirical_check": "VO 2024/1689. CA AB 730/785. Wissenschaftlicher Dienst BT zu Deepfake-Regulierung 2024.", "tier1_sources": ["https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "https://leginfo.legislature.ca.gov/", "https://www.bundestag.de/wissenschaftliche-dienste"], "value_assumptions": "Annahme: aktive KI-Regulierung legitim; demokratische Integrität primär; Pilot vor Generalisierung."}},
-    {"party": "CDU/CSU", "position_summary": "EU AI Act umsetzen, aber innovationsfreundlich. Predictive Policing ausbauen, Bodycams + KI-Auswertung erlauben, Deepfake-Regulierung zurückhaltend.", "key_claims": ["KI darf nicht durch Regulierung erstickt werden", "Sicherheits-KI hat Mehrwert für Polizei"], "position_source": "Union-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt + teilweise widerlegt", "summary": "Innovationshemmnis-Argument: empirisch differenziert — Stanford HAI 2024 zeigt EU-Investitionen in KI hinter USA/CN, aber Kausalität zu AI Act umstritten (Studien zeigen oft regulatorische Klarheit als Investitions-Anreiz). Predictive Policing: 5 von 5 deutschen Piloten (PRECOBS Bayern, KrimPro NI, SKALA NRW, PreMAP BE, KrimPro 2.0 NI) eingestellt ohne signifikanten Effekt. Empirie widerlegt klar den vorgeschlagenen Ausbau.", "empirical_check": "Stanford HAI AI Index 2024. Polizei-Evaluationsberichte zu PRECOBS, KrimPro, SKALA, PreMAP.", "tier1_sources": ["https://hai.stanford.edu/research/publications", "https://csl.mpg.de/", "https://www.bfdi.bund.de/"], "value_assumptions": "Annahme: Sicherheits-Logik > Datenschutz; Markt-Effizienz > Regulierungs-Vorsicht; Innovationsdruck primär."}},
-    {"party": "Grüne", "position_summary": "EU AI Act voll umsetzen + verschärfen, Predictive Policing verbieten (Individual und Viertel), KI-Transparenzpflichten für Verwaltung, Bias-Audits verpflichtend.", "key_claims": ["Algorithmen reproduzieren Bias auch ohne ethnische Daten", "Verwaltungs-KI braucht öffentliche Algorithmen-Transparenz"], "position_source": "Grünen-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Bias-Argument: Max-Planck-Institut Freiburg 2020 zeigt empirisch klar — Armut/Wohnort/Vorstrafen korrelieren mit ethnischer Herkunft, Algorithmen reproduzieren Bias auch ohne ethnische Daten. Predictive-Verbot: deckt sich mit BfDI 2023 (Individual-Verbot). Viertelbezogene Pilote sind methodisch noch offen — Generalverbot würde wissenschaftlich saubere Pilot-Forschung verhindern.", "empirical_check": "MPI Freiburg 2020 zu Predictive Policing Bias. BfDI Tätigkeitsbericht 2023.", "tier1_sources": ["https://csl.mpg.de/", "https://www.bfdi.bund.de/"], "value_assumptions": "Annahme: Datenschutz und Diskriminierungsschutz absolut; algorithmischer Bias als systematisches Risiko; Vorsorge primär."}},
-    {"party": "FDP", "position_summary": "EU AI Act minimal umsetzen (keine Gold-Plating), Predictive Policing erlauben mit Verschlüsselung, KI in Verwaltung ausbauen.", "key_claims": ["Minimal-Umsetzung schützt Innovationsstandort", "Technische Lösungen lösen Datenschutz-Probleme"], "position_source": "FDP-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt + teilweise widerlegt", "summary": "Minimal-Umsetzungs-Argument: politisch valider Ansatz, aber EU-VO setzt Mindeststandards. „Technische Lösungen\" (Differential Privacy, Federated Learning): empirisch in Forschung dokumentiert, praktische Skalierung in Behörden-Kontext sehr begrenzt. Predictive-Policing-Erlaubnis ignoriert deutsche Pilot-Empirie (s. CDU/CSU-Verdikt).", "empirical_check": "VO 2024/1689 Mindeststandards. NIST Differential Privacy Reports. Deutsche Predictive-Pilot-Evaluation.", "tier1_sources": ["https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "https://www.nist.gov/itl/applied-cybersecurity", "https://csl.mpg.de/"], "value_assumptions": "Annahme: Markt-Effizienz und Innovationsstandort primär; technokratische Lösungen > regulatorische."}},
-    {"party": "Linke", "position_summary": "EU AI Act verschärfen, Predictive Policing komplett verbieten, KI-Transparenzpflicht öffentlich, Algorithmen-Audit-Pflicht, AI in Verwaltung nur für Bürger-Erleichterung.", "key_claims": ["KI-Regulierung muss sozial gerecht sein", "Predictive Policing ist Klassenpolizei"], "position_source": "Linke-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Klassenpolizei-Argument: empirisch teilweise gestützt — MPI Freiburg 2020 zeigt Bias-Reproduktion ohne ethnische Daten via sozioökonomische Variablen. Aber Komplett-Verbot ignoriert legitime wissenschaftliche Pilot-Forschung (z. B. Funddichte-Korrektur). Algorithmen-Transparenz öffentlich: berührt Sicherheitsbedenken (Gaming des Algorithmus durch Täter) — abwägbar.", "empirical_check": "MPI Freiburg 2020. BfDI 2023. NIST AI Risk Management Framework.", "tier1_sources": ["https://csl.mpg.de/", "https://www.bfdi.bund.de/", "https://www.nist.gov/itl/ai-risk-management-framework"], "value_assumptions": "Annahme: Algorithmen reproduzieren strukturelle Ungleichheit; öffentliche Kontrolle absolut; KI als Klassenfrage."}},
-    {"party": "AfD", "position_summary": "EU AI Act ablehnen (national umsetzen mit Vorbehalten), Predictive Policing massiv ausbauen, biometrische Echtzeit-Überwachung erlauben, KI für Migrationskontrolle.", "key_claims": ["EU-Regulierung gefährdet nationale Souveränität", "KI-Sicherheits-Anwendungen sind notwendig"], "position_source": "AfD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "widerlegt + teilweise gestützt", "summary": "EU-Souveränitäts-Argument: AI Act ist EU-VO, gilt unmittelbar (Art. 288 AEUV). Nationale „Ablehnung\" rechtlich nicht möglich ohne EU-Austritt. Biometrische Echtzeit-Überwachung: Art. 5 AI Act EXPLIZIT verboten (Ausnahmen eng definiert). Vorgeschlagene Politik ist EU-rechtswidrig. Predictive-Policing-Empirie (5/5 eingestellt) widerlegt „notwendig\".", "empirical_check": "AEUV Art. 288. VO 2024/1689 Art. 5. Polizei-Pilot-Evaluation.", "tier1_sources": ["https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "https://csl.mpg.de/"], "value_assumptions": "Annahme: nationale Souveränität vor EU-Recht; Sicherheits-Logik absolut; Datenschutz nachrangig."}},
-    {"party": "BSW", "position_summary": "EU AI Act umsetzen, aber bei nationalen Anwendungen abwägen. Predictive Policing skeptisch, Deepfake-Regulierung ja, Algorithmen-Transparenz fördern.", "key_claims": ["Sicherheits-KI muss bürgerrechtskonform sein", "Algorithmen-Transparenz ist demokratische Pflicht"], "position_source": "BSW-Programm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "gestützt", "summary": "Position kohärent mit EU-Rahmen + deutscher Pilot-Empirie. Skepsis gegenüber Predictive Policing deckt sich mit Forschungsstand. Algorithmen-Transparenz: BfDI-Empfehlung und EU AI Act Art. 13 (Transparenzpflicht für Hochrisiko-KI) übereinstimmend.", "empirical_check": "VO 2024/1689 Art. 13. BfDI 2023. MPI 2020.", "tier1_sources": ["https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689", "https://www.bfdi.bund.de/", "https://csl.mpg.de/"], "value_assumptions": "Annahme: Bürgerrechte primär; demokratische Kontrolle algorithmischer Macht; Sicherheits-Logik unter Vorbehalt."}}
+    {
+      "party": "SPD",
+      "position_summary": "EU AI Act voll umsetzen, Wahlkampf-Deepfakes verbieten 4 Wochen vor Wahlen, Plattformhaftung verstärken, Predictive Policing nur als wissenschaftlich begleitetes Pilotprojekt.",
+      "key_claims": [
+        "EU AI Act ist Basis, nationale Lücken müssen geschlossen werden",
+        "Deepfake-Verbot vor Wahlen schützt demokratische Entscheidungsfindung"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "AI Act-Umsetzungs-Pflicht: rechtlich klar (EU-VO, gilt direkt + nationale Durchführungsbestimmungen). Wahlkampf-Deepfake-Verbot: California AB 730/785, Texas SB 751 als Vergleichsfälle; Wissenschaftlicher Dienst Bundestag bewertet verfassungsrechtlich zulässig bei klarer Reichweiten-Definition. Plattformhaftung: DSA bereits in Kraft, Verschärfung möglich.",
+        "empirical_check": "VO 2024/1689. CA AB 730/785. Wissenschaftlicher Dienst BT zu Deepfake-Regulierung 2024.",
+        "tier1_sources": [
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+          "https://leginfo.legislature.ca.gov/",
+          "https://www.bundestag.de/wissenschaftliche-dienste"
+        ],
+        "value_assumptions": "Annahme: aktive KI-Regulierung legitim; demokratische Integrität primär; Pilot vor Generalisierung.",
+        "claim_assessments": [
+          {
+            "claim": "EU AI Act ist Basis, nationale Lücken müssen geschlossen werden",
+            "verdict": "gestützt",
+            "reason": "Der AI Act (VO 2024/1689) gilt direkt, erfordert aber nationale Durchführungsbestimmungen zur Umsetzung."
+          },
+          {
+            "claim": "Deepfake-Verbot vor Wahlen schützt demokratische Entscheidungsfindung",
+            "verdict": "teilweise gestützt",
+            "reason": "Vergleichsfälle (CA AB 730/785, TX SB 751) und Gutachten des Wissenschaftlichen Dienstes bestätigen grundsätzliche Zulässigkeit, aber Reichweite muss klar definiert sein."
+          }
+        ]
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "EU AI Act umsetzen, aber innovationsfreundlich. Predictive Policing ausbauen, Bodycams + KI-Auswertung erlauben, Deepfake-Regulierung zurückhaltend.",
+      "key_claims": [
+        "KI darf nicht durch Regulierung erstickt werden",
+        "Sicherheits-KI hat Mehrwert für Polizei"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Innovationshemmnis-Argument: empirisch differenziert — Stanford HAI 2024 zeigt EU-Investitionen in KI hinter USA/CN, aber Kausalität zu AI Act umstritten (Studien zeigen oft regulatorische Klarheit als Investitions-Anreiz). Predictive Policing: 5 von 5 deutschen Piloten (PRECOBS Bayern, KrimPro NI, SKALA NRW, PreMAP BE, KrimPro 2.0 NI) eingestellt ohne signifikanten Effekt. Empirie widerlegt klar den vorgeschlagenen Ausbau.",
+        "empirical_check": "Stanford HAI AI Index 2024. Polizei-Evaluationsberichte zu PRECOBS, KrimPro, SKALA, PreMAP.",
+        "tier1_sources": [
+          "https://hai.stanford.edu/research/publications",
+          "https://csl.mpg.de/",
+          "https://www.bfdi.bund.de/"
+        ],
+        "value_assumptions": "Annahme: Sicherheits-Logik > Datenschutz; Markt-Effizienz > Regulierungs-Vorsicht; Innovationsdruck primär.",
+        "claim_assessments": [
+          {
+            "claim": "KI darf nicht durch Regulierung erstickt werden",
+            "verdict": "teilweise gestützt",
+            "reason": "Stanford HAI 2024 zeigt geringere EU-Investitionen in KI, aber Kausalität zur Regulierung (z. B. AI Act) ist umstritten, da regulatorische Klarheit auch Investitionsanreize schaffen kann."
+          },
+          {
+            "claim": "Sicherheits-KI hat Mehrwert für Polizei",
+            "verdict": "widerlegt",
+            "reason": "Alle fünf deutschen Pilotprojekte zu Predictive Policing (PRECOBS, KrimPro, SKALA, PreMAP) wurden ohne signifikanten Effekt eingestellt."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "EU AI Act voll umsetzen + verschärfen, Predictive Policing verbieten (Individual und Viertel), KI-Transparenzpflichten für Verwaltung, Bias-Audits verpflichtend.",
+      "key_claims": [
+        "Algorithmen reproduzieren Bias auch ohne ethnische Daten",
+        "Verwaltungs-KI braucht öffentliche Algorithmen-Transparenz"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Bias-Argument: Max-Planck-Institut Freiburg 2020 zeigt empirisch klar — Armut/Wohnort/Vorstrafen korrelieren mit ethnischer Herkunft, Algorithmen reproduzieren Bias auch ohne ethnische Daten. Predictive-Verbot: deckt sich mit BfDI 2023 (Individual-Verbot). Viertelbezogene Pilote sind methodisch noch offen — Generalverbot würde wissenschaftlich saubere Pilot-Forschung verhindern.",
+        "empirical_check": "MPI Freiburg 2020 zu Predictive Policing Bias. BfDI Tätigkeitsbericht 2023.",
+        "tier1_sources": [
+          "https://csl.mpg.de/",
+          "https://www.bfdi.bund.de/"
+        ],
+        "value_assumptions": "Annahme: Datenschutz und Diskriminierungsschutz absolut; algorithmischer Bias als systematisches Risiko; Vorsorge primär.",
+        "claim_assessments": [
+          {
+            "claim": "Algorithmen reproduzieren Bias auch ohne ethnische Daten",
+            "verdict": "gestützt",
+            "reason": "Die MPI-Freiburg-Studie 2020 zeigt empirisch, dass Algorithmen soziale Bias (Armut, Wohnort, Vorstrafen) reproduzieren, die mit ethnischer Herkunft korrelieren."
+          },
+          {
+            "claim": "Verwaltungs-KI braucht öffentliche Algorithmen-Transparenz",
+            "verdict": "offen",
+            "reason": "Die vorliegende Analyse enthält keine empirische Prüfung oder Stellungnahme zur Forderung nach öffentlicher Algorithmen-Transparenz."
+          }
+        ]
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "EU AI Act minimal umsetzen (keine Gold-Plating), Predictive Policing erlauben mit Verschlüsselung, KI in Verwaltung ausbauen.",
+      "key_claims": [
+        "Minimal-Umsetzung schützt Innovationsstandort",
+        "Technische Lösungen lösen Datenschutz-Probleme"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Minimal-Umsetzungs-Argument: politisch valider Ansatz, aber EU-VO setzt Mindeststandards. „Technische Lösungen\" (Differential Privacy, Federated Learning): empirisch in Forschung dokumentiert, praktische Skalierung in Behörden-Kontext sehr begrenzt. Predictive-Policing-Erlaubnis ignoriert deutsche Pilot-Empirie (s. CDU/CSU-Verdikt).",
+        "empirical_check": "VO 2024/1689 Mindeststandards. NIST Differential Privacy Reports. Deutsche Predictive-Pilot-Evaluation.",
+        "tier1_sources": [
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+          "https://www.nist.gov/itl/applied-cybersecurity",
+          "https://csl.mpg.de/"
+        ],
+        "value_assumptions": "Annahme: Markt-Effizienz und Innovationsstandort primär; technokratische Lösungen > regulatorische.",
+        "claim_assessments": [
+          {
+            "claim": "Minimal-Umsetzung schützt Innovationsstandort",
+            "verdict": "teilweise gestützt",
+            "reason": "Politisch valider Ansatz, aber EU-Verordnung setzt verbindliche Mindeststandards, die eine reine Minimal-Umsetzung einschränken."
+          },
+          {
+            "claim": "Technische Lösungen lösen Datenschutz-Probleme",
+            "verdict": "teilweise widerlegt",
+            "reason": "Differential Privacy und Federated Learning sind empirisch dokumentiert, aber praktische Skalierung im Behördenkontext ist stark begrenzt."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "EU AI Act verschärfen, Predictive Policing komplett verbieten, KI-Transparenzpflicht öffentlich, Algorithmen-Audit-Pflicht, AI in Verwaltung nur für Bürger-Erleichterung.",
+      "key_claims": [
+        "KI-Regulierung muss sozial gerecht sein",
+        "Predictive Policing ist Klassenpolizei"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Klassenpolizei-Argument: empirisch teilweise gestützt — MPI Freiburg 2020 zeigt Bias-Reproduktion ohne ethnische Daten via sozioökonomische Variablen. Aber Komplett-Verbot ignoriert legitime wissenschaftliche Pilot-Forschung (z. B. Funddichte-Korrektur). Algorithmen-Transparenz öffentlich: berührt Sicherheitsbedenken (Gaming des Algorithmus durch Täter) — abwägbar.",
+        "empirical_check": "MPI Freiburg 2020. BfDI 2023. NIST AI Risk Management Framework.",
+        "tier1_sources": [
+          "https://csl.mpg.de/",
+          "https://www.bfdi.bund.de/",
+          "https://www.nist.gov/itl/ai-risk-management-framework"
+        ],
+        "value_assumptions": "Annahme: Algorithmen reproduzieren strukturelle Ungleichheit; öffentliche Kontrolle absolut; KI als Klassenfrage.",
+        "claim_assessments": [
+          {
+            "claim": "KI-Regulierung muss sozial gerecht sein",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirische Befunde (MPI Freiburg 2020) zeigen soziale Verzerrungen in KI-Anwendungen, aber konkrete Regulierungsvorschläge der Partei sind nicht vollständig durch die Analyse abgedeckt."
+          },
+          {
+            "claim": "Predictive Policing ist Klassenpolizei",
+            "verdict": "teilweise gestützt",
+            "reason": "MPI Freiburg 2020 belegt Bias-Reproduktion durch sozioökonomische Variablen, aber die pauschale Gleichsetzung als 'Klassenpolizei' ignoriert differenzierte Anwendungsfälle (z. B. Funddichte-Korrektur)."
+          }
+        ]
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "EU AI Act ablehnen (national umsetzen mit Vorbehalten), Predictive Policing massiv ausbauen, biometrische Echtzeit-Überwachung erlauben, KI für Migrationskontrolle.",
+      "key_claims": [
+        "EU-Regulierung gefährdet nationale Souveränität",
+        "KI-Sicherheits-Anwendungen sind notwendig"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "EU-Souveränitäts-Argument: AI Act ist EU-VO, gilt unmittelbar (Art. 288 AEUV). Nationale „Ablehnung\" rechtlich nicht möglich ohne EU-Austritt. Biometrische Echtzeit-Überwachung: Art. 5 AI Act EXPLIZIT verboten (Ausnahmen eng definiert). Vorgeschlagene Politik ist EU-rechtswidrig. Predictive-Policing-Empirie (5/5 eingestellt) widerlegt „notwendig\".",
+        "empirical_check": "AEUV Art. 288. VO 2024/1689 Art. 5. Polizei-Pilot-Evaluation.",
+        "tier1_sources": [
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+          "https://csl.mpg.de/"
+        ],
+        "value_assumptions": "Annahme: nationale Souveränität vor EU-Recht; Sicherheits-Logik absolut; Datenschutz nachrangig.",
+        "claim_assessments": [
+          {
+            "claim": "EU-Regulierung gefährdet nationale Souveränität",
+            "verdict": "widerlegt",
+            "reason": "Der AI Act ist eine EU-Verordnung (Art. 288 AEUV) und gilt unmittelbar, nationale Souveränität wird dadurch nicht gefährdet, sondern ist rechtlich bindend."
+          },
+          {
+            "claim": "KI-Sicherheits-Anwendungen sind notwendig",
+            "verdict": "widerlegt",
+            "reason": "Empirische Prüfungen (z. B. Predictive-Policing-Pilotprojekte) zeigen, dass solche Anwendungen nicht notwendig sind und eingestellt wurden."
+          }
+        ]
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "EU AI Act umsetzen, aber bei nationalen Anwendungen abwägen. Predictive Policing skeptisch, Deepfake-Regulierung ja, Algorithmen-Transparenz fördern.",
+      "key_claims": [
+        "Sicherheits-KI muss bürgerrechtskonform sein",
+        "Algorithmen-Transparenz ist demokratische Pflicht"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "gestützt",
+        "summary": "Position kohärent mit EU-Rahmen + deutscher Pilot-Empirie. Skepsis gegenüber Predictive Policing deckt sich mit Forschungsstand. Algorithmen-Transparenz: BfDI-Empfehlung und EU AI Act Art. 13 (Transparenzpflicht für Hochrisiko-KI) übereinstimmend.",
+        "empirical_check": "VO 2024/1689 Art. 13. BfDI 2023. MPI 2020.",
+        "tier1_sources": [
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+          "https://www.bfdi.bund.de/",
+          "https://csl.mpg.de/"
+        ],
+        "value_assumptions": "Annahme: Bürgerrechte primär; demokratische Kontrolle algorithmischer Macht; Sicherheits-Logik unter Vorbehalt.",
+        "claim_assessments": [
+          {
+            "claim": "Sicherheits-KI muss bürgerrechtskonform sein",
+            "verdict": "gestützt",
+            "reason": "Die Forderung entspricht dem EU AI Act (VO 2024/1689) und der deutschen Pilot-Empirie, die Bürgerrechte als Rahmenbedingung für Sicherheits-KI vorsehen."
+          },
+          {
+            "claim": "Algorithmen-Transparenz ist demokratische Pflicht",
+            "verdict": "gestützt",
+            "reason": "Die Behauptung deckt sich mit der BfDI-Empfehlung (2023) und Art. 13 des EU AI Act, der Transparenzpflichten für Hochrisiko-KI vorschreibt."
+          }
+        ]
+      }
+    }
   ],
   "evidenz_position": {
     "kurzfassung": "Sieben-Achsen-Paket: EU AI Act voll umsetzen (Achse 1), Wahlkampf-Deepfake-Verbot 4 Wochen vor Wahlen mit Plattformhaftung und Medienkompetenz-Offensive (Achse 2), Predictive Policing nur als wissenschaftlich begleitete Viertel-Pilote mit klaren Abbruchkriterien (Achse 3) — Individual-Scoring verboten.",
@@ -44,7 +330,11 @@
     "trade_offs_eingestanden": "Deepfake-Verbot-Reichweiten-Definition braucht juristische Präzision (Satire-Ausnahmen); Predictive-Pilote belasten kommunale Ressourcen; AI Act-Umsetzung kostet Bundes-Verwaltungs-Aufbau; Innovations-Standort-Spannung real.",
     "url": "programm/ki-regulation.html"
   },
-  "evidenz_link": {"url": "programm/ki-regulation.html", "label": "EVIDENZ-Position zur KI-Regulation (vollständig)", "note": "Vollständige Optionsanalyse mit sieben Achsen und Pilot-Empirie."},
+  "evidenz_link": {
+    "url": "programm/ki-regulation.html",
+    "label": "EVIDENZ-Position zur KI-Regulation (vollständig)",
+    "note": "Vollständige Optionsanalyse mit sieben Achsen und Pilot-Empirie."
+  },
   "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
   "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (EU AI Act, DSGVO, BfDI, MPI). Pilot-Evaluations-Details brauchen Live-Verifikation. Athena-Analysen nach Pipeline-Lauf finalisiert."
 }

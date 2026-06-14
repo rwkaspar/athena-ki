@@ -90,7 +90,19 @@
           "https://www.swp-berlin.org/publikationen",
           "https://www.bundestag.de/dokumente/textarchiv/2025/kw38-de-verteidigung-1103990"
         ],
-        "value_assumptions": "Annahme: NATO-Mitgliedschaft ist nicht-verhandelbarer Rahmen; Eskalations-Vermeidung > Maximalunterstützung; deutsche Sonderrolle wegen historischer Lasten."
+        "value_assumptions": "Annahme: NATO-Mitgliedschaft ist nicht-verhandelbarer Rahmen; Eskalations-Vermeidung > Maximalunterstützung; deutsche Sonderrolle wegen historischer Lasten.",
+        "claim_assessments": [
+          {
+            "claim": "Frieden in Europa basiert auf NATO + EU + diplomatischer Verhandlungsfähigkeit",
+            "verdict": "gestützt",
+            "reason": "Standardanalyse der SWP und historische Vergleichsfälle belegen die Triade als Friedensgarant."
+          },
+          {
+            "claim": "Taurus-Lieferung wäre Eskalationsrisiko, das nicht kalkulierbar ist",
+            "verdict": "teilweise widerlegt",
+            "reason": "ISW-Bewertung sieht keine grundlegend neue Eskalationsstufe gegenüber bereits gelieferten Storm Shadow/SCALP-Systemen."
+          }
+        ]
       }
     },
     {
@@ -113,7 +125,19 @@
           "https://www.sipri.org/databases/milex",
           "https://www.iiss.org/publications/the-military-balance/"
         ],
-        "value_assumptions": "Annahme: Russland-Sieg ist nicht akzeptabel; Werte-Außenpolitik im westlichen Bündnis; Verteidigungsstärke ist Friedensgarant; Aufrüstung wirtschaftlich tragbar."
+        "value_assumptions": "Annahme: Russland-Sieg ist nicht akzeptabel; Werte-Außenpolitik im westlichen Bündnis; Verteidigungsstärke ist Friedensgarant; Aufrüstung wirtschaftlich tragbar.",
+        "claim_assessments": [
+          {
+            "claim": "Maximale Ukraine-Unterstützung beendet den Krieg am schnellsten",
+            "verdict": "offen",
+            "reason": "Kontrafaktische Szenarien sind empirisch nicht prüfbar; Studien sehen militärische Wende-Möglichkeit, aber politische Labilität Russlands (Wagner, Trump) macht Ausgang ungewiss."
+          },
+          {
+            "claim": "3 % BIP für Verteidigung ist langfristig notwendig",
+            "verdict": "teilweise gestützt",
+            "reason": "SIPRI und IISS zeigen, dass 2,5-3 % BIP bei vergleichbaren Bedrohungslagen (Kalter Krieg) historisch normal waren, aber langfristige Notwendigkeit bleibt interpretationsabhängig."
+          }
+        ]
       }
     },
     {
@@ -135,7 +159,19 @@
           "https://www.swp-berlin.org/publikationen",
           "https://www.worldbank.org/en/country/russia"
         ],
-        "value_assumptions": "Annahme: völkerrechtliche Klarheit > pragmatische Verhandlungsbereitschaft; Werte-Außenpolitik primär; deutsche Sonderrolle als europäische Friedensmacht verlangt Solidarität mit Angegriffenen."
+        "value_assumptions": "Annahme: völkerrechtliche Klarheit > pragmatische Verhandlungsbereitschaft; Werte-Außenpolitik primär; deutsche Sonderrolle als europäische Friedensmacht verlangt Solidarität mit Angegriffenen.",
+        "claim_assessments": [
+          {
+            "claim": "Selenskyj-Linie ist die einzig völkerrechtskonforme Position",
+            "verdict": "gestützt",
+            "reason": "141 UN-Mitglieder stimmten für territoriale Integrität (ES-11/X), was die Position als völkerrechtlich klar gestützt bestätigt."
+          },
+          {
+            "claim": "Sanktionen schwächen Russlands Kriegsfähigkeit messbar",
+            "verdict": "teilweise gestützt",
+            "reason": "SWP-Studien zeigen Wachstumsverluste von ~6-8 %, aber militärische Produktionskapazität blieb intakt und Umgehung über Drittstaaten reduziert die Wirkung."
+          }
+        ]
       }
     },
     {
@@ -157,7 +193,19 @@
           "https://www.gov.uk/government/topics/defence-and-armed-forces",
           "https://commission.europa.eu/strategy-and-policy/eu-budget/eu-borrower-investor-relations/ukraine-facility_de"
         ],
-        "value_assumptions": "Annahme: Effizienz-Logik primär; Marktwirtschaft als Rekonstruktions-Modus; staatliche Steuerung nur wo Markt versagt."
+        "value_assumptions": "Annahme: Effizienz-Logik primär; Marktwirtschaft als Rekonstruktions-Modus; staatliche Steuerung nur wo Markt versagt.",
+        "claim_assessments": [
+          {
+            "claim": "Beschaffungsreform Bundeswehr hat höhere Hebel als reine Etat-Steigerung",
+            "verdict": "teilweise gestützt",
+            "reason": "Bundesrechnungshof-Berichte 2020-2024 belegen Ineffizienzen, und UK-Reformen zeigen langsame, aber nachweisbare Wirkung, jedoch keine eindeutige Überlegenheit gegenüber Etatsteigerungen."
+          },
+          {
+            "claim": "Marktwirtschaftliche Ukraine-Rekonstruktion ist langfristig stabilisierend",
+            "verdict": "teilweise gestützt",
+            "reason": "EU-Ukraine-Recovery-Plan nutzt marktorientierte Logik, empirische Langzeitwirkung ist jedoch noch nicht abschließend belegt."
+          }
+        ]
       }
     },
     {
@@ -179,7 +227,19 @@
           "https://www.swp-berlin.org/publikationen",
           "https://carnegieendowment.org/research/?lang=en"
         ],
-        "value_assumptions": "Annahme: Pazifismus als außenpolitische Maxime; Russland-Position wird strukturell gleichgewichtig mit Ukraine-Position behandelt; deutsche Sonderrolle aus Friedensbewegungs-Tradition."
+        "value_assumptions": "Annahme: Pazifismus als außenpolitische Maxime; Russland-Position wird strukturell gleichgewichtig mit Ukraine-Position behandelt; deutsche Sonderrolle aus Friedensbewegungs-Tradition.",
+        "claim_assessments": [
+          {
+            "claim": "Waffenlieferungen verlängern den Krieg",
+            "verdict": "offen",
+            "reason": "Kontrafaktische Aussage: ISW-Modellierungen zeigen zwar schnellere russische Geländegewinne ohne westliche Unterstützung, aber die Dauer des Krieges hängt von der unklaren Zielvariable ab."
+          },
+          {
+            "claim": "Diplomatie wurde nicht ausreichend versucht",
+            "verdict": "widerlegt",
+            "reason": "Mehrere internationale Vermittlungsversuche (Istanbul, China, Vatikan, Türkei) scheiterten an russischen Maximalforderungen oder ukrainischen Bedingungen."
+          }
+        ]
       }
     },
     {
@@ -201,7 +261,19 @@
           "https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/_inhalt.html",
           "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N22/293/36/PDF/N2229336.pdf"
         ],
-        "value_assumptions": "Annahme: nationale Souveränität primär; Werte-Außenpolitik wird abgelehnt; Russland wird als gleichberechtigter Verhandlungspartner ohne Aggressor-Zuschreibung gesetzt; pro-russische Narrative werden adoptiert."
+        "value_assumptions": "Annahme: nationale Souveränität primär; Werte-Außenpolitik wird abgelehnt; Russland wird als gleichberechtigter Verhandlungspartner ohne Aggressor-Zuschreibung gesetzt; pro-russische Narrative werden adoptiert.",
+        "claim_assessments": [
+          {
+            "claim": "Sanktionen schaden Deutschland mehr als Russland",
+            "verdict": "widerlegt",
+            "reason": "World Bank/IWF zeigen russischen BIP-Verlust von 6-8 %-Punkten, während Deutschlands BIP-Stagnation primär auf Gaspreis-Schock und Strukturkrise zurückgeht, nicht auf vergleichbare Wachstumseinbußen."
+          },
+          {
+            "claim": "USA-Hegemonie ist Hauptursache der Eskalation, nicht Russland",
+            "verdict": "widerlegt",
+            "reason": "Die UN-Resolution ES-11/1 (141 Staaten) verurteilte die russische Aggression, und russische Maximalforderungen (NATO-Rückzug, Veto-Recht) waren keine direkte Antwort auf US-Politik, sondern eigenständige Eskalationsschritte."
+          }
+        ]
       }
     },
     {
@@ -224,7 +296,19 @@
           "https://www.entso-e.eu/data/",
           "https://www.destatis.de/DE/Themen/Wirtschaft/Industrie-Verarbeitendes-Gewerbe/_inhalt.html"
         ],
-        "value_assumptions": "Annahme: nationale Wirtschaftsinteressen > völkerrechtliche Solidarität; Russland-Position wird gleichgewichtig behandelt; Friedensbewegungs-Tradition trifft auf Klassenpolitik-Schwerpunkt."
+        "value_assumptions": "Annahme: nationale Wirtschaftsinteressen > völkerrechtliche Solidarität; Russland-Position wird gleichgewichtig behandelt; Friedensbewegungs-Tradition trifft auf Klassenpolitik-Schwerpunkt.",
+        "claim_assessments": [
+          {
+            "claim": "Verhandlungen wären möglich, wenn Deutschland Druck auf beide Seiten ausübt",
+            "verdict": "widerlegt",
+            "reason": "Empirie zeigt asymmetrische Eskalationsverantwortung (UN-Resolutionen, Selenskyj-Friedensformel vs. Putin-Maximalforderungen) und keine deutsche Hebelwirkung auf russische Forderungen."
+          },
+          {
+            "claim": "Sanktionen treiben deutsche Deindustrialisierung",
+            "verdict": "teilweise widerlegt",
+            "reason": "Haupttreiber der industriellen Belastung 2022 war der Gaspreis-Schock, der sich 2024 normalisiert hat; Deindustrialisierung ist empirisch differenziert zu betrachten."
+          }
+        ]
       }
     }
   ],

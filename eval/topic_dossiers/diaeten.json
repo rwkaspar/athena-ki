@@ -83,7 +83,24 @@
           "https://www.transparency.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Unabhängigkeit der Abgeordneten hat Priorität vor Kosteneinsparungen. · Schrittweise Reformen sind sozialverträglicher als radikale Einschnitte."
+        "value_assumptions": "Unabhängigkeit der Abgeordneten hat Priorität vor Kosteneinsparungen. · Schrittweise Reformen sind sozialverträglicher als radikale Einschnitte.",
+        "claim_assessments": [
+          {
+            "claim": "Diäten müssen die Unabhängigkeit der Abgeordneten sichern.",
+            "verdict": "gestützt",
+            "reason": "Das BVerfG-Urteil von 1975 bestätigt die Notwendigkeit amtsangemessener Diäten zur Sicherung der Unabhängigkeit."
+          },
+          {
+            "claim": "Nebeneinkünfte müssen vollständig offengelegt werden.",
+            "verdict": "gestützt",
+            "reason": "Studien (z. B. Transparency International) belegen, dass Transparenz bei Nebeneinkünften Korruptionsprävention fördert."
+          },
+          {
+            "claim": "Altersvorsorge sollte schrittweise in die GRV überführt werden.",
+            "verdict": "offen",
+            "reason": "Kosten und langfristige Auswirkungen der schrittweisen GRV-Integration sind nicht ausreichend quantifiziert."
+          }
+        ]
       }
     },
     {
@@ -105,7 +122,24 @@
           "https://www.wido.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Politiker verdienen eine privilegierte Behandlung aufgrund ihrer Verantwortung. · Private KV ist der GKV überlegen (trotz fehlender empirischer Belege)."
+        "value_assumptions": "Politiker verdienen eine privilegierte Behandlung aufgrund ihrer Verantwortung. · Private KV ist der GKV überlegen (trotz fehlender empirischer Belege).",
+        "claim_assessments": [
+          {
+            "claim": "Diäten müssen die besondere Verantwortung des Mandats widerspiegeln.",
+            "verdict": "teilweise widerlegt",
+            "reason": "Das BVerfG-Urteil von 1975 fordert eine ‚amtsangemessene‘ Entschädigung, nicht eine als ‚Belohnung‘ verstandene Höhe."
+          },
+          {
+            "claim": "Private Krankenversicherung sichert bessere medizinische Versorgung.",
+            "verdict": "widerlegt",
+            "reason": "Studien des WIdO zeigen, dass die GKV vergleichbare Leistungen bietet."
+          },
+          {
+            "claim": "Altersvorsorge muss unabhängig von der GRV bleiben, um politische Neutralität zu wahren.",
+            "verdict": "offen",
+            "reason": "Eine belastbare Kosten-Nutzen-Analyse zur Begründung fehlt."
+          }
+        ]
       }
     },
     {
@@ -127,7 +161,24 @@
           "https://www.gkv-spitzenverband.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Gleichbehandlung hat Vorrang vor Sonderregelungen. · Vertrauen in die Demokratie ist wichtiger als finanzielle Privilegien."
+        "value_assumptions": "Gleichbehandlung hat Vorrang vor Sonderregelungen. · Vertrauen in die Demokratie ist wichtiger als finanzielle Privilegien.",
+        "claim_assessments": [
+          {
+            "claim": "Diäten müssen sich am gesellschaftlichen Median orientieren.",
+            "verdict": "teilweise gestützt",
+            "reason": "Das BVerfG-Urteil erlaubt eine Orientierung am Medianeinkommen, sofern die Amtsangemessenheit gewahrt bleibt, aber die konkrete Höhe ist empirisch unklar."
+          },
+          {
+            "claim": "Sonderregelungen für Politiker untergraben das Vertrauen in die Demokratie.",
+            "verdict": "teilweise gestützt",
+            "reason": "Gleichbehandlung (z. B. GKV/GRV-Integration) stützt die These, aber direkte Kausalität zum Vertrauensverlust ist nicht empirisch belegt."
+          },
+          {
+            "claim": "GKV und GRV gelten für alle – auch für Abgeordnete.",
+            "verdict": "gestützt",
+            "reason": "Die empirische Prüfung zeigt, dass die Integration kostenneutral oder kostensenkend ist und Gleichbehandlung fördert."
+          }
+        ]
       }
     },
     {
@@ -150,7 +201,24 @@
           "https://www.bundesrechnungshof.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Marktmechanismen sind staatlichen Systemen überlegen. · Berufliche Freiheit hat Vorrang vor Transparenz."
+        "value_assumptions": "Marktmechanismen sind staatlichen Systemen überlegen. · Berufliche Freiheit hat Vorrang vor Transparenz.",
+        "claim_assessments": [
+          {
+            "claim": "Diätenkürzungen gefährden die Unabhängigkeit der Abgeordneten.",
+            "verdict": "widerlegt",
+            "reason": "Das BVerfG-Urteil fordert lediglich eine 'amtsangemessene' Entschädigung, nicht eine bestimmte Höhe."
+          },
+          {
+            "claim": "Private KV und eigenständige Altersvorsorge sind effizienter als die GKV/GRV.",
+            "verdict": "widerlegt",
+            "reason": "Studien des DIW und der Bundesrechnungshof zeigen höhere Verwaltungskosten und keine besseren Leistungen."
+          },
+          {
+            "claim": "Nebeneinkünfte sind Ausdruck beruflicher Freiheit und sollten nicht eingeschränkt werden.",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die Behauptung widerspricht Transparenzforderungen, ohne dass eine konkrete Gefährdung der Freiheit belegt ist."
+          }
+        ]
       }
     },
     {
@@ -172,7 +240,24 @@
           "https://www.gkv-spitzenverband.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Gleichheit hat Vorrang vor Amtsangemessenheit. · Nebeneinkünfte sind per se korruptionsanfällig."
+        "value_assumptions": "Gleichheit hat Vorrang vor Amtsangemessenheit. · Nebeneinkünfte sind per se korruptionsanfällig.",
+        "claim_assessments": [
+          {
+            "claim": "Diäten müssen sich am Einkommen der Arbeiter:innen orientieren.",
+            "verdict": "widerlegt",
+            "reason": "Das BVerfG fordert eine ‚amtsangemessene‘ Entschädigung, die eine radikale Absenkung ausschließt."
+          },
+          {
+            "claim": "Sonderregelungen für Politiker sind undemokratisch.",
+            "verdict": "offen",
+            "reason": "Die Analyse enthält keine empirische Prüfung oder rechtliche Einordnung dieser allgemeinen Aussage."
+          },
+          {
+            "claim": "Nebeneinkünfte sind mit dem Mandat unvereinbar.",
+            "verdict": "offen",
+            "reason": "Die Auswirkungen eines Verbots auf die Rekrutierung von Kandidaten sind unzureichend untersucht."
+          }
+        ]
       }
     },
     {
@@ -196,7 +281,24 @@
           "https://www.bundesrechnungshof.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Politiker verdienen eine privilegierte Behandlung. · Staatliche Sozialsysteme sind per se ineffizient."
+        "value_assumptions": "Politiker verdienen eine privilegierte Behandlung. · Staatliche Sozialsysteme sind per se ineffizient.",
+        "claim_assessments": [
+          {
+            "claim": "Diäten müssen die Würde des Amtes widerspiegeln.",
+            "verdict": "teilweise widerlegt",
+            "reason": "Das BVerfG fordert eine ‚amtsangemessene‘ Entschädigung, nicht eine als ‚Belohnung‘ verstandene Höhe, was die AfD-Interpretation relativiert."
+          },
+          {
+            "claim": "GKV und GRV sind nicht leistungsfähig genug für Abgeordnete.",
+            "verdict": "widerlegt",
+            "reason": "Studien des WIdO und DIW belegen, dass GKV vergleichbare Leistungen bietet und die GRV stabil ist."
+          },
+          {
+            "claim": "Nebeneinkünfte sind Ausdruck beruflicher Erfahrung und sollten nicht eingeschränkt werden.",
+            "verdict": "widerlegt",
+            "reason": "Die Forderung widerspricht Transparenzprinzipien und geltenden Regeln zur Vermeidung von Interessenkonflikten."
+          }
+        ]
       }
     },
     {
@@ -218,7 +320,24 @@
           "https://www.gkv-spitzenverband.de/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1975/11/rs19751105_2bvr019374.html"
         ],
-        "value_assumptions": "Gleichbehandlung ist ein zentraler Wert. · Vertrauen in die Demokratie wird durch symbolische Reformen gestärkt."
+        "value_assumptions": "Gleichbehandlung ist ein zentraler Wert. · Vertrauen in die Demokratie wird durch symbolische Reformen gestärkt.",
+        "claim_assessments": [
+          {
+            "claim": "Diäten müssen sich am gesellschaftlichen Median orientieren.",
+            "verdict": "teilweise gestützt",
+            "reason": "Das BVerfG-Urteil erlaubt eine Orientierung am Medianeinkommen, sofern die Amtsangemessenheit gewahrt bleibt, aber die konkrete Höhe ist datenmäßig offen."
+          },
+          {
+            "claim": "Sonderregelungen für Politiker sind ein Symbol der Ungerechtigkeit.",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Forderung nach Gleichbehandlung (z. B. GKV/GRV-Integration) ist empirisch gestützt, aber die pauschale Bewertung als 'Symbol der Ungerechtigkeit' ist nicht vollständig belegt."
+          },
+          {
+            "claim": "GKV und GRV gelten für alle – auch für Abgeordnete.",
+            "verdict": "gestützt",
+            "reason": "Die Integration in GKV/GRV ist empirisch und rechtlich als Gleichbehandlungsmaßnahme begründet (Studien des GKV-Spitzenverbands)."
+          }
+        ]
       }
     }
   ],

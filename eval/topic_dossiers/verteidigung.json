@@ -98,7 +98,19 @@
           "https://www.understandingwar.org/",
           "https://www.swp-berlin.org/publikationen"
         ],
-        "value_assumptions": "Annahme: Bündnistreue + Stabilität primär; Risiko-Aversion gegenüber direkter Konfrontation mit Russland; Ukraine-Unterstützung im Rahmen der NATO-Logik."
+        "value_assumptions": "Annahme: Bündnistreue + Stabilität primär; Risiko-Aversion gegenüber direkter Konfrontation mit Russland; Ukraine-Unterstützung im Rahmen der NATO-Logik.",
+        "claim_assessments": [
+          {
+            "claim": "DE muss verlässlicher Bündnis-Partner sein",
+            "verdict": "gestützt",
+            "reason": "NATO-Doktrin verlangt seit 2014 2 %-Ziel, Deutschland erfüllt es 2024 erstmals, was Verlässlichkeit als politisches Asset empirisch untermauert."
+          },
+          {
+            "claim": "Eskalationsvermeidung gegenüber Russland ist Sicherheits-Logik",
+            "verdict": "teilweise gestützt",
+            "reason": "Analysen (Kiel-Institut, ISW, SWP) sind gespalten, historische Daten zeigen begrenztes Eskalationsrisiko, aber schwedische Studie sieht nicht-null-Risiko eines Schlagabtauschs."
+          }
+        ]
       }
     },
     {
@@ -120,7 +132,19 @@
           "https://www.swp-berlin.org/publikationen",
           "https://www.forsvarsmakten.se/"
         ],
-        "value_assumptions": "Annahme: militärische Stärke schreckt ab; gesellschaftliche Resilienz durch Pflichtdienst; transatlantische Bindung primär, aber Plan-B nötig."
+        "value_assumptions": "Annahme: militärische Stärke schreckt ab; gesellschaftliche Resilienz durch Pflichtdienst; transatlantische Bindung primär, aber Plan-B nötig.",
+        "claim_assessments": [
+          {
+            "claim": "3 %-Ziel notwendig wegen russischer Aggression + sinkender US-Garantien",
+            "verdict": "teilweise gestützt",
+            "reason": "SIPRI und SWP bestätigen russische Aufrüstung sowie erhöhten Eigenverantwortungsdruck durch mögliche US-Garantie-Schwächung, aber konkrete 3 %-Vorgabe ist politisch-normativ und nicht empirisch zwingend."
+          },
+          {
+            "claim": "Wehrpflicht stärkt Personalbasis und gesellschaftliche Resilienz",
+            "verdict": "teilweise gestützt",
+            "reason": "Schwedens Modell zeigt hohe Akzeptanz und Personalgewinn, Übertragbarkeit auf Deutschland ist jedoch strukturell bedingt (Kasernen, Ausbilder) noch offen."
+          }
+        ]
       }
     },
     {
@@ -142,7 +166,19 @@
           "https://defence-industry-space.ec.europa.eu/eu-defence-industry/european-defence-fund-edf_en",
           "https://www.iiss.org/publications/"
         ],
-        "value_assumptions": "Annahme: werteorientierte Außenpolitik primär; europäische Souveränität als Langfrist-Ziel; Eskalation als handhabbares Risiko."
+        "value_assumptions": "Annahme: werteorientierte Außenpolitik primär; europäische Souveränität als Langfrist-Ziel; Eskalation als handhabbares Risiko.",
+        "claim_assessments": [
+          {
+            "claim": "Ukraine-Unterstützung ist Werte-Außenpolitik",
+            "verdict": "offen",
+            "reason": "Die Behauptung ist politisch-philosophisch begründet und empirisch nicht entscheidbar."
+          },
+          {
+            "claim": "Diversifizierte EU-Sicherheits-Architektur ist Antwort auf Trump-Risiko",
+            "verdict": "teilweise gestützt",
+            "reason": "Konzeptionell entwickelt (Strategic Compass, ReArm Europe), aber Umsetzung stockt und Autonomie benötigt 10-15 Jahre."
+          }
+        ]
       }
     },
     {
@@ -164,7 +200,19 @@
           "https://www.bundestag.de/wehrbeauftragter",
           "https://www.bmvg.de/"
         ],
-        "value_assumptions": "Annahme: Effizienz im Staatsapparat primär; Liberalisierung der Bürokratie als Reformhebel; Wehrpflicht als Eigenverantwortung."
+        "value_assumptions": "Annahme: Effizienz im Staatsapparat primär; Liberalisierung der Bürokratie als Reformhebel; Wehrpflicht als Eigenverantwortung.",
+        "claim_assessments": [
+          {
+            "claim": "Beschaffungs-Bürokratie verhindert effiziente Aufrüstung",
+            "verdict": "teilweise gestützt",
+            "reason": "Bundesrechnungshof und Wehrbeauftragter dokumentieren seit Jahren Beschaffungsprobleme, Reformen wie SNVR 2023 zeigen begrenzte Wirkung."
+          },
+          {
+            "claim": "Wehrpflicht ist gesellschaftlich notwendig",
+            "verdict": "offen",
+            "reason": "Analyse verweist auf Schweden-Vergleich ohne empirische Prüfung der gesellschaftlichen Notwendigkeit in Deutschland."
+          }
+        ]
       }
     },
     {
@@ -186,7 +234,19 @@
           "https://www.swp-berlin.org/publikationen",
           "https://www.sipri.org/publications"
         ],
-        "value_assumptions": "Annahme: Friedensförderung > Bündnis-Pflicht; Eskalations-Risiken durch Aufrüstung größer als durch Schwäche; ökonomische Verflechtung als Friedensanker."
+        "value_assumptions": "Annahme: Friedensförderung > Bündnis-Pflicht; Eskalations-Risiken durch Aufrüstung größer als durch Schwäche; ökonomische Verflechtung als Friedensanker.",
+        "claim_assessments": [
+          {
+            "claim": "Aufrüstung verschlimmert Sicherheitsdilemma",
+            "verdict": "teilweise widerlegt",
+            "reason": "Russische Invasion begann vor westlicher Aufrüstung, Eskalation ging primär von Russland aus (ISW, Putin-Reden)."
+          },
+          {
+            "claim": "Diplatie statt Waffen",
+            "verdict": "teilweise gestützt",
+            "reason": "Verhandlungen 2022 scheiterten an russischen Maximalforderungen, aber Diplomatie ohne Druckmittel ist theoretisch wenig aussichtsreich."
+          }
+        ]
       }
     },
     {
@@ -209,7 +269,19 @@
           "https://www.eeas.europa.eu/eeas/strategic-compass-security-and-defence_en",
           "https://www.sipri.org/publications"
         ],
-        "value_assumptions": "Annahme: nationale Souveränität primär; Werte-Außenpolitik zweitrangig; Bündnispartner-Bindung im Sinne reiner Eigeninteressen."
+        "value_assumptions": "Annahme: nationale Souveränität primär; Werte-Außenpolitik zweitrangig; Bündnispartner-Bindung im Sinne reiner Eigeninteressen.",
+        "claim_assessments": [
+          {
+            "claim": "Bündnisbruch mit Russland war Fehler — Wiederannäherung möglich",
+            "verdict": "widerlegt",
+            "reason": "Russlands Bruch des Budapester Memorandums 2022 und Annexion ukrainischer Oblaste verstoßen gegen UN-Charta Art. 2; aktuelle Forderungen (Demilitarisierung, NATO-Stopp) sind inkompatibel mit westlichen Werten."
+          },
+          {
+            "claim": "Wehrpflicht stärkt nationale Resilienz",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirische Datenlage zur Wehrpflicht entspricht der von CDU/CSU/FDP, ohne klare Überlegenheit gegenüber anderen Modellen."
+          }
+        ]
       }
     },
     {
@@ -231,7 +303,19 @@
           "https://www.swp-berlin.org/publikationen",
           "https://www.un.org/securitycouncil/"
         ],
-        "value_assumptions": "Annahme: Diplomatie > Militärische Stärke; Eskalations-Vermeidung primär; deutsche Außenpolitik-Tradition Ostpolitik wieder aktivieren."
+        "value_assumptions": "Annahme: Diplomatie > Militärische Stärke; Eskalations-Vermeidung primär; deutsche Außenpolitik-Tradition Ostpolitik wieder aktivieren.",
+        "claim_assessments": [
+          {
+            "claim": "Verhandlungslösung möglich bei diplomatischem Druck auf beide Seiten",
+            "verdict": "teilweise widerlegt",
+            "reason": "Asymmetrie der Forderungen (Territorialgewinne vs. Integrität) und fehlende symmetrische Eskalationsverantwortung machen Druck-Kulisse ohne klare Druckmittel unwahrscheinlich."
+          },
+          {
+            "claim": "Eskalations-Spirale stoppen durch deutsche Vermittlerrolle",
+            "verdict": "widerlegt",
+            "reason": "Empirisch zeigt sich, dass Frankreich (Macron) und China aktivere Vermittlungsversuche unternahmen, während Deutschlands Rolle im Kontext als schwach eingestuft wird."
+          }
+        ]
       }
     }
   ],

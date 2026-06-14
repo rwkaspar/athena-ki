@@ -83,7 +83,24 @@
           "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
           "https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/folgen-einer-buergerversicherung-fuer-die-gesetzliche"
         ],
-        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird priorisiert. · Marktmechanismen (§3 EVIDENZ-Wertekanon) werden zugunsten von Umverteilung eingeschränkt."
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird priorisiert. · Marktmechanismen (§3 EVIDENZ-Wertekanon) werden zugunsten von Umverteilung eingeschränkt.",
+        "claim_assessments": [
+          {
+            "claim": "„Die Bürgerversicherung ist ein zentraler Baustein für mehr Gerechtigkeit im Gesundheitssystem.“",
+            "verdict": "teilweise gestützt",
+            "reason": "Studien wie die des DIW bestätigen eine verbesserte Umverteilungswirkung, aber die konkrete Gerechtigkeitswirkung hängt von der Ausgestaltung ab."
+          },
+          {
+            "claim": "„Alle müssen nach ihrer Leistungsfähigkeit einzahlen – das schafft Solidarität.“",
+            "verdict": "gestützt",
+            "reason": "Das Solidarprinzip mit einkommensabhängigen Beiträgen ist empirisch als umverteilungsfördernd belegt (DIW)."
+          },
+          {
+            "claim": "„Die PKV kann als Zusatzversicherung weiterbestehen, aber nicht als Vollversicherung.“",
+            "verdict": "teilweise widerlegt",
+            "reason": "Das ifo-Institut warnt vor Risikoselektion und höheren GKV-Kosten bei dieser Ausgestaltung."
+          }
+        ]
       }
     },
     {
@@ -127,7 +144,24 @@
           "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
           "https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/folgen-einer-buergerversicherung-fuer-die-gesetzliche"
         ],
-        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird stark gewichtet. · Gerechtigkeit (§3(iii) EVIDENZ-Wertekanon) rechtfertigt Eingriffe in Marktmechanismen."
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird stark gewichtet. · Gerechtigkeit (§3(iii) EVIDENZ-Wertekanon) rechtfertigt Eingriffe in Marktmechanismen.",
+        "claim_assessments": [
+          {
+            "claim": "„Gesundheit darf keine Frage des Geldbeutels sein – alle müssen solidarisch einzahlen.“",
+            "verdict": "gestützt",
+            "reason": "DIW- und ifo-Studien bestätigen, dass die Aufhebung der Beitragsbemessungsgrenze und Integration aller Gruppen die Umverteilung stärkt."
+          },
+          {
+            "claim": "„Die PKV muss als Vollversicherung abgeschafft werden, um Risikoselektion zu verhindern.“",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Abschaffung reduziert Risikoselektion, aber die Übertragbarkeit von Altersrückstellungen ist rechtlich und fiskalisch komplex (BVerfG 2015)."
+          },
+          {
+            "claim": "„Kapitalerträge müssen in die Finanzierung einbezogen werden.“",
+            "verdict": "offen",
+            "reason": "Erfassbarkeit und administrative Umsetzung sind unklar (BMF 2022)."
+          }
+        ]
       }
     },
     {
@@ -149,7 +183,24 @@
           "https://www.ifo.de/publikationen/2020/aufsatz-zeitschrift/wettbewerb-in-der-gesetzlichen-krankenversicherung",
           "https://www.oecd.org/health/health-at-a-glance/"
         ],
-        "value_assumptions": "Wettbewerb (§3 EVIDENZ-Wertekanon) wird priorisiert. · Freiheit (§1 EVIDENZ-Wertekanon) der Versicherten wird betont."
+        "value_assumptions": "Wettbewerb (§3 EVIDENZ-Wertekanon) wird priorisiert. · Freiheit (§1 EVIDENZ-Wertekanon) der Versicherten wird betont.",
+        "claim_assessments": [
+          {
+            "claim": "„Wettbewerb schafft bessere Versorgung und mehr Effizienz.“",
+            "verdict": "teilweise gestützt",
+            "reason": "Wettbewerb kann Effizienzgewinne bringen, führt aber auch zu Risikoselektion und höheren Verwaltungskosten (DIW, ifo-Institut)."
+          },
+          {
+            "claim": "„Eine Bürgerversicherung wäre ein Schritt in Richtung Einheitskasse und würde die Qualität senken.“",
+            "verdict": "widerlegt",
+            "reason": "OECD-Vergleiche zeigen, dass die Qualität der Versorgung in Ländern mit Einheitsversicherung nicht schlechter ist."
+          },
+          {
+            "claim": "„Die PKV ist ein wichtiger Baustein für die Finanzierung des Gesundheitssystems.“",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die Systemrelevanz der PKV ist empirisch umstritten (DIW 2020) und ihre Effekte sind nicht eindeutig belegt."
+          }
+        ]
       }
     },
     {
@@ -171,7 +222,24 @@
           "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
           "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Oeffentliche_Finanzen/Steuern/2022-03-16-vermoegensabgabe.html"
         ],
-        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird absolut priorisiert. · Gerechtigkeit (§3(iii) EVIDENZ-Wertekanon) rechtfertigt starke Umverteilung."
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird absolut priorisiert. · Gerechtigkeit (§3(iii) EVIDENZ-Wertekanon) rechtfertigt starke Umverteilung.",
+        "claim_assessments": [
+          {
+            "claim": "„Gesundheit ist ein Menschenrecht – das System muss solidarisch und bedarfsorientiert sein.“",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Forderung nach einem solidarischen System ist empirisch teilweise gestützt (DIW), aber die konkrete Ausgestaltung bleibt unklar."
+          },
+          {
+            "claim": "„Die PKV ist ein Privileg für Reiche und muss abgeschafft werden.“",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die Aussage ist teilweise widerlegt, da auch Geringverdiener (z. B. Beamte mit Beihilfe) in der PKV versichert sind."
+          },
+          {
+            "claim": "„Kapitalerträge und Vermögen müssen zur Finanzierung herangezogen werden.“",
+            "verdict": "offen",
+            "reason": "Die administrative Umsetzbarkeit der Einbeziehung von Vermögen und Kapitalerträgen ist unklar (BMF 2022)."
+          }
+        ]
       }
     },
     {
@@ -193,7 +261,24 @@
           "https://www.oecd.org/health/health-at-a-glance/",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2015/07/rs20150707_1bvr114813.html"
         ],
-        "value_assumptions": "Freiheit (§1 EVIDENZ-Wertekanon) wird absolut priorisiert. · Wettbewerb (§3 EVIDENZ-Wertekanon) wird betont, Solidarität (§2) abgelehnt."
+        "value_assumptions": "Freiheit (§1 EVIDENZ-Wertekanon) wird absolut priorisiert. · Wettbewerb (§3 EVIDENZ-Wertekanon) wird betont, Solidarität (§2) abgelehnt.",
+        "claim_assessments": [
+          {
+            "claim": "„Die Bürgerversicherung ist ein Angriff auf die Freiheit der Bürger.“",
+            "verdict": "offen",
+            "reason": "Die Aussage ist eine normative Wertung ohne empirisch prüfbare Grundlage."
+          },
+          {
+            "claim": "„Das duale System hat sich bewährt und muss erhalten bleiben.“",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Wahlfreiheit zwischen GKV und PKV wird empirisch als Vorteil anerkannt, aber die Bewährung des Systems ist nicht eindeutig belegt."
+          },
+          {
+            "claim": "„Die GKV ist ineffizient und bürokratisch – mehr Wettbewerb ist nötig.“",
+            "verdict": "widerlegt",
+            "reason": "OECD-Daten zeigen, dass die GKV im internationalen Vergleich kostengünstiger und effizienter ist."
+          }
+        ]
       }
     },
     {
@@ -215,7 +300,24 @@
           "https://www.diw.de/de/diw_01.c.604204.de/publikationen/wochenberichte/2021_10_1/buergerversicherung__mehr_verteilungsgerechtigkeit_im_gesundheitssystem.html",
           "https://www.bundesfinanzministerium.de/Content/DE/Standardartikel/Themen/Oeffentliche_Finanzen/Steuern/2022-03-16-vermoegensabgabe.html"
         ],
-        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird absolut priorisiert. · Staatliche Steuerung (§3(ii) EVIDENZ-Wertekanon) wird betont, Marktmechanismen abgelehnt."
+        "value_assumptions": "Solidarität (§2 EVIDENZ-Wertekanon) wird absolut priorisiert. · Staatliche Steuerung (§3(ii) EVIDENZ-Wertekanon) wird betont, Marktmechanismen abgelehnt.",
+        "claim_assessments": [
+          {
+            "claim": "„Gesundheit ist kein Markt – das System muss solidarisch und demokratisch kontrolliert sein.“",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Forderung nach einer Bürgerversicherung als solidarisches System ist empirisch teilweise gestützt (DIW), aber die konkrete Ausgestaltung demokratischer Kontrolle ist nicht detailliert geprüft."
+          },
+          {
+            "claim": "„Die PKV ist ein Relikt des Neoliberalismus und gehört abgeschafft.“",
+            "verdict": "widerlegt",
+            "reason": "Die Aussage ist normativ und ohne empirische Grundlage; Studien zeigen zwar Risikoselektion durch die PKV, aber keine eindeutige neoliberale Prägung."
+          },
+          {
+            "claim": "„Kapitalerträge müssen in die Finanzierung einbezogen werden, um die Beitragslast gerecht zu verteilen.“",
+            "verdict": "offen",
+            "reason": "Die administrative Umsetzbarkeit der Einbeziehung von Kapitalerträgen ist unklar (BMF 2022), empirische Daten fehlen."
+          }
+        ]
       }
     }
   ],

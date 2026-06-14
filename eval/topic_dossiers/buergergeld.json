@@ -96,7 +96,19 @@
           "https://www.iwkoeln.de/themen/sozialpolitik.html",
           "https://www.gesetze-im-internet.de/sgb_2/"
         ],
-        "value_assumptions": "Annahme: Existenzminimum als Pflicht; Erwerbsanreiz wird sekundär durch Lohnstruktur, nicht primär durch Sanktionen erzeugt."
+        "value_assumptions": "Annahme: Existenzminimum als Pflicht; Erwerbsanreiz wird sekundär durch Lohnstruktur, nicht primär durch Sanktionen erzeugt.",
+        "claim_assessments": [
+          {
+            "claim": "Bürgergeld senkt nicht die Arbeitsbereitschaft — Lohnabstand bleibt deutlich",
+            "verdict": "teilweise gestützt",
+            "reason": "Lohnabstand von 400-500 € netto ist empirisch belegt, aber Hinzuverdienstgrenzen können den Anreiz bei Kinderbetreuung angleichen."
+          },
+          {
+            "claim": "Qualifizierung statt Sanktion ist langfristig effektiver",
+            "verdict": "teilweise gestützt",
+            "reason": "IAB-Forschung zeigt höhere Stabilität bei freiwilliger Qualifizierung, aber der Effekt sinkt bei Druck oder Sanktionen."
+          }
+        ]
       }
     },
     {
@@ -118,7 +130,19 @@
           "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2019/11/ls20191105_1bvl000716.html"
         ],
-        "value_assumptions": "Annahme: Aktivierung > Existenzsicherung; Sanktionen sind effektives Anreizinstrument; Ungleichbehandlung Ukraine vs. andere Geflüchtete legitim."
+        "value_assumptions": "Annahme: Aktivierung > Existenzsicherung; Sanktionen sind effektives Anreizinstrument; Ungleichbehandlung Ukraine vs. andere Geflüchtete legitim.",
+        "claim_assessments": [
+          {
+            "claim": "Bürgergeld hat Arbeitsanreize spürbar gesenkt",
+            "verdict": "widerlegt",
+            "reason": "IAB findet keinen messbaren Rückgang der Erwerbsneigung nach Bürgergeld-Einführung 2023."
+          },
+          {
+            "claim": "Aktivierende Sozialpolitik (Hartz IV) war erfolgreicher",
+            "verdict": "teilweise widerlegt",
+            "reason": "Beschäftigungsanstieg 2005-2012 korreliert stark mit Konjunktur und Lohnzurückhaltung; ursächliche Zuordnung allein zu Hartz IV ist empirisch umstritten."
+          }
+        ]
       }
     },
     {
@@ -140,7 +164,19 @@
           "https://anwaltverein.de/de/newsroom/stellungnahmen",
           "https://www.gesetze-im-internet.de/sgb_12/"
         ],
-        "value_assumptions": "Annahme: Existenzminimum ist Grundrechts-Schutzgut, das Aktivierungsdruck überwiegt; Sanktions-Skepsis aus grundrechts-orientierter Perspektive."
+        "value_assumptions": "Annahme: Existenzminimum ist Grundrechts-Schutzgut, das Aktivierungsdruck überwiegt; Sanktions-Skepsis aus grundrechts-orientierter Perspektive.",
+        "claim_assessments": [
+          {
+            "claim": "Sanktionsverschärfung 2024 verstößt gegen BVerfG-Vorgaben",
+            "verdict": "teilweise widerlegt",
+            "reason": "BVerfG 1 BvL 7/16 erlaubt Ausnahmen bei 'beharrlicher Verweigerung', juristische Literatur bewertet die 100 %-Sanktion 2024 uneinheitlich."
+          },
+          {
+            "claim": "Inflations-Anpassung schützt Existenzminimum verfassungsfest",
+            "verdict": "teilweise gestützt",
+            "reason": "§ 28a SGB XII sieht bereits jährliche Fortschreibung vor, eine Verschärfung wäre aber kein Novum und damit verfassungsrechtlich nicht zwingend geboten."
+          }
+        ]
       }
     },
     {
@@ -162,7 +198,19 @@
           "https://www.zew.de/publikationen",
           "https://www.nber.org/papers"
         ],
-        "value_assumptions": "Annahme: ökonomische Anreiz-Logik primär; Eigenverantwortung als Leitprinzip; staatliche Existenzsicherung als Mindeststandard, nicht als Komfort-Niveau."
+        "value_assumptions": "Annahme: ökonomische Anreiz-Logik primär; Eigenverantwortung als Leitprinzip; staatliche Existenzsicherung als Mindeststandard, nicht als Komfort-Niveau.",
+        "claim_assessments": [
+          {
+            "claim": "Hinzuverdienst-Reform setzt richtige Anreize an der Schnittstelle",
+            "verdict": "teilweise gestützt",
+            "reason": "IAB-Modellierungen bestätigen hohe Transferentzugsraten, Reformvorschläge sind theoretisch gut belegt, aber Umsetzung und Effektgrößen bleiben politisch und empirisch begrenzt."
+          },
+          {
+            "claim": "Anreize wirken besser als Sanktionen",
+            "verdict": "teilweise gestützt",
+            "reason": "Internationale Evidenz (Card/Krueger, Bonin/Schaffner) zeigt tendenziell bessere Wirkung von Anreizen, aber Effektgrößen sind bescheiden und nicht eindeutig überlegen."
+          }
+        ]
       }
     },
     {
@@ -184,7 +232,19 @@
           "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
           "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html"
         ],
-        "value_assumptions": "Annahme: Existenzsicherung als Grundrecht ohne Bedingung; Sanktions-Skepsis aus sozialpolitischer Perspektive; soziale Teilhabe > Erwerbszwang."
+        "value_assumptions": "Annahme: Existenzsicherung als Grundrecht ohne Bedingung; Sanktions-Skepsis aus sozialpolitischer Perspektive; soziale Teilhabe > Erwerbszwang.",
+        "claim_assessments": [
+          {
+            "claim": "Aktuelle Regelsätze decken Existenzminimum nicht ab",
+            "verdict": "teilweise gestützt",
+            "reason": "Paritätischer Wohlfahrtsverband und DIW schätzen höheren Bedarf, Methodik der Regelbedarfsberechnung wird wissenschaftlich kritisiert."
+          },
+          {
+            "claim": "Sanktionen sind verfassungs-problematisch und ineffektiv",
+            "verdict": "teilweise gestützt",
+            "reason": "IAB-Metastudien zeigen geringe Effektivität bei negativen gesundheitlichen und sozialen Folgen, verfassungsrechtliche Bedenken werden in der Analyse nicht empirisch geprüft."
+          }
+        ]
       }
     },
     {
@@ -207,7 +267,19 @@
           "https://www.oecd.org/migration/international-migration-outlook-1999124x.htm",
           "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html"
         ],
-        "value_assumptions": "Annahme: Vorrang für Inländer; Sozialstaat als Bevölkerungs-Selektions-Instrument; Aktivierung als Disziplinierungs-Mechanismus."
+        "value_assumptions": "Annahme: Vorrang für Inländer; Sozialstaat als Bevölkerungs-Selektions-Instrument; Aktivierung als Disziplinierungs-Mechanismus.",
+        "claim_assessments": [
+          {
+            "claim": "Bürgergeld ist Magnet für Asyl-Migranten",
+            "verdict": "widerlegt",
+            "reason": "Empirische Studien (CESifo 2018, IAB 2019, OECD 2024) finden keine Evidenz für einen Sozialleistungs-Pull-Effekt bei Asyl-Migration."
+          },
+          {
+            "claim": "Aktivierende Sozialpolitik (Hartz IV) hat Arbeitsmarkt-Wunder ermöglicht",
+            "verdict": "teilweise gestützt",
+            "reason": "SVR und IAB zeigen, dass Hartz IV ein Faktor für den Beschäftigungsanstieg 2005-2012 war, aber nicht der dominante (Konjunktur und Lohnzurückhaltung waren maßgeblicher)."
+          }
+        ]
       }
     },
     {
@@ -229,7 +301,19 @@
           "https://www.cesifo.org/en/publications",
           "https://www.gesetze-im-internet.de/sgb_2/__10.html"
         ],
-        "value_assumptions": "Annahme: Sozialstaat hat Inländer-Vorrang in den ersten Aufenthaltsjahren; Aktivierungs-Logik gilt, aber mit grundrechtlicher Grenze; Mitwirkungspflicht > Sanktionsfreiheit."
+        "value_assumptions": "Annahme: Sozialstaat hat Inländer-Vorrang in den ersten Aufenthaltsjahren; Aktivierungs-Logik gilt, aber mit grundrechtlicher Grenze; Mitwirkungspflicht > Sanktionsfreiheit.",
+        "claim_assessments": [
+          {
+            "claim": "Bürgergeld muss aktivierend, nicht ruhigstellend sein",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirie zeigt, dass moderate Mitwirkungspflichten Vermittlungsquoten leicht erhöhen, absolute Sanktionsfreiheit jedoch suboptimal ist."
+          },
+          {
+            "claim": "Bürgergeld für Asyl-Migranten ist Pull-Faktor",
+            "verdict": "widerlegt",
+            "reason": "Studien (CESifo 2018, IAB 2019) finden keinen robusten empirischen Nachweis für Pull-Effekte."
+          }
+        ]
       }
     }
   ],

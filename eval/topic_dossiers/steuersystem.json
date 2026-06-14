@@ -98,7 +98,19 @@
           "https://www.oecd.org/tax/tax-policy/",
           "https://www.bundesbank.de/de/publikationen"
         ],
-        "value_assumptions": "Annahme: Vermögensverteilung sozial korrekturbedürftig; Progressivität als Wert; Kapitalabwanderungs-Risiko handhabbar."
+        "value_assumptions": "Annahme: Vermögensverteilung sozial korrekturbedürftig; Progressivität als Wert; Kapitalabwanderungs-Risiko handhabbar.",
+        "claim_assessments": [
+          {
+            "claim": "Hohe Vermögen sind unterproportional besteuert",
+            "verdict": "gestützt",
+            "reason": "Empirie zeigt durch Abgeltungssteuer, Erbschaftsteuer-Verschonung und fehlende Vermögensteuer eine tarifliche Unterbesteuerung hoher Vermögen (Bach/Beznoska, IW)."
+          },
+          {
+            "claim": "Vermögensteuer würde 20–30 Mrd. €/Jahr bringen ohne Mittelschicht-Belastung",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW-Modell schätzt 22–26 Mrd. Aufkommen bei 1 Mio. Freibetrag, aber Kapitalabwanderung und Bewertungsaufwand könnten das reale Aufkommen verringern."
+          }
+        ]
       }
     },
     {
@@ -120,7 +132,19 @@
           "https://www.insee.fr/fr/statistiques",
           "https://eml.berkeley.edu/~saez/"
         ],
-        "value_assumptions": "Annahme: Markt-Effizienz primär; Eigentums-Schutz hat hohes Gewicht; Umverteilung untergeordnet."
+        "value_assumptions": "Annahme: Markt-Effizienz primär; Eigentums-Schutz hat hohes Gewicht; Umverteilung untergeordnet.",
+        "claim_assessments": [
+          {
+            "claim": "Hohe Spitzensteuer schadet Investitionen und Arbeitsplätzen",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirie zeigt geringe Arbeitsangebots-Elastizitäten, aber relevantere Effekte bei Konzern-Investitionen (Saez/Piketty 2014)."
+          },
+          {
+            "claim": "Vermögensteuer-Wiedereinführung würde Kapitalabwanderung auslösen",
+            "verdict": "teilweise widerlegt",
+            "reason": "Frankreichs ISF-Reform 2017 zeigte moderate Rückkehr von Vermögenden, aber Aufkommenswirkung war geringer als erwartet (INSEE)."
+          }
+        ]
       }
     },
     {
@@ -142,7 +166,19 @@
           "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/subventionen.html",
           "https://eml.berkeley.edu/~saez/"
         ],
-        "value_assumptions": "Annahme: Umverteilung ökologisch und sozial gerechtfertigt; Klimaschutz hat Vorrang vor Subventions-Status quo."
+        "value_assumptions": "Annahme: Umverteilung ökologisch und sozial gerechtfertigt; Klimaschutz hat Vorrang vor Subventions-Status quo.",
+        "claim_assessments": [
+          {
+            "claim": "Reichensteuer-Erhöhung finanziert sozial-ökologische Transformation",
+            "verdict": "teilweise gestützt",
+            "reason": "Aufkommen von 3-5 Mrd. €/Jahr ist realistisch, aber zu gering für umfassende Transformation und Elastizitätseffekte begrenzen Wirkung."
+          },
+          {
+            "claim": "Klimaschädliche Subventionen sind versteckte Umverteilung nach oben",
+            "verdict": "gestützt",
+            "reason": "UBA-Bericht 2024 zeigt, dass Subventionen wie Dieselprivileg oder Pendlerpauschale regressiv wirken und höhere Einkommen begünstigen."
+          }
+        ]
       }
     },
     {
@@ -164,7 +200,19 @@
           "https://www.oecd.org/tax/tax-policy/",
           "https://www.oecd.org/tax/beps/"
         ],
-        "value_assumptions": "Annahme: Eigentumsschutz und Leistungsanreiz primär; Mittelstand als Träger; Umverteilung über Markt statt Steuer."
+        "value_assumptions": "Annahme: Eigentumsschutz und Leistungsanreiz primär; Mittelstand als Träger; Umverteilung über Markt statt Steuer.",
+        "claim_assessments": [
+          {
+            "claim": "Mittelstand zahlt zu früh Spitzensteuer",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Spitzensteuerschwelle von ~66.760 € (2026) trifft nominal viele Haushalte der oberen Mittelschicht, aber nicht ausschließlich den klassischen Mittelstand."
+          },
+          {
+            "claim": "Steuerwettbewerb erfordert wettbewerbsfähige Sätze",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die OECD-Mindeststeuer (Pillar Two, 15 %) hat den Steuerwettbewerb in Teilen entschärft, sodass der Druck auf nationale Steuersätze reduziert wurde."
+          }
+        ]
       }
     },
     {
@@ -186,7 +234,19 @@
           "https://www.bundesbank.de/de/publikationen",
           "https://www.insee.fr/fr/statistiques"
         ],
-        "value_assumptions": "Annahme: Vermögensumverteilung als Gerechtigkeits-Pflicht; Eigentumsschutz mit hoher sozialer Bindung; Markt-Anreize sekundär."
+        "value_assumptions": "Annahme: Vermögensumverteilung als Gerechtigkeits-Pflicht; Eigentumsschutz mit hoher sozialer Bindung; Markt-Anreize sekundär.",
+        "claim_assessments": [
+          {
+            "claim": "Vermögensteuer + Vermögensabgabe finanzieren Investitionspaket",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW-Modell prognostiziert 22-26 Mrd. Euro Aufkommen bei moderaten Sätzen, höhere Sätze bergen Abwanderungs- und Bewertungsrisiken, die das Aufkommen mindern könnten."
+          },
+          {
+            "claim": "Konzentration im Top-1% rechtfertigt scharfe Umverteilung",
+            "verdict": "gestützt",
+            "reason": "DIW und Bundesbank PHF belegen empirisch einen Top-1%-Anteil von ~30-35 % am Gesamtvermögen, was die Konzentrationsbehauptung stützt."
+          }
+        ]
       }
     },
     {
@@ -209,7 +269,19 @@
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2014/12/ls20141217_1bvl002112.html",
           "https://www.gesetze-im-internet.de/erbstg_1974/"
         ],
-        "value_assumptions": "Annahme: Eigentumsschutz absolut; familiäre Vermögensweitergabe als Wert; Umverteilung über Erbe abzulehnen."
+        "value_assumptions": "Annahme: Eigentumsschutz absolut; familiäre Vermögensweitergabe als Wert; Umverteilung über Erbe abzulehnen.",
+        "claim_assessments": [
+          {
+            "claim": "Steuerlast in DE ist eine der höchsten weltweit",
+            "verdict": "widerlegt",
+            "reason": "OECD-Daten zeigen Deutschland im Mittelfeld der Abgabenquote (39 % BIP), mehrere Länder haben höhere Quoten."
+          },
+          {
+            "claim": "Familienvermögen-Schutz sichert Mittelstand und Arbeitsplätze",
+            "verdict": "teilweise gestützt",
+            "reason": "Aktuelle Erbschaftssteuer-Verschonung ermöglicht Befreiungen bei Lohnsummenerhalt, aber verfassungsrechtlich an Bedingungen geknüpft."
+          }
+        ]
       }
     },
     {
@@ -231,7 +303,19 @@
           "https://www.bundesbank.de/de/publikationen",
           "https://www.estv.admin.ch/"
         ],
-        "value_assumptions": "Annahme: Mittelschicht-Solidarität als Leitwert; Top-Vermögen sozial verantwortbar zur Mitfinanzierung verpflichtet."
+        "value_assumptions": "Annahme: Mittelschicht-Solidarität als Leitwert; Top-Vermögen sozial verantwortbar zur Mitfinanzierung verpflichtet.",
+        "claim_assessments": [
+          {
+            "claim": "Mittelschicht entlasten, Top-Vermögen besteuern",
+            "verdict": "teilweise gestützt",
+            "reason": "Mittelschicht-Entlastung ist als Ziel formuliert, aber Gegenfinanzierung durch Top-Vermögensbesteuerung allein reicht laut Analyse nicht aus (8-15 Mrd. Kosten vs. 4-8 Mrd. Aufkommen)."
+          },
+          {
+            "claim": "Vermögenskonzentration bei Top-0,1% rechtfertigt zielgerichtete Steuer",
+            "verdict": "gestützt",
+            "reason": "Empirische Daten (DIW, Bundesbank PHF) belegen extrem hohe Vermögenskonzentration (15-20% des Nettovermögens) im Top-0,1%, was die Zielgruppe der Steuer rechtfertigt."
+          }
+        ]
       }
     }
   ],

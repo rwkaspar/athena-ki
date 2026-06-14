@@ -90,7 +90,19 @@
           "https://www.pestel-institut.de/publikationen/",
           "https://www.ifo.de/publikationen"
         ],
-        "value_assumptions": "Annahme: Mietpreisregulierung als Verteilungsinstrument legitim; sozialer Wohnungsbau als Daseinsvorsorge; staatliche Steuerung der Wohnungsmärkte."
+        "value_assumptions": "Annahme: Mietpreisregulierung als Verteilungsinstrument legitim; sozialer Wohnungsbau als Daseinsvorsorge; staatliche Steuerung der Wohnungsmärkte.",
+        "claim_assessments": [
+          {
+            "claim": "Mietpreisbremse hat Mietsteigerung gedämpft",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW-Evaluationen zeigen einen leichten Dämpfungseffekt von 1-3 Prozentpunkten unter Trend, jedoch mit klaren Ausnahmen."
+          },
+          {
+            "claim": "Mehr Sozialwohnungen sind effektiver als reine Förderung",
+            "verdict": "teilweise gestützt",
+            "reason": "Pestel-Institut und ifo zeigen direkte Bestandswirkung, aber Effizienz ist durch kurze Belegungsbindungsdauer (15-20 Jahre) begrenzt."
+          }
+        ]
       }
     },
     {
@@ -112,7 +124,19 @@
           "https://www.ifo.de/publikationen",
           "https://www.bundesbank.de/de/publikationen"
         ],
-        "value_assumptions": "Annahme: Marktangebot primär; Eigentumsbildung als gesellschaftliches Ziel; staatliche Mietregulierung nur als Ausnahme."
+        "value_assumptions": "Annahme: Marktangebot primär; Eigentumsbildung als gesellschaftliches Ziel; staatliche Mietregulierung nur als Ausnahme.",
+        "claim_assessments": [
+          {
+            "claim": "Nur mehr Angebot löst die Mietenkrise",
+            "verdict": "teilweise widerlegt",
+            "reason": "Empirie zeigt, dass Neubau primär das obere Preissegment bedient und Filterungseffekte begrenzt wirken."
+          },
+          {
+            "claim": "Mietpreisbremse hält Investoren ab",
+            "verdict": "widerlegt",
+            "reason": "DIW und ifo finden keinen kausal robusten Effekt der Mietpreisbremse auf Investitionsentscheidungen."
+          }
+        ]
       }
     },
     {
@@ -134,7 +158,19 @@
           "https://www.empirica-institut.de/",
           "https://www.ifo.de/publikationen"
         ],
-        "value_assumptions": "Annahme: Boden als öffentliches Gut; Klimaschutz im Wohnungsbau nicht-verhandelbar; staatliche Eingriffe in Bodenmärkte legitim."
+        "value_assumptions": "Annahme: Boden als öffentliches Gut; Klimaschutz im Wohnungsbau nicht-verhandelbar; staatliche Eingriffe in Bodenmärkte legitim.",
+        "claim_assessments": [
+          {
+            "claim": "Klimagerechter Wohnungsbau braucht andere Finanzierungsmodelle",
+            "verdict": "teilweise gestützt",
+            "reason": "Förderung von KfW-Effizienzhäusern zeigt Wirkung, aber die Notwendigkeit *anderer* Modelle ist nicht empirisch belegt."
+          },
+          {
+            "claim": "Bodenspekulation ist Haupttreiber der Mietenexplosion",
+            "verdict": "gestützt",
+            "reason": "Empirica und ifo belegen starken Anstieg des Grundstückskostenanteils am Wohnungsneubau (2010: ~15 %, 2024: ~30-40 %)."
+          }
+        ]
       }
     },
     {
@@ -156,7 +192,19 @@
           "https://www.bundesbank.de/de/publikationen/forschung/private-haushalte-und-ihre-finanzen-phf-",
           "https://www.zew.de/publikationen"
         ],
-        "value_assumptions": "Annahme: Eigentum > Miete als gesellschaftliches Ziel; Markt löst Knappheit besser als Regulierung; staatliche Förderung gezielt auf Eigentumsbildung."
+        "value_assumptions": "Annahme: Eigentum > Miete als gesellschaftliches Ziel; Markt löst Knappheit besser als Regulierung; staatliche Förderung gezielt auf Eigentumsbildung.",
+        "claim_assessments": [
+          {
+            "claim": "Bürokratieabbau ist wirksamster Hebel",
+            "verdict": "teilweise gestützt",
+            "reason": "Pestel-Institut bestätigt Verzögerungen durch Genehmigungsverfahren, aber kein Vergleich mit anderen Hebeln vorliegend."
+          },
+          {
+            "claim": "Eigentum schafft Vermögensbildung in der breiten Bevölkerung",
+            "verdict": "teilweise gestützt",
+            "reason": "Bundesbank PHF-Studie zeigt höheres Median-Vermögen bei Eigentümern, aber keine Kausalität für breite Bevölkerung belegt."
+          }
+        ]
       }
     },
     {
@@ -178,7 +226,19 @@
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/04/fs20210415_2bvf000120.html",
           "https://www.gesetze-im-internet.de/gg/art_14.html"
         ],
-        "value_assumptions": "Annahme: Wohnen als Grundrecht > Eigentumsschutz; Vergesellschaftung legitime Reaktion auf Marktversagen; staatliche Preissteuerung primär."
+        "value_assumptions": "Annahme: Wohnen als Grundrecht > Eigentumsschutz; Vergesellschaftung legitime Reaktion auf Marktversagen; staatliche Preissteuerung primär.",
+        "claim_assessments": [
+          {
+            "claim": "Berliner Mietendeckel hat erwiesen, dass Regulierung wirkt",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW-Evaluation zeigt 15 % Mietenrückgang im Bestand, aber mit negativen Nebeneffekten wie Angebotsrückgang und Verdrängungseffekten."
+          },
+          {
+            "claim": "Wohnen ist Grundrecht, nicht Anlage",
+            "verdict": "offen",
+            "reason": "Rechtliche Einordnung als Grundrecht ist umstritten (Art. 14, 15 GG) und empirisch nicht aus der Analyse ableitbar."
+          }
+        ]
       }
     },
     {
@@ -201,7 +261,19 @@
           "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
           "https://www.gesetze-im-internet.de/gg/art_3.html"
         ],
-        "value_assumptions": "Annahme: Inländer-Vorrang in Sozialleistungen; GEG-Skepsis aus Klima-Skepsis-Tradition; staatliche Steuerung mit Selektion."
+        "value_assumptions": "Annahme: Inländer-Vorrang in Sozialleistungen; GEG-Skepsis aus Klima-Skepsis-Tradition; staatliche Steuerung mit Selektion.",
+        "claim_assessments": [
+          {
+            "claim": "Migration ist Haupttreiber der Wohnungsknappheit",
+            "verdict": "widerlegt",
+            "reason": "Strukturelle Knappheit besteht seit 2010, Zuwanderung erklärt nur 15-25 % des Mietenanstiegs 2015-2024."
+          },
+          {
+            "claim": "GEG verteuert Neubau unzumutbar",
+            "verdict": "teilweise widerlegt",
+            "reason": "GEG verursacht 8-15 % Mehrkosten, was substanziell, aber nicht als „unzumutbar“ einzustufen ist."
+          }
+        ]
       }
     },
     {
@@ -223,7 +295,19 @@
           "https://www.ifo.de/publikationen",
           "https://www.pestel-institut.de/publikationen/"
         ],
-        "value_assumptions": "Annahme: Wohnen als soziale Frage, nicht primär als Markt-Effizienzfrage; staatliche Daseinsvorsorge legitim; ideologische Ablehnung von Vergesellschaftung als Maximalforderung."
+        "value_assumptions": "Annahme: Wohnen als soziale Frage, nicht primär als Markt-Effizienzfrage; staatliche Daseinsvorsorge legitim; ideologische Ablehnung von Vergesellschaftung als Maximalforderung.",
+        "claim_assessments": [
+          {
+            "claim": "Mietenexplosion ist primär soziale Verteilungsfrage",
+            "verdict": "gestützt",
+            "reason": "Destatis-Daten zeigen deutlichen Anstieg des Mietkostenanteils am verfügbaren Einkommen unterer Einkommensgruppen (2010: 28 %, 2024: 40 %)."
+          },
+          {
+            "claim": "Sozialer Wohnungsbau muss aus Steuergeldern, nicht aus Mietenregulierung allein",
+            "verdict": "gestützt",
+            "reason": "Bundes- und Länderhaushalte sind laut Pestel-Bilanz und ifo-Analyse die Hauptfinanzierungsquellen für sozialen Wohnungsbau."
+          }
+        ]
       }
     }
   ],

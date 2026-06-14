@@ -97,7 +97,19 @@
           "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html",
           "https://dserver.bundestag.de/btd/20/110/2011090.pdf"
         ],
-        "value_assumptions": "Annahme: Generationenvertrag-Stabilität primär; Haltelinie als Versprechen ist politische Pflicht; demografische Last solidarisch tragen."
+        "value_assumptions": "Annahme: Generationenvertrag-Stabilität primär; Haltelinie als Versprechen ist politische Pflicht; demografische Last solidarisch tragen.",
+        "claim_assessments": [
+          {
+            "claim": "Sicherungsniveau-Haltelinie ist Versprechen an die Generationen",
+            "verdict": "gestützt",
+            "reason": "Die Haltelinie-Verlängerung wird als politisches Ziel formuliert, das laut DRV-Modellen fiskalisch relevant ist und generationenübergreifende Wirkung entfaltet."
+          },
+          {
+            "claim": "Generationenkapital hilft langfristig, ist aber nicht ausreichend",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Bundesregierung schätzt die Entlastung durch das Generationenkapital auf 0,1-0,3 Beitragspunkte ab 2036, während SVR und Wissenschaftlicher Beirat dies als „nicht ausreichend“ bewerten."
+          }
+        ]
       }
     },
     {
@@ -119,7 +131,19 @@
           "https://www.oecd.org/els/public-pensions/oecd-pensions-at-a-glance-19991363.htm",
           "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/_inhalt.html"
         ],
-        "value_assumptions": "Annahme: demografische Ehrlichkeit > politische Versprechen; private Vorsorge als Pflicht-Säule legitim; Eigenverantwortung primär."
+        "value_assumptions": "Annahme: demografische Ehrlichkeit > politische Versprechen; private Vorsorge als Pflicht-Säule legitim; Eigenverantwortung primär.",
+        "claim_assessments": [
+          {
+            "claim": "67-Jahre-Grenze ist demografisch nicht haltbar",
+            "verdict": "teilweise gestützt",
+            "reason": "Die steigende Lebenserwartung und längere Rentenbezugsdauer stützen die fiskalische Kritik, aber das reale Renteneintrittsalter liegt deutlich darunter, was die direkte Wirkung der Anhebung relativiert."
+          },
+          {
+            "claim": "Private Vorsorge muss stärker zur Säulen-Diversifizierung beitragen",
+            "verdict": "offen",
+            "reason": "Die Analyse enthält keine empirischen Daten oder Bewertungen zur Notwendigkeit oder Effektivität privater Vorsorge als Säule."
+          }
+        ]
       }
     },
     {
@@ -141,7 +165,19 @@
           "https://www.bundesverfassungsgericht.de/",
           "https://www.morningstar.com/research"
         ],
-        "value_assumptions": "Annahme: Solidargemeinschaft verbreitern; Beamten-Privilegien sozialpolitisch nicht mehr zeitgemäß; Nachhaltigkeit > Maximalrendite."
+        "value_assumptions": "Annahme: Solidargemeinschaft verbreitern; Beamten-Privilegien sozialpolitisch nicht mehr zeitgemäß; Nachhaltigkeit > Maximalrendite.",
+        "claim_assessments": [
+          {
+            "claim": "Bürgerversicherung verbreitert Beitragsbasis und entlastet GRV",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW-Modellierungen zeigen kurzfristige Beitragsstabilisierung, langfristig schwächt sich der Effekt durch höhere Ansprüche ab."
+          },
+          {
+            "claim": "Sozial-ökologische Anlage ist Risiko-Diversifizierung",
+            "verdict": "teilweise widerlegt",
+            "reason": "ESG-Anlagen zeigen keine signifikanten Renditeverluste, aber höhere Volatilität in bestimmten Sektoren (Morningstar 2024)."
+          }
+        ]
       }
     },
     {
@@ -163,7 +199,19 @@
           "https://www.bmwk.de/Redaktion/DE/Pressemitteilungen/2023/05/20230523-wissenschaftlicher-beirat-zur-rente.html",
           "https://www.oecd.org/els/public-pensions/"
         ],
-        "value_assumptions": "Annahme: Kapitalmarkt-Effizienz primär; Eigenverantwortung und Vorsorge-Pflicht legitim; Solidarprinzip nachrangig."
+        "value_assumptions": "Annahme: Kapitalmarkt-Effizienz primär; Eigenverantwortung und Vorsorge-Pflicht legitim; Solidarprinzip nachrangig.",
+        "claim_assessments": [
+          {
+            "claim": "Aktienrente nach schwedischem Vorbild senkt Beitragssatz langfristig",
+            "verdict": "teilweise gestützt",
+            "reason": "Wissenschaftlicher Beirat BMWi bestätigt Effekt von 0,5-1,0 Beitragspunkten ab 2040 bei 200 Mrd. €-Niveau, aber kein umfassender Lösungsansatz."
+          },
+          {
+            "claim": "Lebenserwartungs-Kopplung ist demografische Ehrlichkeit",
+            "verdict": "offen",
+            "reason": "Die vorliegende Analyse enthält keine empirische Prüfung oder Bewertung dieser Behauptung."
+          }
+        ]
       }
     },
     {
@@ -185,7 +233,19 @@
           "https://www.deutsche-rentenversicherung.de/",
           "https://www.oecd.org/els/public-pensions/"
         ],
-        "value_assumptions": "Annahme: Altersarmut absolute Grenze; Solidar-Finanzierung über Vermögen legitim; demografische Last politisch korrigierbar."
+        "value_assumptions": "Annahme: Altersarmut absolute Grenze; Solidar-Finanzierung über Vermögen legitim; demografische Last politisch korrigierbar.",
+        "claim_assessments": [
+          {
+            "claim": "Aktuelles Rentenniveau ist Altersarmut-Treiber",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Altersarmuts-Quote liegt mit 18 % über der allgemeinen Armutsquote, was auf strukturelle Probleme hinweist, aber direkte Kausalität zum Rentenniveau ist nicht eindeutig belegt."
+          },
+          {
+            "claim": "Mindestrente schützt vor Altersarmut",
+            "verdict": "teilweise gestützt",
+            "reason": "DRV-Modelle zeigen, dass eine Mindestrente von 1.500 € Altersarmut deutlich senken würde, aber die tatsächliche Wirkung hängt von Umsetzung und Finanzierung ab."
+          }
+        ]
       }
     },
     {
@@ -208,7 +268,19 @@
           "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32004R0883",
           "https://www.deutsche-rentenversicherung.de/"
         ],
-        "value_assumptions": "Annahme: ethnisch-nationale Solidargemeinschaft; Migranten als Sondergruppe; demografische Steuerung durch Familienpolitik > Migration."
+        "value_assumptions": "Annahme: ethnisch-nationale Solidargemeinschaft; Migranten als Sondergruppe; demografische Steuerung durch Familienpolitik > Migration.",
+        "claim_assessments": [
+          {
+            "claim": "Migranten profitieren überproportional von Rentensystem",
+            "verdict": "widerlegt",
+            "reason": "IAB-Studien zeigen, dass Migranten netto in die gesetzliche Rentenversicherung einzahlen, nicht profitieren."
+          },
+          {
+            "claim": "Mütterrente korrigiert demografische Ungleichbehandlung",
+            "verdict": "teilweise gestützt",
+            "reason": "Rechtlich als solidarpolitische Maßnahme begründbar, aber ohne direkte empirische Prüfung der demografischen Ungleichbehandlung."
+          }
+        ]
       }
     },
     {
@@ -230,7 +302,19 @@
           "https://www.deutsche-rentenversicherung.de/",
           "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html"
         ],
-        "value_assumptions": "Annahme: Sicherheit > Renditeoptimierung; Solidar-System primär; Kapitalmarkt-Risiken sozial nicht tragbar."
+        "value_assumptions": "Annahme: Sicherheit > Renditeoptimierung; Solidar-System primär; Kapitalmarkt-Risiken sozial nicht tragbar.",
+        "claim_assessments": [
+          {
+            "claim": "Niveau-Anhebung ist Generationen-gerecht (in beide Richtungen)",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die Lastenverteilung trifft vor allem jüngere Beitragszahler und ist nicht intergenerational ausgewogen, wie die Analyse zeigt."
+          },
+          {
+            "claim": "Aktienrente ist Spekulation mit Lebensentwürfen",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Bezeichnung 'Spekulation' ist überzogen, aber die Volatilität (z. B. Drawdowns im AP7-Modell) bestätigt substanzielle Risiken."
+          }
+        ]
       }
     }
   ],

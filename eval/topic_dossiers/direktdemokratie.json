@@ -5,26 +5,298 @@
   "lead": "Soll es auf Bundesebene Volksentscheide geben — und wenn ja, wie hoch die Hürden, wer gestaltet die Beratung? Was Tier-1-Quellen (BVerfG, IDEA International, Wissenschaftliche Dienste, Irland Citizens' Assembly) dazu sagen.",
   "stand": "2026-06-13",
   "facts_at_a_glance": [
-    {"label": "Bundesweite Volksentscheide im GG", "value": "nur Art. 29 (Länder-Neugliederung) + Art. 146 (neue Verfassung)", "source_title": "Grundgesetz", "source_url": "https://www.gesetze-im-internet.de/gg/art_29.html", "verified": true},
-    {"label": "Volksentscheide auf Landesebene seit 1946", "value": "ca. 380 Verfahren, davon ~70 zur Abstimmung", "source_title": "Mehr Demokratie e.V. Volksentscheids-Bericht", "source_url": "https://www.mehr-demokratie.de/themen/volksabstimmungen/", "verify_needed": true},
-    {"label": "Wahlbeteiligung BTW 2025", "value": "ca. 82,5 %", "source_title": "Bundeswahlleiter", "source_url": "https://www.bundeswahlleiter.de/", "verify_needed": true, "note": "Höchstwert seit 1990."},
-    {"label": "Vertrauen in Parteien 2024", "value": "ca. 19 %", "source_title": "Politbarometer / Eurobarometer", "source_url": "https://forschungsgruppe.de/", "verify_needed": true},
-    {"label": "Irland Citizens' Assembly (Abtreibungsreform 2018)", "value": "100 Mitglieder, 5 Wochenenden, 64 % Ja im Referendum 2018", "source_title": "Citizens' Assembly Ireland Final Report", "source_url": "https://citizensassembly.ie/", "verified": true}
+    {
+      "label": "Bundesweite Volksentscheide im GG",
+      "value": "nur Art. 29 (Länder-Neugliederung) + Art. 146 (neue Verfassung)",
+      "source_title": "Grundgesetz",
+      "source_url": "https://www.gesetze-im-internet.de/gg/art_29.html",
+      "verified": true
+    },
+    {
+      "label": "Volksentscheide auf Landesebene seit 1946",
+      "value": "ca. 380 Verfahren, davon ~70 zur Abstimmung",
+      "source_title": "Mehr Demokratie e.V. Volksentscheids-Bericht",
+      "source_url": "https://www.mehr-demokratie.de/themen/volksabstimmungen/",
+      "verify_needed": true
+    },
+    {
+      "label": "Wahlbeteiligung BTW 2025",
+      "value": "ca. 82,5 %",
+      "source_title": "Bundeswahlleiter",
+      "source_url": "https://www.bundeswahlleiter.de/",
+      "verify_needed": true,
+      "note": "Höchstwert seit 1990."
+    },
+    {
+      "label": "Vertrauen in Parteien 2024",
+      "value": "ca. 19 %",
+      "source_title": "Politbarometer / Eurobarometer",
+      "source_url": "https://forschungsgruppe.de/",
+      "verify_needed": true
+    },
+    {
+      "label": "Irland Citizens' Assembly (Abtreibungsreform 2018)",
+      "value": "100 Mitglieder, 5 Wochenenden, 64 % Ja im Referendum 2018",
+      "source_title": "Citizens' Assembly Ireland Final Report",
+      "source_url": "https://citizensassembly.ie/",
+      "verified": true
+    }
   ],
   "legal_frame": [
-    {"rule": "Art. 20 Abs. 2 GG", "summary": "Staatsgewalt geht vom Volke aus, durch Wahlen und Abstimmungen — Wortlaut, aber „Abstimmungen\" auf Bundesebene nur in GG-Spezialfällen (Art. 29, 146) ausgestaltet.", "url": "https://www.gesetze-im-internet.de/gg/art_20.html"},
-    {"rule": "Art. 79 Abs. 2 GG", "summary": "GG-Änderung verlangt 2/3-Mehrheit BT + BR — Einführung bundesweiter Volksentscheide wäre GG-Änderung.", "url": "https://www.gesetze-im-internet.de/gg/art_79.html"},
-    {"rule": "BVerfG zu Volksentscheiden", "summary": "BVerfG hat Volksgesetzgebung als grundsätzlich verfassungskonform, aber an strenge Verfahrens- und Inhaltsgrenzen geknüpft (Grundrechte unantastbar, kein Haushalt/Steuer).", "url": "https://www.bundesverfassungsgericht.de/"},
-    {"rule": "IDEA International Direct Democracy Database", "summary": "Vergleichsdaten zu 200+ Ländern: Hürden, Themenausschlüsse, Beteiligungsquoten — DE liegt EU-mäßig unterdurchschnittlich.", "url": "https://www.idea.int/data-tools/data/direct-democracy-database"}
+    {
+      "rule": "Art. 20 Abs. 2 GG",
+      "summary": "Staatsgewalt geht vom Volke aus, durch Wahlen und Abstimmungen — Wortlaut, aber „Abstimmungen\" auf Bundesebene nur in GG-Spezialfällen (Art. 29, 146) ausgestaltet.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_20.html"
+    },
+    {
+      "rule": "Art. 79 Abs. 2 GG",
+      "summary": "GG-Änderung verlangt 2/3-Mehrheit BT + BR — Einführung bundesweiter Volksentscheide wäre GG-Änderung.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_79.html"
+    },
+    {
+      "rule": "BVerfG zu Volksentscheiden",
+      "summary": "BVerfG hat Volksgesetzgebung als grundsätzlich verfassungskonform, aber an strenge Verfahrens- und Inhaltsgrenzen geknüpft (Grundrechte unantastbar, kein Haushalt/Steuer).",
+      "url": "https://www.bundesverfassungsgericht.de/"
+    },
+    {
+      "rule": "IDEA International Direct Democracy Database",
+      "summary": "Vergleichsdaten zu 200+ Ländern: Hürden, Themenausschlüsse, Beteiligungsquoten — DE liegt EU-mäßig unterdurchschnittlich.",
+      "url": "https://www.idea.int/data-tools/data/direct-democracy-database"
+    }
   ],
   "party_positions": [
-    {"party": "SPD", "position_summary": "Volksentscheide auf Bundesebene grundsätzlich befürworten, aber mit hohen Hürden (Quorum, Themenausschlüsse). Bürgerräte als beratende Vorstufe.", "key_claims": ["Volksentscheide stärken demokratische Legitimität", "Bürgerräte schließen Beteiligungslücke"], "position_source": "SPD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Legitimitäts-Argument: empirisch gestützt (V-Dem, IDEA — Länder mit direktdemokratischen Elementen haben höhere Demokratie-Zufriedenheit). Bürgerrats-Wirkung: Irland-Erfahrung (Abtreibung 2018, Familie 2019) belegt deliberative Qualität bei Polarisierungsthemen. Aber: hohe Hürden ohne Bürgerrat machen Volksentscheide praktisch leer.", "empirical_check": "V-Dem Direct Democracy Index 2024. Irland Citizens' Assembly Reports.", "tier1_sources": ["https://www.v-dem.net/data/", "https://citizensassembly.ie/"], "value_assumptions": "Annahme: Repräsentationsergänzung statt -ersetzung; deliberativer Vorab-Filter wichtig."}},
-    {"party": "CDU/CSU", "position_summary": "Skeptisch bis ablehnend gegenüber bundesweiten Volksentscheiden. Wenn überhaupt, mit sehr hohen Hürden (4-Mio.-Unterschriften + 50 % Beteiligungsquorum).", "key_claims": ["Bundesweite Plebiszite gefährden Bundestags-Souveränität", "Populismus-Risiko in sozialen Medien zu hoch"], "position_source": "Union-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Bundestags-Souveränitäts-Argument: politisch-philosophisch, nicht empirisch entscheidbar — V-Dem zeigt, Länder mit Volksentscheiden funktionieren parlamentarisch nicht schlechter. Populismus-Risiko: Brexit/Schweiz-MEI 2014 als oft zitierte Belege; aber Brexit hatte spezifische Bedingungen (kein Bürgerrat, keine Faktenprüfungspflicht). Pauschale Ablehnung ignoriert Bürgerrat-Mechanismen, die Irland erfolgreich erprobte.", "empirical_check": "V-Dem 2024 zur Parlamentarismus-Stabilität. Brexit-Studien (Becker et al. 2017). Schweiz BFS zur MEI-Wirkung.", "tier1_sources": ["https://www.v-dem.net/data/", "https://www.bfs.admin.ch/"], "value_assumptions": "Annahme: repräsentative Demokratie hat Vorrang; Stabilität > Beteiligung; Risiko-Aversion."}},
-    {"party": "Grüne", "position_summary": "Volksentscheide auf Bundesebene mit moderaten Hürden einführen, Bürgerräte verbindlich integrieren, Themenkatalog offen (außer Grundrechte und Haushalt).", "key_claims": ["Bürgerräte sind die deliberative Antwort auf Populismus-Sorge", "Vertrauensverlust in Parteien erfordert direkte Beteiligung"], "position_source": "Grünen-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Bürgerrat-Argument: Irland-Empirie klar (Abtreibung 30 Jahre blockiert, in 1 Jahr deliberativ gelöst). Oregon Citizens' Initiative Review zeigt ähnliche Effekte. Vertrauensverlust-Argument: 19 % Vertrauen in Parteien (Politbarometer 2024) ist hoch ausgeprägt, Direktbeteiligung als Antwort plausibel, aber Kausalkette „Direktbeteiligung erhöht Vertrauen\" ist empirisch nur teilweise belegt (CH-Erfahrung positiv, MEI-Spezialfall negativ).", "empirical_check": "Irland Citizens' Assembly Final Reports. Oregon CIR-Auswertungen. CH-Bundesamt für Statistik.", "tier1_sources": ["https://citizensassembly.ie/", "https://healthydemocracy.org/", "https://www.bfs.admin.ch/"], "value_assumptions": "Annahme: Beteiligungsdemokratie als Wert; Deliberation > Plebiszit; Vertrauenskrise durch Beteiligung adressierbar."}},
-    {"party": "FDP", "position_summary": "Volksentscheide auf Bundesebene mit hohen Hürden, Themenausschlüsse (Steuern, Grundrechte, internationale Verträge), keine verpflichtenden Bürgerräte.", "key_claims": ["Direkte Demokratie nur mit klaren Themenausschlüssen", "Bürgerrat-Pflicht hemmt Verfahren unnötig"], "position_source": "FDP-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Themenausschlüsse: international Standard (CH, USA-Bundesstaaten, BR; auch BVerfG-konform). Bürgerrats-Skepsis: hingegen ignoriert empirisch bestes Werkzeug gegen Populismus-Risiken (Irland-Erfahrung). „Hemmt Verfahren\" trifft formal — Bürgerräte verlängern Vorbereitung um 6-12 Monate — wird aber durch Qualitätsgewinn überkompensiert (Hendriks/Lacelle-Webster Meta-Analyse 2022).", "empirical_check": "Hendriks & Lacelle-Webster 2022 Meta-Analyse Bürgerräte. CH BFS zu Themenausschlüssen.", "tier1_sources": ["https://www.tandfonline.com/journals/cspp20", "https://www.bfs.admin.ch/"], "value_assumptions": "Annahme: Effizienz primär; Schutz Eigentum/Steuern absolut; Beteiligungs-Pflichten skeptisch."}},
-    {"party": "Linke", "position_summary": "Niedrige Hürden für Volksentscheide auf Bundesebene, Bürgerräte als beratendes Werkzeug, breiter Themenkatalog inkl. Steuern und Vermögen.", "key_claims": ["Hohe Hürden machen Direktbeteiligung wertlos", "Steuerpolitik darf nicht aus Plebiszit-Bereich ausgeschlossen werden"], "position_source": "Linke-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Niedrige-Hürden-Argument: CH-Erfahrung zeigt 100.000 Unterschriften (1,2 % der Wahlberechtigten) reichen, ohne Demokratie zu destabilisieren. Steuer-Plebiszit-Argument: international untypisch — die meisten Direktdemokratien (CH, US-Bundesstaaten) schließen Haushalt/Steuern aus, weil Plebiszit-Steuersenkungen ohne Ausgabenkürzung zu California-Prop-13-ähnlichen Finanzkrisen führen können.", "empirical_check": "California Prop 13 Folge-Studien (Public Policy Institute of California). CH-Bundesamt für Statistik zu Initiativen-Quoten.", "tier1_sources": ["https://www.ppic.org/", "https://www.bfs.admin.ch/"], "value_assumptions": "Annahme: Direktbeteiligung als Klassenkampf-Werkzeug; Steuerentscheidungen demokratisch primär; Risiken handhabbar."}},
-    {"party": "AfD", "position_summary": "Bundesweite Volksentscheide nach Schweizer Vorbild einführen, niedrige Hürden, breiter Themenkatalog inkl. EU-Mitgliedschaft, Migration, Klima.", "key_claims": ["CH-Modell funktioniert seit Jahrhundert", "Volksentscheide würden Migrationspolitik korrigieren"], "position_source": "AfD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt + teilweise widerlegt", "summary": "CH-Funktion-Argument: empirisch korrekt, aber CH hat 200 Jahre Kultur des Konsens-Aushandelns, kombiniert mit kleinem Land und konsensorientiertem Parteiensystem — Übertragbarkeit auf DE-Föderalstaat mit anderem Parteiensystem nicht 1:1. Migrations-Korrektur-Annahme: SVP-Initiative SVI 2014 (MEI) in CH zeigte, dass auch erfolgreiche Plebiszite an EU-Recht (Personenfreizügigkeit) scheitern können — Volksentscheid kann nicht alle internationalen Bindungen brechen.", "empirical_check": "CH MEI 2014 Folge-Analyse (BFS, EDA). EU-Personenfreizügigkeits-Verträge.", "tier1_sources": ["https://www.bfs.admin.ch/", "https://www.eda.admin.ch/"], "value_assumptions": "Annahme: Volkswille primär; nationale Souveränität vor EU-Recht; Migrations-Steuerung durch Plebiszit legitim."}},
-    {"party": "BSW", "position_summary": "Volksentscheide auf Bundesebene mit moderaten Hürden einführen, Bürgerräte als beratende Vorstufe, Themenausschlüsse Grundrechte.", "key_claims": ["Repräsentative Demokratie ist erschöpft", "Bürger sollen über existenzielle Fragen direkt entscheiden"], "position_source": "BSW-Programm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Erschöpfungs-Argument: Vertrauenswerte gestützt (Politbarometer), aber „erschöpft\" ist starkes Wort — V-Dem klassifiziert DE weiterhin als hochkonsolidierte Demokratie. Bürgerrat-Plus-Volksentscheid: empirisch fundiertes Modell, deckt sich weitgehend mit Grünen-Position (interessante Konvergenz).", "empirical_check": "V-Dem 2024 zu DE-Demokratiequalität. Politbarometer Vertrauen.", "tier1_sources": ["https://www.v-dem.net/data/", "https://forschungsgruppe.de/"], "value_assumptions": "Annahme: Volkssouveränität primär; deliberative Vorprüfung sinnvoll; Grundrechte unantastbar."}}
+    {
+      "party": "SPD",
+      "position_summary": "Volksentscheide auf Bundesebene grundsätzlich befürworten, aber mit hohen Hürden (Quorum, Themenausschlüsse). Bürgerräte als beratende Vorstufe.",
+      "key_claims": [
+        "Volksentscheide stärken demokratische Legitimität",
+        "Bürgerräte schließen Beteiligungslücke"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Legitimitäts-Argument: empirisch gestützt (V-Dem, IDEA — Länder mit direktdemokratischen Elementen haben höhere Demokratie-Zufriedenheit). Bürgerrats-Wirkung: Irland-Erfahrung (Abtreibung 2018, Familie 2019) belegt deliberative Qualität bei Polarisierungsthemen. Aber: hohe Hürden ohne Bürgerrat machen Volksentscheide praktisch leer.",
+        "empirical_check": "V-Dem Direct Democracy Index 2024. Irland Citizens' Assembly Reports.",
+        "tier1_sources": [
+          "https://www.v-dem.net/data/",
+          "https://citizensassembly.ie/"
+        ],
+        "value_assumptions": "Annahme: Repräsentationsergänzung statt -ersetzung; deliberativer Vorab-Filter wichtig.",
+        "claim_assessments": [
+          {
+            "claim": "Volksentscheide stärken demokratische Legitimität",
+            "verdict": "gestützt",
+            "reason": "V-Dem- und IDEA-Daten zeigen höhere Demokratie-Zufriedenheit in Ländern mit direktdemokratischen Elementen."
+          },
+          {
+            "claim": "Bürgerräte schließen Beteiligungslücke",
+            "verdict": "teilweise gestützt",
+            "reason": "Irland-Erfahrung belegt deliberative Qualität bei Polarisierungsthemen, aber hohe Hürden ohne Bürgerrat machen Volksentscheide praktisch unwirksam."
+          }
+        ]
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Skeptisch bis ablehnend gegenüber bundesweiten Volksentscheiden. Wenn überhaupt, mit sehr hohen Hürden (4-Mio.-Unterschriften + 50 % Beteiligungsquorum).",
+      "key_claims": [
+        "Bundesweite Plebiszite gefährden Bundestags-Souveränität",
+        "Populismus-Risiko in sozialen Medien zu hoch"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Bundestags-Souveränitäts-Argument: politisch-philosophisch, nicht empirisch entscheidbar — V-Dem zeigt, Länder mit Volksentscheiden funktionieren parlamentarisch nicht schlechter. Populismus-Risiko: Brexit/Schweiz-MEI 2014 als oft zitierte Belege; aber Brexit hatte spezifische Bedingungen (kein Bürgerrat, keine Faktenprüfungspflicht). Pauschale Ablehnung ignoriert Bürgerrat-Mechanismen, die Irland erfolgreich erprobte.",
+        "empirical_check": "V-Dem 2024 zur Parlamentarismus-Stabilität. Brexit-Studien (Becker et al. 2017). Schweiz BFS zur MEI-Wirkung.",
+        "tier1_sources": [
+          "https://www.v-dem.net/data/",
+          "https://www.bfs.admin.ch/"
+        ],
+        "value_assumptions": "Annahme: repräsentative Demokratie hat Vorrang; Stabilität > Beteiligung; Risiko-Aversion.",
+        "claim_assessments": [
+          {
+            "claim": "Bundesweite Plebiszite gefährden Bundestags-Souveränität",
+            "verdict": "offen",
+            "reason": "Die Behauptung ist politisch-philosophisch formuliert und empirisch nicht entscheidbar laut Analyse."
+          },
+          {
+            "claim": "Populismus-Risiko in sozialen Medien zu hoch",
+            "verdict": "teilweise widerlegt",
+            "reason": "Brexit und Schweiz-MEI 2014 zeigen Risiken, aber diese sind kontextabhängig (z. B. fehlende Bürgerräte oder Faktenprüfung), nicht pauschal auf soziale Medien übertragbar."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Volksentscheide auf Bundesebene mit moderaten Hürden einführen, Bürgerräte verbindlich integrieren, Themenkatalog offen (außer Grundrechte und Haushalt).",
+      "key_claims": [
+        "Bürgerräte sind die deliberative Antwort auf Populismus-Sorge",
+        "Vertrauensverlust in Parteien erfordert direkte Beteiligung"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Bürgerrat-Argument: Irland-Empirie klar (Abtreibung 30 Jahre blockiert, in 1 Jahr deliberativ gelöst). Oregon Citizens' Initiative Review zeigt ähnliche Effekte. Vertrauensverlust-Argument: 19 % Vertrauen in Parteien (Politbarometer 2024) ist hoch ausgeprägt, Direktbeteiligung als Antwort plausibel, aber Kausalkette „Direktbeteiligung erhöht Vertrauen\" ist empirisch nur teilweise belegt (CH-Erfahrung positiv, MEI-Spezialfall negativ).",
+        "empirical_check": "Irland Citizens' Assembly Final Reports. Oregon CIR-Auswertungen. CH-Bundesamt für Statistik.",
+        "tier1_sources": [
+          "https://citizensassembly.ie/",
+          "https://healthydemocracy.org/",
+          "https://www.bfs.admin.ch/"
+        ],
+        "value_assumptions": "Annahme: Beteiligungsdemokratie als Wert; Deliberation > Plebiszit; Vertrauenskrise durch Beteiligung adressierbar.",
+        "claim_assessments": [
+          {
+            "claim": "Bürgerräte sind die deliberative Antwort auf Populismus-Sorge",
+            "verdict": "teilweise gestützt",
+            "reason": "Irland und Oregon zeigen deliberative Erfolge, aber Übertragbarkeit auf Populismus-Prävention ist empirisch nicht eindeutig belegt."
+          },
+          {
+            "claim": "Vertrauensverlust in Parteien erfordert direkte Beteiligung",
+            "verdict": "teilweise gestützt",
+            "reason": "Vertrauensverlust ist hoch, aber der kausale Effekt direkter Beteiligung auf Vertrauen ist nur teilweise (CH) bzw. widersprüchlich (MEI) belegt."
+          }
+        ]
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Volksentscheide auf Bundesebene mit hohen Hürden, Themenausschlüsse (Steuern, Grundrechte, internationale Verträge), keine verpflichtenden Bürgerräte.",
+      "key_claims": [
+        "Direkte Demokratie nur mit klaren Themenausschlüssen",
+        "Bürgerrat-Pflicht hemmt Verfahren unnötig"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Themenausschlüsse: international Standard (CH, USA-Bundesstaaten, BR; auch BVerfG-konform). Bürgerrats-Skepsis: hingegen ignoriert empirisch bestes Werkzeug gegen Populismus-Risiken (Irland-Erfahrung). „Hemmt Verfahren\" trifft formal — Bürgerräte verlängern Vorbereitung um 6-12 Monate — wird aber durch Qualitätsgewinn überkompensiert (Hendriks/Lacelle-Webster Meta-Analyse 2022).",
+        "empirical_check": "Hendriks & Lacelle-Webster 2022 Meta-Analyse Bürgerräte. CH BFS zu Themenausschlüssen.",
+        "tier1_sources": [
+          "https://www.tandfonline.com/journals/cspp20",
+          "https://www.bfs.admin.ch/"
+        ],
+        "value_assumptions": "Annahme: Effizienz primär; Schutz Eigentum/Steuern absolut; Beteiligungs-Pflichten skeptisch.",
+        "claim_assessments": [
+          {
+            "claim": "Direkte Demokratie nur mit klaren Themenausschlüssen",
+            "verdict": "gestützt",
+            "reason": "Internationale Praxis (CH, USA-Bundesstaaten, BR) und BVerfG-Konformität bestätigen die Notwendigkeit von Themenausschlüssen."
+          },
+          {
+            "claim": "Bürgerrat-Pflicht hemmt Verfahren unnötig",
+            "verdict": "teilweise widerlegt",
+            "reason": "Bürgerräte verlängern Verfahren um 6-12 Monate, der Qualitätsgewinn überwiegt jedoch laut Meta-Analyse (Hendriks/Lacelle-Webster 2022)."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Niedrige Hürden für Volksentscheide auf Bundesebene, Bürgerräte als beratendes Werkzeug, breiter Themenkatalog inkl. Steuern und Vermögen.",
+      "key_claims": [
+        "Hohe Hürden machen Direktbeteiligung wertlos",
+        "Steuerpolitik darf nicht aus Plebiszit-Bereich ausgeschlossen werden"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Niedrige-Hürden-Argument: CH-Erfahrung zeigt 100.000 Unterschriften (1,2 % der Wahlberechtigten) reichen, ohne Demokratie zu destabilisieren. Steuer-Plebiszit-Argument: international untypisch — die meisten Direktdemokratien (CH, US-Bundesstaaten) schließen Haushalt/Steuern aus, weil Plebiszit-Steuersenkungen ohne Ausgabenkürzung zu California-Prop-13-ähnlichen Finanzkrisen führen können.",
+        "empirical_check": "California Prop 13 Folge-Studien (Public Policy Institute of California). CH-Bundesamt für Statistik zu Initiativen-Quoten.",
+        "tier1_sources": [
+          "https://www.ppic.org/",
+          "https://www.bfs.admin.ch/"
+        ],
+        "value_assumptions": "Annahme: Direktbeteiligung als Klassenkampf-Werkzeug; Steuerentscheidungen demokratisch primär; Risiken handhabbar.",
+        "claim_assessments": [
+          {
+            "claim": "Hohe Hürden machen Direktbeteiligung wertlos",
+            "verdict": "teilweise gestützt",
+            "reason": "Die CH-Erfahrung zeigt, dass 1,2 % der Wahlberechtigten als Unterschriftenhürde funktioniert, ohne Demokratie zu destabilisieren, was niedrigere Hürden als sinnvoll erscheinen lässt."
+          },
+          {
+            "claim": "Steuerpolitik darf nicht aus Plebiszit-Bereich ausgeschlossen werden",
+            "verdict": "widerlegt",
+            "reason": "Internationale Praxis und empirische Beispiele (z. B. California Prop 13) zeigen, dass Plebiszite über Steuern ohne Ausgabenkürzungen zu Finanzkrisen führen können."
+          }
+        ]
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Bundesweite Volksentscheide nach Schweizer Vorbild einführen, niedrige Hürden, breiter Themenkatalog inkl. EU-Mitgliedschaft, Migration, Klima.",
+      "key_claims": [
+        "CH-Modell funktioniert seit Jahrhundert",
+        "Volksentscheide würden Migrationspolitik korrigieren"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "CH-Funktion-Argument: empirisch korrekt, aber CH hat 200 Jahre Kultur des Konsens-Aushandelns, kombiniert mit kleinem Land und konsensorientiertem Parteiensystem — Übertragbarkeit auf DE-Föderalstaat mit anderem Parteiensystem nicht 1:1. Migrations-Korrektur-Annahme: SVP-Initiative SVI 2014 (MEI) in CH zeigte, dass auch erfolgreiche Plebiszite an EU-Recht (Personenfreizügigkeit) scheitern können — Volksentscheid kann nicht alle internationalen Bindungen brechen.",
+        "empirical_check": "CH MEI 2014 Folge-Analyse (BFS, EDA). EU-Personenfreizügigkeits-Verträge.",
+        "tier1_sources": [
+          "https://www.bfs.admin.ch/",
+          "https://www.eda.admin.ch/"
+        ],
+        "value_assumptions": "Annahme: Volkswille primär; nationale Souveränität vor EU-Recht; Migrations-Steuerung durch Plebiszit legitim.",
+        "claim_assessments": [
+          {
+            "claim": "CH-Modell funktioniert seit Jahrhundert",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Analyse bestätigt eine 200-jährige Kultur des Konsens-Aushandelns in der Schweiz, aber die Übertragbarkeit auf Deutschland ist nicht 1:1 gegeben."
+          },
+          {
+            "claim": "Volksentscheide würden Migrationspolitik korrigieren",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die SVP-Initiative MEI 2014 zeigte, dass selbst erfolgreiche Plebiszite an EU-Recht (Personenfreizügigkeit) scheitern können."
+          }
+        ]
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Volksentscheide auf Bundesebene mit moderaten Hürden einführen, Bürgerräte als beratende Vorstufe, Themenausschlüsse Grundrechte.",
+      "key_claims": [
+        "Repräsentative Demokratie ist erschöpft",
+        "Bürger sollen über existenzielle Fragen direkt entscheiden"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Erschöpfungs-Argument: Vertrauenswerte gestützt (Politbarometer), aber „erschöpft\" ist starkes Wort — V-Dem klassifiziert DE weiterhin als hochkonsolidierte Demokratie. Bürgerrat-Plus-Volksentscheid: empirisch fundiertes Modell, deckt sich weitgehend mit Grünen-Position (interessante Konvergenz).",
+        "empirical_check": "V-Dem 2024 zu DE-Demokratiequalität. Politbarometer Vertrauen.",
+        "tier1_sources": [
+          "https://www.v-dem.net/data/",
+          "https://forschungsgruppe.de/"
+        ],
+        "value_assumptions": "Annahme: Volkssouveränität primär; deliberative Vorprüfung sinnvoll; Grundrechte unantastbar.",
+        "claim_assessments": [
+          {
+            "claim": "Repräsentative Demokratie ist erschöpft",
+            "verdict": "teilweise widerlegt",
+            "reason": "V-Dem klassifiziert Deutschland 2024 als hochkonsolidierte Demokratie, das Wort 'erschöpft' ist überzogen, obwohl Umfragen (Politbarometer) Vertrauensverluste zeigen."
+          },
+          {
+            "claim": "Bürger sollen über existenzielle Fragen direkt entscheiden",
+            "verdict": "teilweise gestützt",
+            "reason": "Das vorgeschlagene Modell (Bürgerrat-Plus-Volksentscheid) ist empirisch fundiert und konvergiert mit Positionen etablierter Parteien, aber die konkrete Umsetzung bleibt offen."
+          }
+        ]
+      }
+    }
   ],
   "evidenz_position": {
     "kurzfassung": "Hybridmodell mit verpflichtendem Bürgerrat nach Irland-Modell: Volksentscheide auf Bundesebene möglich, aber jeder muss durch einen losbasierten Bürgerrat vordeliberiert sein.",
@@ -42,7 +314,11 @@
     "trade_offs_eingestanden": "Bürgerrat-Verfahren verlängert jedes Verfahren um 6–12 Monate; ~1,5 Mio. €/Jahr Aufbau-Kosten; 2/3-Mehrheit für GG-Änderung politisch ambitioniert.",
     "url": "programm/direkte-demokratie.html"
   },
-  "evidenz_link": {"url": "programm/direkte-demokratie.html", "label": "EVIDENZ-Position zu Direkter Demokratie (vollständig)", "note": "Vollständige Optionsanalyse mit fünf untersuchten Modellen."},
+  "evidenz_link": {
+    "url": "programm/direkte-demokratie.html",
+    "label": "EVIDENZ-Position zu Direkter Demokratie (vollständig)",
+    "note": "Vollständige Optionsanalyse mit fünf untersuchten Modellen."
+  },
   "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
   "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (GG, BVerfG, V-Dem, Irland Citizens' Assembly). Vertrauenswerte 2024 brauchen Live-Verifikation. Athena-Analysen nach Pipeline-Lauf finalisiert."
 }

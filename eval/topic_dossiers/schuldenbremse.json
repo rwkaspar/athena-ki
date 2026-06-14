@@ -90,7 +90,19 @@
           "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2023/bvg23-101.html"
         ],
-        "value_assumptions": "Annahme: Unterscheidung Investition/Konsum legitim und operationalisierbar; Generationengerechtigkeit als Argument FÜR Investitions-Schulden."
+        "value_assumptions": "Annahme: Unterscheidung Investition/Konsum legitim und operationalisierbar; Generationengerechtigkeit als Argument FÜR Investitions-Schulden.",
+        "claim_assessments": [
+          {
+            "claim": "Investitionen sind nicht gleich konsumtive Schulden — Generationengerechtigkeit",
+            "verdict": "teilweise gestützt",
+            "reason": "Ökonomische Logik und BVerfG-Klimabeschluss stützen das Prinzip, aber die Abgrenzung zwischen Investition und Konsum ist politisch dehnbar und wurde vom BVerfG kritisiert."
+          },
+          {
+            "claim": "Strikte Schuldenbremse blockiert Klima- und Infrastruktur-Pfad",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirische Daten (ERK 2025b) zeigen eine Investitionslücke, aber die Schuldenbremse selbst ist nicht pauschal widerlegt, da ihre Auslegung und Ausnahmen umstritten sind."
+          }
+        ]
       }
     },
     {
@@ -112,7 +124,19 @@
           "https://www.bundesrechnungshof.de/DE/veroeffentlichungen/produkte/bemerkungen-jahresberichte/",
           "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/bundeshaushalt.html"
         ],
-        "value_assumptions": "Annahme: Vorsicht > Spielraum; Schuldenbremse als Disziplin-Anker; Politik neigt strukturell zur Übernutzung von Krediten."
+        "value_assumptions": "Annahme: Vorsicht > Spielraum; Schuldenbremse als Disziplin-Anker; Politik neigt strukturell zur Übernutzung von Krediten.",
+        "claim_assessments": [
+          {
+            "claim": "Schuldenbremse zwingt zu Prioritäten-Setzung — das ist heilsam",
+            "verdict": "teilweise gestützt",
+            "reason": "Ökonomisch valide, da Kredit-Optionen Anreize zur Ausgabenausweitung erhöhen (Time-inconsistency), aber Umschichtungs-Spielraum im Haushalt stark begrenzt ist."
+          },
+          {
+            "claim": "Investitionsstau ist Verwaltungs- und Genehmigungs-Problem, nicht Geldproblem",
+            "verdict": "teilweise widerlegt",
+            "reason": "Empirisch teilweise gestützt (Planungs-Bottlenecks bei Bahn), aber ERK 2025b zeigt, dass selbst bei perfekter Verwaltung die Investitionslücke ohne Mehrausgaben nicht zu schließen ist."
+          }
+        ]
       }
     },
     {
@@ -134,7 +158,19 @@
           "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/03/rs20210324_1bvr265618.html",
           "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1263"
         ],
-        "value_assumptions": "Annahme: §1 (Sorgepflicht für künftige Generationen) wiegt mehr als §6 (Vorsicht bei Schulden), weil Klimarisiken irreversibel sind, Schuldenrisiken reversibel."
+        "value_assumptions": "Annahme: §1 (Sorgepflicht für künftige Generationen) wiegt mehr als §6 (Vorsicht bei Schulden), weil Klimarisiken irreversibel sind, Schuldenrisiken reversibel.",
+        "claim_assessments": [
+          {
+            "claim": "Klima-Investitionen sind Generationengerechtigkeit, nicht Schulden",
+            "verdict": "teilweise gestützt",
+            "reason": "BVerfG-Klimabeschluss 2021 stützt das Grundprinzip, aber die Einordnung als 'nicht Schulden' ist normativ und nicht rein empirisch belegt."
+          },
+          {
+            "claim": "Nicht-Investition heute kostet mehr als Investition mit Krediten",
+            "verdict": "teilweise widerlegt",
+            "reason": "Stern Review und IPCC AR6 zeigen Kosten-Nutzen-Vorteile, aber Diskontraten-Streit und Modellunsicherheit verhindern eine harte Quantifizierung."
+          }
+        ]
       }
     },
     {
@@ -156,7 +192,19 @@
           "https://www.ifo.de/publikationen",
           "https://www.bundesrechnungshof.de/DE/veroeffentlichungen/produkte/bemerkungen-jahresberichte/"
         ],
-        "value_assumptions": "Annahme: Markt-Effizienz primär; staatliche Kreditaufnahme strukturell ineffizient; Ordnungspolitik > Konjunkturpolitik."
+        "value_assumptions": "Annahme: Markt-Effizienz primär; staatliche Kreditaufnahme strukturell ineffizient; Ordnungspolitik > Konjunkturpolitik.",
+        "claim_assessments": [
+          {
+            "claim": "Investitionsklausel ist Schlupfloch — politische Logik dehnt Definition",
+            "verdict": "teilweise gestützt",
+            "reason": "Internationaler Vergleich (UK ‚golden rule‘ 1998-2008) zeigt, dass Definitionsdehnung real, aber kontrollierbar war."
+          },
+          {
+            "claim": "Privatkapital ist verfügbar, wenn Rahmenbedingungen stimmen",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirisch für rentable Investitionen (z. B. Glasfaser) realistisch, für nicht-rentable Pflichtaufgaben (z. B. Schulgebäude) jedoch wenig erfolgreich."
+          }
+        ]
       }
     },
     {
@@ -178,7 +226,19 @@
           "https://expertenrat-klima.de/publikationen/",
           "https://www.insee.fr/fr/statistiques/4801284"
         ],
-        "value_assumptions": "Annahme: Demokratische Spielräume > fiskalische Vorsicht; Vermögensbesteuerung als Gerechtigkeits- und Finanzierungs-Instrument."
+        "value_assumptions": "Annahme: Demokratische Spielräume > fiskalische Vorsicht; Vermögensbesteuerung als Gerechtigkeits- und Finanzierungs-Instrument.",
+        "claim_assessments": [
+          {
+            "claim": "Schuldenbremse ist demokratie-feindlich (limitiert politischen Handlungsspielraum)",
+            "verdict": "offen",
+            "reason": "Die Behauptung ist eine politisch-philosophische Position, die empirisch nicht entscheidbar ist."
+          },
+          {
+            "claim": "Vermögensabgabe würde Investitionsstau ohne Neuverschuldung lösen",
+            "verdict": "widerlegt",
+            "reason": "DIW-Modellrechnungen zeigen ein Aufkommen von 22-26 Mrd. €/Jahr, was deutlich unter dem ERK-Investitionsbedarf von 135-255 Mrd./Jahr liegt und internationale Erfahrungen bestätigen aufkommensschwächere Realitäten."
+          }
+        ]
       }
     },
     {
@@ -201,7 +261,19 @@
           "https://expertenrat-klima.de/publikationen/",
           "https://doku.iab.de/forschungsbericht/2024/fb1024.pdf"
         ],
-        "value_assumptions": "Annahme: Migration und EU-Beiträge sind verzichtbare Posten; Schuldenbremse als nationaler Anker."
+        "value_assumptions": "Annahme: Migration und EU-Beiträge sind verzichtbare Posten; Schuldenbremse als nationaler Anker.",
+        "claim_assessments": [
+          {
+            "claim": "Migration kostet 50+ Mrd./Jahr, das löst den Investitionsstau",
+            "verdict": "widerlegt",
+            "reason": "Die Brutto-Kosten für Migration liegen deutlich unter 50 Mrd. € (AsylbLG 2023: 12,6 Mrd. €, sekundäre Kosten ungenau auf 15-25 Mrd. geschätzt), zudem reduziert langfristige Erwerbsintegration den Netto-Effekt."
+          },
+          {
+            "claim": "EU-Nettobeitrag entzieht DE Investitions-Spielraum",
+            "verdict": "widerlegt",
+            "reason": "Der EU-Nettobeitrag 2023 (19,7 Mrd. €) liegt weit unter dem jährlichen Investitionsbedarf für Klima allein (135+ Mrd.), eine Streichung würde den Stau nicht auflösen."
+          }
+        ]
       }
     },
     {
@@ -223,7 +295,19 @@
           "https://www.diw.de/de/diw_01.c.825586.de/publikationen/wochenberichte/2021_42_3/vermoegensteuer__machbar_und_gerecht.html",
           "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2023/bvg23-101.html"
         ],
-        "value_assumptions": "Annahme: Investitions-Spielraum nötig, aber kein Freibrief für Konsum-Schulden; Vermögensabgabe in Krisen als legitimes Instrument; Volkssouveränität > Markt-Disziplin."
+        "value_assumptions": "Annahme: Investitions-Spielraum nötig, aber kein Freibrief für Konsum-Schulden; Vermögensabgabe in Krisen als legitimes Instrument; Volkssouveränität > Markt-Disziplin.",
+        "claim_assessments": [
+          {
+            "claim": "Schuldenbremse muss Investitionen ermöglichen, aber Konsum begrenzen",
+            "verdict": "teilweise gestützt",
+            "reason": "Grundlogik entspricht der SPD-Position, aber Abgrenzungsprobleme zwischen Investitionen und Konsum sind empirisch ungelöst."
+          },
+          {
+            "claim": "Vermögensabgabe als Krisenfinanzierung ist verfassungsmäßig",
+            "verdict": "teilweise gestützt",
+            "reason": "BVerfG hat Lastenausgleichs-Logik 1952 anerkannt, aktuelle Umsetzung hängt jedoch von Bewertungskonsistenz ab und Krisenfinanzierung ist kein Routineinstrument."
+          }
+        ]
       }
     }
   ],

@@ -103,7 +103,19 @@
           "https://www.umweltbundesamt.de/themen/verkehr-laerm",
           "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/neuzulassungen_node.html"
         ],
-        "value_assumptions": "Annahme: ÖPNV als Daseinsvorsorge legitim; Bundes-Co-Finanzierung dauerhaft; Industriepolitik mit Klima-Logik vereinbar."
+        "value_assumptions": "Annahme: ÖPNV als Daseinsvorsorge legitim; Bundes-Co-Finanzierung dauerhaft; Industriepolitik mit Klima-Logik vereinbar.",
+        "claim_assessments": [
+          {
+            "claim": "Deutschlandticket ist soziale ÖPNV-Revolution",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Behauptung ist überzeichnet, da die Wirkung auf sozialen Zugang zwar signifikant (13 Mio. Abos), aber nicht revolutionär im Sinne einer grundlegenden Systemänderung ist."
+          },
+          {
+            "claim": "Verbrenner-Aus 2035 ist klimapolitisch und industriestrategisch notwendig",
+            "verdict": "teilweise gestützt",
+            "reason": "EU-rechtliche Verankerung und Industrievorbereitung stützen die klimapolitische und strategische Plausibilität, aber die Komplexität der Umsetzung bleibt hoch."
+          }
+        ]
       }
     },
     {
@@ -126,7 +138,19 @@
           "https://www.umweltbundesamt.de/publikationen",
           "https://www.adac.de/"
         ],
-        "value_assumptions": "Annahme: individuelle Freiheit primär; Markt-Innovation > staatliche Vorgaben; Akzeptanz-Argument vor Effekt-Argument."
+        "value_assumptions": "Annahme: individuelle Freiheit primär; Markt-Innovation > staatliche Vorgaben; Akzeptanz-Argument vor Effekt-Argument.",
+        "claim_assessments": [
+          {
+            "claim": "Technologieoffenheit (E-Fuels) erlaubt Verbrenner-Erhalt mit Klimawirkung",
+            "verdict": "widerlegt",
+            "reason": "Agora-Energiewende und IEA zeigen, dass E-Fuels für Pkw bis 2035-2040 nicht skalierbar und ~5-7x teurer als BEVs sind, mit unrealistischem Wirkungsgrad für den Massenmarkt."
+          },
+          {
+            "claim": "Tempolimit hat marginalen Effekt — Eingriff in Freiheit",
+            "verdict": "teilweise gestützt",
+            "reason": "UBA 2023 bestätigt einen kleinen, aber messbaren CO₂-Effekt (1,9 Mio. t/Jahr), während die ADAC-Umfrage 2024 auf geteilte Akzeptanz hinweist."
+          }
+        ]
       }
     },
     {
@@ -148,7 +172,19 @@
           "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/neuzulassungen_node.html",
           "https://www.vdv.de/"
         ],
-        "value_assumptions": "Annahme: Klimaschutz ist Sozialfrage; staatliche Steuerung legitim; Ordnungs-Recht > Marktanreize bei Pfadabhängigkeit."
+        "value_assumptions": "Annahme: Klimaschutz ist Sozialfrage; staatliche Steuerung legitim; Ordnungs-Recht > Marktanreize bei Pfadabhängigkeit.",
+        "claim_assessments": [
+          {
+            "claim": "Verbrenner-Aus 2030 ist technisch und wirtschaftlich machbar",
+            "verdict": "teilweise gestützt",
+            "reason": "Technische Machbarkeit durch Modellpalette gegeben, aber Infrastruktur-Skalierung und Anreiz-Schub als kritische Bottlenecks identifiziert."
+          },
+          {
+            "claim": "ÖPNV-Verdoppelung ist Klima- und Sozialfrage",
+            "verdict": "gestützt",
+            "reason": "VDV-Studien bestätigen hohen Investitionsbedarf und kommunale Personalengpässe als zentrale Herausforderungen für Klimaschutz und soziale Teilhabe."
+          }
+        ]
       }
     },
     {
@@ -170,7 +206,19 @@
           "https://www.jrtt.go.jp/",
           "https://www.deutschebahn.com/"
         ],
-        "value_assumptions": "Annahme: Markt-Effizienz primär; staatliche Vorgaben verzerren; Eigenverantwortung des Konsumenten."
+        "value_assumptions": "Annahme: Markt-Effizienz primär; staatliche Vorgaben verzerren; Eigenverantwortung des Konsumenten.",
+        "claim_assessments": [
+          {
+            "claim": "Technologieoffenheit erhält Wettbewerb und Innovation",
+            "verdict": "teilweise gestützt",
+            "reason": "Ökonomisch lehrbuchnah, aber praktische Umsetzung (z. B. E-Fuels) zeigt Komplexität und Einschränkungen."
+          },
+          {
+            "claim": "Marktwirtschaft im Bahnsektor erhöht Effizienz",
+            "verdict": "teilweise gestützt",
+            "reason": "Differenzierung nötig: Regionalverkehr in DE funktioniert teils gut, Fernverkehr kaum wettbewerblich; UK-Privatisierung scheiterte, JP/CH-Modelle erfolgreicher."
+          }
+        ]
       }
     },
     {
@@ -192,7 +240,19 @@
           "https://www.tallinn.ee/eng/",
           "https://www.eea.europa.eu/"
         ],
-        "value_assumptions": "Annahme: radikale Verkehrswende sozial-ökologisch geboten; Markt-Mechanik versagt; Verstaatlichung als Lösungs-Hebel."
+        "value_assumptions": "Annahme: radikale Verkehrswende sozial-ökologisch geboten; Markt-Mechanik versagt; Verstaatlichung als Lösungs-Hebel.",
+        "claim_assessments": [
+          {
+            "claim": "Verkehrssektor verfehlt KSG seit Jahren — radikale Wende nötig",
+            "verdict": "gestützt",
+            "reason": "UBA-Daten 2021-2024 zeigen, dass die Emissionen im Verkehrssektor steigen statt zu sinken, was die KSG-Verfehlung belegt."
+          },
+          {
+            "claim": "Kostenloser ÖPNV ist sozial-ökologisch geboten",
+            "verdict": "teilweise gestützt",
+            "reason": "Beispiele zeigen moderate Verkehrsverlagerung (10-15 %), aber deutliche soziale Wirkung (Zugang), während die Klimawirkung gering und die Kosten hoch sind."
+          }
+        ]
       }
     },
     {
@@ -215,7 +275,19 @@
           "https://www.bmwgroup.com/de/investor-relations.html",
           "https://www.umweltbundesamt.de/themen/verkehr-laerm"
         ],
-        "value_assumptions": "Annahme: Automobilindustrie als nationale Identität; Klimaschutz nationalstaatlich wirkungslos; EU-Vorgaben als Souveränitätsverletzung."
+        "value_assumptions": "Annahme: Automobilindustrie als nationale Identität; Klimaschutz nationalstaatlich wirkungslos; EU-Vorgaben als Souveränitätsverletzung.",
+        "claim_assessments": [
+          {
+            "claim": "Verbrenner-Aus zerstört deutsche Autoindustrie",
+            "verdict": "widerlegt",
+            "reason": "Deutsche Hersteller haben bereits Milliarden in die BEV-Transformation investiert, eine Verschiebung des Verbrenner-Aus würde diese Strategien entwerten, nicht die Industrie zerstören."
+          },
+          {
+            "claim": "Klimaschutz im Verkehr ist national wirkungslos",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die Reduktion des deutschen Verkehrssektors (145 Mio. t auf 85 Mio. t bis 2030) ist zwar herausfordernd, aber nicht trivial und wirkt im europäischen Kontext."
+          }
+        ]
       }
     },
     {
@@ -237,7 +309,19 @@
           "https://www.vdv.de/",
           "https://www.adac.de/"
         ],
-        "value_assumptions": "Annahme: soziale Akzeptanz primär; Stadt-Land-Gerechtigkeit als Wert; Pkw-Erhalt für Landbevölkerung legitim."
+        "value_assumptions": "Annahme: soziale Akzeptanz primär; Stadt-Land-Gerechtigkeit als Wert; Pkw-Erhalt für Landbevölkerung legitim.",
+        "claim_assessments": [
+          {
+            "claim": "Verkehrswende muss sozial verträglich sein, sonst scheitert sie",
+            "verdict": "gestützt",
+            "reason": "Empirisch belegt durch Proteste wie die Gelbwesten-Bewegung in Frankreich 2018 und AfD-Wahlanteile auf dem Land als Reaktion auf ungleiche Belastungen."
+          },
+          {
+            "claim": "Landbevölkerung darf nicht zur ÖPNV-Stadt-Logik gezwungen werden",
+            "verdict": "teilweise gestützt",
+            "reason": "VDV-Daten zeigen geringe ÖPNV-Nutzung (<10 % der Wege) und Pkw-Dominanz auf dem Land, aber die Behauptung unterstellt eine Zwangswirkung ohne empirischen Nachweis für flächendeckende politische Maßnahmen."
+          }
+        ]
       }
     }
   ],

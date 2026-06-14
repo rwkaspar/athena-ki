@@ -5,28 +5,308 @@
   "lead": "Legislaturperiode, Direktwahl des Kanzlers, Geschlechterparität auf Listen — strukturelle Reformfragen. Was Tier-1-Quellen (Wissenschaftliche Dienste, BVerfG, IPU, Israel-Fall, UK Fixed-Term-Akt) dazu sagen.",
   "stand": "2026-06-13",
   "facts_at_a_glance": [
-    {"label": "Aktuelle Legislaturperiode", "value": "4 Jahre", "source_title": "Art. 39 Abs. 1 GG", "source_url": "https://www.gesetze-im-internet.de/gg/art_39.html", "verified": true},
-    {"label": "Frauenanteil 21. Bundestag (2025)", "value": "ca. 33 %", "source_title": "Bundestag.de", "source_url": "https://www.bundestag.de/abgeordnete", "verify_needed": true},
-    {"label": "Schweden Frauenanteil Reichstag (freiwillige Quoten)", "value": "ca. 47 %", "source_title": "IPU Parline", "source_url": "https://data.ipu.org/", "verify_needed": true},
-    {"label": "Frankreich Frauenanteil Nationalversammlung (Paritätsgesetz)", "value": "ca. 37 %", "source_title": "IPU Parline", "source_url": "https://data.ipu.org/", "verify_needed": true},
-    {"label": "UK Fixed-Term Parliaments Act 2011", "value": "2022 wieder abgeschafft", "source_title": "UK Parliament Dissolution and Calling of Parliament Act 2022", "source_url": "https://www.legislation.gov.uk/ukpga/2022/11", "verified": true},
-    {"label": "Israel Direktwahl Premierminister 1996-2001", "value": "wieder abgeschafft", "source_title": "Knesset / Israeli Democracy Institute", "source_url": "https://en.idi.org.il/", "verified": true}
+    {
+      "label": "Aktuelle Legislaturperiode",
+      "value": "4 Jahre",
+      "source_title": "Art. 39 Abs. 1 GG",
+      "source_url": "https://www.gesetze-im-internet.de/gg/art_39.html",
+      "verified": true
+    },
+    {
+      "label": "Frauenanteil 21. Bundestag (2025)",
+      "value": "ca. 33 %",
+      "source_title": "Bundestag.de",
+      "source_url": "https://www.bundestag.de/abgeordnete",
+      "verify_needed": true
+    },
+    {
+      "label": "Schweden Frauenanteil Reichstag (freiwillige Quoten)",
+      "value": "ca. 47 %",
+      "source_title": "IPU Parline",
+      "source_url": "https://data.ipu.org/",
+      "verify_needed": true
+    },
+    {
+      "label": "Frankreich Frauenanteil Nationalversammlung (Paritätsgesetz)",
+      "value": "ca. 37 %",
+      "source_title": "IPU Parline",
+      "source_url": "https://data.ipu.org/",
+      "verify_needed": true
+    },
+    {
+      "label": "UK Fixed-Term Parliaments Act 2011",
+      "value": "2022 wieder abgeschafft",
+      "source_title": "UK Parliament Dissolution and Calling of Parliament Act 2022",
+      "source_url": "https://www.legislation.gov.uk/ukpga/2022/11",
+      "verified": true
+    },
+    {
+      "label": "Israel Direktwahl Premierminister 1996-2001",
+      "value": "wieder abgeschafft",
+      "source_title": "Knesset / Israeli Democracy Institute",
+      "source_url": "https://en.idi.org.il/",
+      "verified": true
+    }
   ],
   "legal_frame": [
-    {"rule": "Art. 39 GG (Wahlperiode)", "summary": "4 Jahre, Möglichkeit der Auflösung (Art. 63 III, 68).", "url": "https://www.gesetze-im-internet.de/gg/art_39.html"},
-    {"rule": "Art. 63, 67, 68 GG (Kanzlerwahl)", "summary": "Bundeskanzler wird vom Bundestag gewählt (Art. 63), abberufbar durch konstruktives Misstrauensvotum (Art. 67), Vertrauensfrage (Art. 68).", "url": "https://www.gesetze-im-internet.de/gg/art_63.html"},
-    {"rule": "Art. 21 GG (Parteienfreiheit)", "summary": "Eingriff in Parteienfreiheit nur unter strengen Bedingungen — relevant für Paritätsgesetz-Diskussion.", "url": "https://www.gesetze-im-internet.de/gg/art_21.html"},
-    {"rule": "Bremer LandesVfGH 2020", "summary": "Bremer Paritätsgesetz verfassungswidrig — Eingriff in Parteienfreiheit Art. 21 GG und passives Wahlrecht Art. 38 GG.", "url": "https://www.staatsgerichtshof.bremen.de/"},
-    {"rule": "Brandenburg LandesVfGH 2020", "summary": "Brandenburger Paritätsgesetz ebenfalls verfassungswidrig.", "url": "https://verfassungsgericht.brandenburg.de/"}
+    {
+      "rule": "Art. 39 GG (Wahlperiode)",
+      "summary": "4 Jahre, Möglichkeit der Auflösung (Art. 63 III, 68).",
+      "url": "https://www.gesetze-im-internet.de/gg/art_39.html"
+    },
+    {
+      "rule": "Art. 63, 67, 68 GG (Kanzlerwahl)",
+      "summary": "Bundeskanzler wird vom Bundestag gewählt (Art. 63), abberufbar durch konstruktives Misstrauensvotum (Art. 67), Vertrauensfrage (Art. 68).",
+      "url": "https://www.gesetze-im-internet.de/gg/art_63.html"
+    },
+    {
+      "rule": "Art. 21 GG (Parteienfreiheit)",
+      "summary": "Eingriff in Parteienfreiheit nur unter strengen Bedingungen — relevant für Paritätsgesetz-Diskussion.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_21.html"
+    },
+    {
+      "rule": "Bremer LandesVfGH 2020",
+      "summary": "Bremer Paritätsgesetz verfassungswidrig — Eingriff in Parteienfreiheit Art. 21 GG und passives Wahlrecht Art. 38 GG.",
+      "url": "https://www.staatsgerichtshof.bremen.de/"
+    },
+    {
+      "rule": "Brandenburg LandesVfGH 2020",
+      "summary": "Brandenburger Paritätsgesetz ebenfalls verfassungswidrig.",
+      "url": "https://verfassungsgericht.brandenburg.de/"
+    }
   ],
   "party_positions": [
-    {"party": "SPD", "position_summary": "Legislaturperiode 4 Jahre beibehalten, keine Direktwahl Kanzler, Geschlechterparität auf Bundestags-Listen über Parteiengesetz-Anreiz.", "key_claims": ["4-Jahres-Periode ist erprobt", "Anreiz-Lösung umgeht Verfassungs-Risiko"], "position_source": "SPD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "gestützt", "summary": "4-Jahres-Empirie: international im EU-Mittelfeld (FR/IT 5 J., AT 5 J., NL 4 J., SE 4 J.). Stabilität gut. Direktwahl-Kanzler-Skepsis: Israel-Erfahrung (1996-2001 abgeschafft) klar negativ. Anreiz-Paritätsgesetz: Schweden zeigt freiwillige Quoten erreichen 47 % vs. FR mit Paritätsgesetz 37 % — empirisch effektiver, verfassungsfest.", "empirical_check": "IPU Parline 2024 zu Wahlperioden und Frauenanteilen. Israeli Democracy Institute zu Direktwahl-Phase.", "tier1_sources": ["https://data.ipu.org/", "https://en.idi.org.il/"], "value_assumptions": "Annahme: Stabilität primär; Anreize > Pflicht; verfassungsrechtliche Vorsicht."}},
-    {"party": "CDU/CSU", "position_summary": "5-Jahres-Periode (mehr Planungssicherheit), keine Direktwahl Kanzler, keine Geschlechterparität-Pflicht.", "key_claims": ["5 Jahre erlauben langfristige Politik", "Paritätsgesetz greift in Parteienfreiheit ein"], "position_source": "Union-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Planungssicherheits-Argument: politisch plausibel, empirisch schwer entscheidbar. UK Fixed-Term-Parliaments-Act 2011 (5 Jahre fest) wurde 2022 abgeschafft, weil starre Termine Krisenflexibilität nahmen. Paritätsgesetz-Skepsis verfassungsrechtlich gestützt (Bremen/Brandenburg 2020).", "empirical_check": "UK Fixed-Term Parliaments Act 2011 → Dissolution Act 2022. Bremer LandesVfGH 2020.", "tier1_sources": ["https://www.legislation.gov.uk/ukpga/2022/11", "https://www.staatsgerichtshof.bremen.de/"], "value_assumptions": "Annahme: Planungs-Stabilität > demokratische Kontrolle; Parteienfreiheit > Gleichstellungs-Pflicht."}},
-    {"party": "Grüne", "position_summary": "Legislaturperiode 4 Jahre beibehalten, keine Direktwahl Kanzler, Geschlechterparität gesetzlich auf Listen (Reißverschluss-Prinzip).", "key_claims": ["Parität ist Verfassungsauftrag aus Art. 3 GG", "Aktuelle Unterrepräsentation strukturell"], "position_source": "Grünen-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Art. 3 GG-Argument: BVerfG hat aktiv interpretiert (Art. 3 Abs. 2 Satz 2 verlangt aktive Förderung), aber Bremer/Brandenburger LandesVfGH 2020 ziehen Grenze: Pflicht-Parität verletzt Art. 21 (Parteienfreiheit) + Art. 38 (passives Wahlrecht). Bundesgesetz würde gleiche Klage einladen. Empirisch: gesetzliche Parität (FR) erreicht 37 %, freiwillige (SE) erreicht 47 % — Anreize sind effektiver.", "empirical_check": "BVerfG-Rechtsprechung Art. 3. Bremer/Brandenburger LandesVfGH 2020. IPU Frauenanteile international.", "tier1_sources": ["https://www.bundesverfassungsgericht.de/", "https://www.staatsgerichtshof.bremen.de/", "https://data.ipu.org/"], "value_assumptions": "Annahme: aktive Gleichstellungs-Pflicht des Staates; Geschlechter-Parität als Demokratie-Frage; verfassungsrechtliche Risiken handhabbar."}},
-    {"party": "FDP", "position_summary": "Legislaturperiode 4 Jahre, keine Direktwahl Kanzler, keine Geschlechterparität-Pflicht.", "key_claims": ["Parität gefährdet Parteienfreiheit", "Direktwahl-Kanzler personalisiert zu stark"], "position_source": "FDP-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Parität-Argument: rechtlich gut belegt (Bremen 2020). Personalisierungs-Argument zur Direktwahl: Israel-Erfahrung stützt — Direktwahl führt zu Kohabitations-Krisen ohne stabile Parlamentsmehrheit. Konsistente Position.", "empirical_check": "Bremer LandesVfGH 2020. Israeli Democracy Institute zur Direktwahl-Phase.", "tier1_sources": ["https://www.staatsgerichtshof.bremen.de/", "https://en.idi.org.il/"], "value_assumptions": "Annahme: Parteienfreiheit absolut; parlamentarisches System primär."}},
-    {"party": "Linke", "position_summary": "Legislaturperiode 4 Jahre, keine Direktwahl Kanzler, Geschlechterparität gesetzlich.", "key_claims": ["Pflicht-Parität ist nötig wegen struktureller Unterrepräsentation", "Anreize haben nicht gewirkt (33 % nach 70 Jahren)"], "position_source": "Linke-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Wirkungs-Argument: deutsche Erfahrung mit Anreizen begrenzt — SPD/Grüne haben interne Quoten erreicht (48 %/55 %), Union/FDP/AfD nicht. Pauschales „Anreize wirken nicht\" trifft schief — Anreize wirken parteiintern unterschiedlich. Verfassungs-Risiko bleibt (s. Bremen/Brandenburg).", "empirical_check": "Bundestag-Verzeichnis Abgeordnete nach Fraktion und Geschlecht 2025. Bremer/Brandenburger LandesVfGH 2020.", "tier1_sources": ["https://www.bundestag.de/abgeordnete", "https://www.staatsgerichtshof.bremen.de/"], "value_assumptions": "Annahme: ohne Pflicht keine strukturelle Veränderung; verfassungsrechtliche Risiken nachrangig."}},
-    {"party": "AfD", "position_summary": "Legislaturperiode 4 oder 5 Jahre, keine Direktwahl Kanzler, keine Paritätsgesetze.", "key_claims": ["Quotenregelungen sind Diskriminierung", "Parteienfreiheit absolut"], "position_source": "AfD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Paritäts-Skepsis verfassungsrechtlich gestützt. „Diskriminierungs\"-Argument trifft die juristische Argumentation in Bremen/Brandenburg (Eingriff in passives Wahlrecht Art. 38). Aber: Art. 3 Abs. 2 Satz 2 GG verlangt aktive Förderung — Spannung zwischen Anti-Diskriminierungs- und Förder-Pflicht ist juristisch komplex, nicht in „absolut\"-Aussagen lösbar.", "empirical_check": "Bremer/Brandenburger LandesVfGH 2020. BVerfG-Rechtsprechung zu Art. 3 GG.", "tier1_sources": ["https://www.staatsgerichtshof.bremen.de/", "https://www.bundesverfassungsgericht.de/"], "value_assumptions": "Annahme: traditionelle Wahlrechts-Definition; Quotenregelungen ideologisch abzulehnen; Parteienfreiheit absolut."}},
-    {"party": "BSW", "position_summary": "Legislaturperiode 4 Jahre, keine Direktwahl Kanzler, keine Paritätsgesetze.", "key_claims": ["Quotenpolitik spaltet", "Parteienfreiheit primär"], "position_source": "BSW-Programm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Spaltungs-Argument: politisch-philosophisch, nicht empirisch entscheidbar. Parteienfreiheits-Argument rechtlich gestützt. Linke-Position-Distanz: BSW grenzt sich hier explizit von Linke-Forderung ab.", "empirical_check": "Bremer LandesVfGH 2020. BSW-Programm-Vergleich Linke 2025.", "tier1_sources": ["https://www.staatsgerichtshof.bremen.de/"], "value_assumptions": "Annahme: gesellschaftliche Stabilität > aktive Gleichstellungs-Pflicht; klassische Linke-Werte ohne identitätspolitischen Akzent."}}
+    {
+      "party": "SPD",
+      "position_summary": "Legislaturperiode 4 Jahre beibehalten, keine Direktwahl Kanzler, Geschlechterparität auf Bundestags-Listen über Parteiengesetz-Anreiz.",
+      "key_claims": [
+        "4-Jahres-Periode ist erprobt",
+        "Anreiz-Lösung umgeht Verfassungs-Risiko"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "gestützt",
+        "summary": "4-Jahres-Empirie: international im EU-Mittelfeld (FR/IT 5 J., AT 5 J., NL 4 J., SE 4 J.). Stabilität gut. Direktwahl-Kanzler-Skepsis: Israel-Erfahrung (1996-2001 abgeschafft) klar negativ. Anreiz-Paritätsgesetz: Schweden zeigt freiwillige Quoten erreichen 47 % vs. FR mit Paritätsgesetz 37 % — empirisch effektiver, verfassungsfest.",
+        "empirical_check": "IPU Parline 2024 zu Wahlperioden und Frauenanteilen. Israeli Democracy Institute zu Direktwahl-Phase.",
+        "tier1_sources": [
+          "https://data.ipu.org/",
+          "https://en.idi.org.il/"
+        ],
+        "value_assumptions": "Annahme: Stabilität primär; Anreize > Pflicht; verfassungsrechtliche Vorsicht.",
+        "claim_assessments": [
+          {
+            "claim": "4-Jahres-Periode ist erprobt",
+            "verdict": "gestützt",
+            "reason": "Empirie zeigt, dass mehrere EU-Länder (NL, SE) seit Jahren stabil mit 4-jährigen Wahlperioden arbeiten und im Mittelfeld liegen."
+          },
+          {
+            "claim": "Anreiz-Lösung umgeht Verfassungs-Risiko",
+            "verdict": "gestützt",
+            "reason": "Schwedens freiwillige Quoten (47 % Frauenanteil) sind verfassungsfest und effektiver als Frankreichs Paritätsgesetz (37 %)."
+          }
+        ]
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "5-Jahres-Periode (mehr Planungssicherheit), keine Direktwahl Kanzler, keine Geschlechterparität-Pflicht.",
+      "key_claims": [
+        "5 Jahre erlauben langfristige Politik",
+        "Paritätsgesetz greift in Parteienfreiheit ein"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Planungssicherheits-Argument: politisch plausibel, empirisch schwer entscheidbar. UK Fixed-Term-Parliaments-Act 2011 (5 Jahre fest) wurde 2022 abgeschafft, weil starre Termine Krisenflexibilität nahmen. Paritätsgesetz-Skepsis verfassungsrechtlich gestützt (Bremen/Brandenburg 2020).",
+        "empirical_check": "UK Fixed-Term Parliaments Act 2011 → Dissolution Act 2022. Bremer LandesVfGH 2020.",
+        "tier1_sources": [
+          "https://www.legislation.gov.uk/ukpga/2022/11",
+          "https://www.staatsgerichtshof.bremen.de/"
+        ],
+        "value_assumptions": "Annahme: Planungs-Stabilität > demokratische Kontrolle; Parteienfreiheit > Gleichstellungs-Pflicht.",
+        "claim_assessments": [
+          {
+            "claim": "5 Jahre erlauben langfristige Politik",
+            "verdict": "teilweise gestützt",
+            "reason": "Politisch plausibel, aber empirisch nicht eindeutig belegt, da der UK Fixed-Term Parliaments Act 2011 wegen mangelnder Krisenflexibilität abgeschafft wurde."
+          },
+          {
+            "claim": "Paritätsgesetz greift in Parteienfreiheit ein",
+            "verdict": "gestützt",
+            "reason": "Verfassungsrechtliche Entscheidungen (Bremen/Brandenburg 2020) stützen die Kritik an Paritätsgesetzen als Eingriff in die Parteienfreiheit."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Legislaturperiode 4 Jahre beibehalten, keine Direktwahl Kanzler, Geschlechterparität gesetzlich auf Listen (Reißverschluss-Prinzip).",
+      "key_claims": [
+        "Parität ist Verfassungsauftrag aus Art. 3 GG",
+        "Aktuelle Unterrepräsentation strukturell"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Art. 3 GG-Argument: BVerfG hat aktiv interpretiert (Art. 3 Abs. 2 Satz 2 verlangt aktive Förderung), aber Bremer/Brandenburger LandesVfGH 2020 ziehen Grenze: Pflicht-Parität verletzt Art. 21 (Parteienfreiheit) + Art. 38 (passives Wahlrecht). Bundesgesetz würde gleiche Klage einladen. Empirisch: gesetzliche Parität (FR) erreicht 37 %, freiwillige (SE) erreicht 47 % — Anreize sind effektiver.",
+        "empirical_check": "BVerfG-Rechtsprechung Art. 3. Bremer/Brandenburger LandesVfGH 2020. IPU Frauenanteile international.",
+        "tier1_sources": [
+          "https://www.bundesverfassungsgericht.de/",
+          "https://www.staatsgerichtshof.bremen.de/",
+          "https://data.ipu.org/"
+        ],
+        "value_assumptions": "Annahme: aktive Gleichstellungs-Pflicht des Staates; Geschlechter-Parität als Demokratie-Frage; verfassungsrechtliche Risiken handhabbar.",
+        "claim_assessments": [
+          {
+            "claim": "Parität ist Verfassungsauftrag aus Art. 3 GG",
+            "verdict": "teilweise widerlegt",
+            "reason": "BVerfG interpretiert Art. 3 Abs. 2 Satz 2 als aktive Förderungspflicht, aber Bremer/Brandenburger LandesVfGH 2020 sehen Pflicht-Parität als Verstoß gegen Art. 21 und Art. 38 GG."
+          },
+          {
+            "claim": "Aktuelle Unterrepräsentation strukturell",
+            "verdict": "gestützt",
+            "reason": "Empirische Daten (z. B. IPU-Frauenanteile) zeigen systematische Unterrepräsentation von Frauen in Parlamenten."
+          }
+        ]
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Legislaturperiode 4 Jahre, keine Direktwahl Kanzler, keine Geschlechterparität-Pflicht.",
+      "key_claims": [
+        "Parität gefährdet Parteienfreiheit",
+        "Direktwahl-Kanzler personalisiert zu stark"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Parität-Argument: rechtlich gut belegt (Bremen 2020). Personalisierungs-Argument zur Direktwahl: Israel-Erfahrung stützt — Direktwahl führt zu Kohabitations-Krisen ohne stabile Parlamentsmehrheit. Konsistente Position.",
+        "empirical_check": "Bremer LandesVfGH 2020. Israeli Democracy Institute zur Direktwahl-Phase.",
+        "tier1_sources": [
+          "https://www.staatsgerichtshof.bremen.de/",
+          "https://en.idi.org.il/"
+        ],
+        "value_assumptions": "Annahme: Parteienfreiheit absolut; parlamentarisches System primär.",
+        "claim_assessments": [
+          {
+            "claim": "Parität gefährdet Parteienfreiheit",
+            "verdict": "gestützt",
+            "reason": "Bremer Landesverfassungsgerichtshof 2020 bestätigt rechtliche Bedenken gegen Paritätsgesetze als Eingriff in die Parteienfreiheit."
+          },
+          {
+            "claim": "Direktwahl-Kanzler personalisiert zu stark",
+            "verdict": "teilweise gestützt",
+            "reason": "Israel-Erfahrung zeigt Personalisierungseffekte, aber Krisen resultieren primär aus fehlenden stabilen Parlamentsmehrheiten, nicht allein aus der Direktwahl."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Legislaturperiode 4 Jahre, keine Direktwahl Kanzler, Geschlechterparität gesetzlich.",
+      "key_claims": [
+        "Pflicht-Parität ist nötig wegen struktureller Unterrepräsentation",
+        "Anreize haben nicht gewirkt (33 % nach 70 Jahren)"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Wirkungs-Argument: deutsche Erfahrung mit Anreizen begrenzt — SPD/Grüne haben interne Quoten erreicht (48 %/55 %), Union/FDP/AfD nicht. Pauschales „Anreize wirken nicht\" trifft schief — Anreize wirken parteiintern unterschiedlich. Verfassungs-Risiko bleibt (s. Bremen/Brandenburg).",
+        "empirical_check": "Bundestag-Verzeichnis Abgeordnete nach Fraktion und Geschlecht 2025. Bremer/Brandenburger LandesVfGH 2020.",
+        "tier1_sources": [
+          "https://www.bundestag.de/abgeordnete",
+          "https://www.staatsgerichtshof.bremen.de/"
+        ],
+        "value_assumptions": "Annahme: ohne Pflicht keine strukturelle Veränderung; verfassungsrechtliche Risiken nachrangig.",
+        "claim_assessments": [
+          {
+            "claim": "Pflicht-Parität ist nötig wegen struktureller Unterrepräsentation",
+            "verdict": "teilweise gestützt",
+            "reason": "Die strukturelle Unterrepräsentation von Frauen im Bundestag ist empirisch belegt, aber die Notwendigkeit einer Pflicht-Parität bleibt verfassungsrechtlich umstritten (s. Bremen/Brandenburg)."
+          },
+          {
+            "claim": "Anreize haben nicht gewirkt (33 % nach 70 Jahren)",
+            "verdict": "teilweise widerlegt",
+            "reason": "Anreize wirkten parteiintern unterschiedlich (SPD/Grüne erreichten hohe Quoten, Union/FDP/AfD nicht), ein pauschales Scheitern ist nicht belegt."
+          }
+        ]
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Legislaturperiode 4 oder 5 Jahre, keine Direktwahl Kanzler, keine Paritätsgesetze.",
+      "key_claims": [
+        "Quotenregelungen sind Diskriminierung",
+        "Parteienfreiheit absolut"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Paritäts-Skepsis verfassungsrechtlich gestützt. „Diskriminierungs\"-Argument trifft die juristische Argumentation in Bremen/Brandenburg (Eingriff in passives Wahlrecht Art. 38). Aber: Art. 3 Abs. 2 Satz 2 GG verlangt aktive Förderung — Spannung zwischen Anti-Diskriminierungs- und Förder-Pflicht ist juristisch komplex, nicht in „absolut\"-Aussagen lösbar.",
+        "empirical_check": "Bremer/Brandenburger LandesVfGH 2020. BVerfG-Rechtsprechung zu Art. 3 GG.",
+        "tier1_sources": [
+          "https://www.staatsgerichtshof.bremen.de/",
+          "https://www.bundesverfassungsgericht.de/"
+        ],
+        "value_assumptions": "Annahme: traditionelle Wahlrechts-Definition; Quotenregelungen ideologisch abzulehnen; Parteienfreiheit absolut.",
+        "claim_assessments": [
+          {
+            "claim": "Quotenregelungen sind Diskriminierung",
+            "verdict": "teilweise gestützt",
+            "reason": "Die Bremer/Brandenburger Landesverfassungsgerichte sahen in Paritätsgesetzen einen Eingriff in das passive Wahlrecht (Art. 38 GG), was das Diskriminierungsargument juristisch stützt, allerdings nicht absolut, da Art. 3 Abs. 2 Satz 2 GG aktive Förderung verlangt."
+          },
+          {
+            "claim": "Parteienfreiheit absolut",
+            "verdict": "widerlegt",
+            "reason": "Die Analyse zeigt, dass die Parteienfreiheit durch verfassungsrechtliche Vorgaben wie Art. 3 Abs. 2 Satz 2 GG (Förderpflicht) eingeschränkt werden kann und nicht absolut gilt."
+          }
+        ]
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Legislaturperiode 4 Jahre, keine Direktwahl Kanzler, keine Paritätsgesetze.",
+      "key_claims": [
+        "Quotenpolitik spaltet",
+        "Parteienfreiheit primär"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Spaltungs-Argument: politisch-philosophisch, nicht empirisch entscheidbar. Parteienfreiheits-Argument rechtlich gestützt. Linke-Position-Distanz: BSW grenzt sich hier explizit von Linke-Forderung ab.",
+        "empirical_check": "Bremer LandesVfGH 2020. BSW-Programm-Vergleich Linke 2025.",
+        "tier1_sources": [
+          "https://www.staatsgerichtshof.bremen.de/"
+        ],
+        "value_assumptions": "Annahme: gesellschaftliche Stabilität > aktive Gleichstellungs-Pflicht; klassische Linke-Werte ohne identitätspolitischen Akzent.",
+        "claim_assessments": [
+          {
+            "claim": "Quotenpolitik spaltet",
+            "verdict": "offen",
+            "reason": "Die Behauptung ist politisch-philosophisch formuliert und empirisch nicht abschließend prüfbar."
+          },
+          {
+            "claim": "Parteienfreiheit primär",
+            "verdict": "gestützt",
+            "reason": "Der Bremer Landesverfassungsgerichtshof 2020 stützt das Argument der Parteienfreiheit als rechtlich fundiert."
+          }
+        ]
+      }
+    }
   ],
   "evidenz_position": {
     "kurzfassung": "Drei Achsen getrennt entschieden: Legislaturperiode 4 Jahre beibehalten, keine Direktwahl Kanzler, Geschlechterparität über Anreizsystem (höhere staatliche Mittel bei paritätischer Liste) statt Pflichtgesetz.",
@@ -40,7 +320,11 @@
     "trade_offs_eingestanden": "Anreiz-Parität wirkt langsamer als Gesetz; Selbstschaden für EVIDENZ (häufigere Wahlen erschweren Aufbau); FDP-Konvergenz auf einigen Achsen ist politisch heikel.",
     "url": "programm/parlamentarismus.html"
   },
-  "evidenz_link": {"url": "programm/parlamentarismus.html", "label": "EVIDENZ-Position zur Parlamentarismus-Reform (vollständig)", "note": "Vollständige Optionsanalyse mit Israel-/UK-Fallbeispielen."},
+  "evidenz_link": {
+    "url": "programm/parlamentarismus.html",
+    "label": "EVIDENZ-Position zur Parlamentarismus-Reform (vollständig)",
+    "note": "Vollständige Optionsanalyse mit Israel-/UK-Fallbeispielen."
+  },
   "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
   "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (GG, BVerfG, LandesVfGH Bremen/Brandenburg, IPU). Frauenanteile aktuell brauchen Live-Verifikation. Athena-Analysen nach Pipeline-Lauf finalisiert."
 }

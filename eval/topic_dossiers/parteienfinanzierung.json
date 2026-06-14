@@ -5,28 +5,312 @@
   "lead": "Unternehmensspenden, Lobbyregister, Cooling-off-Period, parteinahe Stiftungen — wo welche Partei steht, und was GRECO, OECD, Bundesrechnungshof + Tier-1-Belege dazu sagen.",
   "stand": "2026-06-13",
   "facts_at_a_glance": [
-    {"label": "Staatliche Teilfinanzierung 2024", "value": "ca. 200 Mio. €", "source_title": "BMI / PartG § 18", "source_url": "https://www.bundeswahlleiter.de/parteien/finanzierung.html", "verify_needed": true},
-    {"label": "Sockel-Wahlkampfkostenerstattung", "value": "1,00 € je Stimme (erste 4 Mio.), 0,83 € darüber", "source_title": "§ 18 Abs. 3 PartG", "source_url": "https://www.gesetze-im-internet.de/partg/__18.html", "verified": true},
-    {"label": "Parteinahe Stiftungen 2024", "value": "ca. 700 Mio. € staatliche Förderung", "source_title": "Bundesrechnungshof / BMI", "source_url": "https://www.bundesrechnungshof.de/", "verify_needed": true},
-    {"label": "Lobbyregister-Einträge 2024", "value": "ca. 7.000 Lobbyisten", "source_title": "Lobbyregister Bundestag", "source_url": "https://www.lobbyregister.bundestag.de/", "verify_needed": true},
-    {"label": "Aktuelle Cooling-off-Period (Regierungsmitglieder)", "value": "18 Monate", "source_title": "§ 6b BMG", "source_url": "https://www.gesetze-im-internet.de/bmingg/", "verified": true},
-    {"label": "GRECO-Bewertung DE (Round 5)", "value": "viele Empfehlungen offen", "source_title": "GRECO 5th Round Evaluation Germany", "source_url": "https://www.coe.int/en/web/greco/evaluations/germany", "verified": true}
+    {
+      "label": "Staatliche Teilfinanzierung 2024",
+      "value": "ca. 200 Mio. €",
+      "source_title": "BMI / PartG § 18",
+      "source_url": "https://www.bundeswahlleiter.de/parteien/finanzierung.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Sockel-Wahlkampfkostenerstattung",
+      "value": "1,00 € je Stimme (erste 4 Mio.), 0,83 € darüber",
+      "source_title": "§ 18 Abs. 3 PartG",
+      "source_url": "https://www.gesetze-im-internet.de/partg/__18.html",
+      "verified": true
+    },
+    {
+      "label": "Parteinahe Stiftungen 2024",
+      "value": "ca. 700 Mio. € staatliche Förderung",
+      "source_title": "Bundesrechnungshof / BMI",
+      "source_url": "https://www.bundesrechnungshof.de/",
+      "verify_needed": true
+    },
+    {
+      "label": "Lobbyregister-Einträge 2024",
+      "value": "ca. 7.000 Lobbyisten",
+      "source_title": "Lobbyregister Bundestag",
+      "source_url": "https://www.lobbyregister.bundestag.de/",
+      "verify_needed": true
+    },
+    {
+      "label": "Aktuelle Cooling-off-Period (Regierungsmitglieder)",
+      "value": "18 Monate",
+      "source_title": "§ 6b BMG",
+      "source_url": "https://www.gesetze-im-internet.de/bmingg/",
+      "verified": true
+    },
+    {
+      "label": "GRECO-Bewertung DE (Round 5)",
+      "value": "viele Empfehlungen offen",
+      "source_title": "GRECO 5th Round Evaluation Germany",
+      "source_url": "https://www.coe.int/en/web/greco/evaluations/germany",
+      "verified": true
+    }
   ],
   "legal_frame": [
-    {"rule": "Art. 21 GG (Parteienprivileg)", "summary": "Parteienfreiheit, Verbot nur durch BVerfG.", "url": "https://www.gesetze-im-internet.de/gg/art_21.html"},
-    {"rule": "PartG (Parteiengesetz)", "summary": "Spendenregeln, Rechenschaftsbericht, staatliche Teilfinanzierung, Sanktionen.", "url": "https://www.gesetze-im-internet.de/partg/"},
-    {"rule": "LobbyRG (Lobbyregistergesetz)", "summary": "Lobbyregister beim Bundestag seit 01.01.2022, verschärft 01.03.2024 (legislativer Fußabdruck).", "url": "https://www.gesetze-im-internet.de/lobbyrg/"},
-    {"rule": "§ 6b BMG (Cooling-off)", "summary": "18 Monate Wartepflicht für ehemalige Regierungsmitglieder bei Tätigkeit mit Bezug zur Amtsführung.", "url": "https://www.gesetze-im-internet.de/bmingg/"},
-    {"rule": "GRECO-Empfehlungen (Europarat)", "summary": "Round 4/5: DE soll Unternehmensspenden begrenzen, Cooling-off ausweiten, Lobbyregister inhaltlich vertiefen.", "url": "https://www.coe.int/en/web/greco/evaluations/germany"}
+    {
+      "rule": "Art. 21 GG (Parteienprivileg)",
+      "summary": "Parteienfreiheit, Verbot nur durch BVerfG.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_21.html"
+    },
+    {
+      "rule": "PartG (Parteiengesetz)",
+      "summary": "Spendenregeln, Rechenschaftsbericht, staatliche Teilfinanzierung, Sanktionen.",
+      "url": "https://www.gesetze-im-internet.de/partg/"
+    },
+    {
+      "rule": "LobbyRG (Lobbyregistergesetz)",
+      "summary": "Lobbyregister beim Bundestag seit 01.01.2022, verschärft 01.03.2024 (legislativer Fußabdruck).",
+      "url": "https://www.gesetze-im-internet.de/lobbyrg/"
+    },
+    {
+      "rule": "§ 6b BMG (Cooling-off)",
+      "summary": "18 Monate Wartepflicht für ehemalige Regierungsmitglieder bei Tätigkeit mit Bezug zur Amtsführung.",
+      "url": "https://www.gesetze-im-internet.de/bmingg/"
+    },
+    {
+      "rule": "GRECO-Empfehlungen (Europarat)",
+      "summary": "Round 4/5: DE soll Unternehmensspenden begrenzen, Cooling-off ausweiten, Lobbyregister inhaltlich vertiefen.",
+      "url": "https://www.coe.int/en/web/greco/evaluations/germany"
+    }
   ],
   "party_positions": [
-    {"party": "SPD", "position_summary": "Unternehmensspenden begrenzen (Cap 50.000 €), Cooling-off auf 24 Monate, Lobbyregister mit „legislativem Fußabdruck\" stärken, Stiftungs-Förderung reformieren.", "key_claims": ["Unternehmensspenden verzerren Demokratie", "Lobbyregister braucht inhaltliche Tiefe"], "position_source": "SPD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Unternehmens-Spenden-Wirkungs-Argument: empirisch (Avis et al. 2018, Brookings 2020) zeigt Korrelation zwischen Spendenvolumen und politischen Zugang, Kausalität aber schwer zu isolieren. 50.000-Cap als Kompromiss — verhindert Großspender ohne Kleinspender zu betreffen. Lobbyregister „legislativer Fußabdruck\" seit 01.03.2024 in DE eingeführt — diese Position ist ergänzend/verschärfend.", "empirical_check": "GRECO Round 5 Empfehlungen Germany. Brookings Money in Politics 2020. LobbyRG 2024.", "tier1_sources": ["https://www.coe.int/en/web/greco/evaluations/germany", "https://www.brookings.edu/", "https://www.gesetze-im-internet.de/lobbyrg/"], "value_assumptions": "Annahme: Demokratie-Schutz vor Großgeld; Transparenz primär; Cooling-off als Drehtüren-Bremse."}},
-    {"party": "CDU/CSU", "position_summary": "Bestehende Regeln beibehalten, keine Unternehmensspenden-Begrenzung, Cooling-off bei 18 Monaten, Lobbyregister in heutiger Form ausreichend.", "key_claims": ["Aktuelle Regulierung ist GG-konform und ausreichend", "Cap auf Spenden gefährdet Parteienfreiheit Art. 21"], "position_source": "Union-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "GG-Konformität: aktuell unstrittig — Spendenregeln existieren (Veröffentlichungs-Pflicht ab 10.000 €, Verbot bei juristischen Personen mit > 50 % öffentlicher Beteiligung). „Ausreichend\" ist Werturteil. Parteienfreiheits-Argument: BVerfG hat Spendenregulierung nicht pauschal verworfen — Cap-Eingriffe sind möglich, wenn nicht unverhältnismäßig. GRECO-Empfehlungen sind eindeutig, dass DE-System Lücken hat.", "empirical_check": "BVerfG-Rechtsprechung zu PartG. GRECO Round 5 Reports Germany.", "tier1_sources": ["https://www.bundesverfassungsgericht.de/", "https://www.coe.int/en/web/greco/evaluations/germany"], "value_assumptions": "Annahme: Status quo akzeptabel; Parteienfreiheit > Regulierungs-Eingriff; Selbstkontrolle ausreichend."}},
-    {"party": "Grüne", "position_summary": "Unternehmensspenden verbieten, Privatspenden-Cap (50.000 €), Cooling-off auf 36 Monate, Lobbyregister verschärfen (Wirtschaftslobbyisten mit Strafe bei Verstoß), parteinahe Stiftungen entparteilichen.", "key_claims": ["Unternehmensspenden sind strukturelles Korruptions-Risiko", "Stiftungs-Förderung braucht Wirkungsnachweis"], "position_source": "Grünen-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Korruptions-Argument: empirisch teilweise gestützt (vergleichende Studien zeigen Korrelation Unternehmens-Spenden ↔ politischer Zugang/Gesetzeskanten). Stiftungs-Wirkungsnachweis: Bundesrechnungshof seit 2014 wiederholt kritisiert, dass 700 Mio. €/Jahr nicht systematisch evaluiert werden — Position deckt sich. „Vollverbot\" für Unternehmen rechtlich machbar (vgl. FR), aber Familienunternehmen-Lücke bleibt offen.", "empirical_check": "BRH-Berichte 2014-2024 zu Stiftungs-Förderung. FR-Verbot juristischer Personen. GRECO Round 5.", "tier1_sources": ["https://www.bundesrechnungshof.de/", "https://www.legifrance.gouv.fr/", "https://www.coe.int/en/web/greco/evaluations/germany"], "value_assumptions": "Annahme: strukturelle Korruptionsprävention > Spendenfreiheit; Stiftungen müssen ihre Wirkung belegen."}},
-    {"party": "FDP", "position_summary": "Bestehende Regeln im Wesentlichen beibehalten, evtl. Cooling-off auf 24 Monate, keine Unternehmens-Spendenobergrenze, Lobbyregister wie heute.", "key_claims": ["Marktmechanismen brauchen freie Wirtschaftspolitik-Kommunikation", "Transparenz statt Verbote"], "position_source": "FDP-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Transparenz-vs-Verbote-Logik: ökonomisch valid (Information statt Eingriff). Aber: GRECO und Forschung (e.g. Princeton 2014) zeigen, dass reine Transparenz Großspenden-Effekte nicht vollständig neutralisiert. „Wirtschaftspolitik-Kommunikation\" ist Lobbying-Begriff — Transparenz im Lobbyregister bereits geregelt.", "empirical_check": "Gilens & Page 2014 (Princeton, „Affluence and Influence\"). GRECO Round 5 Germany.", "tier1_sources": ["https://scholar.princeton.edu/sites/default/files/mgilens/files/gilens_and_page_2014_-testing_theories_of_american_politics.doc.pdf", "https://www.coe.int/en/web/greco/evaluations/germany"], "value_assumptions": "Annahme: Markt-Effizienz > Regulierungs-Eingriff; Selbstkontrolle der Parteien ausreichend."}},
-    {"party": "Linke", "position_summary": "Unternehmensspenden verbieten, Privatspenden-Cap (25.000 €), Cooling-off auf 60 Monate, Lobbyregister sehr scharf (Bußgelder ab 250.000 €), parteinahe Stiftungen direkt entparteilichen.", "key_claims": ["Politische Klasse strukturell von Wirtschaftsinteressen erfasst", "Drehtüren-Effekt ist Demokratie-Krise"], "position_source": "Linke-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Drehtüren-Empirie: dokumentierte Fälle (Pofalla → Bahn, Riester → Versicherung, Wissmann → VDA, Schmidt → SAP) belegen Phänomen. GRECO-Bewertung sieht 18-Monats-Wartezeit international unterdurchschnittlich. 60 Monate wäre weltweit eines der strengsten Modelle — FR hat 36 Monate. Vereinbarkeit mit Berufsfreiheit (Art. 12 GG) sehr zu prüfen.", "empirical_check": "GRECO Round 4/5 Germany. FR HATVP Modell (36 Monate). BVerfG zu Berufsfreiheit Art. 12.", "tier1_sources": ["https://www.coe.int/en/web/greco/evaluations/germany", "https://www.hatvp.fr/", "https://www.bundesverfassungsgericht.de/"], "value_assumptions": "Annahme: Klassenkampf gegen Wirtschaftsinteressen primär; Drehtüren-Prävention überwiegt Berufsfreiheit-Eingriff."}},
-    {"party": "AfD", "position_summary": "Parteienfinanzierung deutlich reduzieren (staatliche Finanzierung halbieren), parteinahe Stiftungen abschaffen, Lobbyregister beibehalten, Cooling-off 24 Monate.", "key_claims": ["Staatliche Parteienfinanzierung ist Selbstbedienung", "Parteinahe Stiftungen sind versteckte Parteienfinanzierung"], "position_source": "AfD-Wahlprogramm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Stiftungs-Argument: BRH-Berichte stützen Kritik strukturell (700 Mio. €/Jahr ohne Wirkungsnachweis). „Selbstbedienung\" ist polemisch — staatliche Teilfinanzierung ist BVerfG-konform (2 BvE 5/89, Obergrenze beachtet). Halbierung wäre große Reform, würde kleine Parteien (auch AfD selbst) stärker treffen als große, weil Sockelschwellen-Logik weniger relativ wirkt. AfD profitiert selbst stark von Stiftungs-Förderung (Desiderius-Erasmus-Stiftung) — Konsistenz-Frage.", "empirical_check": "BRH-Berichte 2014-2024. BVerfG 2 BvE 5/89 zur Parteienfinanzierung. DES-Stiftungs-Förderung 2024.", "tier1_sources": ["https://www.bundesrechnungshof.de/", "https://www.bundesverfassungsgericht.de/", "https://www.bundestag.de/parlament/parteien"], "value_assumptions": "Annahme: Staat soll Parteien weniger finanzieren; Anti-Establishment-Rhetorik; Stiftungs-Föderung systemfeindlich."}},
-    {"party": "BSW", "position_summary": "Unternehmensspenden begrenzen (50.000 €-Cap), Cooling-off auf 36 Monate, Lobbyregister verschärfen, parteinahe Stiftungen reformieren (Wirkungsnachweis).", "key_claims": ["Wirtschaftsspenden schwächen demokratische Selbstbestimmung", "Drehtüren-Effekt ist Massenphänomen"], "position_source": "BSW-Programm 2025", "verify_needed": true, "athena_analysis": {"status": "vorab", "verdict": "teilweise gestützt", "summary": "Selbstbestimmungs-Argument: gleiche Empirie wie SPD/Grünen — strukturelle Spendenwirkung ist dokumentiert. „Massenphänomen\": empirisch zu stark — dokumentierte Drehtür-Fälle sind real, aber nicht Massenstatistik (siehe HATVP-Frankreich-Berichte zu Größenordnung). Reformpaket weitgehend konsistent mit GRECO.", "empirical_check": "GRECO Round 4/5 Germany. HATVP Frankreich Annual Reports.", "tier1_sources": ["https://www.coe.int/en/web/greco/evaluations/germany", "https://www.hatvp.fr/"], "value_assumptions": "Annahme: Volkssouveränität gegen Wirtschaftsinteressen; institutionelle Reform > Marktmechanismen."}}
+    {
+      "party": "SPD",
+      "position_summary": "Unternehmensspenden begrenzen (Cap 50.000 €), Cooling-off auf 24 Monate, Lobbyregister mit „legislativem Fußabdruck\" stärken, Stiftungs-Förderung reformieren.",
+      "key_claims": [
+        "Unternehmensspenden verzerren Demokratie",
+        "Lobbyregister braucht inhaltliche Tiefe"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Unternehmens-Spenden-Wirkungs-Argument: empirisch (Avis et al. 2018, Brookings 2020) zeigt Korrelation zwischen Spendenvolumen und politischen Zugang, Kausalität aber schwer zu isolieren. 50.000-Cap als Kompromiss — verhindert Großspender ohne Kleinspender zu betreffen. Lobbyregister „legislativer Fußabdruck\" seit 01.03.2024 in DE eingeführt — diese Position ist ergänzend/verschärfend.",
+        "empirical_check": "GRECO Round 5 Empfehlungen Germany. Brookings Money in Politics 2020. LobbyRG 2024.",
+        "tier1_sources": [
+          "https://www.coe.int/en/web/greco/evaluations/germany",
+          "https://www.brookings.edu/",
+          "https://www.gesetze-im-internet.de/lobbyrg/"
+        ],
+        "value_assumptions": "Annahme: Demokratie-Schutz vor Großgeld; Transparenz primär; Cooling-off als Drehtüren-Bremse.",
+        "claim_assessments": [
+          {
+            "claim": "Unternehmensspenden verzerren Demokratie",
+            "verdict": "teilweise gestützt",
+            "reason": "Empirie zeigt Korrelation zwischen Spendenvolumen und politischem Zugang, Kausalität ist jedoch nicht eindeutig belegt."
+          },
+          {
+            "claim": "Lobbyregister braucht inhaltliche Tiefe",
+            "verdict": "gestützt",
+            "reason": "Die Einführung des Lobbyregisters mit „legislativem Fußabdruck“ (LobbyRG 2024) bestätigt die Forderung nach mehr Transparenz und inhaltlicher Tiefe."
+          }
+        ]
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Bestehende Regeln beibehalten, keine Unternehmensspenden-Begrenzung, Cooling-off bei 18 Monaten, Lobbyregister in heutiger Form ausreichend.",
+      "key_claims": [
+        "Aktuelle Regulierung ist GG-konform und ausreichend",
+        "Cap auf Spenden gefährdet Parteienfreiheit Art. 21"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "GG-Konformität: aktuell unstrittig — Spendenregeln existieren (Veröffentlichungs-Pflicht ab 10.000 €, Verbot bei juristischen Personen mit > 50 % öffentlicher Beteiligung). „Ausreichend\" ist Werturteil. Parteienfreiheits-Argument: BVerfG hat Spendenregulierung nicht pauschal verworfen — Cap-Eingriffe sind möglich, wenn nicht unverhältnismäßig. GRECO-Empfehlungen sind eindeutig, dass DE-System Lücken hat.",
+        "empirical_check": "BVerfG-Rechtsprechung zu PartG. GRECO Round 5 Reports Germany.",
+        "tier1_sources": [
+          "https://www.bundesverfassungsgericht.de/",
+          "https://www.coe.int/en/web/greco/evaluations/germany"
+        ],
+        "value_assumptions": "Annahme: Status quo akzeptabel; Parteienfreiheit > Regulierungs-Eingriff; Selbstkontrolle ausreichend.",
+        "claim_assessments": [
+          {
+            "claim": "Aktuelle Regulierung ist GG-konform und ausreichend",
+            "verdict": "teilweise gestützt",
+            "reason": "GG-Konformität ist unstrittig, aber ‚ausreichend‘ ist ein Werturteil ohne empirische Eindeutigkeit (GRECO sieht Lücken)."
+          },
+          {
+            "claim": "Cap auf Spenden gefährdet Parteienfreiheit Art. 21",
+            "verdict": "teilweise widerlegt",
+            "reason": "BVerfG hat Cap-Eingriffe nicht pauschal verworfen, sondern nur unverhältnismäßige Einschränkungen für unzulässig erklärt."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Unternehmensspenden verbieten, Privatspenden-Cap (50.000 €), Cooling-off auf 36 Monate, Lobbyregister verschärfen (Wirtschaftslobbyisten mit Strafe bei Verstoß), parteinahe Stiftungen entparteilichen.",
+      "key_claims": [
+        "Unternehmensspenden sind strukturelles Korruptions-Risiko",
+        "Stiftungs-Förderung braucht Wirkungsnachweis"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Korruptions-Argument: empirisch teilweise gestützt (vergleichende Studien zeigen Korrelation Unternehmens-Spenden ↔ politischer Zugang/Gesetzeskanten). Stiftungs-Wirkungsnachweis: Bundesrechnungshof seit 2014 wiederholt kritisiert, dass 700 Mio. €/Jahr nicht systematisch evaluiert werden — Position deckt sich. „Vollverbot\" für Unternehmen rechtlich machbar (vgl. FR), aber Familienunternehmen-Lücke bleibt offen.",
+        "empirical_check": "BRH-Berichte 2014-2024 zu Stiftungs-Förderung. FR-Verbot juristischer Personen. GRECO Round 5.",
+        "tier1_sources": [
+          "https://www.bundesrechnungshof.de/",
+          "https://www.legifrance.gouv.fr/",
+          "https://www.coe.int/en/web/greco/evaluations/germany"
+        ],
+        "value_assumptions": "Annahme: strukturelle Korruptionsprävention > Spendenfreiheit; Stiftungen müssen ihre Wirkung belegen.",
+        "claim_assessments": [
+          {
+            "claim": "Unternehmensspenden sind strukturelles Korruptions-Risiko",
+            "verdict": "teilweise gestützt",
+            "reason": "Vergleichende Studien zeigen Korrelation zwischen Unternehmensspenden und politischem Zugang oder Gesetzeskanten, aber kein kausaler Nachweis."
+          },
+          {
+            "claim": "Stiftungs-Förderung braucht Wirkungsnachweis",
+            "verdict": "gestützt",
+            "reason": "Bundesrechnungshof kritisiert seit 2014 wiederholt fehlende systematische Evaluation der 700 Mio. € jährlicher Förderung."
+          }
+        ]
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Bestehende Regeln im Wesentlichen beibehalten, evtl. Cooling-off auf 24 Monate, keine Unternehmens-Spendenobergrenze, Lobbyregister wie heute.",
+      "key_claims": [
+        "Marktmechanismen brauchen freie Wirtschaftspolitik-Kommunikation",
+        "Transparenz statt Verbote"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Transparenz-vs-Verbote-Logik: ökonomisch valid (Information statt Eingriff). Aber: GRECO und Forschung (e.g. Princeton 2014) zeigen, dass reine Transparenz Großspenden-Effekte nicht vollständig neutralisiert. „Wirtschaftspolitik-Kommunikation\" ist Lobbying-Begriff — Transparenz im Lobbyregister bereits geregelt.",
+        "empirical_check": "Gilens & Page 2014 (Princeton, „Affluence and Influence\"). GRECO Round 5 Germany.",
+        "tier1_sources": [
+          "https://scholar.princeton.edu/sites/default/files/mgilens/files/gilens_and_page_2014_-testing_theories_of_american_politics.doc.pdf",
+          "https://www.coe.int/en/web/greco/evaluations/germany"
+        ],
+        "value_assumptions": "Annahme: Markt-Effizienz > Regulierungs-Eingriff; Selbstkontrolle der Parteien ausreichend.",
+        "claim_assessments": [
+          {
+            "claim": "Marktmechanismen brauchen freie Wirtschaftspolitik-Kommunikation",
+            "verdict": "teilweise gestützt",
+            "reason": "Die ökonomische Logik von Information statt Eingriff ist valide, aber die Gleichsetzung von 'Wirtschaftspolitik-Kommunikation' mit Lobbying und deren unregulierte Freiheit ist empirisch nicht vollständig gestützt (GRECO, Gilens & Page 2014)."
+          },
+          {
+            "claim": "Transparenz statt Verbote",
+            "verdict": "teilweise widerlegt",
+            "reason": "Transparenz ist ökonomisch und rechtlich sinnvoll, aber GRECO und Studien (z. B. Princeton 2014) zeigen, dass sie Großspenden-Effekte nicht vollständig neutralisiert."
+          }
+        ]
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Unternehmensspenden verbieten, Privatspenden-Cap (25.000 €), Cooling-off auf 60 Monate, Lobbyregister sehr scharf (Bußgelder ab 250.000 €), parteinahe Stiftungen direkt entparteilichen.",
+      "key_claims": [
+        "Politische Klasse strukturell von Wirtschaftsinteressen erfasst",
+        "Drehtüren-Effekt ist Demokratie-Krise"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Drehtüren-Empirie: dokumentierte Fälle (Pofalla → Bahn, Riester → Versicherung, Wissmann → VDA, Schmidt → SAP) belegen Phänomen. GRECO-Bewertung sieht 18-Monats-Wartezeit international unterdurchschnittlich. 60 Monate wäre weltweit eines der strengsten Modelle — FR hat 36 Monate. Vereinbarkeit mit Berufsfreiheit (Art. 12 GG) sehr zu prüfen.",
+        "empirical_check": "GRECO Round 4/5 Germany. FR HATVP Modell (36 Monate). BVerfG zu Berufsfreiheit Art. 12.",
+        "tier1_sources": [
+          "https://www.coe.int/en/web/greco/evaluations/germany",
+          "https://www.hatvp.fr/",
+          "https://www.bundesverfassungsgericht.de/"
+        ],
+        "value_assumptions": "Annahme: Klassenkampf gegen Wirtschaftsinteressen primär; Drehtüren-Prävention überwiegt Berufsfreiheit-Eingriff.",
+        "claim_assessments": [
+          {
+            "claim": "Politische Klasse strukturell von Wirtschaftsinteressen erfasst",
+            "verdict": "teilweise gestützt",
+            "reason": "Dokumentierte Drehtüren-Fälle belegen individuelle Interessenverflechtungen, eine strukturelle Erfassung ist jedoch nicht flächendeckend empirisch belegt."
+          },
+          {
+            "claim": "Drehtüren-Effekt ist Demokratie-Krise",
+            "verdict": "teilweise widerlegt",
+            "reason": "Die GRECO-Bewertung und internationale Vergleiche zeigen Defizite, aber eine akute Krise ist aus den vorliegenden Daten nicht ableitbar."
+          }
+        ]
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Parteienfinanzierung deutlich reduzieren (staatliche Finanzierung halbieren), parteinahe Stiftungen abschaffen, Lobbyregister beibehalten, Cooling-off 24 Monate.",
+      "key_claims": [
+        "Staatliche Parteienfinanzierung ist Selbstbedienung",
+        "Parteinahe Stiftungen sind versteckte Parteienfinanzierung"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Stiftungs-Argument: BRH-Berichte stützen Kritik strukturell (700 Mio. €/Jahr ohne Wirkungsnachweis). „Selbstbedienung\" ist polemisch — staatliche Teilfinanzierung ist BVerfG-konform (2 BvE 5/89, Obergrenze beachtet). Halbierung wäre große Reform, würde kleine Parteien (auch AfD selbst) stärker treffen als große, weil Sockelschwellen-Logik weniger relativ wirkt. AfD profitiert selbst stark von Stiftungs-Förderung (Desiderius-Erasmus-Stiftung) — Konsistenz-Frage.",
+        "empirical_check": "BRH-Berichte 2014-2024. BVerfG 2 BvE 5/89 zur Parteienfinanzierung. DES-Stiftungs-Förderung 2024.",
+        "tier1_sources": [
+          "https://www.bundesrechnungshof.de/",
+          "https://www.bundesverfassungsgericht.de/",
+          "https://www.bundestag.de/parlament/parteien"
+        ],
+        "value_assumptions": "Annahme: Staat soll Parteien weniger finanzieren; Anti-Establishment-Rhetorik; Stiftungs-Föderung systemfeindlich.",
+        "claim_assessments": [
+          {
+            "claim": "Staatliche Parteienfinanzierung ist Selbstbedienung",
+            "verdict": "widerlegt",
+            "reason": "Die staatliche Parteienfinanzierung ist verfassungsrechtlich legitimiert (BVerfG 2 BvE 5/89) und unterliegt Obergrenzen, die Polemik 'Selbstbedienung' ist daher unzutreffend."
+          },
+          {
+            "claim": "Parteinahe Stiftungen sind versteckte Parteienfinanzierung",
+            "verdict": "teilweise gestützt",
+            "reason": "BRH-Berichte bestätigen strukturelle Förderung (700 Mio. €/Jahr) ohne vollständigen Wirkungsnachweis, aber Stiftungen sind rechtlich eigenständig und nicht direkt parteifinanziert."
+          }
+        ]
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Unternehmensspenden begrenzen (50.000 €-Cap), Cooling-off auf 36 Monate, Lobbyregister verschärfen, parteinahe Stiftungen reformieren (Wirkungsnachweis).",
+      "key_claims": [
+        "Wirtschaftsspenden schwächen demokratische Selbstbestimmung",
+        "Drehtüren-Effekt ist Massenphänomen"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Selbstbestimmungs-Argument: gleiche Empirie wie SPD/Grünen — strukturelle Spendenwirkung ist dokumentiert. „Massenphänomen\": empirisch zu stark — dokumentierte Drehtür-Fälle sind real, aber nicht Massenstatistik (siehe HATVP-Frankreich-Berichte zu Größenordnung). Reformpaket weitgehend konsistent mit GRECO.",
+        "empirical_check": "GRECO Round 4/5 Germany. HATVP Frankreich Annual Reports.",
+        "tier1_sources": [
+          "https://www.coe.int/en/web/greco/evaluations/germany",
+          "https://www.hatvp.fr/"
+        ],
+        "value_assumptions": "Annahme: Volkssouveränität gegen Wirtschaftsinteressen; institutionelle Reform > Marktmechanismen.",
+        "claim_assessments": [
+          {
+            "claim": "Wirtschaftsspenden schwächen demokratische Selbstbestimmung",
+            "verdict": "gestützt",
+            "reason": "Strukturelle Spendenwirkung ist laut Athena-Analyse empirisch dokumentiert und vergleichbar mit SPD/Grünen."
+          },
+          {
+            "claim": "Drehtüren-Effekt ist Massenphänomen",
+            "verdict": "teilweise widerlegt",
+            "reason": "Dokumentierte Fälle sind real, aber die Größenordnung entspricht laut HATVP-Berichten nicht einem Massenphänomen."
+          }
+        ]
+      }
+    }
   ],
   "evidenz_position": {
     "kurzfassung": "Eigenes Paket aus Best-Practices, kein direktes Modell-Kopieren. Unternehmens-Vollverbot, Privatspenden mit radikaler Transparenz, 3 Jahre Cooling-off, Stiftungen entparteilichen, Lobbyregister inhaltlich vertiefen.",
@@ -41,7 +325,11 @@
     "wertannahmen": "§5 (Faktentransparenz) und §7 (Demokratie als organisierter Konflikt) gestützt; §6 (Vorsicht vor strukturellen Korruptionsrisiken) operationalisiert. §3 (Freiheit) durch Verzicht auf Privatspenden-Cap gewahrt.",
     "trade_offs_eingestanden": "Familienunternehmen-Lücke (BMW/Quandt, VW/Porsche, Aldi-Erben) bleibt; 3-Jahres-Cooling-off ist Berufsfreiheits-Eingriff (Art. 12 GG); Stiftungs-Reform politisch schwer durchsetzbar (alle Parteien profitieren aktuell)."
   },
-  "evidenz_link": {"url": "programm/parteienfinanzierung.html", "label": "EVIDENZ-Position zu Parteienfinanzierung & Lobby (vollständig)", "note": "Vollständige Optionsanalyse mit GRECO-/OECD-Bezug."},
+  "evidenz_link": {
+    "url": "programm/parteienfinanzierung.html",
+    "label": "EVIDENZ-Position zu Parteienfinanzierung & Lobby (vollständig)",
+    "note": "Vollständige Optionsanalyse mit GRECO-/OECD-Bezug."
+  },
   "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
   "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (PartG, LobbyRG, GRECO, BRH). Spenden-/Stiftungs-Volumina 2024 brauchen Live-Verifikation. Athena-Analysen nach Pipeline-Lauf finalisiert."
 }

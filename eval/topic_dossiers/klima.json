@@ -82,7 +82,19 @@
           "https://www.iea.org/reports",
           "https://www.umweltbundesamt.de/themen/klima-energie/treibhausgas-emissionen"
         ],
-        "value_assumptions": "Annahme: Klimaschutz und sozialer Ausgleich sind koppelbar; industrielle Erhaltung wiegt schwerer als rein marktwirtschaftliche Reallokation."
+        "value_assumptions": "Annahme: Klimaschutz und sozialer Ausgleich sind koppelbar; industrielle Erhaltung wiegt schwerer als rein marktwirtschaftliche Reallokation.",
+        "claim_assessments": [
+          {
+            "claim": "Klimageld kompensiert untere Einkommen vollständig für CO₂-Preis",
+            "verdict": "teilweise gestützt",
+            "reason": "DIW 2023 zeigt, dass untere 60% netto profitieren, aber keine vollständige Kompensation aller Einkommensgruppen empirisch belegt ist."
+          },
+          {
+            "claim": "Grüner Wasserstoff sichert industrielle Wertschöpfung",
+            "verdict": "teilweise widerlegt",
+            "reason": "IEA 2024 prognostiziert Wettbewerbsfähigkeit erst ab 2030-2035, abhängig von Strompreis und EU-CBAM, aktuelle Kosten sind nicht konkurrenzfähig."
+          }
+        ]
       }
     },
     {
@@ -103,7 +115,19 @@
           "https://www.iea.org/reports",
           "https://www.agora-energiewende.de/publikationen"
         ],
-        "value_assumptions": "Annahme: Technologie-Neutralität ist effizienter als sektorspezifische Vorgaben; Erhalt von Wahlfreiheit (Heizung, Pkw) wiegt politisch."
+        "value_assumptions": "Annahme: Technologie-Neutralität ist effizienter als sektorspezifische Vorgaben; Erhalt von Wahlfreiheit (Heizung, Pkw) wiegt politisch.",
+        "claim_assessments": [
+          {
+            "claim": "Technologieoffenheit erreicht Klimaziele kostengünstiger als Verbote",
+            "verdict": "teilweise gestützt",
+            "reason": "Theoretische Effizienz des CO₂-Preises (Pigou) wird anerkannt, aber praktische Umsetzung hängt von Bezugsgrößen ab und ist nicht pauschal kostengünstiger als Verbote."
+          },
+          {
+            "claim": "CCS und Kernenergie sind unverzichtbar für Klimaneutralität",
+            "verdict": "teilweise gestützt",
+            "reason": "IPCC AR6 bestätigt CCS-Notwendigkeit für schwer dekarbonisierbare Sektoren, Kernenergie ist jedoch für 2030/2045-Ziele in Deutschland nicht relevant."
+          }
+        ]
       }
     },
     {
@@ -124,7 +148,19 @@
           "https://www.ipcc.ch/report/ar6/wg3/",
           "https://expertenrat-klima.de/publikationen/"
         ],
-        "value_assumptions": "Annahme: Klimarisiken irreversibel und damit höher zu gewichten als Anpassungskosten; technologieoffener Pfad würde Tempo verlieren."
+        "value_assumptions": "Annahme: Klimarisiken irreversibel und damit höher zu gewichten als Anpassungskosten; technologieoffener Pfad würde Tempo verlieren.",
+        "claim_assessments": [
+          {
+            "claim": "100 % Erneuerbare bis 2035 sind technisch und ökonomisch machbar",
+            "verdict": "teilweise widerlegt",
+            "reason": "Fraunhofer ISE-Modelle zeigen 80-95% Machbarkeit bis 2035, 100% jedoch mit großer Unsicherheit aufgrund ungelöster Herausforderungen wie Saison-Speicher und Dunkelflauten."
+          },
+          {
+            "claim": "Klimaschutz ist Investition mit Renditen über fossiler Pfadabhängigkeit",
+            "verdict": "gestützt",
+            "reason": "BCG, Stern-Report und DIW-Studien belegen, dass die Rendite von Klimaschutzinvestitionen die Schadenskosten übersteigt, auch wenn Unsicherheiten im Diskontierungssatz bestehen."
+          }
+        ]
       }
     },
     {
@@ -145,7 +181,19 @@
           "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
           "https://www.iea.org/reports"
         ],
-        "value_assumptions": "Annahme: Marktmechanismen sind effizient genug, soziale Härten lassen sich kompensieren; Technologieoffenheit > Pfadwahl durch Staat."
+        "value_assumptions": "Annahme: Marktmechanismen sind effizient genug, soziale Härten lassen sich kompensieren; Technologieoffenheit > Pfadwahl durch Staat.",
+        "claim_assessments": [
+          {
+            "claim": "CO₂-Preis als Leitinstrument ist effizienter als Subventionen",
+            "verdict": "teilweise gestützt",
+            "reason": "Ökonomische Theorie (Pigou) unterstützt die Effizienz, aber empirische Wirkung hängt von Preishöhe und Begleitpolitik ab."
+          },
+          {
+            "claim": "EU-ETS-Ausweitung erreicht Klimaziele kostengünstiger",
+            "verdict": "teilweise gestützt",
+            "reason": "EU-ETS 1 zeigt seit 2018 Steuerungswirkung, aber ETS 2 (ab 2027) ist noch nicht evaluiert und soziale Verteilungsfragen bleiben offen."
+          }
+        ]
       }
     },
     {
@@ -166,7 +214,19 @@
           "https://www.agora-energiewende.de/publikationen",
           "https://www.bundesverfassungsgericht.de/"
         ],
-        "value_assumptions": "Annahme: Klimarisiken überwiegen Eigentums-Reorganisations-Risiken; Marktversagen rechtfertigt strukturelle Eingriffe."
+        "value_assumptions": "Annahme: Klimarisiken überwiegen Eigentums-Reorganisations-Risiken; Marktversagen rechtfertigt strukturelle Eingriffe.",
+        "claim_assessments": [
+          {
+            "claim": "Vergesellschaftung Energiekonzerne ermöglicht schnellere Transformation",
+            "verdict": "offen",
+            "reason": "Keine empirische Vergleichsbasis im deutschen Kontext vorhanden; laufendes Verfassungsverfahren lässt keine abschließende Bewertung zu."
+          },
+          {
+            "claim": "Klimaneutralität 2035 ist mit Investitionsoffensive machbar",
+            "verdict": "widerlegt",
+            "reason": "Liegt außerhalb des Konsens-Korridors von IEA, IPCC und Fraunhofer-Modellen und wird in der Forschungsliteratur als nicht durch klare Machbarkeitsmodelle gestützt eingestuft."
+          }
+        ]
       }
     },
     {
@@ -192,7 +252,19 @@
           "https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-electrique-francais",
           "https://www.ipcc.ch/report/ar6/wg3/"
         ],
-        "value_assumptions": "Annahme: nationaler Eigennutz > kollektives Klimakooperationsziel; Kosten der Klimapolitik wiegen schwerer als langfristige Schadensvermeidung."
+        "value_assumptions": "Annahme: nationaler Eigennutz > kollektives Klimakooperationsziel; Kosten der Klimapolitik wiegen schwerer als langfristige Schadensvermeidung.",
+        "claim_assessments": [
+          {
+            "claim": "Deutschland verursacht weniger als 2 % der globalen CO₂-Emissionen",
+            "verdict": "gestützt",
+            "reason": "Laut EDGAR-CO₂-Inventar 2024 liegt der deutsche Anteil bei 1,8 %, was die Behauptung bestätigt."
+          },
+          {
+            "claim": "Nationale Klimapolitik hat keinen messbaren Einfluss auf Weltklima",
+            "verdict": "widerlegt",
+            "reason": "Die Analyse zeigt, dass deutsche EE-Förderung (2000–2015) globale Solar-Kosten um über 80 % senkte und Kollektivhandeln sowie Technologie-Lerneffekte wirksam sind."
+          }
+        ]
       }
     },
     {
@@ -214,7 +286,19 @@
           "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
           "https://www.umweltbundesamt.de/publikationen"
         ],
-        "value_assumptions": "Annahme: Industrieerhalt und Energiebezahlbarkeit > Klima-Pfadtreue; geopolitische Bindung an Russland akzeptabel als Preis-Stabilisierung."
+        "value_assumptions": "Annahme: Industrieerhalt und Energiebezahlbarkeit > Klima-Pfadtreue; geopolitische Bindung an Russland akzeptabel als Preis-Stabilisierung.",
+        "claim_assessments": [
+          {
+            "claim": "Aktueller Klimaschutzpfad führt zur Deindustrialisierung",
+            "verdict": "teilweise widerlegt",
+            "reason": "Daten zeigen rückläufige Industrieproduktion, aber Kausalität zur Klimapolitik ist umstritten; DIW und SVR sehen andere Faktoren (Gas-Preis-Schock, globale Nachfrage) als dominant."
+          },
+          {
+            "claim": "Russisches Gas würde Energiepreise und damit Industrieemissionen senken",
+            "verdict": "teilweise gestützt",
+            "reason": "Preisvorteil russischen Gases ist empirisch belegt, aber Klima-Folgewirkungen (Methan-Leakage, Pfadabhängigkeit) widerlegen langfristige Emissionssenkung."
+          }
+        ]
       }
     }
   ],
