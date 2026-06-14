@@ -282,9 +282,14 @@ def tier_aware_retrieve(
     # "+N weitere") und Anzahl UNTERSCHIEDLICHER Quellen (für den Mindest-Floor;
     # mehrere Chunks aus einer Quelle = ein Beleg, nicht mehrere).
     distinct = len({d.metadata.get("source") for d in selected})
+    # Wie viele UNTERSCHIEDLICHE relevante Quellen gab es insgesamt (über dem Floor),
+    # und wie viele davon hat der Deckel weggelassen → "+N weitere relevante Quellen".
+    distinct_relevant = len({d.metadata.get("source") for d, _ in relevant})
+    more_sources = max(0, distinct_relevant - distinct)
     for d in selected:
         d.metadata["_relevant_total"] = len(relevant)
         d.metadata["_distinct_sources"] = distinct
+        d.metadata["_more_sources"] = more_sources
     return selected
 
 

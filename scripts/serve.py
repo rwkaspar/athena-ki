@@ -1635,7 +1635,7 @@ def _chat_event_stream(req: ChatRequest):
         # source_meta: pro Quelle lesbarer Titel (für die Anzeige statt roher URL).
         # title = kurzer Anzeigetitel, title_full = vollständiger Originaltitel (Hover).
         source_meta = {}
-        trans_idx = _translation_index(scope)
+        trans_idx = _translation_index(req.scope)
         for d in docs + evidenz_docs:
             src = d.metadata.get("source", "?")
             if d.metadata.get("tier_rank") == 0:
@@ -1653,10 +1653,14 @@ def _chat_event_stream(req: ChatRequest):
                     # tauchen hier nur als Service-Link für die Lesenden auf.
                     "translations": trans_idx.get(src, []),
                 }
+        # "+N weitere relevante Quellen": über dem Floor lagen mehr unabhängige
+        # Quellen, als der Deckel zeigt — Transparenz statt stillem Abschneiden.
+        more_sources = docs[0].metadata.get("_more_sources", 0) if docs else 0
         yield _ndjson({"type": "sources", "sources": seen, "source_meta": source_meta,
                        "provider": provider,
                        "includes_unverified": has_unverified,
-                       "includes_evidenz_position": has_evidenz_position})
+                       "includes_evidenz_position": has_evidenz_position,
+                       "more_sources": more_sources})
 
         # Kontext: normale Quellen + (klar getrennt) die dokumentierte EVIDENZ-Position.
         # CAP: vage Fragen holen viele/lange Quellen → Prompt kann num_ctx sprengen
