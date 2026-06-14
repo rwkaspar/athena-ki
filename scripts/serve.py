@@ -68,9 +68,9 @@ RETRIEVER_FETCH_K = 20
 CHAT_SIM_FLOOR = 0.45
 ABSTAIN_MESSAGE = (
     "Dazu finde ich in meiner kuratierten Quellenbasis **keine ausreichend belegten "
-    "Quellen** — und ich rate nicht. Athena antwortet nur, wenn Primärquellen (Gesetze, "
-    "amtliche Statistik, Gutachten) die Aussage tragen. Frag gern anders formuliert, "
-    "enger auf ein Thema bezogen, oder schau in die [Quellenbasis](/quellen.html)."
+    "Quellen** — und ich rate nicht. Ich antworte nur, wenn Primärquellen (Gesetze, "
+    "amtliche Statistik, Gutachten) die Aussage tragen. Frag mich gern anders formuliert "
+    "oder enger auf ein Thema bezogen — oder schau direkt in die [Quellenbasis](/quellen.html)."
 )
 
 # Pro Scope: welches Modell pro Provider verwendet wird.
