@@ -241,6 +241,14 @@ def tier_aware_retrieve(
         # Tier 0 = unverifiziert: nur einbeziehen, wenn ausdrücklich gewünscht.
         if rank == 0 and not include_unverified:
             continue
+        # Sprach-Filter: bge-m3 ist zwar cross-lingual, aber arabische/kyrillische
+        # Quellen würden Halluzinations-Risiko erhöhen, wenn das Modell sie für
+        # deutsche Fragen einbezieht. Default-Whitelist: de, en. Fremdsprachige
+        # Quellen bleiben in der DB (Quellen-Seite zeigt sie), Retrieval überspringt.
+        topics_str = (doc.metadata.get("topics") or "")
+        lang_match = re.search(r"lang:([a-z]{2,3})", topics_str)
+        if lang_match and lang_match.group(1) not in ("de", "en"):
+            continue
         if not use_tier_boost:
             boost = 1.0
         elif rank == 0:

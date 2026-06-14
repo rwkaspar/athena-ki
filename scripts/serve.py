@@ -519,6 +519,60 @@ def _check_ollama() -> bool:
         return False
 
 
+def _translation_index(scope: str, _cache: dict = {}) -> dict:
+    """Map deutsches-Original → Liste von Übersetzungen: [{lang, url, title}].
+    Wird beim /chat-Endpoint genutzt, um Sprachfassungen direkt in den
+    Chat-Quellenlinks anzubieten („auch verfügbar in: 🇸🇦 ar"). Einfacher
+    In-Process-Cache (max. 30 s) — bei jeder Inferenz-Antwort den ganzen
+    Index zu scannen wäre verschwenderisch."""
+    import time, re
+    now = time.time()
+    cached = _cache.get(scope)
+    if cached and now - cached["ts"] < 30:
+        return cached["idx"]
+    from urllib.parse import unquote
+    vectorstores, _ = _get_components(scope)
+    idx: dict[str, list] = {}
+    for collection_name, vs in vectorstores.items():
+        offset, page = 0, 10000
+        while True:
+            try:
+                data = vs.get(include=["metadatas"], limit=page, offset=offset)
+            except Exception:
+                break
+            metas = data.get("metadatas") or []
+            if not metas:
+                break
+            for m in metas:
+                topics = (m or {}).get("topics") or ""
+                if "translation_of:" not in topics:
+                    if len(metas) < page:
+                        break
+                    continue
+                lang_m = re.search(r"lang:([a-z]{2,3})", topics)
+                trans_m = re.search(r"translation_of:([^,]+)", topics)
+                if not trans_m:
+                    continue
+                orig = unquote(trans_m.group(1))
+                src = (m or {}).get("source") or ""
+                if not src:
+                    continue
+                entry = {
+                    "lang": (lang_m.group(1) if lang_m else "?"),
+                    "url": src,
+                    "title": m.get("title"),
+                }
+                bucket = idx.setdefault(orig, [])
+                # Dedup per (url, lang)
+                if not any(b["url"] == entry["url"] and b["lang"] == entry["lang"] for b in bucket):
+                    bucket.append(entry)
+            if len(metas) < page:
+                break
+            offset += len(metas)
+    _cache[scope] = {"ts": now, "idx": idx}
+    return idx
+
+
 def _collect_sources(scope: str) -> list[dict]:
     """Aggregiere alle ingestierten Quellen aus beiden Collections eines Scopes.
     Pro Source: chunk-count, tier, source_type, letztes ingest-Datum."""
@@ -1076,11 +1130,58 @@ def verify_logout():
     return resp
 
 
+def _user_languages(email: str | None) -> list[str]:
+    """Sprachkenntnisse des Reviewers (lowercase ISO-Codes). Leer = unbekannt."""
+    if not email:
+        return []
+    u = _accounts_load().get(email) or {}
+    return [str(l).strip().lower() for l in (u.get("languages") or []) if l]
+
+
+@app.get("/verify/profile")
+def verify_profile(request: Request):
+    """Eigenes Reviewer-Profil zurückgeben (aktuell: Sprachkenntnisse)."""
+    sess = _verify_require(request)
+    return {"email": sess.get("email"), "role": sess["role"],
+            "languages": _user_languages(sess.get("email"))}
+
+
+@app.post("/verify/profile/languages")
+async def verify_profile_languages(request: Request):
+    """Reviewer hinterlegt Sprachkenntnisse (z. B. ['de','ar','en']) — werden
+    in der Pending-Queue benutzt, um fremdsprachige Submissions an passende
+    Reviewer:innen zu routen. Speichert in accounts.json."""
+    sess = _verify_require(request)
+    email = sess.get("email")
+    if not email:
+        raise HTTPException(status_code=403, detail="Kein eigener Account.")
+    body = await request.json()
+    langs = body.get("languages") or []
+    if not isinstance(langs, list):
+        raise HTTPException(status_code=400, detail="languages muss Liste sein.")
+    # ISO-Codes-Validierung (2-3 Zeichen, alpha)
+    clean = []
+    for l in langs[:20]:
+        c = str(l).strip().lower()
+        if 2 <= len(c) <= 3 and c.isalpha() and c not in clean:
+            clean.append(c)
+    users = _accounts_load()
+    if email not in users:
+        raise HTTPException(status_code=404, detail="Account nicht gefunden.")
+    users[email]["languages"] = clean
+    users[email]["languages_updated_at"] = datetime.now(timezone.utc).isoformat()
+    _accounts_save(users)
+    return {"ok": True, "languages": clean}
+
+
 @app.get("/verify/pending")
 def verify_pending(request: Request):
     sess = _verify_require(request)
     from review_submissions import list_pending, load_meta, _source_value
     is_admin = sess["role"] == "admin"
+    # Sprach-Profil des Users — fremdsprachige Submissions werden danach
+    # priorisiert. „de" und „en" sind implizit immer drin (Standard-RAG-Sprachen).
+    user_langs = set(_user_languages(sess.get("email"))) | {"de", "en"}
     out = []
     for d in list_pending():
         m = load_meta(d)
@@ -1108,7 +1209,20 @@ def verify_pending(request: Request):
             "advisory_votes": adv, "vote_count": len(votes),
             "my_vote": {"vote": my.get("vote"), "reason": my.get("reason")} if my else None,
         })
-    return {"total": len(out), "pending": out, "role": sess["role"]}
+
+    # Sortierung nach Sprach-Match: fremdsprachige Submissions, die genau die
+    # Reviewer-Sprachen treffen, zuerst. Submissions in nicht-passenden
+    # Fremdsprachen wandern ans Ende — sie warten auf einen anderen Helfer.
+    def _lang_priority(item):
+        l = (item.get("lang") or "").lower()
+        if not item.get("needs_language_review"):
+            return 0  # normale de/en-Submissions: Standardpriorität
+        if l in user_langs:
+            return -1  # passt zu eigener Sprache → ganz nach oben
+        return 1  # fremde Sprache, die ich NICHT spreche → ans Ende
+    out.sort(key=_lang_priority)
+    return {"total": len(out), "pending": out, "role": sess["role"],
+            "my_languages": sorted(user_langs)}
 
 
 @app.post("/verify/decide")
@@ -1122,7 +1236,8 @@ async def verify_decide(request: Request):
     reason = (body.get("reason") or "").strip()[:2000]
     tier_in = body.get("tier")
     from review_submissions import (load_meta, _update_tier0_chunks, _log_status,
-                                    move_to, ingest_submission, APPROVED_DIR, REJECTED_DIR)
+                                    move_to, ingest_submission, APPROVED_DIR, REJECTED_DIR,
+                                    CLARIFICATION_DIR)
     sub_dir = SUBMISSIONS_DIR / "pending" / sid
     if not sid or not sub_dir.exists():
         raise HTTPException(status_code=404, detail="Submission nicht gefunden.")
@@ -1154,6 +1269,12 @@ async def verify_decide(request: Request):
         _log_status(sid, "rejected", {"reject_reason": reason, "decided_via": "web"})
         return {"ok": True, "decision": "nein"}
     if decision == "klaerung":
+        # Submission aus pending/ rausziehen — sonst taucht sie weiter in der
+        # Review-Queue auf. Wartet in clarification/ bis Rückmeldung kommt
+        # oder Admin sie über /verify/clarification/return wieder zurückholt.
+        move_to(sub_dir, CLARIFICATION_DIR, extra_meta={
+            "clarified_at": datetime.now(timezone.utc).isoformat(),
+            "clarification_note": reason, "decided_by": sess["role"]})
         _log_status(sid, "needs_clarification", {"clarification_note": reason, "decided_via": "web"})
         return {"ok": True, "decision": "klaerung"}
     raise HTTPException(status_code=400, detail="decision muss ja|nein|klaerung sein.")
@@ -1454,6 +1575,7 @@ def _chat_event_stream(req: ChatRequest):
         # source_meta: pro Quelle lesbarer Titel (für die Anzeige statt roher URL).
         # title = kurzer Anzeigetitel, title_full = vollständiger Originaltitel (Hover).
         source_meta = {}
+        trans_idx = _translation_index(scope)
         for d in docs + evidenz_docs:
             src = d.metadata.get("source", "?")
             if d.metadata.get("tier_rank") == 0:
@@ -1466,6 +1588,10 @@ def _chat_event_stream(req: ChatRequest):
                     "title": m.get("title") or None,
                     "title_full": m.get("title_full") or m.get("title") or None,
                     "tier_label": m.get("tier_label"),
+                    # Übersetzungen dieser Quelle (für Bürger-Querverlinkung im Chat).
+                    # RAG nutzt nur de/en; arabische/türkische/russische Fassungen
+                    # tauchen hier nur als Service-Link für die Lesenden auf.
+                    "translations": trans_idx.get(src, []),
                 }
         yield _ndjson({"type": "sources", "sources": seen, "source_meta": source_meta,
                        "provider": provider,

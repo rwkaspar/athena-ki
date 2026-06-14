@@ -82,8 +82,41 @@ def get_vectorstore(embeddings):
     )
 
 
+# Mojibake-Substitutionen: typische UTF-8-als-Latin-1-Fehldekodierungen.
+# Greift bei PDFs mit kaputtem Encoding und schlecht konfigurierten HTML-Crawls.
+# Wir reparieren konservativ — nur die häufigsten 1:1-Fälle, keine wilden Heuristiken,
+# die korrekte Texte versehentlich verbiegen.
+_MOJIBAKE_FIXES = [
+    ("Ã¼", "ü"), ("Ã¶", "ö"), ("Ã¤", "ä"), ("ÃŸ", "ß"),
+    ("Ãœ", "Ü"), ("Ã–", "Ö"), ("Ã„", "Ä"),
+    ("Ã©", "é"), ("Ã¨", "è"), ("Ã ", "à"), ("Ã§", "ç"),
+    # Anführungszeichen / Bindestriche — längere Pattern ZUERST.
+    ("â€ž", "„"), ("â€œ", "\""), ("â€", "\""),
+    ("â€™", "'"), ("â€˜", "'"),
+    ("â€“", "–"), ("â€”", "—"), ("â€¦", "…"),
+    ("â‚¬", "€"),
+    ("Â§", "§"), ("Â°", "°"), ("Â©", "©"), ("Â®", "®"),
+    (" ", " "),  # non-breaking-space → normales Leerzeichen für Tokenizer
+]
+
+
+def _fix_mojibake(text: str) -> str:
+    if not text:
+        return text
+    for bad, good in _MOJIBAKE_FIXES:
+        if bad in text:
+            text = text.replace(bad, good)
+    return text
+
+
 def split_documents(docs):
-    """Dokumente in Chunks aufteilen."""
+    """Dokumente in Chunks aufteilen — mit Mojibake-Cleanup VOR dem Splitten,
+    damit beschädigte UTF-8-Sequenzen (Ã¼/Ã¶/Ã¤/â€™ etc.) nicht in die Embeddings
+    fließen. Embedding-Modelle (bge-m3) tokenisieren Mojibake-Bytes als eigene
+    Subwörter — Treffer werden dadurch deutlich schlechter."""
+    for d in docs:
+        if d.page_content:
+            d.page_content = _fix_mojibake(d.page_content)
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
         chunk_overlap=CHUNK_OVERLAP,

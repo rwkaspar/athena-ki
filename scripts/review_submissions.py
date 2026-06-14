@@ -25,6 +25,10 @@ SUBMISSIONS_DIR = Path(__file__).parent.parent / "submissions"
 PENDING_DIR = SUBMISSIONS_DIR / "pending"
 APPROVED_DIR = SUBMISSIONS_DIR / "approved"
 REJECTED_DIR = SUBMISSIONS_DIR / "rejected"
+# Klärung: Reviewer hat eine Rückfrage gestellt — die Submission ist weder
+# freigegeben noch abgelehnt, soll aber nicht weiter in der pending-Queue
+# auftauchen. Wartet hier, bis Rückmeldung kommt oder Admin sie zurückholt.
+CLARIFICATION_DIR = SUBMISSIONS_DIR / "clarification"
 INGEST_SCRIPT = Path(__file__).parent / "ingest.py"
 
 
@@ -357,6 +361,9 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Nur zeigen, nichts ändern")
     parser.add_argument("--allow-uvicorn", action="store_true",
                         help="Schutz übergehen (NICHT empfohlen — Korruptionsrisiko)")
+    parser.add_argument("--foreign-only", action="store_true",
+                        help="Nur fremdsprachige Submissions (needs_language_review=True) anzeigen.")
+    parser.add_argument("--lang", help="Nur Submissions in dieser Sprache (de/en/ar/ru/...)")
     args = parser.parse_args()
 
     # SCHUTZ: Freigabe/Reject/Re-Review schreiben direkt in ChromaDB. Im EMBEDDED-
@@ -377,6 +384,25 @@ def main():
         )
 
     pending = list_pending()
+    # Sprach-Filter: bei --foreign-only nur Submissions mit needs_language_review;
+    # bei --lang nur Submissions in dieser Sprache.
+    if args.foreign_only or args.lang:
+        def _matches(p):
+            try:
+                m = load_meta(p)
+            except Exception:
+                return False
+            if args.foreign_only and not m.get("needs_language_review"):
+                return False
+            if args.lang and (m.get("lang") or "").lower() != args.lang.lower():
+                return False
+            return True
+        pending = [p for p in pending if _matches(p)]
+        if args.foreign_only or args.lang:
+            tag = []
+            if args.foreign_only: tag.append("foreign")
+            if args.lang: tag.append(f"lang={args.lang}")
+            print(f"[review] Filter: {', '.join(tag)} → {len(pending)} Submissions")
     if not pending:
         print("Keine pending Submissions.")
         return

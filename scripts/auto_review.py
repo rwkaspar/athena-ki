@@ -268,6 +268,40 @@ TEXTAUSZUG:
     return _finalize_review(submission_dir, meta, source, domain, verdict, sample)
 
 
+def _guess_translation_original(url: str, lang_code: str) -> str | None:
+    """Heuristik: ist eine Übersetzung des deutschen Originals erkennbar?
+
+    Regeln:
+    - bundestag.de-Blobs (parteiengesetz.pdf etc.): deutsches Original ist
+      üblicherweise unter gesetze-im-internet.de/<kuerzel>/ erreichbar.
+    - URL-Pfade mit /<lang>/ → durch /de/ ersetzen, prüfen ob das deutsche
+      Pendant ein bekanntes Pattern ist.
+    - URL-Dateinamen mit _<lang>.pdf → durch _de.pdf ersetzen.
+
+    Liefert geratenes deutsches Original-URL oder None.
+    """
+    if not url or lang_code in ("de", "unknown", "en"):
+        return None
+    # bundestag.de + Schlüssel-Gesetze (kuerzel im Dateinamen)
+    import re as _re
+    m = _re.search(r"/(partg|bwahlg|gg|asylvfg|aufenthg|sgb_\d+)\.pdf", url, _re.I)
+    if "bundestag.de" in url and "parteiengesetz" in url.lower():
+        return "https://www.gesetze-im-internet.de/partg/"
+    if "bundestag.de" in url and "wahlgesetz" in url.lower():
+        return "https://www.gesetze-im-internet.de/bwahlg/"
+    if "bundestag.de" in url and "grundgesetz" in url.lower():
+        return "https://www.gesetze-im-internet.de/gg/"
+    # /ar/ /tr/ /fr/ etc. → /de/
+    sub = _re.sub(rf"/{lang_code}/", "/de/", url)
+    if sub != url:
+        return sub
+    # _ar.pdf → _de.pdf
+    sub = _re.sub(rf"_{lang_code}\.pdf$", "_de.pdf", url)
+    if sub != url:
+        return sub
+    return None
+
+
 def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
     """Verdict zeitstempeln, an meta.json schreiben, ggf. Tier-0 ingestieren, loggen.
     Gemeinsamer Abschluss für LLM-Bewertung UND Vorfilter-Entscheidung."""
@@ -286,6 +320,14 @@ def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
         meta["lang"] = lang["code"]
         if is_foreign(lang["code"]):
             meta["needs_language_review"] = True
+            # Heuristik „Übersetzung von": URL-Pfade mit /ar/, /en/, _ar.pdf etc.
+            # Wenn Sprachfassung erkennbar → deutsches Pendant schätzen.
+            if meta.get("kind") == "url":
+                src_url = meta.get("url") or ""
+                guess = _guess_translation_original(src_url, lang["code"])
+                if guess:
+                    verdict["is_translation_of"] = guess
+                    meta["is_translation_of"] = guess
     except Exception:
         pass
     # Topics zentral normalisieren: Aliase auflösen (z. B. aussenpolitik →
@@ -325,6 +367,17 @@ def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
         applies = (tr.get("applies") or "").strip().lower()
         if applies and applies != "n/a":
             topic_list.append(f"transfer:{applies}")
+        # Sprache als Pseudo-Tag: nur wenn ≠ de, damit /sources die fremdsprachige
+        # Quelle als solche kennzeichnen und ggf. unter dem Original einklappen kann.
+        lang_code = (verdict.get("lang") or "").strip().lower()
+        if lang_code and lang_code not in ("de", "unknown"):
+            topic_list.append(f"lang:{lang_code}")
+        # Übersetzung-von-Verweis ebenfalls als Pseudo-Tag (URL-encoded, damit
+        # Komma-Splitting in topics nicht zerlegt wird).
+        translation_of = verdict.get("is_translation_of") or ""
+        if translation_of:
+            from urllib.parse import quote
+            topic_list.append(f"translation_of:{quote(translation_of, safe=':/.')}")
         topics = ",".join(topic_list)
         label = (verdict.get("publisher") or "User-Submission")[:120]
         rc = _ingest_as_tier0(meta, submission_dir, label, topics)
