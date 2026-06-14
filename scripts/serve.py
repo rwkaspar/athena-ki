@@ -1200,6 +1200,7 @@ def verify_pending(request: Request):
             "lang": m.get("lang") or ar.get("lang"),
             "lang_name": ar.get("lang_name"),
             "needs_language_review": bool(m.get("needs_language_review")),
+            "is_translation_of": m.get("is_translation_of") or ar.get("is_translation_of"),
             "athena": {
                 "recommendation": ar.get("recommendation"), "summary": ar.get("summary"),
                 "publisher": ar.get("publisher"), "publisher_trust": ar.get("publisher_trust"),
@@ -1225,6 +1226,26 @@ def verify_pending(request: Request):
             "my_languages": sorted(user_langs)}
 
 
+def _resolve_translation_original(scope: str, url: str) -> str:
+    """Mappt die vom Reviewer angegebene Original-URL auf die tatsächlich
+    ingestierte Quellen-URL — sonst verwaist die Sprachfassung auf quellen.html
+    (das Einklappen unters Original braucht exaktes URL-Match).
+    Reihenfolge: exakt > Slash-tolerant > Prefix (z. B. …/partg/ → …/partg/BJNR…html).
+    Fällt auf die Eingabe zurück, wenn nichts passt."""
+    if not url:
+        return url
+    norm = url.rstrip("/").lower()
+    try:
+        sources = [s.get("source") or "" for s in _collect_sources(scope)]
+    except Exception:
+        return url
+    for s in sources:                                   # exakt / Slash-tolerant
+        if s.rstrip("/").lower() == norm:
+            return s
+    cands = [s for s in sources if s.rstrip("/").lower().startswith(norm)]
+    return min(cands, key=len) if cands else url        # kürzeste = kanonischste
+
+
 @app.post("/verify/decide")
 async def verify_decide(request: Request):
     sess = _verify_require(request)
@@ -1237,7 +1258,7 @@ async def verify_decide(request: Request):
     tier_in = body.get("tier")
     from review_submissions import (load_meta, _update_tier0_chunks, _log_status,
                                     move_to, ingest_submission, APPROVED_DIR, REJECTED_DIR,
-                                    CLARIFICATION_DIR)
+                                    CLARIFICATION_DIR, _set_source_lang_tags)
     sub_dir = SUBMISSIONS_DIR / "pending" / sid
     if not sid or not sub_dir.exists():
         raise HTTPException(status_code=404, detail="Submission nicht gefunden.")
@@ -1253,6 +1274,22 @@ async def verify_decide(request: Request):
                 ingest_note = f"re-ingest rc={ingest_submission(sub_dir, meta, tier, label)}"
         else:
             ingest_note = f"ingest rc={ingest_submission(sub_dir, meta, tier, label)}"
+        # Sprach-Behandlung: der Reviewer wählt die Bahn. Fremdsprachige Quellen
+        # bekommen IMMER ein lang:-Tag (sonst lecken sie ins Retrieval). Bei
+        # "translation" wird zusätzlich translation_of gesetzt (→ Bürger-Querlink
+        # auf der Quellen-Seite, nicht für Athena), bei "standalone" entfernt.
+        lang_code = (meta.get("lang") or ar.get("lang") or "").strip().lower()
+        lang_mode = (body.get("lang_mode") or "").strip().lower()
+        translation_of = (body.get("translation_of") or "").strip()
+        if (lang_code and lang_code not in ("de", "unknown")) or lang_mode:
+            to = "-"
+            if lang_mode == "translation" and translation_of:
+                to = _resolve_translation_original(meta.get("scope") or "pfofeld", translation_of)
+            translation_of = to if to != "-" else translation_of
+            n_tag = _set_source_lang_tags(meta, lang_code, to)
+            ingest_note += (f" · lang:{lang_code or '—'}"
+                            + (f" translation_of={translation_of}" if to != "-" else " (eigenständig)")
+                            + f" [{n_tag} chunks]")
         move_to(sub_dir, APPROVED_DIR, extra_meta={
             "approved_at": datetime.now(timezone.utc).isoformat(),
             "approved_tier": tier, "approved_label": label,

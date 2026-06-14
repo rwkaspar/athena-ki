@@ -101,6 +101,46 @@ def _update_tier0_chunks(meta: dict, new_tier: int, label: str) -> int:
     return affected
 
 
+def _set_source_lang_tags(meta: dict, lang_code: str = "", translation_of: str = "") -> int:
+    """Setzt Sprach-Pseudo-Tags auf ALLEN Chunks einer Quelle (Tier-unabhängig):
+    - lang:<code>          → fremdsprachig; Retrieval schließt sie aus (de/en-Whitelist),
+                             die Quellen-Seite zeigt sie aber weiter an.
+    - translation_of:<url> → als Sprachfassung eines deutschen Originals eingeordnet;
+                             quellen.html klappt sie unter dem Original ein.
+    translation_of="-" entfernt einen bestehenden translation_of-Tag (= eigenständige Quelle).
+    Bestehende lang:/translation_of:-Tags werden vorher entfernt (idempotent).
+    Liefert Anzahl aktualisierter Chunks."""
+    from retrieval import collection_names_for, get_chroma_client
+    from urllib.parse import quote
+    source_url = meta.get("url") if meta.get("kind") == "url" else None
+    if not source_url:
+        return 0
+    client = get_chroma_client()
+    affected = 0
+    for coll_name in collection_names_for(meta.get("scope", "pfofeld")):
+        try:
+            coll = client.get_collection(coll_name)
+            got = coll.get(where={"source": source_url})
+        except Exception:
+            continue
+        ids = got.get("ids") or []
+        if not ids:
+            continue
+        metas = got.get("metadatas") or []
+        for m in metas:
+            tags = [t for t in (m.get("topics") or "").split(",")
+                    if t.strip() and not t.strip().startswith("lang:")
+                    and not t.strip().startswith("translation_of:")]
+            if lang_code and lang_code not in ("de", "unknown"):
+                tags.append(f"lang:{lang_code}")
+            if translation_of and translation_of != "-":
+                tags.append(f"translation_of:{quote(translation_of, safe=':/.')}")
+            m["topics"] = ",".join(tags)
+        coll.update(ids=ids, metadatas=metas)
+        affected += len(ids)
+    return affected
+
+
 def _log_status(submission_id: str, new_status: str, extra: dict | None = None):
     """Status im öffentlichen Prüf-Protokoll (log.jsonl) nachführen — hängt eine
     Statuszeile an, damit die Seite den finalen Zustand (verified/rejected) zeigt."""
