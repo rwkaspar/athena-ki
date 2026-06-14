@@ -1,0 +1,48 @@
+{
+  "question": "Welche Pflichten gelten für Hochrisiko-KI-Systeme nach der EU-KI-Verordnung?",
+  "scope": "bund",
+  "k": 5,
+  "fetch_k": 20,
+  "chunks": [
+    {
+      "tier": 1,
+      "score": 0.6774,
+      "similarity": 0.6774,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "e) die von ihren Hochrisiko-KI-Systemen automatisch erzeugten Protokolle gemäß Artikel 19 aufbewahren, wenn diese ihrer Kontrolle unterliegen; f) sicherstellen, dass das Hochrisiko-KI-System dem betreffenden Konformitätsbewertungsverfahren gemäß Artikel 43 unterzogen wird, bevor "
+    },
+    {
+      "tier": 1,
+      "score": 0.6265,
+      "similarity": 0.6265,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "ABSCHNITT 3 Pflichten der Anbieter und Betreiber von Hochrisiko-KI-Systemen und anderer Beteiligter Artikel 16 Pflichten der Anbieter von Hochrisiko-KI-Systemen Anbieter von Hochrisiko-KI-Systemen müssen a) sicherstellen, dass ihre Hochrisiko-KI-Systeme die in Abschnitt 2 festgel"
+    },
+    {
+      "tier": 1,
+      "score": 0.6203,
+      "similarity": 0.6203,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "Um die Arbeit der Kommission und der Mitgliedstaaten im KI-Bereich zu erleichtern und die Transparenz gegenüber der Öffentlichkeit zu erhöhen, sollten Anbieter von Hochrisiko-KI-Systemen, die nicht im Zusammenhang mit Produkten stehen, welche in den Anwendungsbereich einschlägige"
+    },
+    {
+      "tier": 1,
+      "score": 0.6011,
+      "similarity": 0.6011,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "dieser Verordnung aufgeführten Anwendungsfall der Hochrisiko-KI-Systeme, denen die betreffenden Hochrisiko-KI-Systeme entsprechen, beziehen. Jede wesentliche Veränderung von Hochrisiko-KI-Systemen sollte ebenfalls in der EU-Datenbank registriert werden. Bei Hochrisiko-KI-Systemen"
+    },
+    {
+      "tier": 1,
+      "score": 0.6,
+      "similarity": 0.6,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "(21) und (EU) 2017/746 (22) des Europäischen Parlaments und des Rates oder die Richtlinie 2006/42/EG des Europäischen Parlaments und des Rates (23) auf ein Produkt anwendbar sein können, da die Bereitstellung oder Inbetriebnahme nur erfolgen kann, wenn das Produkt allen geltenden"
+    }
+  ]
+}
