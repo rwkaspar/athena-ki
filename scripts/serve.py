@@ -62,6 +62,16 @@ EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "bge-m3")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
 RETRIEVER_K = 5
 RETRIEVER_FETCH_K = 20
+# Evidenz-Gate (Anti-Halluzination): Relevanz-Schwelle auf der Similarity.
+# Empirisch kalibriert — relevante Fragen liegen ~0.6, themenfremder Unsinn ~0.25.
+# Unter der Schwelle trägt keine Quelle → Athena schweigt, statt zu raten.
+CHAT_SIM_FLOOR = 0.45
+ABSTAIN_MESSAGE = (
+    "Dazu finde ich in meiner kuratierten Quellenbasis **keine ausreichend belegten "
+    "Quellen** — und ich rate nicht. Athena antwortet nur, wenn Primärquellen (Gesetze, "
+    "amtliche Statistik, Gutachten) die Aussage tragen. Frag gern anders formuliert, "
+    "enger auf ein Thema bezogen, oder schau in die [Quellenbasis](/quellen.html)."
+)
 
 # Pro Scope: welches Modell pro Provider verwendet wird.
 # Ollama: lokale Custom-Modelle mit eingebakener Persona im Modelfile.
@@ -513,7 +523,7 @@ def info(scope: str = DEFAULT_SCOPE, provider: str | None = None):
 def _check_ollama() -> bool:
     """Schneller HEAD-Check ob OLLAMA_HOST erreichbar ist."""
     try:
-        r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=2.0)
+        r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=4.0)
         return r.ok
     except Exception:
         return False
@@ -1591,6 +1601,7 @@ def _chat_event_stream(req: ChatRequest):
             k=RETRIEVER_K, fetch_k=RETRIEVER_FETCH_K,
             use_tier_boost=True,
             include_unverified=req.include_unverified,
+            sim_floor=CHAT_SIM_FLOOR,
         )
         # EVIDENZ-Positionen GARANTIERT mitliefern (themen-gematcht), damit die
         # dokumentierte Parteihaltung nicht im Vektor-Wettbewerb untergeht.
@@ -1602,6 +1613,18 @@ def _chat_event_stream(req: ChatRequest):
         # Doppelungen vermeiden (Position evtl. schon in docs)
         doc_sources = {d.metadata.get("source") for d in docs}
         evidenz_docs = [e for e in evidenz_docs if e.metadata.get("source") not in doc_sources]
+
+        # ── Evidenz-Gate: Abstinenz statt Halluzination ──────────────────
+        # Trägt KEINE Quelle die Frage (nichts über der Schwelle, keine themen-
+        # relevante EVIDENZ-Position), antwortet Athena NICHT — sie sagt ehrlich,
+        # dass die Beleglage fehlt. So kann keine Antwort auf erfundenen Quellen stehen.
+        if not docs and not evidenz_docs:
+            yield _ndjson({"type": "sources", "sources": [], "source_meta": {},
+                           "provider": provider, "abstained": True})
+            yield _ndjson({"type": "token", "text": ABSTAIN_MESSAGE})
+            yield _ndjson({"type": "done", "elapsed_s": round(time.time() - start, 2),
+                           "abstained": True})
+            return
 
         seen = []
         has_unverified = False

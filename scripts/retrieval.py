@@ -183,6 +183,8 @@ def tier_aware_retrieve(
     fetch_k: int,
     use_tier_boost: bool = True,
     include_unverified: bool = False,
+    sim_floor: float = 0.0,
+    max_k: int | None = None,
 ):
     """Aus jeder Collection top-fetch_k Kandidaten holen, mit Tier-Boost re-ranken,
     top-k zurückgeben. Bei use_tier_boost=False wird nur fusioniert, nicht gewichtet
@@ -266,7 +268,31 @@ def tier_aware_retrieve(
         doc.metadata["_combined_score"] = round(combined, 4)
         scored.append((doc, combined))
     scored.sort(key=lambda x: -x[1])
-    return [d for d, _ in scored[:k]]
+
+    # ── Evidenz-Gate ──────────────────────────────────────────────────
+    # Relevanz-Schwelle auf der Original-Similarity (semantische Passung),
+    # NICHT auf dem Tier-Boost (der ist Qualitäts-, kein Relevanzsignal).
+    if sim_floor > 0:
+        relevant = [(d, c) for d, c in scored if d.metadata.get("_similarity", 0.0) >= sim_floor]
+    else:
+        relevant = scored
+    cap = max_k if max_k is not None else k
+    selected = [d for d, _ in relevant[:cap]]
+    # Transparenz-Metadaten am Ergebnis: Gesamtzahl relevanter Treffer (für
+    # "+N weitere") und Anzahl UNTERSCHIEDLICHER Quellen (für den Mindest-Floor;
+    # mehrere Chunks aus einer Quelle = ein Beleg, nicht mehrere).
+    distinct = len({d.metadata.get("source") for d in selected})
+    for d in selected:
+        d.metadata["_relevant_total"] = len(relevant)
+        d.metadata["_distinct_sources"] = distinct
+    return selected
+
+
+def enough_evidence(docs: list, min_sources: int) -> bool:
+    """Mindest-Quellen-Floor: genug UNTERSCHIEDLICHE Quellen, um faktenbasiert zu
+    antworten? Verhindert Positionen/Antworten auf zu dünner Beleglage (Anti-
+    Halluzination). Zählt distinct sources, nicht Chunks."""
+    return len({d.metadata.get("source") for d in docs}) >= min_sources
 
 
 def _suggested_tier_from_topics(topics: str) -> int | None:
