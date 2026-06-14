@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.0",
+  "slug": "ukraine",
+  "title": "Ukraine & Verteidigung",
+  "lead": "Waffenlieferungen, Verhandlungen, Sanktionen, NATO-Rolle — wo welche Partei steht und was die Empirie (ISW, SWP, SIPRI, UN-Resolutionen, Putin-Reden) tatsächlich hergibt.",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Deutsche Militärhilfe für Ukraine (kumuliert seit 2022)",
+      "value": "ca. 28 Mrd. € zugesagt",
+      "source_title": "Bundesregierung Übersicht Ukraine-Hilfe",
+      "source_url": "https://www.bundesregierung.de/breg-de/themen/krieg-in-der-ukraine",
+      "verify_needed": true
+    },
+    {
+      "label": "Einzelplan 14 Verteidigung 2025 (ohne Sondervermögen)",
+      "value": "62,43 Mrd. €",
+      "source_title": "Bundeshaushalt 2025, Bundestag",
+      "source_url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw38-de-verteidigung-1103990",
+      "verified": true
+    },
+    {
+      "label": "Sondervermögen Bundeswehr (2022)",
+      "value": "100 Mrd. €",
+      "source_title": "Bundeswehrsondervermögensgesetz",
+      "source_url": "https://www.gesetze-im-internet.de/bwsverm_g/",
+      "verified": true
+    },
+    {
+      "label": "NATO-Quote 2025 (Verteidigungsausgaben/BIP DE)",
+      "value": "ca. 2,12 %",
+      "source_title": "NATO Defence Expenditure Report 2025",
+      "source_url": "https://www.nato.int/cps/en/natohq/topics_49198.htm",
+      "verify_needed": true
+    },
+    {
+      "label": "UN-Generalversammlung ES-11/X (Ukraine-Resolutionen)",
+      "value": "141-143 Ja-Stimmen für territoriale Integrität",
+      "source_title": "UN General Assembly Documents",
+      "source_url": "https://www.un.org/en/ga/sessions/emergency.shtml",
+      "verify_needed": true
+    },
+    {
+      "label": "Putin-Maximalforderungen (Stand 06/2024, Rede)",
+      "value": "Anerkennung 4 Oblaste + Demilitarisierung + Neutralität",
+      "source_title": "Kreml-Transkript Rede 14.06.2024",
+      "source_url": "http://en.kremlin.ru/events/president/news/74285",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "Art. 51 UN-Charta",
+      "summary": "Recht auf individuelle und kollektive Selbstverteidigung — rechtliche Basis für Ukraine-Unterstützung.",
+      "url": "https://www.un.org/en/about-us/un-charter/full-text"
+    },
+    {
+      "rule": "NATO-Vertrag Art. 5",
+      "summary": "Kollektive Verteidigung im Bündnisfall.",
+      "url": "https://www.nato.int/cps/en/natohq/official_texts_17120.htm"
+    },
+    {
+      "rule": "Art. 87a GG (2022 ergänzt: Sondervermögen Bundeswehr)",
+      "summary": "Bundeswehr-Sondervermögen mit verfassungsrechtlicher Grundlage.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_87a.html"
+    },
+    {
+      "rule": "EU-Sanktionsregime (VO Russland)",
+      "summary": "EU-weite Wirtschafts- und Personensanktionen seit 2022, regelmäßig verlängert.",
+      "url": "https://eur-lex.europa.eu/"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Ukraine weiter mit Waffen und Geld unterstützen, aber keine Taurus-Lieferung (Eskalations-Risiko); Diplomatie offenhalten; NATO-Solidarität; Verteidigungs-Etat steigern.",
+      "key_claims": [
+        "Frieden in Europa basiert auf NATO + EU + diplomatischer Verhandlungsfähigkeit",
+        "Taurus-Lieferung wäre Eskalationsrisiko, das nicht kalkulierbar ist"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025 + Scholz-Reden",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "NATO-/EU-/Diplomatie-Triad als Friedensgarant: Standardanalyse SWP/ISW, gut belegt durch historische Vergleichsfälle. Taurus-Eskalations-Argument: ISW-Bewertung sieht keine grundlegend neue Eskalationsstufe gegenüber Storm Shadow/SCALP (UK/FR liefern bereits) — Argument hat eher politischen Charakter als militärischen Schwellenwert. Verteidigungsetat 2025 Steigerung: real (+10 Mrd. € EP14 ggü. 2024).",
+        "empirical_check": "ISW Lageberichte 2024-2025. SWP-Studien Ukraine-Krieg. Vergleich Taurus vs. Storm Shadow Wirkung.",
+        "tier1_sources": [
+          "https://www.understandingwar.org/backgrounder/ukraine-conflict-updates",
+          "https://www.swp-berlin.org/publikationen",
+          "https://www.bundestag.de/dokumente/textarchiv/2025/kw38-de-verteidigung-1103990"
+        ],
+        "value_assumptions": "Annahme: NATO-Mitgliedschaft ist nicht-verhandelbarer Rahmen; Eskalations-Vermeidung > Maximalunterstützung; deutsche Sonderrolle wegen historischer Lasten."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Ukraine maximal unterstützen, Taurus liefern, Verteidigungs-Etat auf 3 % BIP steigern, EU-Beitritts-Perspektive für Ukraine festschreiben, schärfere Russland-Sanktionen.",
+      "key_claims": [
+        "Maximale Ukraine-Unterstützung beendet den Krieg am schnellsten",
+        "3 % BIP für Verteidigung ist langfristig notwendig"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "datenmäßig offen",
+        "summary": "Maximalunterstützung → Kriegsende: kontrafaktisch nicht prüfbar; Studien (RAND 2023, ISW 2024) sehen militärische Wende-Möglichkeit bei vollständiger Material-Versorgung, gleichzeitig zeigt Wagner-Aufstand 06/2023 und Trump-Wahl 11/2024, dass Russland-Position labil ist. 3 %-BIP-Argument: SIPRI und IISS zeigen, dass NATO-Konvergenz auf 2,5-3 % bei vergleichbaren Bedrohungsstufen historisch normal war (Kalter Krieg). Fiskalkosten: ~30 Mrd. €/Jahr zusätzlich.",
+        "empirical_check": "RAND Ukraine War Scenarios 2023. ISW Battlefield Assessments 2024-2025. SIPRI Military Expenditure Database. IISS Military Balance.",
+        "tier1_sources": [
+          "https://www.rand.org/",
+          "https://www.understandingwar.org/",
+          "https://www.sipri.org/databases/milex",
+          "https://www.iiss.org/publications/the-military-balance/"
+        ],
+        "value_assumptions": "Annahme: Russland-Sieg ist nicht akzeptabel; Werte-Außenpolitik im westlichen Bündnis; Verteidigungsstärke ist Friedensgarant; Aufrüstung wirtschaftlich tragbar."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Ukraine mit Waffen und Geld unterstützen, Taurus liefern, NATO-Solidarität, scharfe Russland-Sanktionen, völkerrechtliche Verantwortung für Aggressor durchsetzen.",
+      "key_claims": [
+        "Selenskyj-Linie ist die einzig völkerrechtskonforme Position",
+        "Sanktionen schwächen Russlands Kriegsfähigkeit messbar"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Völkerrechts-Argument: 141 UN-Mitglieder stimmten für territoriale Integrität (ES-11/X), Russland eindeutig als Aggressor — völkerrechtliche Position einseitig klar. Sanktions-Wirkung: SWP-Studien zeigen Wachstumsverlust Russland 2022-2024 von ~6-8 %-Punkten gegenüber Prä-Krieg-Trend, aber Umgehung über Drittstaaten reduziert direkte Wirkung; militärische Produktionskapazität nicht zusammengebrochen.",
+        "empirical_check": "UN-Generalversammlung ES-11/X. SWP-Studien Russland-Sanktionen. World Bank Russia Country Reports.",
+        "tier1_sources": [
+          "https://www.un.org/en/ga/sessions/emergency.shtml",
+          "https://www.swp-berlin.org/publikationen",
+          "https://www.worldbank.org/en/country/russia"
+        ],
+        "value_assumptions": "Annahme: völkerrechtliche Klarheit > pragmatische Verhandlungsbereitschaft; Werte-Außenpolitik primär; deutsche Sonderrolle als europäische Friedensmacht verlangt Solidarität mit Angegriffenen."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Ukraine maximal unterstützen, Taurus liefern, Verteidigungs-Etat hochfahren mit Effizienz-Reform (Beschaffung), Sanktionen aufrechterhalten, marktorientierte Friedens-Rekonstruktion.",
+      "key_claims": [
+        "Beschaffungsreform Bundeswehr hat höhere Hebel als reine Etat-Steigerung",
+        "Marktwirtschaftliche Ukraine-Rekonstruktion ist langfristig stabilisierend"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Beschaffungs-Reform-Argument: Bundesrechnungshof-Berichte 2020-2024 dokumentieren massive Beschaffungs-Ineffizienzen (BAAINBw); Hebel auf Verteidigungs-Fähigkeit potenziell höher als reine Etatsteigerung. Ergebnis-Empirie: andere Länder (UK Defence Reform 2010-2024) zeigen Reform-Wirkung, aber langsam. Marktorientierte Rekonstruktion: EU-Mitgliedschafts-Perspektive ist primäres Vehikel, marktorientiert ist die EU-Logik per se.",
+        "empirical_check": "Bundesrechnungshof Bemerkungen 2020-2024. UK Defence Reform Outcome Analysis. EU Ukraine Recovery Plan.",
+        "tier1_sources": [
+          "https://www.bundesrechnungshof.de/DE/veroeffentlichungen/produkte/bemerkungen-jahresberichte/",
+          "https://www.gov.uk/government/topics/defence-and-armed-forces",
+          "https://commission.europa.eu/strategy-and-policy/eu-budget/eu-borrower-investor-relations/ukraine-facility_de"
+        ],
+        "value_assumptions": "Annahme: Effizienz-Logik primär; Marktwirtschaft als Rekonstruktions-Modus; staatliche Steuerung nur wo Markt versagt."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Waffenlieferungen einstellen, Diplomatie priorisieren, Verteidigungs-Etat nicht weiter steigern, gegen Aufrüstungs-Logik, Friedensverhandlungen mit Russland.",
+      "key_claims": [
+        "Waffenlieferungen verlängern den Krieg",
+        "Diplomatie wurde nicht ausreichend versucht"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "datenmäßig offen + teilweise widerlegt",
+        "summary": "„Waffenlieferungen verlängern den Krieg“: kontrafaktisch nicht prüfbar; ISW-Modellierungen sehen ohne westliche Unterstützung deutlich schnellere russische Geländegewinne, aber „länger“ oder „kürzer“ hängt an der Ziel-Variable (territoriale Integrität vs. Waffenstillstand). „Diplomatie nicht ausreichend versucht“: empirisch widerlegt — Istanbul-Gespräche 03-04/2022, China-Friedensinitiative 02/2023, Vatikan-Vermittlung 2024, Türkei-Vermittlung Schwarzmeer-Getreide; alle scheiterten an russischen Maximalforderungen oder ukrainischer Akzeptanz-Grenze (Verzicht auf territoriale Integrität).",
+        "empirical_check": "ISW Battlefield Assessments. Chronologie der Friedensinitiativen 2022-2024 (SWP). Istanbul-Verhandlungs-Inhalte (durchgesickert + autorisierte Versionen).",
+        "tier1_sources": [
+          "https://www.understandingwar.org/",
+          "https://www.swp-berlin.org/publikationen",
+          "https://carnegieendowment.org/research/?lang=en"
+        ],
+        "value_assumptions": "Annahme: Pazifismus als außenpolitische Maxime; Russland-Position wird strukturell gleichgewichtig mit Ukraine-Position behandelt; deutsche Sonderrolle aus Friedensbewegungs-Tradition."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Waffenlieferungen sofort beenden, Sanktionen lockern, Verhandlungen mit Russland, Austritt aus den meisten internationalen Hilfsverpflichtungen, NATO-Mitgliedschaft im aktuellen Format hinterfragen.",
+      "key_claims": [
+        "Sanktionen schaden Deutschland mehr als Russland",
+        "USA-Hegemonie ist Hauptursache der Eskalation, nicht Russland"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025 + BT-Reden",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Sanktions-Schaden-Asymmetrie: World Bank/IWF zeigen russisches BIP-Niveau 2024 ca. 6-8 %-Punkte unter Prä-Krieg-Trend; deutsche Sanktionskosten konzentriert in Energie-Sektor und Industriekommerz, aber kein vergleichbarer Wachstumsverlust (DE-BIP 2023-2024 stagnant, aber primär aus Gaspreis-Schock + Strukturkrise). USA-Hegemonie-Argument: politische Setzung, völkerrechtlich nicht haltbar — 141 UN-Mitglieder verurteilten russische Aggression. Russland-Forderungen vor Krieg (Dezember 2021): NATO-Rückzug zu 1997-Grenzen, Veto über Aufnahmen — keine Antwort auf USA-Politik, sondern Maximalforderung.",
+        "empirical_check": "World Bank Russia Country Report 2024. Destatis BIP-Daten DE 2022-2024. UN-Resolution ES-11/1 (02.03.2022). Russische Forderungen Dezember 2021 (veröffentlicht durch russisches Außenministerium).",
+        "tier1_sources": [
+          "https://www.worldbank.org/en/country/russia",
+          "https://www.destatis.de/DE/Themen/Wirtschaft/Volkswirtschaftliche-Gesamtrechnungen-Inlandsprodukt/_inhalt.html",
+          "https://documents-dds-ny.un.org/doc/UNDOC/GEN/N22/293/36/PDF/N2229336.pdf"
+        ],
+        "value_assumptions": "Annahme: nationale Souveränität primär; Werte-Außenpolitik wird abgelehnt; Russland wird als gleichberechtigter Verhandlungspartner ohne Aggressor-Zuschreibung gesetzt; pro-russische Narrative werden adoptiert."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Waffenlieferungen stoppen, Sanktionen lockern, Diplomatie mit Putin direkt, Rückkehr zu russischem Gas, NATO-Skepsis, Kriegs-Etat reduzieren.",
+      "key_claims": [
+        "Verhandlungen wären möglich, wenn Deutschland Druck auf beide Seiten ausübt",
+        "Sanktionen treiben deutsche Deindustrialisierung"
+      ],
+      "position_source": "BSW-Programm 2025 + Wagenknecht-Reden",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "„Druck auf beide Seiten“ präsupponiert symmetrische Eskalationsverantwortung — empirisch und völkerrechtlich nicht haltbar (UN-Resolutionen, Selenskyj-Friedensformel 11/2022 vs. Putin-Maximalforderungen 06/2024). „Wenn Deutschland Druck macht“: realistisch wäre keine deutsche Hebelwirkung auf russische Maximalforderungen — Russland würde Verhandlungen nur bei substanziellen Territorialgewinnen akzeptieren, was Ukraine als Bestrafung des Angegriffenen verstehen würde. Sanktions-Deindustrialisierungs-Argument: real der Gaspreis-Schock 2022 war Haupttreiber industrieller Belastung, der hat sich seitdem normalisiert (Großhandelspreis 2024 nahe Vor-Krise) — Deindustrialisierungs-Diagnose 2024 ist empirisch differenziert.",
+        "empirical_check": "Putin-Reden 06/2024 zu Verhandlungsbedingungen. Selenskyj-Friedensformel 11/2022. ENTSO-E Gas/Strom-Daten. Destatis Produktionsindex Industrie. BNetzA Großhandelspreis.",
+        "tier1_sources": [
+          "http://en.kremlin.ru/events/president/news/74285",
+          "https://www.president.gov.ua/en/news/",
+          "https://www.entso-e.eu/data/",
+          "https://www.destatis.de/DE/Themen/Wirtschaft/Industrie-Verarbeitendes-Gewerbe/_inhalt.html"
+        ],
+        "value_assumptions": "Annahme: nationale Wirtschaftsinteressen > völkerrechtliche Solidarität; Russland-Position wird gleichgewichtig behandelt; Friedensbewegungs-Tradition trifft auf Klassenpolitik-Schwerpunkt."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Ukraine mit Waffen und Geld weiter unterstützen, Taurus liefern, NATO-Solidarität halten, gleichzeitig Verteidigungs-Beschaffung effizienter reformieren — Friedensverhandlungen auf Augenhöhe sind nur bei russischer Konsens-Bereitschaft realistisch.",
+    "konkret": [
+      "Waffenlieferungen aufrechterhalten und Taurus liefern (Storm-Shadow-Vergleich zeigt: kein neuer Eskalationsstufe).",
+      "EP14 Verteidigungs-Etat in Richtung 2,5–3 % BIP entwickeln, parallel mit Bundesrechnungshof-Beschaffungs-Reform (Hebel: schnellere Auslieferung statt mehr Geld).",
+      "Sanktionen aufrechterhalten + Umgehungs-Lecks schließen (Drittstaaten-Importe via Türkei, Zentralasien, China-Halbleiter).",
+      "Diplomatie offenhalten, aber nicht symmetrisch eskalations-zuschreiben: Russland ist Aggressor laut 141 UN-Mitgliedern, das ist die Faktenbasis.",
+      "EU-Beitrittsperspektive Ukraine zeitnah konkretisieren, Wiederaufbau-Finanzierung über eingefrorene russische Vermögenswerte (rechtlich umsetzbar laut EU-Kommission-Rechtsanalyse 2024).",
+      "Wehrpflichts-Reform prüfen — gezieltes Modell wie Schweden (selektiv, militärisch + zivil), nicht Wiedereinführung Massenwehrpflicht."
+    ],
+    "warum": "Russlands Maximalforderungen (Demilitarisierung, 4 Oblaste) machen klar, dass aktuelle Verhandlungen Kapitulation des Angegriffenen wären. Bis Russland substanzielle Konsens-Bereitschaft zeigt, ist Stärken der ukrainischen Verhandlungsposition der einzige Weg zu nachhaltigem Frieden. NATO-Mitgliedschaft DE bleibt nicht-verhandelbarer Rahmen.",
+    "wertannahmen": "§3 (Werte-Außenpolitik): völkerrechtliche Solidarität mit Angegriffenen primär. §6 (Vorsicht): Eskalations-Risiken werden ernst genommen, sind aber nicht der einzige Maßstab. §1 (Sorgepflicht): auch für ukrainische Zivilbevölkerung.",
+    "trade_offs_eingestanden": "Aufrüstung kostet 25–30 Mrd. €/Jahr zusätzlich, Sanktions-Umgehungs-Bekämpfung erfordert EU-Koordination, Taurus-Lieferung politisch konflikt­trächtig im Inland.",
+    "url": "programm/verteidigung.html"
+  },
+  "evidenz_link": {
+    "url": "programm/verteidigung.html",
+    "label": "EVIDENZ-Position zu Verteidigung & Ukraine (vollständig)",
+    "note": "Hier steht die ausführliche Optionsanalyse zu Aufrüstung, Wehrpflicht, NATO-Rolle, Sanktionen und Friedensperspektive."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (Bundeshaushalt, NATO-Vertrag, UN-Resolutionen, ISW-Lageberichte, Putin-/Selenskyj-Original-Transkripte). Einzelne Werte (Militärhilfe-Stand 2025, NATO-Quote 2025) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

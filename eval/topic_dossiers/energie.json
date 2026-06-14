@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0",
+  "slug": "energie",
+  "title": "Energie",
+  "lead": "Strompreis, Versorgungssicherheit, Atomausstieg, russisches Gas — wo die Parteien streiten und was die Daten von BNetzA, AGEE-Stat, BDEW, Fraunhofer ISE und ENTSO-E hergeben.",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Anteil Erneuerbare an Bruttostromerzeugung 2024",
+      "value": "59,4 %",
+      "source_title": "Destatis / AGEE-Stat 2025",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/03/PD25_091_43312.html",
+      "verified": true
+    },
+    {
+      "label": "Anteil Erneuerbare am Bruttostromverbrauch 2024 (BDEW)",
+      "value": "54,4 %",
+      "source_title": "BDEW Energiezahlen 2024",
+      "source_url": "https://www.bdew.de/energie/zahlen-und-grafiken/",
+      "verify_needed": true
+    },
+    {
+      "label": "Strompreis Industrie 2024 (∅)",
+      "value": "ca. 18 ct/kWh",
+      "source_title": "BNetzA Strommarktbericht 2024",
+      "source_url": "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Monitoring/start.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Atomausstieg vollzogen am",
+      "value": "15.04.2023",
+      "source_title": "BMUV (Abschaltung der letzten drei AKWs)",
+      "source_url": "https://www.bmuv.de/themen/atomenergie-strahlenschutz/atomausstieg",
+      "verified": true
+    },
+    {
+      "label": "Russland-Gas-Anteil DE 2021 vs. 2024",
+      "value": "~55 % → ~0 %",
+      "source_title": "BNetzA Gasmarktbericht 2024",
+      "source_url": "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/start.html",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "EEG 2023 (Erneuerbare-Energien-Gesetz)",
+      "summary": "Ausbau-Ziel 80 % Erneuerbare am Bruttostromverbrauch bis 2030; Förder-Auktionen.",
+      "url": "https://www.gesetze-im-internet.de/eeg_2023/"
+    },
+    {
+      "rule": "Atomgesetz § 7",
+      "summary": "Abschaltung Atomkraftwerke; § 19 Stilllegungs-/Rückbauverfahren.",
+      "url": "https://www.gesetze-im-internet.de/atg/"
+    },
+    {
+      "rule": "Energiesicherungsgesetz (EnSiG)",
+      "summary": "Notfallinstrumente bei Energieversorgungs-Krise (Krisenpläne, Treuhandverwaltung).",
+      "url": "https://www.gesetze-im-internet.de/ensig_2022/"
+    },
+    {
+      "rule": "EU Strommarkt-Reform 2024",
+      "summary": "Differenzkontrakte (CfDs) für erneuerbare Förderung, Verbraucherschutz, Kapazitätsmechanismen.",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1747"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Energiewende konsequent fortsetzen, Strompreis senken durch Strompreis-Bremse für die Industrie, schnellere Genehmigungsverfahren für Wind und Netzausbau, Sondervermögen Energieinfrastruktur.",
+      "key_claims": [
+        "Industrie-Strompreis-Bremse erhält Wertschöpfung",
+        "Beschleunigte Genehmigung halbiert Ausbau-Zeit"
+      ],
+      "position_source": "SPD-Regierungsprogramm 2025, Kapitel Energie & Industrie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "Industrie-Strompreis-Bremse: in EU-Wettbewerbsrecht problematisch (Beihilferecht), DIW 2024 zeigt zielgerichteten Effekt nur für energie-intensive Branchen. Beschleunigung Genehmigungsverfahren: empirisch belegt durch 2023er EEG-Novelle — Wind-an-Land-Ausbau 2024 deutlich über Vorjahr (BNetzA). Halbierung der Bauzeit bisher nicht erreicht.",
+        "empirical_check": "BNetzA Markt­stamm­datenregister Wind-Ausbau 2023-2024. DIW Wochenbericht 2024 zu Strompreis-Bremsen. EU-Beihilferecht: Notification-Pflicht.",
+        "tier1_sources": [
+          "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Erneuerbare-Energien/start.html",
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32014R0651"
+        ],
+        "value_assumptions": "Annahme: Industriestandort-Erhalt > marktwirtschaftliche Reallokation; staatliche Steuerung des Strompreises ist legitim."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Energiemix breit aufstellen (Erneuerbare + Gas + Kernenergie nicht ausschließen), Strompreis senken über Steuersenkung (Stromsteuer), Wasserstoff-Hochlauf marktorientiert, Netzausbau-Priorität.",
+      "key_claims": [
+        "Kernenergie-Wiederaufnahme senkt Strompreise und CO₂",
+        "Stromsteuer-Senkung entlastet sofort"
+      ],
+      "position_source": "Union-Wahlprogramm 2025, Kapitel Energie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Kernenergie-Wiederaufnahme in DE: Genehmigung, Brennstoff-Vertrag, Personal, Bauzeit gesamt 12-15 Jahre — nicht relevant für kurz-/mittelfristige Strompreise (IEA, Fraunhofer). Stromsteuer-Senkung: sofort wirksame Strompreissenkung, fiskal-relevant (~7 Mrd. €/Jahr Aufkommen). CO₂-Effekt Kernenergie: real, aber empirisch durch 2023er-Abschaltung gezeigt, dass ersetzende Erzeugung Gas/Kohle war (kurzfristig); 2024 Erneuerbare-Ausbau weitgehend kompensierend.",
+        "empirical_check": "IEA Nuclear Outlook 2024 zu Bauzeiten. Destatis Stromsteuer-Aufkommen. UBA Strommix-Bilanz 2023-2024 zur Atomausstiegs-CO₂-Wirkung.",
+        "tier1_sources": [
+          "https://www.iea.org/reports",
+          "https://www.destatis.de/DE/Themen/Staat/Steuern/Steueraufkommen/",
+          "https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien/erneuerbare-energien-in-zahlen"
+        ],
+        "value_assumptions": "Annahme: Versorgungssicherheit und Preisbezahlbarkeit > Pfadtreue Erneuerbare-Nur; Technologieoffenheit als Wert."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "100 % Erneuerbare bis 2035, Kohleausstieg vorziehen (2030 statt 2038), kein neues Erdgas, Wasserstoff strategisch grün, Strompreis-Reform über Übertragungsnetz-Entgelte und Klimageld.",
+      "key_claims": [
+        "100 % Erneuerbare bis 2035 sind machbar",
+        "Vorgezogener Kohleausstieg ist ohne Versorgungslücke möglich"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025, Kapitel Energie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "100 % Erneuerbare 2035: Fraunhofer ISE-Studien zeigen 80-95 % bis 2035 plausibel, 100 % an Saisonspeichern, Wasserstoff-Infrastruktur und H2-Importen hängend. Vorgezogener Kohleausstieg 2030: Marktdaten 2024 zeigen Kohle bereits unwirtschaftlich gegenüber Gas+Erneuerbaren; politische Frage primär Strukturwandel-Regionen, nicht Versorgungssicherheit (BNetzA bestätigt). Kein neues Erdgas: technologisch konsistent mit Klima­neutrali­tät 2045, aber kurzfristig Versorgungs-Resilienz schwächend.",
+        "empirical_check": "Fraunhofer ISE 100%-Studien. Agora Energiewende „Klimaneutrales Stromsystem 2035“. BNetzA Versorgungssicherheits-Bericht 2024.",
+        "tier1_sources": [
+          "https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien.html",
+          "https://www.agora-energiewende.de/publikationen",
+          "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/"
+        ],
+        "value_assumptions": "Annahme: Klimaziel überwiegt Versorgungs-Resilienz-Marge; Technologieoffenheit verzögert Pfad."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Strompreis durch Stromsteuer-Senkung und CO₂-Preis-Rückverteilung (Klimageld) senken; technologieoffen; Kernfusion fördern; Strommarkt-Reform marktorientiert; gegen Industrie-Strompreis-Subventionen.",
+      "key_claims": [
+        "Klimageld ist effizienteste Entlastung",
+        "Industrie-Strompreis-Subventionen verzerren Wettbewerb"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025, Kapitel Energie & Markt",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "Klimageld als Pro-Kopf-Rückverteilung: ökonomisch effizient (DIW, IW), bisher politisch nicht implementiert. Industrie-Strompreis-Subventions-Kritik: EU-Beihilferecht und ökonomische Theorie geben Position Substanz; gleichzeitig zeigt empirische Energie­wirtschafts-Forschung, dass Industrieabwanderung bei substanzieller Preisdifferenz real ist (Leakage-Effekt). Kernfusion: Förderforschung ja, kommerziell vor 2050 unrealistisch (ITER-Roadmap).",
+        "empirical_check": "DIW Klimageld-Studien. EU-Beihilferecht. ITER-Projekt-Roadmap. Leakage-Studien ZEW/IW.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.iter.org/",
+          "https://www.zew.de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Marktmechanismen sind effizienter als Subventionen; Pro-Kopf-Verteilung erfasst Gerechtigkeit besser als Branchen-Schutz."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Energiewende sozial gerecht, Vergesellschaftung der vier großen Energiekonzerne, kommunale Energiegemeinschaften, Stromsteuer-Abschaffung für untere Einkommen, kein neuer Gas-Pipeline-Bau.",
+      "key_claims": [
+        "Vergesellschaftung senkt Strompreise und ermöglicht Investitionen",
+        "Privatisierung verteuerte den Strommarkt"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025, Kapitel Energie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "datenmäßig offen",
+        "summary": "Vergesellschaftung Energiekonzerne: keine empirische Vergleichsbasis in DE-Kontext; theoretische Argumente für (Investitions­steuerung) und gegen (Effizienz-Verlust, Anreizprobleme) — letztlich Wertfrage. Privatisierung-Verteuerungs-Argument: 1998-2000er Strommarkt-Liberalisierung führte zunächst zu Preisreduktion, ab 2008 zu Konsumenten-Preissteigerungen (Bundeskartellamt-Berichte, Monopolkommission-Sondergutachten). Kausalattribution allein an Privatisierung umstritten — EEG-Umlage, CO₂-Kosten, Gaspreis-Schock waren weitere Treiber.",
+        "empirical_check": "Bundeskartellamt-Sektoruntersuchungen Stromerzeugung. Monopolkommission-Sondergutachten zur Energie. BNetzA-Strommarktberichte 2000-2024.",
+        "tier1_sources": [
+          "https://www.bundeskartellamt.de/DE/Wirtschaftsbereiche/Energie/energie_node.html",
+          "https://www.monopolkommission.de/de/publikationen.html",
+          "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Monitoring/start.html"
+        ],
+        "value_assumptions": "Annahme: Daseinsvorsorge in öffentlicher Hand > Markt-Effizienz; Profite Energiekonzerne werten als nicht-legitimierte Rente."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Atomausstieg rückgängig machen, Kohleausstieg stoppen, EEG abschaffen, Russland-Gas wieder beziehen (Pipeline-Reparatur), Strompreis durch Stromsteuer-Streichung senken, Klimaschutzgesetz kippen.",
+      "key_claims": [
+        "Atomausstieg hat Strompreis und CO₂ getrieben",
+        "Russland-Gas wäre billiger als LNG"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025, Kapitel Energie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Strompreis-Effekt des Atomausstiegs konkret: vor letzter Abschaltung (15.04.2023) lag Atomstrom-Anteil bei ca. 6 % der Bruttostromerzeugung. Großhandelspreis 2022 (Gaspreis-Schock): Jahresmittel ~235 €/MWh, Spitzen >700 €/MWh — dominiert vom Gaspreis-Effekt (Merit-Order). 2023 (mit Abschaltung): ~95 €/MWh, 2024: ~78 €/MWh — Preisrückgang trotz Atomausstieg, weil Gaspreise sich normalisierten und Erneuerbare ausgebaut wurden. DIW Wochenbericht 2024 schätzt isolierten Atomausstiegs-Effekt auf 2-8 €/MWh (~3-8 % Anteil am Großhandelspreis). Industriestrompreis 2024: ~17-19 ct/kWh in DE, ca. 7 ct in USA, ~9 ct in China — die Differenz ist nicht vom Atomausstieg dominiert, sondern von Netzentgelten, CO₂-Preisen und Gas-Anbindungs-Kosten. Russland-Gas: Pipeline-Importpreise 2019-2021 ~20-30 €/MWh (Henry-Hub-äquivalent), LNG-Spot 2024 ~30-35 €/MWh — Kostendifferenz real, aber abnehmend; Methan-Leakage entlang Pipeline 1,4-2,3 % (Frontiers in Energy 2023, IEA Methane Tracker) macht Pipeline-Gas klimabilanziell zu Kohle vergleichbar. Pipeline-Reparatur (Nord Stream): technisch ~12-18 Monate, ca. 1 Mrd. €; geopolitische Bindung an Russland im Krieg, EU-Sanktions-Rahmen verbietet Wiederinbetriebnahme aktuell.",
+        "empirical_check": "ENTSO-E Marktdaten Day-Ahead-Strompreis 2019-2024. BNetzA Stromhandel Monitoring Reports. DIW Wochenbericht 16/2024 zur isolierten Wirkung der Atomstilllegung. UBA Strommix-Bilanz 2023/24. IEA Methane Tracker 2024 für Pipeline-Leakage. Eurostat Industrie-Strompreise EU-Vergleich.",
+        "tier1_sources": [
+          "https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien/erneuerbare-energien-in-zahlen",
+          "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/",
+          "https://www.entsoe.eu/data/"
+        ],
+        "value_assumptions": "Annahme: nationale Energiebezahlbarkeit > Klima-Pfadtreue und außenpolitische Bindung an die NATO/EU."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Sanktionen gegen Russland prüfen (Energie-Preisdruck), Pipeline-Gas weiter beziehen, Atomausstieg überprüfen, Industrie-Strompreis-Subvention, EU-Strompreis-Reform.",
+      "key_claims": [
+        "Russland-Sanktionen treiben deutsche Energiepreise und Deindustrialisierung",
+        "Atomausstieg überstürzt"
+      ],
+      "position_source": "BSW-Programm 2025 + Wagenknecht-Reden Bundestag",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "datenmäßig offen + teilweise widerlegt",
+        "summary": "Sanktions-Energiepreis-Argument: 2022 Großhandelspreis-Spitze tatsächlich Gas-Preis-getrieben, 2024 wieder auf Vor-Krise-Niveau (ENTSO-E). DE-Strompreise 2024 vergleichbar mit EU-Mittel, Industriepreise höher als USA/CN. Kausalattribution allein an Sanktionen empirisch nicht belegbar — globale Gasnachfrage, Atomausstieg, CO₂-Preis sind parallele Treiber. Atomausstieg „überstürzt“: Beschluss 2011 (Fukushima), Umsetzung über 12 Jahre — die Charakterisierung „überstürzt“ hat im Zeitablauf wenig Substanz. Industriepreis-Subvention: gleiche EU-Beihilfe-Limitierungen wie bei SPD-Position.",
+        "empirical_check": "ENTSO-E Großhandelspreis-Daten 2020-2025. BNetzA Strompreisbericht 2024. UBA Strommix-Bilanz. EU-Beihilfeleitlinien Energie/Klima.",
+        "tier1_sources": [
+          "https://www.entsoe.eu/data/",
+          "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Monitoring/start.html",
+          "https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien/erneuerbare-energien-in-zahlen"
+        ],
+        "value_assumptions": "Annahme: Industriebezahlbarkeit > außenpolitische Position gegenüber Russland; Energie-Realpolitik > Werte-Außenpolitik."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "100 % Erneuerbare bis 2035, Atomausstieg bleibt, H₂-ready-Gaskraftwerke als Backup, Industriestrompreis-Reform über Netzentgelte statt Subventionen, Russland-Pipeline-Gas bleibt aus.",
+    "konkret": [
+      "Erneuerbaren-Ausbau verdoppeln: 80 % EE-Anteil 2030, 100 % 2035 — Genehmigungsverfahren halbieren, Bürgerbeteiligung als Pflicht statt Kann.",
+      "10 GW neue Gaskraftwerke (H₂-ready) als Backup — kein Russland-Gas, sondern Norwegen/LNG + späterer H₂-Switch.",
+      "Atomausstieg bleibt: Bauzeit 12–15 Jahre für neue AKW + LCOE 130–170 €/MWh (Atom) vs. 50–70 €/MWh (Wind onshore) machen Wiedereinstieg ökonomisch und zeitlich unsinnig.",
+      "Industriestrompreis-Reform: Netzentgelte für energieintensive Industrie strukturell senken (statt jährlicher Bypass-Subventionen), Bundesnetzagentur-Aufsicht stärken.",
+      "Russland-Pipeline-Gas: bleibt aus, geopolitische Erpressbarkeit + Methan-Leakage (1,4–2,3 % entlang Pipeline) machen es klimabilanziell zu Kohle vergleichbar.",
+      "Klimageld als Pro-Kopf-Rückverteilung des CO₂-Preises ab 2027 sofort einführen."
+    ],
+    "warum": "Versorgungssicherheit + Klimaziele + Bezahlbarkeit sind nur durch EE-Vollausbau + Speicher + flexible Backup-Kapazität erreichbar. Atom-Wiedereinstieg ist zeit- und kostenlogisch keine Option. Russland-Gas re-importieren würde die geopolitische Erpressbarkeit reaktivieren, die Deutschland 2022 fast in eine Versorgungskrise geführt hat.",
+    "wertannahmen": "§1 (Sorgepflicht für Ökosysteme) und §3 (Werte-Außenpolitik) haben Vorrang vor kurzfristiger Preisminderung. Industriebezahlbarkeit wird durch strukturelle Reform statt Subvention gesichert.",
+    "trade_offs_eingestanden": "EE-Vollausbau verlangt massiven Flächen- und Netz-Eingriff, Genehmigungs-Beschleunigung ist politisch konflikt­trächtig, Backup-Gaskraftwerke verursachen kurzfristig CO₂, H₂-Hochlauf nicht vor 2030–2035 wettbewerbsfähig.",
+    "url": "programm/klima-energie.html"
+  },
+  "evidenz_link": {
+    "url": "programm/klima-energie.html",
+    "label": "EVIDENZ-Position zu Klima & Energie (vollständig)",
+    "note": "Die Energie-Cluster sind Teil der gemeinsamen Klima-und-Energie-Position — komplette 8-Cluster-Analyse in der Programm-Seite."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (AGEE-Stat, BNetzA, UBA, Atomgesetz). Einzelne Werte (Industrie-Strompreis, BDEW-Verbrauchsanteil, Russland-Gas-Quoten) brauchen Live-Verifikation. Athena-Analysen werden nach aitest-Lauf finalisiert."
+}

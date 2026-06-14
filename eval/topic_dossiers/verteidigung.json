@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0",
+  "slug": "verteidigung",
+  "title": "Verteidigung & Sicherheit",
+  "lead": "Nato-2-Prozent-Ziel, Sondervermögen, Wehrpflicht, Ukraine-Hilfen, Drohnenkrieg — wer fordert was, und was halten Tier-1-Quellen (SIPRI, NATO, BMVg, Bundestag, ISW) dazu fest?",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Einzelplan 14 (Verteidigung) 2025 Soll",
+      "value": "62,43 Mrd. €",
+      "source_title": "BMF Bundeshaushalt 2025 / Bundestag-PM",
+      "source_url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw38-de-verteidigung-1103990",
+      "verified": true,
+      "note": "Plus 24,06 Mrd. € aus Sondervermögen Bundeswehr = 86,49 Mrd. Gesamt-Verteidigung."
+    },
+    {
+      "label": "NATO-2%-Ziel: DE-Quote 2024",
+      "value": "ca. 2,12 % BIP",
+      "source_title": "NATO Defence Expenditure Report 2024",
+      "source_url": "https://www.nato.int/cps/en/natohq/news_226465.htm",
+      "verify_needed": true,
+      "note": "Erstmals seit 1992 erreicht; inkl. Sondervermögen."
+    },
+    {
+      "label": "Sondervermögen Bundeswehr (2022)",
+      "value": "100 Mrd. € (vollständig verausgabt bis ~2027)",
+      "source_title": "Art. 87a GG (Änderung)",
+      "source_url": "https://www.gesetze-im-internet.de/gg/art_87a.html",
+      "verified": true
+    },
+    {
+      "label": "Bundeswehr-Personalstärke 2024",
+      "value": "ca. 181.000 Soldat:innen",
+      "source_title": "BMVg",
+      "source_url": "https://www.bundeswehr.de/",
+      "verify_needed": true,
+      "note": "Ziel 203.000 bis 2031 (BMVg-Plan)."
+    },
+    {
+      "label": "Ukraine-Militärhilfe DE 2022–2024 (kumuliert)",
+      "value": "ca. 28 Mrd. €",
+      "source_title": "Kiel-Institut Ukraine-Support-Tracker",
+      "source_url": "https://www.ifw-kiel.de/topics/war-against-ukraine/ukraine-support-tracker/",
+      "verify_needed": true
+    },
+    {
+      "label": "Russland-Verteidigungsausgaben 2024 (SIPRI)",
+      "value": "ca. 149 Mrd. USD (+38 % vs. 2023)",
+      "source_title": "SIPRI Yearbook 2024",
+      "source_url": "https://www.sipri.org/publications",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "Art. 87a GG (Verteidigungsstreitkräfte)",
+      "summary": "Bundeswehr-Auftrag (Verteidigung), Einsatz-Befugnisse. 2022er-Änderung schuf Rechtsgrundlage für 100-Mrd.-Sondervermögen.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_87a.html"
+    },
+    {
+      "rule": "Art. 24 II GG / NATO-Vertrag Art. 5",
+      "summary": "Bündnis-Verteidigungspflicht. Eingreiftruppen-Beitrag DE: Verstärkung der NATO-Ostflanke.",
+      "url": "https://www.nato.int/cps/en/natohq/official_texts_17120.htm"
+    },
+    {
+      "rule": "Parlamentsbeteiligungsgesetz (ParlBG)",
+      "summary": "Bewaffnete Auslandseinsätze brauchen Bundestags-Mehrheit (konstitutiver Parlamentsvorbehalt).",
+      "url": "https://www.gesetze-im-internet.de/parlbg/"
+    },
+    {
+      "rule": "Wehrpflichtgesetz (WPflG, ausgesetzt)",
+      "summary": "Wehrpflicht 2011 ausgesetzt, nicht abgeschafft — Reaktivierung gesetzgeberisch möglich.",
+      "url": "https://www.gesetze-im-internet.de/wpflg/"
+    },
+    {
+      "rule": "BVerfG-Out-of-Area-Urteil 1994 (2 BvE 3/92)",
+      "summary": "Auslandseinsätze brauchen konstitutive Bundestags-Zustimmung; verfassungsrechtliche Grenze gegen Verselbständigung der Exekutive.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1994/07/es19940712_2bve000392.html"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "NATO-2%-Ziel halten, Sondervermögen verstetigen (Nachfolger ab 2027), Ukraine-Unterstützung fortsetzen ohne Eskalations-Spirale (keine Taurus-Lieferung), Wehrpflicht-Debatte offen.",
+      "key_claims": [
+        "DE muss verlässlicher Bündnis-Partner sein",
+        "Eskalationsvermeidung gegenüber Russland ist Sicherheits-Logik"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Bündnis-Argument: NATO-Doctrine seit 2014 verlangt 2 %, DE erfüllt 2024 erstmals. Verlässlichkeit ist real ein politisches Asset. Eskalations-Vermeidungs-Argument: Taurus-Frage komplex — Kiel-Institut, ISW und SWP-Analysen sind gespalten, ob Lieferung russischer Eskalation auslöst. Empirie zu „escalation in war\": Hassner/Krieg/Pape zeigen, dass Eskalation in Stellvertreterkriegen historisch begrenzt war. Aber: Schweden-Analyse 2023 (Försvarsmakten) sieht Risiko eines Schlagabtauschs nicht null.",
+        "empirical_check": "NATO Defence Expenditure Report 2024. ISW Lageberichte zum Eskalationsrisiko. SWP-Analysen Ukraine 2023-2024.",
+        "tier1_sources": [
+          "https://www.nato.int/cps/en/natohq/topics_67655.htm",
+          "https://www.understandingwar.org/",
+          "https://www.swp-berlin.org/publikationen"
+        ],
+        "value_assumptions": "Annahme: Bündnistreue + Stabilität primär; Risiko-Aversion gegenüber direkter Konfrontation mit Russland; Ukraine-Unterstützung im Rahmen der NATO-Logik."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Verteidigungsausgaben auf 3 % BIP anheben, Sondervermögen verstetigen, Wehrpflicht (Schwedisches Modell) reaktivieren, Taurus-Lieferung an Ukraine, EU-Verteidigungs-Union vorantreiben.",
+      "key_claims": [
+        "3 %-Ziel notwendig wegen russischer Aggression + sinkender US-Garantien",
+        "Wehrpflicht stärkt Personalbasis und gesellschaftliche Resilienz"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "3 %-Ziel-Argument: Bedrohungseinschätzung von BND/BfV/SWP 2024 unterstützt Aufrüstungs-Notwendigkeit. Russland +38 % Militärbudget 2024. US-Garantie-Schwund unter Trump 2025 erhöht Eigenverantwortungs-Druck. Wehrpflicht Schweden-Modell (selektive Wehrpflicht): seit 2017 wieder eingeführt, ~30 % der Wehrpflichtigen werden gezogen, gesellschaftliche Akzeptanz hoch — Übertragbarkeit auf DE plausibel, aber Bundeswehr-Strukturen müssen erst zur Aufnahme angepasst werden (Kasernen, Ausbilder). Taurus: militärisch wirksame Reichweite, politische Risiken (Eskalation, Verbleib in DE-Verantwortung — Steuerung-Frage).",
+        "empirical_check": "SIPRI Yearbook 2024 zu Russland-Aufrüstung. SWP-Analysen Bedrohungsbild 2024. Försvarsmakten Schweden zu Wehrpflicht.",
+        "tier1_sources": [
+          "https://www.sipri.org/publications",
+          "https://www.swp-berlin.org/publikationen",
+          "https://www.forsvarsmakten.se/"
+        ],
+        "value_assumptions": "Annahme: militärische Stärke schreckt ab; gesellschaftliche Resilienz durch Pflichtdienst; transatlantische Bindung primär, aber Plan-B nötig."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "2 %-Ziel halten, Sondervermögen verstetigen, Ukraine-Unterstützung mit Taurus, EU-Verteidigungs-Union, keine Wehrpflicht-Reaktivierung.",
+      "key_claims": [
+        "Ukraine-Unterstützung ist Werte-Außenpolitik",
+        "Diversifizierte EU-Sicherheits-Architektur ist Antwort auf Trump-Risiko"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Werte-Argument: politisch-philosophisch, nicht empirisch entscheidbar. EU-Verteidigungs-Union: konzeptionell entwickelt (Strategic Compass 2022, ReArm Europe Plan 2025), Umsetzung steckt in nationaler Souveränität fest. Empirische Kapazität: PESCO und Europäischer Verteidigungsfonds existieren, aber Beschaffungs-Volumen moderat. Trump-Risiko-Argument: real (NATO 2 %-Drohung, Bedingung Ukraine-Lieferungen 2025), aber Übergang zu EU-Autonomie braucht 10-15 Jahre.",
+        "empirical_check": "EU Strategic Compass 2022. ReArm Europe Plan 2025. PESCO-Projekte-Bilanz. Trump-NATO-Aussagen 2024-2025.",
+        "tier1_sources": [
+          "https://www.eeas.europa.eu/eeas/strategic-compass-security-and-defence_en",
+          "https://defence-industry-space.ec.europa.eu/eu-defence-industry/european-defence-fund-edf_en",
+          "https://www.iiss.org/publications/"
+        ],
+        "value_assumptions": "Annahme: werteorientierte Außenpolitik primär; europäische Souveränität als Langfrist-Ziel; Eskalation als handhabbares Risiko."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "3 %-Ziel, Sondervermögen verstetigen, Beschaffungs-Reform (schnellere Vergabe, weniger Bürokratie), Wehrpflicht-Reaktivierung, Ukraine voll unterstützen.",
+      "key_claims": [
+        "Beschaffungs-Bürokratie verhindert effiziente Aufrüstung",
+        "Wehrpflicht ist gesellschaftlich notwendig"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Beschaffungs-Argument: Bundesrechnungshof und Wehrbeauftragter dokumentieren seit Jahren Beschaffungs-Probleme (BAAINBw-Bottleneck). Zeitenwende-Reform 2022 hat Vergabe-Erleichterungen erlassen, aber Wirkung begrenzt. SNVR (Sicherheits- und verteidigungspolitischer Vergaberahmen) 2023 ist Reform-Schritt. Aufgaben-Realität: gleichzeitig sind viele Projekte mehrjährig laufzeitfest, kurzfristige Beschleunigung schwierig. Wehrpflicht-Argument: Schweden-Vergleich (s. CDU/CSU) gilt analog.",
+        "empirical_check": "Bundesrechnungshof Berichte 2020-2024 zur Bundeswehr-Beschaffung. Wehrbeauftragter Jahresbericht 2024. SNVR 2023.",
+        "tier1_sources": [
+          "https://www.bundesrechnungshof.de/DE/veroeffentlichungen/produkte/bemerkungen-jahresberichte/",
+          "https://www.bundestag.de/wehrbeauftragter",
+          "https://www.bmvg.de/"
+        ],
+        "value_assumptions": "Annahme: Effizienz im Staatsapparat primär; Liberalisierung der Bürokratie als Reformhebel; Wehrpflicht als Eigenverantwortung."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "NATO-2%-Ziel ablehnen, Verteidigungsetat senken, Ukraine-Waffenlieferungen stoppen (humanitäre Hilfe statt), Wehrpflicht ablehnen, Abrüstungs-Verhandlungen mit Russland.",
+      "key_claims": [
+        "Aufrüstung verschlimmert Sicherheitsdilemma",
+        "Diplomatie statt Waffen"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Sicherheitsdilemma-Argument: klassisch IR-theoretisch (Jervis 1978), aber Anwendung auf Russland 2022-2024 problematisch — russische Invasion begann vor Aufrüstung, Eskalation ist von russischer Seite ausgegangen (s. ISW, Putin-Reden). Diplomatie-Argument: Verhandlungen 2022 (Istanbul) gescheitert, seither russische Maximalforderungen (Demilitarisierung, 4 Oblaste). „Diplomatie statt Waffen\" ohne Druck-Kulisse ist diplomatie-theoretisch wenig erfolgsversprechend. Abrüstungs-Verhandlungen: New START läuft 2026 aus, Verhandlungen nötig, aber Russland-Bereitschaft fragwürdig.",
+        "empirical_check": "ISW Lageberichte 2022-2024. Putin-Reden (Tucker-Carlson, Münchner-Sicherheitskonferenzen). New START Auslauf 2026.",
+        "tier1_sources": [
+          "https://www.understandingwar.org/",
+          "https://www.swp-berlin.org/publikationen",
+          "https://www.sipri.org/publications"
+        ],
+        "value_assumptions": "Annahme: Friedensförderung > Bündnis-Pflicht; Eskalations-Risiken durch Aufrüstung größer als durch Schwäche; ökonomische Verflechtung als Friedensanker."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "NATO-2%-Ziel halten oder leicht erhöhen, Ukraine-Waffenlieferungen stoppen (Russland-Annäherung), Wehrpflicht reaktivieren, EU-Verteidigungs-Union ablehnen, Nationalstaaten-Verteidigung.",
+      "key_claims": [
+        "Bündnisbruch mit Russland war Fehler — Wiederannäherung möglich",
+        "Wehrpflicht stärkt nationale Resilienz"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Russland-Annäherungs-Argument: nach Invasion 2022 (Bruch des Budapester Memorandums) und Annexion 4 Oblaste 2022 ist „Annäherung\" ohne territoriale Vorgaben Aufgabe der UN-Charta. Putin-Forderungen (2024-2025) verlangen Demilitarisierung Ukraine, NATO-Erweiterungs-Stopp. Empirische Kapazität für Annäherung ohne Aufgabe von Werten: gering. Wehrpflicht-Argument: gleiche Empirik wie CDU/CSU/FDP. EU-Verteidigungs-Union-Ablehnung: nationalsouveräne Argumentation, ignoriert Skalen-Vorteile (gemeinsame Beschaffung, Streckenrechnung Munition).",
+        "empirical_check": "UN-Charta Art. 2. Putin-Forderungen 2024 (Tucker-Carlson). EU Strategic Compass zu Skalen-Vorteilen. SIPRI zu Beschaffungs-Effizienz.",
+        "tier1_sources": [
+          "https://www.un.org/en/about-us/un-charter",
+          "https://www.understandingwar.org/",
+          "https://www.eeas.europa.eu/eeas/strategic-compass-security-and-defence_en",
+          "https://www.sipri.org/publications"
+        ],
+        "value_assumptions": "Annahme: nationale Souveränität primär; Werte-Außenpolitik zweitrangig; Bündnispartner-Bindung im Sinne reiner Eigeninteressen."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Verteidigungsetat moderat (2 %), Ukraine-Waffenlieferungen reduzieren oder einstellen, diplomatische Initiative, Wehrpflicht ablehnen, EU-Verteidigung dezentral.",
+      "key_claims": [
+        "Verhandlungslösung möglich bei diplomatischem Druck auf beide Seiten",
+        "Eskalations-Spirale stoppen durch deutsche Vermittlerrolle"
+      ],
+      "position_source": "BSW-Programm 2025 + Wagenknecht-Reden",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "datenmäßig offen + teilweise widerlegt",
+        "summary": "Verhandlungs-Möglichkeit-Argument: stützt sich auf Istanbul-2022-Verhandlungen, deren Scheitern bis heute kontrovers analysiert wird (Boris-Johnson-These vs. Putin-Maximal-Forderungen vs. Bucha-Eskalation). Asymmetrie der Forderungen: Russland verlangt Territorialgewinne anerkannt, Selenskyj Territorialintegrität — diese Lücke ist nicht durch Diplomatie schließbar ohne Druck-Kulisse. „Druck auf beide Seiten\" präsupponiert symmetrische Eskalations-Verantwortung, die historisch nicht stützt. Deutsche Vermittlerrolle: schwach im Kontext (Frankreich hatte Mehrfach-Initiativen Macron-Putin 2022; China bietet sich an).",
+        "empirical_check": "Istanbul-Verhandlungen 2022 (Achmedow et al.). UN-Resolutionen ES-11/X. Macron-Putin-Telefonate 2022. China-Initiative 2023.",
+        "tier1_sources": [
+          "https://www.understandingwar.org/",
+          "https://www.swp-berlin.org/publikationen",
+          "https://www.un.org/securitycouncil/"
+        ],
+        "value_assumptions": "Annahme: Diplomatie > Militärische Stärke; Eskalations-Vermeidung primär; deutsche Außenpolitik-Tradition Ostpolitik wieder aktivieren."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "NATO-2 %-Ziel halten als Mindeststandard, Beschaffungs-Reform massiv vorantreiben, Wehrpflicht selektiv nach schwedischem Modell, Ukraine-Unterstützung im Rahmen der NATO-Logik (inkl. präzisionsfähiger Systeme), EU-Verteidigungs-Union als Langfrist-Strategie.",
+    "konkret": [
+      "Einzelplan 14 mindestens auf 2 % BIP halten (~80 Mrd. €/Jahr bei stabilem BIP). Nachfolge-Sondervermögen ab 2027 verstetigen (100 Mrd. € über 10 Jahre), klar transparente Investitionsplanung.",
+      "Beschaffungs-Reform vertiefen: SNVR von 2023 weiterentwickeln, BAAINBw-Strukturen straffen, Vergaberecht für Verteidigungsgüter EU-konform vereinfachen.",
+      "Wehrpflicht selektiv nach schwedischem Modell (~25-30 % der Jahrgänge), gestaffelter Übergang über 5 Jahre, Strukturen vorbereiten.",
+      "Ukraine-Unterstützung im Rahmen der NATO-Konsens-Linie. Präzisionsfähige Systeme (Taurus): Konsens mit Bündnispartnern suchen, Stand-Alone-Lieferung nur bei klarer NATO-Bewertung.",
+      "EU-Verteidigungs-Union als 10-Jahres-Plan vorantreiben (PESCO erweitern, gemeinsame Beschaffung skalieren, Strategic Compass operationalisieren).",
+      "Abrüstungs-Verhandlungen (New START Nachfolge) als Kontingenz-Strategie offen halten, ohne Bündnis-Verzicht."
+    ],
+    "warum": "Russische Aufrüstung (+38 % 2024) und US-Garantie-Schwund (Trump 2025) erzwingen europäische Eigenverantwortung. Reine 2 %-Logik ohne strukturelle Reform reicht nicht — Mittel müssen auch effizient einsetzbar sein. Werte-Außenpolitik (UN-Charta, Bündnistreue) ist nicht durch reines Spar-Argument substituierbar.",
+    "wertannahmen": "§3 (Werte-Außenpolitik) — Bündnistreue und Souveränitäts-Verteidigung sind nicht verhandelbar; §6 (Vorsicht) wird beachtet durch maßvolle Eskalationsbereitschaft im NATO-Konsens.",
+    "trade_offs_eingestanden": "2 %-Pfad belastet Bundeshaushalt strukturell (jährliche Schuldenbremse-Frage); Wehrpflicht-Reaktivierung politisch konfliktträchtig (Karenzzeit-Effekte für junge Erwerbsbiografien); EU-Verteidigungs-Union braucht 10-15 Jahre; Ukraine-Unterstützung bindet Mittel langfristig.",
+    "url": "programm/verteidigung.html"
+  },
+  "evidenz_link": {
+    "url": "programm/verteidigung.html",
+    "label": "EVIDENZ-Position zur Verteidigung (vollständig)",
+    "note": "Hier steht die ausführliche Optionsanalyse mit Bedrohungs-Szenarien und Beschaffungs-Reformen."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (NATO, BMF, Art. 87a GG, SIPRI). Einzelne Werte (Quote 2,12 %, Personalstärke, Ukraine-Hilfen kumuliert) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0",
+  "slug": "schuldenbremse",
+  "title": "Schuldenbremse & Fiskalpolitik",
+  "lead": "Investitionsstau bei Infrastruktur, Klima, Bildung — und gleichzeitig eine Schuldenbremse, die kreditfinanzierte Investitionen eng begrenzt. Wer will was, und was halten Tier-1-Quellen (BVerfG, ERK, SVR, DIW, BMF) davon?",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Strukturelles Defizit Bund max. nach Art. 109 Abs. 3 GG",
+      "value": "0,35 % BIP",
+      "source_title": "Grundgesetz Art. 109",
+      "source_url": "https://www.gesetze-im-internet.de/gg/art_109.html",
+      "verified": true
+    },
+    {
+      "label": "Maximum Länder",
+      "value": "0,00 % BIP (seit 2020)",
+      "source_title": "Art. 109 Abs. 3, Art. 143d GG",
+      "source_url": "https://www.gesetze-im-internet.de/gg/art_109.html",
+      "verified": true
+    },
+    {
+      "label": "Investitionsstau Infrastruktur+Klima+Digital bis 2035",
+      "value": "600–1.000 Mrd. €",
+      "source_title": "Expertenrat Klimafragen 2025b",
+      "source_url": "https://expertenrat-klima.de/publikationen/",
+      "verified": true
+    },
+    {
+      "label": "Aktuelle Schuldenquote (Maastricht)",
+      "value": "ca. 63 % BIP",
+      "source_title": "Destatis / Eurostat",
+      "source_url": "https://www.destatis.de/DE/Themen/Staat/Oeffentliche-Finanzen/_inhalt.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Sondervermögen Bundeswehr (2022)",
+      "value": "100 Mrd. €",
+      "source_title": "Art. 87a GG (Änderung), BGBl. I S. 968",
+      "source_url": "https://www.gesetze-im-internet.de/gg/art_87a.html",
+      "verified": true
+    },
+    {
+      "label": "BVerfG-Urteil zur KTF-Umwidmung",
+      "value": "60 Mrd. € Loch (15.11.2023)",
+      "source_title": "BVerfG 2 BvF 1/22",
+      "source_url": "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2023/bvg23-101.html",
+      "verified": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "Art. 109, 115 GG (Schuldenbremse)",
+      "summary": "Strukturelles Defizit-Limit; Ausnahmen bei Naturkatastrophen/außergewöhnlichen Notsituationen. Änderung verlangt 2/3-Mehrheit in BT + BR.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_109.html"
+    },
+    {
+      "rule": "BVerfG 2 BvF 1/22 (15.11.2023)",
+      "summary": "Umwidmung von Corona-Krediten in den KTF (Klima-/Transformationsfonds) verfassungswidrig — strenge Auslegung der Schuldenbremse.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2023/bvg23-101.html"
+    },
+    {
+      "rule": "BVerfG 1 BvR 2656/18 (24.03.2021, Klimabeschluss)",
+      "summary": "Intertemporale Freiheitssicherung — der Staat darf Reduktionslasten nicht einseitig in die Zukunft schieben. Relevant für „Investitions-vs-Vorsicht\"-Abwägung.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/03/rs20210324_1bvr265618.html"
+    },
+    {
+      "rule": "EU Stabilitäts- und Wachstumspakt (Reform 2024)",
+      "summary": "Defizitgrenze 3 % BIP, Schuldenstand 60 % BIP, neue Pfadlogik mit Spielraum für grüne Investitionen.",
+      "url": "https://economy-finance.ec.europa.eu/economic-and-fiscal-governance/stability-and-growth-pact_en"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Schuldenbremse-Reform mit Investitionsklausel („goldene Regel\") für klima- und infrastrukturrelevante Ausgaben; Sondervermögen als legitime Brücke; EU-Pfad nutzen.",
+      "key_claims": [
+        "Investitionen sind nicht gleich konsumtive Schulden — Generationengerechtigkeit",
+        "Strikte Schuldenbremse blockiert Klima- und Infrastruktur-Pfad"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Investitions-vs-Konsum-Argument: ökonomische Logik klar (Krediteinsatz für rentable Investitionen ist Standard-Lehrbuch), aber Abgrenzungs-Problem ist real — was als „Investition\" zählt, ist politisch dehnbar. BVerfG 2 BvF 1/22 hat genau diese Abgrenzung kritisiert. Generationengerechtigkeits-Argument hat BVerfG-Anker (Klimabeschluss 2021).",
+        "empirical_check": "ERK 2025b zur Investitionslücke (600-1.000 Mrd. € bis 2035). DIW Wochenbericht 12/2024 zur goldenen Regel. BVerfG 2 BvF 1/22 zur Abgrenzungs-Problematik.",
+        "tier1_sources": [
+          "https://expertenrat-klima.de/publikationen/",
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2023/bvg23-101.html"
+        ],
+        "value_assumptions": "Annahme: Unterscheidung Investition/Konsum legitim und operationalisierbar; Generationengerechtigkeit als Argument FÜR Investitions-Schulden."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Schuldenbremse strikt halten, Sondervermögen-Praxis stoppen, Investitionsstau durch Umschichtung im Haushalt und Privatisierung lösen; Klima-Investitionen über CO2-Preis, nicht über neue Kredite.",
+      "key_claims": [
+        "Schuldenbremse zwingt zu Prioritäten-Setzung — das ist heilsam",
+        "Investitionsstau ist Verwaltungs- und Genehmigungs-Problem, nicht Geldproblem"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Prioritätensetzungs-Argument: ökonomisch valider Punkt — Kredit-Optionen erhöhen Anreize zur Ausgabenausweitung (Time-inconsistency, Buchanan-Schule). Verwaltungs-Bottleneck-Argument: empirisch teilweise gestützt — Bahn-Investitionen scheitern oft an Planung/Genehmigung, nicht Geld. ABER: ERK 2025b zeigt, dass selbst bei perfekter Verwaltungs-Effizienz die Investitionslücke ohne Mehrausgaben nicht zu schließen ist (600+ Mrd. €). Umschichtungs-Spielraum im Haushalt limitiert (Soziales + Personal + Zinsen = ~75 %).",
+        "empirical_check": "ERK 2025b zur Investitionslücke. Bundesrechnungshof zu Planungs-Bottlenecks. BMF Haushalts-Strukturen 2024.",
+        "tier1_sources": [
+          "https://expertenrat-klima.de/publikationen/",
+          "https://www.bundesrechnungshof.de/DE/veroeffentlichungen/produkte/bemerkungen-jahresberichte/",
+          "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/bundeshaushalt.html"
+        ],
+        "value_assumptions": "Annahme: Vorsicht > Spielraum; Schuldenbremse als Disziplin-Anker; Politik neigt strukturell zur Übernutzung von Krediten."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Schuldenbremse reformieren: Investitionsklausel + höhere Defizitschwelle für Klima+Infrastruktur, Sondervermögen Generationen-Kapital, EU-Spielräume nutzen.",
+      "key_claims": [
+        "Klima-Investitionen sind Generationengerechtigkeit, nicht Schulden",
+        "Nicht-Investition heute kostet mehr als Investition mit Krediten"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Stern-Review-Logik (frühe Klima-Investitionen günstiger als spätere Schäden) gut belegt. Generationen-Argument: BVerfG-Klimabeschluss 2021 stützt grundsätzlich. ABER: konkrete Quantifizierung „Nicht-Investition heute kostet X mehr\" ist methodisch dünn — Diskontraten-Streit (Stern vs. Nordhaus) und Modellunsicherheit limitieren harte Aussagen. EU-Spielräume nach Pakt-Reform 2024 sind real, aber moderat.",
+        "empirical_check": "Stern Review 2006. IPCC AR6 WG III zu Mitigation Costs. BVerfG-Klimabeschluss 2021. EU-Pakt-Reform 2024 (VO 2024/1263).",
+        "tier1_sources": [
+          "https://www.ipcc.ch/report/ar6/wg3/",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/03/rs20210324_1bvr265618.html",
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32024R1263"
+        ],
+        "value_assumptions": "Annahme: §1 (Sorgepflicht für künftige Generationen) wiegt mehr als §6 (Vorsicht bei Schulden), weil Klimarisiken irreversibel sind, Schuldenrisiken reversibel."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Schuldenbremse strikt halten, keine Investitionsklausel, Sondervermögen nur in Ausnahmen (Verteidigung); Investitionsstau über Privatisierung + PPP + Ausgabenkürzungen lösen.",
+      "key_claims": [
+        "Investitionsklausel ist Schlupfloch — politische Logik dehnt Definition",
+        "Privatkapital ist verfügbar, wenn Rahmenbedingungen stimmen"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Schlupfloch-Argument: empirisch nicht trivial. Internationaler Vergleich (UK ‚golden rule' 1998-2008) zeigt Definitions-Dehnung war real, aber kontrollierbar (Office for Budget Responsibility). Privatkapital-Argument: für rentable Investitionen (Glasfaser, Strom-Netze teils) realistisch, für nicht-rentable Pflichtaufgaben (Schienen-Erhalt, Schulgebäude) empirisch wenig erfolgreich (PPP-Bilanz: ifo-Studien zeigen oft schlechtere Wirtschaftlichkeit als Eigenbau).",
+        "empirical_check": "UK OBR-Berichte zur goldenen Regel 1998-2008. ifo-Studien zu PPP-Bilanz 2010-2024. Bundesrechnungshof zu PPP-Projekten.",
+        "tier1_sources": [
+          "https://obr.uk/publications/",
+          "https://www.ifo.de/publikationen",
+          "https://www.bundesrechnungshof.de/DE/veroeffentlichungen/produkte/bemerkungen-jahresberichte/"
+        ],
+        "value_assumptions": "Annahme: Markt-Effizienz primär; staatliche Kreditaufnahme strukturell ineffizient; Ordnungspolitik > Konjunkturpolitik."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Schuldenbremse komplett abschaffen, Vermögensabgabe + Erbschaftsteuer-Verschärfung zur Investitionsfinanzierung, Staatsfonds für Industrie-Transformation.",
+      "key_claims": [
+        "Schuldenbremse ist demokratie-feindlich (limitiert politischen Handlungsspielraum)",
+        "Vermögensabgabe würde Investitionsstau ohne Neuverschuldung lösen"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "datenmäßig offen",
+        "summary": "Demokratie-Argument: politisch-philosophische Position, nicht empirisch entscheidbar. Vermögensabgabe-Wirkung: DIW-Modellrechnungen (Bach et al. 2021) schätzen Aufkommen einer Vermögensteuer auf 22-26 Mrd. €/Jahr — substanziell, aber unter dem ERK-Investitionsbedarf (135-255 Mrd./Jahr Klima allein). Plus: Vermögensabgabe würde Kapitalabwanderungs-Risiken haben, internationale Erfahrungen (FR, SE) zeigen aufkommensschwächere Realität als Modelle.",
+        "empirical_check": "DIW Wochenbericht 42/2021 (Bach/Beznoska/Steiner zur Vermögensteuer). ERK 2025b zum Investitionsbedarf. Frankreich/Schweden Vermögensteuer-Bilanzen.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.825586.de/publikationen/wochenberichte/2021_42_3/vermoegensteuer__machbar_und_gerecht.html",
+          "https://expertenrat-klima.de/publikationen/",
+          "https://www.insee.fr/fr/statistiques/4801284"
+        ],
+        "value_assumptions": "Annahme: Demokratische Spielräume > fiskalische Vorsicht; Vermögensbesteuerung als Gerechtigkeits- und Finanzierungs-Instrument."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Schuldenbremse strikt halten, Sondervermögen Bundeswehr akzeptieren, alle anderen Sondervermögen abschaffen; Ausgaben über Migrations- und EU-Beiträge-Kürzung finanzieren.",
+      "key_claims": [
+        "Migration kostet 50+ Mrd./Jahr, das löst den Investitionsstau",
+        "EU-Nettobeitrag entzieht DE Investitions-Spielraum"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt",
+        "summary": "Migrations-Brutto-Kosten: AsylbLG-Ausgaben 2023 ca. 12,6 Mrd. €, sekundäre Kosten ungenau geschätzt (15-25 Mrd. inklusive Verwaltung, Bildung etc.). „50+ Mrd.\" ist erheblich überzeichnet. Netto-Effekt langfristig mit Erwerbsintegration deutlich kleiner. EU-Nettobeitrag 2023: ca. 19,7 Mrd. € (Eurostat). Das wäre selbst bei kompletter Streichung deutlich unter dem ERK-Investitionsbedarf (135+ Mrd./Jahr Klima allein). Kausalkette „Migration+EU-Kürzung schließt Investitionsstau\" ist arithmetisch nicht tragfähig.",
+        "empirical_check": "Destatis Asylbewerberleistungen 2023. Eurostat EU-Beiträge 2023. ERK 2025b zum Investitionsbedarf. IAB-Forschungsbericht 2024 zu Erwerbsintegration.",
+        "tier1_sources": [
+          "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Asylbewerberleistungen/_inhalt.html",
+          "https://ec.europa.eu/eurostat/web/government-finance-statistics/data/database",
+          "https://expertenrat-klima.de/publikationen/",
+          "https://doku.iab.de/forschungsbericht/2024/fb1024.pdf"
+        ],
+        "value_assumptions": "Annahme: Migration und EU-Beiträge sind verzichtbare Posten; Schuldenbremse als nationaler Anker."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Schuldenbremse mit Investitionsklausel reformieren, klare Abgrenzung zu Konsumschulden; Vermögensabgabe für Krisen; Sondervermögen-Praxis transparenter regulieren.",
+      "key_claims": [
+        "Schuldenbremse muss Investitionen ermöglichen, aber Konsum begrenzen",
+        "Vermögensabgabe als Krisenfinanzierung ist verfassungsmäßig"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Investitions-vs-Konsum-Argument: gleiche Grundlogik wie SPD, dieselben Abgrenzungs-Probleme. Vermögensabgabe-Verfassungsmäßigkeit: BVerfG hat Lastenausgleichs-Logik 1952 anerkannt, aktuelle Vermögensteuer-Auflage hängt aber an Bewertungs-Konsistenz (BVerfG 1995 Vermögensteuer-Beschluss). Krisenfinanzierung als Begriff: rechtlich definiert für Notsituationen — kann verfassungskonform ausgestaltet werden, ist aber kein Routine-Finanzierungs-Instrument.",
+        "empirical_check": "BVerfG-Vermögensteuer-Beschluss 1995. DIW 2021 zur Vermögensteuer. BVerfG 2 BvF 1/22 zur Schuldenbremse-Auslegung.",
+        "tier1_sources": [
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1995/06/rs19950622_2bvl003791.html",
+          "https://www.diw.de/de/diw_01.c.825586.de/publikationen/wochenberichte/2021_42_3/vermoegensteuer__machbar_und_gerecht.html",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Pressemitteilungen/DE/2023/bvg23-101.html"
+        ],
+        "value_assumptions": "Annahme: Investitions-Spielraum nötig, aber kein Freibrief für Konsum-Schulden; Vermögensabgabe in Krisen als legitimes Instrument; Volkssouveränität > Markt-Disziplin."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Generationen-Konto statt starrer Schuldenbremse: Investitionsschulden sind zulässig, wenn ein unabhängiger Expertenrat dokumentiert, dass die Investition künftigen Generationen einen Netto-Nutzen bringt — konsumtive Schulden bleiben strikt begrenzt.",
+    "konkret": [
+      "Art. 115 GG ändern: kreditfinanzierte Investitionen zulässig, wenn ein neu zu schaffender Generationenrat dokumentiert, dass der Netto-Nutzen für künftige Generationen positiv ist (unterlassene Kosten ohne Investition > Schuldenkosten).",
+      "Generationenrat (5–10 Mitglieder, Sekretariat ~10–15 Personen, ~1,5–2,5 Mio. €/Jahr) prüft pro Haushaltsjahr; Berufung durch Bundespräsident auf Vorschlag eines breit aufgestellten Gremiums (Modell Wissenschaftsrat).",
+      "Strukturelle 0,35 %-BIP-Grenze bleibt für konsumtive Ausgaben in Kraft. Nur Investitionen mit positivem Netto-Nutzen-Test sind zusätzlich kreditfinanzierbar.",
+      "Sondervermögen-Praxis wird strukturell obsolet: Investitionen mit Netto-Nutzen laufen regulär durch den Haushalt; ohne Test sind sie auch als Sondervermögen nicht legitim.",
+      "EU-Stabilitätspakt-Reform 2024 (grüne Investitionen) nutzen, ohne die strenge Maastricht-Logik aufzugeben."
+    ],
+    "warum": "BVerfG-Klimabeschluss 2021 hat das Prinzip „intertemporale Freiheitssicherung\" etabliert — das macht EVIDENZ operationell. Klima- und Infrastruktur-Investitionen sind nach dieser Logik zulässig, wenn der Netto-Nutzen für künftige Generationen wissenschaftlich dokumentiert ist. Reine 0,35 %-Regel ignoriert, dass nicht-Investition heute höhere Kosten morgen verursacht.",
+    "wertannahmen": "§1 (Sorgepflicht für künftige Generationen) UND §6 (Vorsicht) werden differenziert behandelt: Schuldenrisiken sind politisch reversibel, Klimarisiken irreversibel — deshalb wiegt §1 in dieser Konstellation schwerer.",
+    "trade_offs_eingestanden": "Netto-Nutzen-Test ist methodisch anspruchsvoll; Generationenrat-Aufbau dauert 1–2 Jahre; politisch konfliktträchtig (2/3-Mehrheit nötig); BVerfG-Belastbarkeit der konkreten Mechanik ungetestet.",
+    "url": "programm/schuldenbremse.html"
+  },
+  "evidenz_link": {
+    "url": "programm/schuldenbremse.html",
+    "label": "EVIDENZ-Position zur Schuldenbremse (vollständig)",
+    "note": "Hier steht die vollständige Optionsanalyse mit allen 5 untersuchten Optionen und Begründung."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (GG, BVerfG, ERK, DIW). Einzelne Werte (Schuldenquote 2024, EU-Beitrag 2023) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

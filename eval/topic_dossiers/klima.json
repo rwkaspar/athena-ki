@@ -1,0 +1,243 @@
+{
+  "schema_version": "1.0",
+  "slug": "klima",
+  "title": "Klima",
+  "lead": "Wo welche Partei beim Klimaschutz steht — und was Athena anhand von Tier-1-Quellen (UBA, IPCC, KSG, BVerfG) dazu sagt.",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "THG-Emissionen Deutschland 2024",
+      "value": "ca. 649 Mio. t CO₂-Äq",
+      "source_title": "UBA THG-Emissionsbilanz 2025 (vorläufig)",
+      "source_url": "https://www.umweltbundesamt.de/themen/klima-energie/treibhausgas-emissionen",
+      "verified": true
+    },
+    {
+      "label": "Klimaneutralitäts-Ziel DE",
+      "value": "2045",
+      "source_title": "§ 3 Abs. 2 KSG",
+      "source_url": "https://www.gesetze-im-internet.de/ksg/__3.html",
+      "verified": true
+    },
+    {
+      "label": "Zwischenziel 2030 (vs. 1990)",
+      "value": "−65 %",
+      "source_title": "§ 3 Abs. 1 KSG",
+      "source_url": "https://www.gesetze-im-internet.de/ksg/__3.html",
+      "verified": true
+    },
+    {
+      "label": "Deutschlands Anteil globaler CO₂-Emissionen",
+      "value": "ca. 1,8 % (2023)",
+      "source_title": "Global Carbon Project / EDGAR",
+      "source_url": "https://edgar.jrc.ec.europa.eu/report_2024",
+      "verify_needed": true
+    },
+    {
+      "label": "Klima-Finanzierungslücke DE pro Jahr",
+      "value": "135–255 Mrd. €",
+      "source_title": "Expertenrat für Klimafragen Sondergutachten 2025",
+      "source_url": "https://expertenrat-klima.de/publikationen/",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "§ 3 KSG (Klimaschutzgesetz)",
+      "summary": "−65 % bis 2030, −88 % bis 2040, Klimaneutralität 2045 (jeweils vs. 1990).",
+      "url": "https://www.gesetze-im-internet.de/ksg/__3.html"
+    },
+    {
+      "rule": "BVerfG-Klimabeschluss 24.03.2021 (1 BvR 2656/18 u. a.)",
+      "summary": "Intertemporale Freiheitssicherung — Staat darf Reduktionslasten nicht einseitig in die Zukunft verlagern.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/03/rs20210324_1bvr265618.html"
+    },
+    {
+      "rule": "EU-Emissionshandel (ETS 1 & ETS 2)",
+      "summary": "ETS 1: Strom + Industrie; ETS 2: Verkehr + Gebäude ab 2027 EU-weit.",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:02003L0087-20240301"
+    },
+    {
+      "rule": "Pariser Klimaschutzabkommen",
+      "summary": "1,5 °C-Ziel als Obergrenze, völkerrechtlich verbindliche Selbstverpflichtungen (NDCs).",
+      "url": "https://unfccc.int/sites/default/files/english_paris_agreement.pdf"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Klimaneutralität bis 2045 festhalten, sozialverträgliche Transformation (Klimageld als Rückverteilungs-Instrument), industrielle Wertschöpfung über grünen Wasserstoff sichern.",
+      "key_claims": [
+        "Klimageld kompensiert untere Einkommen vollständig für CO₂-Preis",
+        "Grüner Wasserstoff sichert industrielle Wertschöpfung"
+      ],
+      "position_source": "SPD-Regierungsprogramm 2025, Kapitel Klima & Industrie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "Klimageld-Kompensation in der Logik der Pro-Kopf-Auszahlung untere Dezile fiskal-positiv (DIW 2023, IW 2023). Konkrete Umsetzung steht noch aus — 2026 keine Klimageld-Auszahlung implementiert. Grüner Wasserstoff: Technologie skalierbar, Kosten 2024-2025 noch deutlich über fossiler Konkurrenz; Wettbewerbsfähigkeit hängt an EU-CBAM und Strompreis.",
+        "empirical_check": "DIW Wochenbericht 2023 zum Klimageld: untere 60% profitieren netto. IEA World Energy Outlook 2024: H2-Wettbewerbsfähigkeit ab ca. 2030-2035, abhängig von Strompreis. Status-Klimageld Umsetzung: Auszahlungsmechanik nicht implementiert.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.iea.org/reports",
+          "https://www.umweltbundesamt.de/themen/klima-energie/treibhausgas-emissionen"
+        ],
+        "value_assumptions": "Annahme: Klimaschutz und sozialer Ausgleich sind koppelbar; industrielle Erhaltung wiegt schwerer als rein marktwirtschaftliche Reallokation."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Klimaneutralität 2045 grundsätzlich festhalten, aber Technologieoffenheit (auch Kernenergie, CCS, E-Fuels), Marktmechanismen vor Verboten (CO₂-Preis statt Verbrenner-Aus).",
+      "key_claims": [
+        "Technologieoffenheit erreicht Klimaziele kostengünstiger als Verbote",
+        "CCS und Kernenergie sind unverzichtbar für Klimaneutralität"
+      ],
+      "position_source": "Union-Wahlprogramm 2025, Kapitel Klima & Energie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "CO₂-Preis-Logik: theoretisch effizient (Pigou), in der Praxis Pricing-Bezugsgröße entscheidend. IPCC AR6 anerkennt CCS als notwendige Komponente für „schwer-zu-dekarbonisierende“ Sektoren (Zement, Stahl). Kernenergie in DE: realistische Wiederaufnahme braucht ca. 12-15 Jahre Neubau-Vorlauf — nicht relevant für 2030/2045-Ziele. E-Fuels für Pkw-Massenmarkt von IEA und Agora als zu teuer eingestuft.",
+        "empirical_check": "IPCC AR6 WGIII Ch. 11 zu CCS-Notwendigkeit. IEA World Energy Outlook 2024 zu Kernenergie-Bauzeiten. Agora Energiewende E-Fuel-Studie 2024.",
+        "tier1_sources": [
+          "https://www.ipcc.ch/report/ar6/wg3/",
+          "https://www.iea.org/reports",
+          "https://www.agora-energiewende.de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Technologie-Neutralität ist effizienter als sektorspezifische Vorgaben; Erhalt von Wahlfreiheit (Heizung, Pkw) wiegt politisch."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Ambitioniertere Klimaziele (Klimaneutralität früher als 2045 anstreben), 100 % Erneuerbare bis 2035, Verbrenner-Aus 2035 EU-konform, sozialer Klimageld-Mechanismus.",
+      "key_claims": [
+        "100 % Erneuerbare bis 2035 sind technisch und ökonomisch machbar",
+        "Klimaschutz ist Investition mit Renditen über fossiler Pfadabhängigkeit"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025, Kapitel Klima & Energie",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "100% Erneuerbare 2035: Fraunhofer ISE-Modelle zeigen 80-95% bis 2035 machbar, 100% mit großer Unsicherheit (Saison-Speicher, Dunkelflaute). Klimaschutz als Investition: BCG, Stern-Report, DIW-Studien zeigen ROI über Schadenskosten — Unsicherheit liegt im Diskontierungssatz für künftige Generationen.",
+        "empirical_check": "Fraunhofer ISE-Studien zur Stromsektor-Transformation. Stern Review 2006 (immer noch zentrale Referenz). IPCC AR6 SPM zu Mitigation-Kosten vs. Schadenskosten.",
+        "tier1_sources": [
+          "https://www.ise.fraunhofer.de/de/veroeffentlichungen/studien.html",
+          "https://www.ipcc.ch/report/ar6/wg3/",
+          "https://expertenrat-klima.de/publikationen/"
+        ],
+        "value_assumptions": "Annahme: Klimarisiken irreversibel und damit höher zu gewichten als Anpassungskosten; technologieoffener Pfad würde Tempo verlieren."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Klimaneutralität 2045 erreichen über CO₂-Preis als Leitinstrument, technologieoffen (Wasserstoff, E-Fuels, Kernenergie nicht ausschließen), Förderung statt Verbote, EU-ETS ausweiten.",
+      "key_claims": [
+        "CO₂-Preis als Leitinstrument ist effizienter als Subventionen",
+        "EU-ETS-Ausweitung erreicht Klimaziele kostengünstiger"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025, Kapitel Klima & Wirtschaft",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "CO₂-Preis-Effizienz: ökonomische Theorie (Pigou) klar — in der Empirie ist die Wirkung von der Preishöhe und Begleitpolitik abhängig. EU-ETS 1 zeigt seit 2018 (Reform) wirksame Steuerungs-Wirkung. ETS 2 (Verkehr/Gebäude) ab 2027 — soziale Verteilungsfrage offen (DIW 2023 mahnt Rückverteilung an).",
+        "empirical_check": "European Court of Auditors Special Report ETS. DIW Wochenbericht 2023 zu sozialen Effekten ETS 2. IEA-Studien zu Carbon Pricing global.",
+        "tier1_sources": [
+          "https://www.eca.europa.eu/en/publications",
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.iea.org/reports"
+        ],
+        "value_assumptions": "Annahme: Marktmechanismen sind effizient genug, soziale Härten lassen sich kompensieren; Technologieoffenheit > Pfadwahl durch Staat."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Klimaneutralität deutlich vor 2045 (Ziel 2035), Vergesellschaftung großer Energiekonzerne, soziale Staffelung der CO₂-Preise, kein CCS (Greenwashing-Risiko), Schluss mit fossilen Subventionen.",
+      "key_claims": [
+        "Vergesellschaftung Energiekonzerne ermöglicht schnellere Transformation",
+        "Klimaneutralität 2035 ist mit Investitionsoffensive machbar"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025, Kapitel Klima",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "datenmäßig offen",
+        "summary": "Vergesellschaftung-These: keine empirische Vergleichsbasis in DE-Kontext (Volksinitiative Berlin „Deutsche Wohnen & Co. enteignen“ laufendes Verfassungs-Verfahren). Klimaneutralität 2035: außerhalb des Konsens-Korridors der IEA, IPCC und Fraunhofer-Modelle — wird in Forschungsliteratur als sehr ambitioniert eingestuft, ohne klare Machbarkeitsmodelle. CCS-Skepsis hat Substanz für Sektoren, in denen Vermeidung möglich ist; bei schwer-dekarbonisierbaren (Zement) wird sie kritisch.",
+        "empirical_check": "IPCC AR6 WGIII zu CCS-Pfadabhängigkeit. Agora Energiewende Klima-2030-Studien. Vergesellschaftungs-Debatte: BVerfG 2024 zur Berliner Initiative steht aus.",
+        "tier1_sources": [
+          "https://www.ipcc.ch/report/ar6/wg3/",
+          "https://www.agora-energiewende.de/publikationen",
+          "https://www.bundesverfassungsgericht.de/"
+        ],
+        "value_assumptions": "Annahme: Klimarisiken überwiegen Eigentums-Reorganisations-Risiken; Marktversagen rechtfertigt strukturelle Eingriffe."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Klimaschutzgesetz abschaffen, Pariser Klimaabkommen kündigen, deutsche Klimapolitik hat keinen messbaren Einfluss auf Welttemperatur (2 %-Argument), Kernenergie wieder hochfahren, Verbrenner-Aus zurücknehmen.",
+      "key_claims": [
+        "Deutschland verursacht weniger als 2 % der globalen CO₂-Emissionen",
+        "Nationale Klimapolitik hat keinen messbaren Einfluss auf Weltklima"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025, Kapitel Energie & Klima",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Drei Ebenen: (1) 2 %-Anteil: faktisch näherungsweise korrekt (1,8 % laut EDGAR 2023). Pro-Kopf liegt DE jedoch bei 7,3 t CO₂/Kopf — Top-15 weltweit; kumulativ historisch Top-5. Die 'keine Wirkung'-Folgerung ignoriert Kollektivhandeln (gilt jedes Land) und Technologie-Lerneffekte (deutsche EE-Förderung 2000-2015 senkte globale Solar-Kosten um >80 %). (2) Pariser Abkommen ist völkerrechtlich verbindlich; Austritt möglich (Art. 28), aber außenpolitisch-handelspolitisch teuer (CBAM-Reziprozität, EU-Vertragsbruch). (3) Kernenergie-Wiedereinstieg + Strompreis: neue Reaktoren brauchen 12-15 Jahre Bauzeit; Stromgestehungskosten neuer Atomkraft (Hinkley Point C UK: 32 Mrd. £, LCOE 120-150 €/MWh) liegen 2-3× über Wind/Solar 2024 (30-60 €/MWh). Atomkraft kann den Strompreis kurzfristig nicht senken — sie würde ihn langfristig sogar erhöhen, wenn sie Erneuerbare verdrängt. Französische Atomflotte 2022: 50 % der Reaktoren wegen Wartung ausgefallen → trieb EU-Großhandelspreis nach oben, nicht Atomkraft als Stabilisator.",
+        "empirical_check": "EDGAR-CO₂-Inventar 2024 (1,8 % DE-Anteil). Pro-Kopf-Daten Global Carbon Project. IEA Levelized Cost of Electricity 2024 (Solar PV 30-60 €/MWh, Onshore-Wind 35-55 €/MWh, neue Atomkraft 100-160 €/MWh). UK NAO Report 2017 zu Hinkley Point C. RTE France Bilan électrique 2022 zu Atomflotten-Verfügbarkeit. IRENA Renewable Power Generation Costs 2024. Pariser Abkommen Art. 28 Austrittsregel. IPCC AR6 WGIII Kap. 14 zu Free-Rider-Logik.",
+        "tier1_sources": [
+          "https://edgar.jrc.ec.europa.eu/report_2024",
+          "https://globalcarbonbudget.org/",
+          "https://unfccc.int/sites/default/files/english_paris_agreement.pdf",
+          "https://www.iea.org/reports/projected-costs-of-generating-electricity-2020",
+          "https://www.irena.org/Publications/2024/Sep/Renewable-Power-Generation-Costs-in-2023",
+          "https://www.nao.org.uk/reports/hinkley-point-c/",
+          "https://www.rte-france.com/analyses-tendances-et-prospectives/bilan-electrique-francais",
+          "https://www.ipcc.ch/report/ar6/wg3/"
+        ],
+        "value_assumptions": "Annahme: nationaler Eigennutz > kollektives Klimakooperationsziel; Kosten der Klimapolitik wiegen schwerer als langfristige Schadensvermeidung."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Klimaschutz ja, aber sozial gerecht und ohne deutsche Deindustrialisierung; Verbrenner-Aus 2035 zurücknehmen; Sanktionen prüfen, da russisches Gas billiger ist und Energiepreise drückt; Heizungsgesetz lockern.",
+      "key_claims": [
+        "Aktueller Klimaschutzpfad führt zur Deindustrialisierung",
+        "Russisches Gas würde Energiepreise und damit Industrieemissionen senken"
+      ],
+      "position_source": "BSW-Programm 2025 + Wagenknecht-Reden",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "datenmäßig offen + teilweise widerlegt",
+        "summary": "Deindustrialisierungs-These: Industrieproduktion energieintensiver Branchen 2022-2024 rückläufig (Destatis), Kausalattribution zu Klimapolitik vs. Gas-Preis-Schock vs. globaler Nachfrage ist umstritten — DIW, Sachverständigenrat sehen Klima-Politik nicht als dominanten Treiber. Russisches Gas: Preis-Vorteil empirisch ja (2021er Pipeline-Preise vs. LNG 2024), Klima-Folgewirkung jedoch problematisch (Methan-Leakage, fortgeschriebene Pfadabhängigkeit). Argument greift kurzfristig Preis-, langfristig nicht Klima-Logik.",
+        "empirical_check": "Destatis Produktionsindex Industrie. SVR Jahresgutachten 2024. DIW Wochenberichte Energie. UBA Methan-Leakage-Bilanz Erdgas.",
+        "tier1_sources": [
+          "https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Industrie-Verarbeitendes-Gewerbe/_inhalt.html",
+          "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html",
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.umweltbundesamt.de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Industrieerhalt und Energiebezahlbarkeit > Klima-Pfadtreue; geopolitische Bindung an Russland akzeptabel als Preis-Stabilisierung."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "8-Cluster-Klimapaket: Kohleausstieg auf 2030, Verbrenner-Aus 2030, GEG behalten und sozial nachschärfen, EE-Ausbau verdoppeln, Industrie-Transformation finanzieren — Kernkraft-Wiedereinstieg ausdrücklich verworfen.",
+    "konkret": [
+      "Kohleausstieg gesetzlich auf 2030 vorziehen (statt 2038), 40 Mrd. € Strukturhilfen Lausitz/NRW, 10 GW H₂-ready-Gaskraftwerke als Backup für EE.",
+      "Verbrenner-Aus für Neuzulassungen 2030 — parallel EU-Push, kein nationaler Alleingang.",
+      "GEG (Heizungsgesetz) beibehalten, Förderung sozial nachschärfen: 70 % Förderung für untere Einkommen, gestufte Übergangsfristen für Bestandsbauten.",
+      "EE-Ausbaupfad: 80 % EE am Bruttostromverbrauch 2030, 100 % bis 2035 — Verdoppelung der Genehmigungs-Geschwindigkeit, Bürgerbeteiligung als Pflicht.",
+      "CO₂-Mindestpreis 200 €/t ab 2030 mit voller Klimageld-Rückverteilung (Pro-Kopf, keine Aufrechnung mit Sozialleistungen).",
+      "Kein Kernkraft-Wiedereinstieg: Bauzeit 12–15 Jahre + Brennstoff-Vertrag schließen den Zeithorizont aus, Kostendifferenz zu EE deutlich (LCOE Atom 130–170 €/MWh vs. Wind onshore 50–70 €/MWh)."
+    ],
+    "warum": "BVerfG-Klimabeschluss 2021 (intertemporale Freiheitssicherung) verlangt Pfadtreue. Die Sektoren verfehlen ungleichmäßig: Verkehr +1,2 %, Gebäude –3 %, Industrie –8 %, Energie –40 %. Dort gegensteuern, wo die Lücke am größten ist.",
+    "wertannahmen": "§1 (Sorgepflicht für Ökosysteme und künftige Generationen) hat Vorrang vor §6 (Vorsicht bei kurzfristigen Kosten), weil Klimarisiken irreversibel sind, Schuldenrisiken aber politisch reversibel.",
+    "trade_offs_eingestanden": "500 Mrd. € Investitionsbedarf bis 2030 (ERK), Strukturbruch Lausitz/NRW braucht 40 Mrd. € flankierend, Verbrenner-Aus politisch konflikt­trächtig, Industriestrompreis bleibt Wettbewerbsthema.",
+    "url": "programm/klima-energie.html"
+  },
+  "evidenz_link": {
+    "url": "programm/klima-energie.html",
+    "label": "EVIDENZ-Position zu Klima & Energie (vollständig)",
+    "note": "Hier steht die ausführliche 8-Cluster-Analyse mit allen Begründungen und Verworfenen-Optionen."
+  },
+  "methodik_note": "Athenas Analysen werden zusätzlich durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (UBA, KSG, BVerfG-Klimabeschluss). Einzelne Zahlen (DE-Anteil global, Klima-Finanzierungslücke, Schutzquoten) brauchen Live-Verifikation. Athena-Analysen werden nach aitest-Lauf finalisiert."
+}

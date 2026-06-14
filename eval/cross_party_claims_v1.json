@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "name": "EVIDENZ Cross-Party Claim-Set v1 — Überparteilichkeits-Test",
+  "description": "Konkrete Behauptungen von AfD und BSW (sowie zur Vergleichbarkeit je eine SPD-/Grünen-/Linke-Behauptung pro Themenfeld). Zweck: Athena prüft jeden Claim nach derselben Methodik wie EVIDENZ-Optionsanalysen — Faktenlage gegen Tier-1-Quellen, Rechtsrahmen, Optionen mit Trade-offs, Wertannahmen. KEIN Rating der Partei; nur Faktenprüfung der konkreten Aussage. Eine Behauptung gilt als 'gestützt', 'teilweise gestützt', 'widerlegt' oder 'datenmäßig offen' — Athena soll alle vier Verdikte vergeben dürfen, abhängig von der Tier-1-Evidenz, unabhängig vom Absender.",
+  "version": "v1",
+  "created": "2026-06-09",
+  "evaluation_protocol": "Jeder Claim läuft durch dieselbe Optionsanalyse-Pipeline wie EVIDENZ-Positionen (siehe /methodik). Athena erstellt: (1) Faktenlage mit min. 3 Tier-1-Quellen, (2) Rechtsrahmen falls relevant, (3) je nach Claim-Typ: Behauptungs-Verdikt + Alternativ-Interpretationen, (4) explizite Wertannahmen, die das Verdikt prägen. Anschließend Critique-Pass (Qwen3.6) + Adversarial Verify (Gemma4). Veröffentlichung der Analyse mit allen Verdikten — auch wenn sie eine AfD/BSW-Behauptung stützen.",
+  "verdicts_allowed": ["gestützt", "teilweise gestützt", "widerlegt", "datenmäßig offen"],
+  "claims": [
+    {
+      "id": "afd-migration-fiskalkosten",
+      "party": "AfD",
+      "topic": "migration",
+      "claim_text": "Asylzuwanderung kostet den deutschen Staat jährlich Milliarden Euro netto — diese Mittel fehlen für Rente, Bildung und Infrastruktur.",
+      "claim_source_type": "Wahlprogramm + Bundestagsreden",
+      "verification_task": "Quantifizieren: Was sind die direkten Asylbewerberleistungen (AsylbLG) pro Jahr? Was sind sekundäre Kosten (Integrationskurse, Verwaltung, Wohnen)? Was sind Einnahmen aus Erwerbstätigkeit (BA-Daten, Sozialversicherungsbeiträge) nach 5 / 10 / 15 Jahren Aufenthalt? Was sagen Fiskalbilanz-Studien (ZEW, IAB, IW)?",
+      "tier1_sources_required": ["AsylbLG-Ausgaben (Destatis/BMAS)", "BAMF Geschäftsstatistik", "BA Arbeitsmarktdaten", "IAB-Forschungsberichte", "ZEW/IW Fiskalbilanz-Studien"],
+      "expected_complexity": "hoch — Bruttokosten vs. Nettoeffekt unterscheiden; Zeithorizont entscheidend; Vergleich zu anderen Bevölkerungsgruppen",
+      "neutral_framing_check": "Gibt es vergleichbare Fiskaleffekte bei anderen Migrationsgruppen (EU-Binnen, Bildungsmigration)? Was sagt der Vergleich Bottom-line vs. Erwerbsalter-Profil?"
+    },
+    {
+      "id": "afd-migration-kriminalitaet",
+      "party": "AfD",
+      "topic": "migration",
+      "claim_text": "Zuwanderung führt zu überproportionaler Kriminalitätsbelastung — die polizeiliche Kriminalstatistik (PKS) zeigt höhere Tatverdächtigenquoten bei Zuwanderern.",
+      "claim_source_type": "Wahlprogramm + Pressemitteilungen",
+      "verification_task": "PKS-Rohzahlen vs. demografisch korrigierte Quoten. Tatverdächtigenanteil normiert auf Alter, Geschlecht, sozioökonomischen Status. Unterscheidung Asylbewerber / Geduldete / Schutzberechtigte / Eingebürgerte. Anteil ausländerrechtlicher Delikte (sonst nicht strafbar). Vergleich zu Inländer-Vergleichsgruppen ähnlichen Profils (BKA Studien).",
+      "tier1_sources_required": ["BKA Polizeiliche Kriminalstatistik (PKS) Jahresbericht", "BKA Bundeslagebild Migration und Kriminalität", "kriminologische Forschungsinstitute (KFN, MPI)", "Destatis Bevölkerungsstruktur für Normierung"],
+      "expected_complexity": "sehr hoch — Roh-Zahl stützt Claim, methodische Normierung dreht das Bild teils um, ausländerrechtliche Delikte sind Definitionsfrage",
+      "neutral_framing_check": "Was sagen umlegungs-bereinigte Vergleichsstudien zu deutschen Vergleichsgruppen gleichen Alters/Status? Wird die PKS-Methodik in der Forschung als Argument-Träger akzeptiert?"
+    },
+    {
+      "id": "afd-energie-atomausstieg",
+      "party": "AfD",
+      "topic": "energie",
+      "claim_text": "Der deutsche Atomausstieg hat die Strompreise und CO2-Emissionen getrieben, weil Atomkraft durch fossile Brennstoffe ersetzt wurde.",
+      "claim_source_type": "Wahlprogramm",
+      "verification_task": "Stromerzeugungs-Mix vor/nach Abschaltung 2023 (BNetzA, AGEB). Anteil Atomstrom 2022 vs. ersetzende Quellen 2024. CO2-Bilanz der ersetzenden Quellen. Großhandelspreis-Entwicklung 2020-2025 (ENTSO-E) parallel zum Gaspreis-Schock — Trennung Gas-Effekt vs. Atomausstieg-Effekt. Vergleich zu Frankreich (mehr Atomkraft, ähnliche Preisentwicklung 2022).",
+      "tier1_sources_required": ["BNetzA Strommarktbericht", "AGEB Energiebilanz", "ENTSO-E Marktdaten", "UBA Emissionsbilanz", "Fraunhofer ISE Energy-Charts"],
+      "expected_complexity": "mittel — empirisch trennbar; das Gaspreis-Schock-Argument muss explizit modelliert werden",
+      "neutral_framing_check": "Wenn der Großhandelspreis 2024 wieder auf Vor-Krise-Niveau gefallen ist, was sagt das über den Anteil 'Atomausstieg' am Preis-Hoch? Was sagen kontrafaktische Modelle (DIW, Agora)?"
+    },
+    {
+      "id": "afd-klima-co2-anteil",
+      "party": "AfD",
+      "topic": "klima",
+      "claim_text": "Deutschland verursacht weniger als 2% der globalen CO2-Emissionen — nationale Klimapolitik hat keinen messbaren Einfluss auf das Weltklima.",
+      "claim_source_type": "Wahlprogramm + Reden",
+      "verification_task": "Faktenteil: Deutschlands CO2-Anteil (UNFCCC, Global Carbon Project). Schlussfolgerungsteil: Kollektives-Handeln-Problem (gilt jedes Land), pro-Kopf-Anteil, kumulierte historische Verantwortung, Technologie-Vorlaufeffekt für Schwellenländer, EU-Anteil (DE Teil davon), völkerrechtliche Pflichten (Pariser Abkommen).",
+      "tier1_sources_required": ["UNFCCC National Greenhouse Gas Inventory", "Global Carbon Project", "IPCC AR6 Working Group III", "Pariser Klimaschutzabkommen (Vertragstext)"],
+      "expected_complexity": "mittel — Faktenkern (2%) ist näherungsweise korrekt; Schlussfolgerung (keine Wirkung) ist eine Wertfrage (Free-Rider-Problem), nicht reine Faktenfrage",
+      "neutral_framing_check": "Wie wird die 2%-Aussage in der wissenschaftlichen Literatur bewertet? Was sagen Spieltheorie-Studien zur Glaubwürdigkeit nationaler Klimapolitik?"
+    },
+    {
+      "id": "afd-elitenkritik-vertrauen",
+      "party": "AfD",
+      "topic": "demokratie",
+      "claim_text": "Eine wachsende Mehrheit der Bevölkerung hat das Vertrauen in die politische Klasse verloren — Entscheidungen werden am Volk vorbei getroffen.",
+      "claim_source_type": "Wahlprogramm + Bundestagsreden",
+      "verification_task": "Empirische Vertrauenswerte: Politbarometer-Zeitreihe (Forschungsgruppe Wahlen), Eurobarometer Vertrauen Bundestag/Regierung, ALLBUS-Daten zu Demokratiezufriedenheit, GLES-Daten. Vergleich zu anderen EU-Staaten. Trennung zwischen 'Vertrauen in Institutionen' vs. 'Vertrauen in Personen'. Wahlbeteiligungs-Trend.",
+      "tier1_sources_required": ["Politbarometer (FGW)", "Eurobarometer (EU-Kommission)", "ALLBUS (GESIS)", "GLES (Wahlforschung)", "Bundeswahlleiter (Wahlbeteiligung)"],
+      "expected_complexity": "mittel — Faktentrend ist messbar; 'am Volk vorbei' ist eine Interpretation, die separat zu prüfen ist",
+      "neutral_framing_check": "Wie sind die Vertrauenswerte im historischen Vergleich (1980er, 2000er)? Was sagt der Vergleich zu Skandinavien / Südeuropa? Korrelation Vertrauensverlust ↔ konkrete Reformen?"
+    },
+    {
+      "id": "bsw-ukraine-verhandlungen",
+      "party": "BSW",
+      "topic": "aussenpolitik",
+      "claim_text": "Verhandlungen zur Beendigung des Ukraine-Kriegs wären möglich, wenn Deutschland und die EU diplomatisch Druck auf beide Seiten ausüben statt einseitig zu eskalieren.",
+      "claim_source_type": "BSW-Programm + Wagenknecht-Reden",
+      "verification_task": "Verhandlungsstand chronologisch: Istanbul-Gespräche 03-04/2022 — was lag auf dem Tisch, warum gescheitert (Bucha vs. Boris-Johnson-These vs. Putin-Maximalforderungen)? Aktuelle Putin-Positionen (Tucker-Carlson 02/2024, Rede 06/2024): Demilitarisierung, 4 Oblaste Anerkennung. Diplomatische Initiativen 2023-2025 (China, Brasilien, Vatikan, Türkei). Was ist 'Druck auf beide Seiten' konkret — und was wäre das realistische Verhandlungsergebnis?",
+      "tier1_sources_required": ["ISW Lageberichte", "SWP-Analysen Ukraine", "UN-Resolutionen ES-11/X", "Putin-Reden (Kreml-Transkripte)", "Wagenknecht-Bundestagsreden (Plenarprotokolle)"],
+      "expected_complexity": "sehr hoch — Verhandlungslage ist asymmetrisch (Putin = Maximalforderungen, Selenskyj = Territorialintegrität), 'Druck auf beide Seiten' präsupponiert symmetrische Eskalations-Verantwortung",
+      "neutral_framing_check": "Wenn Russland 03/2022 Maximalforderungen gestellt hat (entmilitarisierung), was bedeutet 'Verhandlungsbereitschaft' realistisch? Welche EU-Initiativen 2022-2025 gab es bereits — und woran scheiterten sie?"
+    },
+    {
+      "id": "bsw-energiepreise-sanktionen",
+      "party": "BSW",
+      "topic": "energie",
+      "claim_text": "Die Russland-Sanktionen — insbesondere der Verzicht auf günstiges russisches Pipeline-Gas — sind Haupttreiber der hohen Energiepreise in Deutschland und damit der Deindustrialisierungs-Risiken.",
+      "claim_source_type": "BSW-Programm + Bundestagsreden",
+      "verification_task": "Gasimport-Kosten 2021 (Pipeline) vs. 2023-2025 (LNG, Norwegen, Niederlande). Strompreis-Mechanik (Merit-Order, Gas im Großhandel-Grenzpreis). Industriestrompreis vs. EU-Vergleich. Gasspeicher-Stände + Versorgungssicherheit ohne Sanktionen-Szenario. Industrieausstoß-Daten Energieintensive Branchen (Destatis).",
+      "tier1_sources_required": ["BNetzA Gasmarktbericht", "BNetzA Strommarktbericht", "ENTSO-G Pipeline-Daten", "Eurostat Energiepreise EU-Vergleich", "Destatis Produktionsindex Industrie", "DIW Wochenbericht Energie"],
+      "expected_complexity": "hoch — Sanktionen sind ein Faktor, nicht der einzige (Gaspreis-Schock global, Atomausstieg, CO2-Preise); Kausalkette präzise zerlegen",
+      "neutral_framing_check": "Wie haben sich die Großhandelspreise entwickelt, seit LNG-Diversifizierung läuft? Was sagt der Vergleich zu Ländern, die russisches Gas weiter beziehen? Welcher Anteil des Strompreis-Hochs ist Gaspreis-getrieben, welcher CO2-Preis-getrieben?"
+    },
+    {
+      "id": "bsw-migration-arbeitsmarkt",
+      "party": "BSW",
+      "topic": "migration",
+      "claim_text": "Hohe Zuwanderung drückt die Löhne im Niedriglohnsektor und schadet damit den ärmsten deutschen Arbeitnehmern.",
+      "claim_source_type": "BSW-Programm + Wagenknecht-Interviews",
+      "verification_task": "Empirische Lohneffekte Migration auf Niedriglohnsegment: IAB-Studien, ZEW-Studien, internationale Meta-Analysen (Card, Borjas-Schule). Trennung: Asylzuwanderung vs. EU-Binnenmigration vs. Bildungsmigration. Mindestlohn als Untergrenze: was ist seit 2015 / 2022 mit Niedriglohn-Quote passiert? Substitutions- vs. Komplementaritäts-Effekt.",
+      "tier1_sources_required": ["IAB-Forschungsberichte Migration und Arbeitsmarkt", "ZEW Studien", "BA Arbeitsmarktstatistik", "Destatis Lohnstrukturerhebung", "Mindestlohnkommission Berichte"],
+      "expected_complexity": "hoch — Forschungslage uneinheitlich, Methoden-Streit (Card vs. Borjas), Mindestlohn-Floor ändert Mechanik",
+      "neutral_framing_check": "Was sagt die deutsche IAB-Forschung konkret zu Lohneffekten? Wie unterscheidet sich der Befund nach Migrationsgruppe? Welche Rolle spielt der Mindestlohn als Schutzschwelle?"
+    },
+    {
+      "id": "bsw-elitenkritik-deutung",
+      "party": "BSW",
+      "topic": "demokratie",
+      "claim_text": "Etablierte Parteien und Medien deuten Kritik aus der Bevölkerung systematisch um — Themen werden tabuisiert statt diskutiert.",
+      "claim_source_type": "Wagenknecht-Reden + BSW-Programm",
+      "verification_task": "Empirische Indikatoren für 'Tabuisierung': Frame-Analyse Medienberichterstattung zu kontroversen Themen (Migration, Sanktionen, Energie), bibliometrische Analysen, Dokumentation von Anti-Anti-Aussagen. Vergleich zur Medienberichterstattung in anderen EU-Demokratien. Mediennutzungs-Daten + Bewertungs-Daten Bevölkerung (ARD/ZDF-Mediennutzungsstudie, Reuters Digital News Report).",
+      "tier1_sources_required": ["ARD/ZDF-Mediennutzungsstudie", "Reuters Institute Digital News Report", "Mainzer Langzeitstudie Medienvertrauen", "Frame-Analyse-Studien (DFG-geförderte Kommunikationsforschung)"],
+      "expected_complexity": "sehr hoch — 'Tabuisierung' ist methodisch schwer zu operationalisieren; Bevölkerungs-Wahrnehmung als eigenständiger Datenpunkt",
+      "neutral_framing_check": "Was misst Medienforschung empirisch — und mit welcher Methodik? Wie weit decken sich Bevölkerungs-Wahrnehmung und externe Frame-Analysen? Existiert ein 'Schweigespirale-Effekt' nach Noelle-Neumann zu konkreten Themen?"
+    },
+    {
+      "id": "vergleichs-spd-buergergeld",
+      "party": "SPD",
+      "topic": "sozialpolitik",
+      "claim_text": "Das Bürgergeld hat die Anreize zur Arbeitsaufnahme nicht spürbar verschlechtert — die Sanktions-Reform war richtig und sozial gerecht.",
+      "claim_source_type": "SPD-Bundestagsreden + Wahlprogramm 2025",
+      "verification_task": "Vergleichsbehauptung aus dem Mainstream: gleiche methodische Strenge anwenden wie bei AfD/BSW-Claims. Empirie zu Sanktionen-Wirkung (IAB, RWI, ZEW), Lohnabstand zum Mindestlohn, Übergangsquoten in Arbeit vor/nach Reform, internationale Vergleichsstudien.",
+      "tier1_sources_required": ["IAB Forschungsberichte Bürgergeld", "BA Sanktionsstatistik", "RWI-Studien Grundsicherung", "Mindestlohnkommission Berichte"],
+      "expected_complexity": "hoch — Effektgrößen sind klein, Identifikation kausaler Effekte schwer",
+      "neutral_framing_check": "Wird derselbe methodische Standard angelegt wie bei AfD-Migration-Fiskaldaten? Verdikt darf 'widerlegt' lauten, wenn die Empirie das zeigt."
+    },
+    {
+      "id": "vergleichs-gruene-heizungsgesetz",
+      "party": "Grüne",
+      "topic": "klima",
+      "claim_text": "Das Gebäudeenergiegesetz (GEG, 'Heizungsgesetz') ist sozial ausgewogen, weil die Förderung einkommensabhängig gestaffelt ist und niemand seine Heizung sofort tauschen muss.",
+      "claim_source_type": "Grünen-Pressemitteilungen + Bundestagsreden",
+      "verification_task": "Tatsächliche Förderhöhen und -staffelung nach Einkommen. Verteilung der Wärmepumpen-Förderanträge nach Einkommensdezilen (BAFA-Daten, falls verfügbar). Tatsächliche Kostenbelastung Mieter vs. Eigentümer. Zeitpfad bis 2045: wer muss wann tatsächlich tauschen?",
+      "tier1_sources_required": ["GEG (Gesetzestext)", "BAFA Förderstatistik", "DIW Verteilungsstudien GEG", "Wuppertal-Institut Analysen"],
+      "expected_complexity": "mittel — Faktenlage zur Staffelung gesetzlich verankert; Verteilungswirkung in Empirie messbar",
+      "neutral_framing_check": "Gleicher methodischer Standard wie bei AfD-Klima-Claim oder BSW-Energiepreise-Claim."
+    },
+    {
+      "id": "vergleichs-linke-mietendeckel",
+      "party": "Linke",
+      "topic": "wohnen",
+      "claim_text": "Ein bundesweiter Mietendeckel würde die Mietenexplosion stoppen, ohne den Wohnungsneubau abzuwürgen — die Berliner Erfahrung beweist das.",
+      "claim_source_type": "Linke-Wahlprogramm",
+      "verification_task": "DIW-Evaluation Berliner Mietendeckel 02/2020-04/2021 (Effekt auf Neuvermietung, Mobilität, Angebot). Was sagt internationale Forschung (Schweden, San Francisco, Stockholm)? BVerfG-Urteil 04/2021 zur Bundeskompetenz. Welche Modelle gäbe es realistisch (Mietpreisbremse-Reform, Indexierungs-Caps)?",
+      "tier1_sources_required": ["DIW Berliner Mietendeckel Evaluation", "ifo Wohnungsmarkt-Studien", "BVerfG 2 BvF 1/20", "internationale Meta-Analysen zur Mietregulierung"],
+      "expected_complexity": "hoch — Berliner Befund ist umstritten (Verdrängung in Umland, Rückgang Angebot), 'beweist' ist starkes Wort",
+      "neutral_framing_check": "Gleicher methodischer Standard: gilt 'die Erfahrung beweist' wirklich, oder zeigt die Empirie ein gemischtes Bild?"
+    }
+  ],
+  "balance_audit": {
+    "AfD": 5,
+    "BSW": 4,
+    "SPD": 1,
+    "Grüne": 1,
+    "Linke": 1,
+    "comment": "AfD/BSW als Hauptfokus (sie waren bisher nicht vertreten — das war der Kritikpunkt). SPD/Grüne/Linke je eine Mainstream-Vergleichsbehauptung, damit transparent wird, dass dieselbe Methodik in alle Richtungen läuft. CDU/CSU/FDP-Claims folgen in v2 — Auswahl von Robert."
+  },
+  "publication_principle": "Veröffentlichung der Analysen mit allen vier Verdikt-Typen ('gestützt', 'teilweise gestützt', 'widerlegt', 'datenmäßig offen') ist Pflicht. Wenn z. B. der AfD-Klima-Claim einen faktisch korrekten Kern enthält (2%-Anteil), wird das genauso klar gesagt wie wenn er widerlegt wird. Kein Framing über 'Aber'-Konstruktionen."
+}

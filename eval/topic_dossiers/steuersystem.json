@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0",
+  "slug": "steuersystem",
+  "title": "Steuersystem & Verteilung",
+  "lead": "Spitzensteuer, Reichensteuer, Vermögensteuer, Erbschaftssteuer — wer fordert was, und was sagen Tier-1-Quellen (BMF, DIW, ifo, SVR, OECD, BVerfG) zur Wirkung und Verteilung?",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Spitzensteuersatz 2026",
+      "value": "42 %",
+      "source_title": "§ 32a EStG",
+      "source_url": "https://www.gesetze-im-internet.de/estg/__32a.html",
+      "verified": true
+    },
+    {
+      "label": "Reichensteuer-Grenze Einzelveranlagung 2026",
+      "value": "ca. 277.826 €",
+      "source_title": "§ 32a Abs. 1 Nr. 5 EStG",
+      "source_url": "https://www.gesetze-im-internet.de/estg/__32a.html",
+      "verified": true
+    },
+    {
+      "label": "Vermögenskonzentration: Top 1% Anteil",
+      "value": "ca. 30–35 % Nettovermögen",
+      "source_title": "DIW Wochenbericht 2024 (HFCS)",
+      "source_url": "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Erbschaftsteuer-Aufkommen 2023",
+      "value": "ca. 11,8 Mrd. €",
+      "source_title": "Destatis Erbschaftsteuer",
+      "source_url": "https://www.destatis.de/DE/Themen/Staat/Steuern/Steuern-Bundeslaender/_inhalt.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Erbschaftssteuer-effektiver Satz Top-Vermögen",
+      "value": "deutlich unter Tarif (oft <5 %)",
+      "source_title": "DIW + ifo zu Betriebsvermögens-Verschonung",
+      "source_url": "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+      "verify_needed": true,
+      "note": "Wegen Betriebsvermögens-Privilegien (§§ 13a, 13b ErbStG)."
+    },
+    {
+      "label": "Gini-Koeffizient Nettoeinkommen 2023",
+      "value": "ca. 0,29",
+      "source_title": "Destatis SOEP-EVS",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/_inhalt.html",
+      "verify_needed": true,
+      "note": "Mittelwert EU-27 etwa 0,30."
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "§ 32a EStG (Einkommensteuer-Tarif)",
+      "summary": "Progressiver Tarif: bis 11.604 € steuerfrei, dann progressiv bis 42 %, ab ca. 277.826 € Reichensteuer 45 %.",
+      "url": "https://www.gesetze-im-internet.de/estg/__32a.html"
+    },
+    {
+      "rule": "ErbStG §§ 13a/13b (Betriebsvermögens-Verschonung)",
+      "summary": "Bis zu 100 % Verschonung bei Betriebsvermögen-Übertragung, abhängig von Lohnsummen-Erhalt.",
+      "url": "https://www.gesetze-im-internet.de/erbstg_1974/"
+    },
+    {
+      "rule": "BVerfG Vermögensteuer-Beschluss 1995 (2 BvL 37/91)",
+      "summary": "Vermögensteuer ist nicht abgeschafft, sondern wegen Bewertungs-Ungleichheit ausgesetzt — Wiedereinführung verfassungsgemäß möglich bei einheitlicher Bewertung.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/1995/06/rs19950622_2bvl003791.html"
+    },
+    {
+      "rule": "BVerfG Erbschaftsteuer-Beschluss 2014 (1 BvL 21/12)",
+      "summary": "Betriebsvermögens-Privilegien in damaliger Form verfassungswidrig — Reform 2016 hat Schwellen und Bedingungen verschärft, Kernlogik bleibt.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2014/12/ls20141217_1bvl002112.html"
+    },
+    {
+      "rule": "Solidaritätszuschlag (SolzG)",
+      "summary": "Seit 2021 für ~90 % der Steuerzahler abgeschafft, gilt nur noch für Spitzenverdiener und Kapitalerträge.",
+      "url": "https://www.gesetze-im-internet.de/solzg_1995/"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Spitzensteuer erst ab höherem Einkommen, Reichensteuer auf 49 % anheben, Vermögensteuer ab 1 Mio. (1 %), Erbschaftsteuer-Reform mit Mindeststeuer auch bei Betriebsvermögen.",
+      "key_claims": [
+        "Hohe Vermögen sind unterproportional besteuert",
+        "Vermögensteuer würde 20–30 Mrd. €/Jahr bringen ohne Mittelschicht-Belastung"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Unterbesteuerungs-Argument: empirisch klar — durch Vermögensteuer-Aussetzung, Erbschaftsteuer-Verschonung und Kapitalertragsteuer-Pauschal (Abgeltungssteuer 25 % vs. Spitze 42-45 %) sind hohe Vermögen tarif-niedriger besteuert (Bach/Beznoska, IW). 20-30 Mrd.-Aufkommen: DIW-Modell (Bach et al. 2021) schätzt 22-26 Mrd. — robust modelliert, Realität wahrscheinlich darunter (Kapitalabwanderungs-Effekte, Bewertungs-Aufwand). „Ohne Mittelschicht-Belastung\": bei 1 Mio. Freibetrag trifft das, Verteilungswirkung stark progressiv.",
+        "empirical_check": "DIW Wochenbericht 42/2021 (Bach/Beznoska/Steiner). IW Köln zu Verteilungswirkung. OECD Tax Policy Studies zu Vermögensteuern. Bundesbank PHF zur Vermögensverteilung.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.825586.de/publikationen/wochenberichte/2021_42_3/vermoegensteuer__machbar_und_gerecht.html",
+          "https://www.iwkoeln.de/themen/steuern.html",
+          "https://www.oecd.org/tax/tax-policy/",
+          "https://www.bundesbank.de/de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Vermögensverteilung sozial korrekturbedürftig; Progressivität als Wert; Kapitalabwanderungs-Risiko handhabbar."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Spitzensteuer senken, Solidaritätszuschlag komplett abschaffen, keine Vermögensteuer, Erbschaftsteuer-Verschonung beibehalten, Pendlerpauschale erhöhen.",
+      "key_claims": [
+        "Hohe Spitzensteuer schadet Investitionen und Arbeitsplätzen",
+        "Vermögensteuer-Wiedereinführung würde Kapitalabwanderung auslösen"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Spitzensteuer-Effizienz-Argument: ökonomisch streitig — Arbeits- und Sparangebot-Elastizitäten gegenüber Spitzensteuer empirisch klein (Saez/Piketty 2014), bei Konzern-Investitionen relevanter. Internationale Vergleichbarkeit: DE-Spitzensteuer im OECD-Mittelfeld. Kapitalabwanderung: Frankreich-Erfahrung mit ISF (Wealth Tax) zeigt 2017-Reform brachte moderate Rückkehr von Vermögenden, aber Aufkommens-Effekt war kleiner als erhofft. Pauschale „Kapitalabwanderung\" ist überzeichnet.",
+        "empirical_check": "Saez/Piketty/Stantcheva 2014 zu Top-Income-Taxation. OECD Tax Database. INSEE Frankreich zu ISF-Reform 2017.",
+        "tier1_sources": [
+          "https://www.oecd.org/tax/tax-policy/oecd-tax-database.html",
+          "https://www.insee.fr/fr/statistiques",
+          "https://eml.berkeley.edu/~saez/"
+        ],
+        "value_assumptions": "Annahme: Markt-Effizienz primär; Eigentums-Schutz hat hohes Gewicht; Umverteilung untergeordnet."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Reichensteuer auf 48–49 %, Vermögensteuer ab 2 Mio. (1 %), Erbschaftsteuer-Reform mit Mindeststeuer, klimaschädliche Subventionen abbauen.",
+      "key_claims": [
+        "Reichensteuer-Erhöhung finanziert sozial-ökologische Transformation",
+        "Klimaschädliche Subventionen sind versteckte Umverteilung nach oben"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Klimaschädliche-Subventionen-Argument: UBA-Bericht 2024 schätzt umweltschädliche Subventionen auf ~65 Mrd. €/Jahr (Dieselprivileg, Pendlerpauschale, EEG-Industrie-Ausnahmen) — Abbau wäre fiskal-bedeutsam und ökologisch wirksam, politisch konflikt­trächtig. Reichensteuer-Effekt: empirisch klein (Saez/Piketty zeigen geringe Elastizität), aber Aufkommen 3-5 Mrd. €/Jahr realistisch.",
+        "empirical_check": "UBA Bericht zu umweltschädlichen Subventionen 2024. BMF Subventionsbericht. Saez/Piketty zu Top-Income-Tax.",
+        "tier1_sources": [
+          "https://www.umweltbundesamt.de/publikationen",
+          "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/subventionen.html",
+          "https://eml.berkeley.edu/~saez/"
+        ],
+        "value_assumptions": "Annahme: Umverteilung ökologisch und sozial gerechtfertigt; Klimaschutz hat Vorrang vor Subventions-Status quo."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Spitzensteuer-Grenze auf 100.000 € anheben, Solidaritätszuschlag komplett abschaffen, keine Vermögensteuer, keine Erbschaftsteuer-Verschärfung, „mittlere Einkommen entlasten\".",
+      "key_claims": [
+        "Mittelstand zahlt zu früh Spitzensteuer",
+        "Steuerwettbewerb erfordert wettbewerbsfähige Sätze"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Spitzensteuer-zu-früh-Argument: § 32a EStG-Grenze 2026 ~66.760 € (Spitzensteuer) ist nominal niedrig — bei 60.000 € beginnt Spitze, was empirisch viele „obere Mittelschicht\" trifft. Internationaler Vergleich: DE-Steuerlast oben hoch, gleichzeitig sind Sozialabgaben dominanter Effekt. Steuerwettbewerb-Argument: OECD-Mindeststeuer 2024 (Pillar Two, 15 %) hat den Wettbewerb in Teilen entschärft.",
+        "empirical_check": "§ 32a EStG 2026. OECD Tax Database. Pillar Two Implementation 2024.",
+        "tier1_sources": [
+          "https://www.gesetze-im-internet.de/estg/__32a.html",
+          "https://www.oecd.org/tax/tax-policy/",
+          "https://www.oecd.org/tax/beps/"
+        ],
+        "value_assumptions": "Annahme: Eigentumsschutz und Leistungsanreiz primär; Mittelstand als Träger; Umverteilung über Markt statt Steuer."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Spitzensteuer auf 53 %, Reichensteuer auf 60 % ab 250.000 €, Vermögensteuer 1–5 % ab 1 Mio., Vermögensabgabe einmalig, Erbschaftsteuer-Privilegien abschaffen.",
+      "key_claims": [
+        "Vermögensteuer + Vermögensabgabe finanzieren Investitionspaket",
+        "Konzentration im Top-1% rechtfertigt scharfe Umverteilung"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Konzentrations-Argument: empirisch klar (DIW, Bundesbank PHF zeigen ~30-35 % Top-1%-Anteil). Aufkommens-Argument: DIW-Modell 22-26 Mrd. bei moderaten Sätzen; Linke-Vorschlag (1-5 %) hätte höheres Aufkommen, aber stärkere Abwanderungs- und Bewertungs-Probleme. Vermögensabgabe einmalig: BVerfG-Lastenausgleichs-Logik 1952 anerkannt, modern bisher nicht erprobt. Internationale Erfahrung mit hohen Vermögensteuern (FR vor 2017, NL bis 2001) zeigt Aufkommens-Realität unter Modellrechnungen.",
+        "empirical_check": "DIW 2021. Bundesbank PHF. BVerfG Lastenausgleich 1952. INSEE ISF-Bilanz 2017.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.825586.de/publikationen/wochenberichte/2021_42_3/vermoegensteuer__machbar_und_gerecht.html",
+          "https://www.bundesbank.de/de/publikationen",
+          "https://www.insee.fr/fr/statistiques"
+        ],
+        "value_assumptions": "Annahme: Vermögensumverteilung als Gerechtigkeits-Pflicht; Eigentumsschutz mit hoher sozialer Bindung; Markt-Anreize sekundär."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Spitzensteuer senken, Erbschaftsteuer für Familienunternehmen komplett abschaffen, keine Vermögensteuer, Pendlerpauschale erhöhen, Erbschaftsteuer auf 0 für Familienvermögen.",
+      "key_claims": [
+        "Steuerlast in DE ist eine der höchsten weltweit",
+        "Familienvermögen-Schutz sichert Mittelstand und Arbeitsplätze"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "audit_analysis": {},
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "„Höchste Steuerlast weltweit\": empirisch falsch — OECD Tax Database zeigt DE-Abgabenquote (Steuern + Sozial) im OECD-Mittelfeld (39 % BIP vs. OECD ~34 %, EU-Mittel ~40 %). DK, FR, BE, AT, FI höher. Aber: Single-Verdiener mit niedrigem-mittlerem Einkommen tragen in DE besonders viel Abgabenlast (Steuerkeil). Familienvermögen-Schutz: aktuelle Verschonung erlaubt bei Lohnsummen-Erhalt schon hohe Befreiung — BVerfG 2014 hat dies an Bedingungen geknüpft, „komplett abschaffen\" wäre verfassungsrechtlich angreifbar (Gleichbehandlung Art. 3 GG).",
+        "empirical_check": "OECD Tax Database 2024. BVerfG 1 BvL 21/12 (2014). §§ 13a/13b ErbStG aktuelle Fassung.",
+        "tier1_sources": [
+          "https://www.oecd.org/tax/tax-policy/oecd-tax-database.html",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2014/12/ls20141217_1bvl002112.html",
+          "https://www.gesetze-im-internet.de/erbstg_1974/"
+        ],
+        "value_assumptions": "Annahme: Eigentumsschutz absolut; familiäre Vermögensweitergabe als Wert; Umverteilung über Erbe abzulehnen."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Spitzensteuer leicht erhöhen, Vermögensteuer ab 25 Mio. einführen, Erbschaftsteuer-Privilegien für Multi-Millionen-Vermögen abschaffen, Mittelschicht-Entlastung im unteren Tarif.",
+      "key_claims": [
+        "Mittelschicht entlasten, Top-Vermögen besteuern",
+        "Vermögenskonzentration bei Top-0,1% rechtfertigt zielgerichtete Steuer"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Konzentrations-Argument bei Top-0,1%: empirisch belegt — extrem hoher Anteil (geschätzt 15-20 % des Nettovermögens im Top-0,1%). 25-Mio.-Schwelle: vermeidet politisch heikle Mittelstand-Diskussion, zielt klar auf Multi-Millionäre. Aufkommens-Potenzial begrenzter als breitere Linke-Vermögensteuer (Schätzung 4-8 Mrd. €/Jahr), aber Implementierungs-Risiken (Kapitalabwanderung) kleiner. Mittelschicht-Tarif-Entlastung kostet 8-15 Mrd. — Gegenfinanzierung nötig.",
+        "empirical_check": "DIW 2021. Bundesbank PHF zur Top-Konzentration. Schweizer Vermögensteuer-Erfahrung (kantonal).",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.825586.de/publikationen/wochenberichte/2021_42_3/vermoegensteuer__machbar_und_gerecht.html",
+          "https://www.bundesbank.de/de/publikationen",
+          "https://www.estv.admin.ch/"
+        ],
+        "value_assumptions": "Annahme: Mittelschicht-Solidarität als Leitwert; Top-Vermögen sozial verantwortbar zur Mitfinanzierung verpflichtet."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Vermögensteuer-Wiedereinführung mit einheitlicher Bewertung, Erbschaftsteuer-Privilegien für Multi-Millionen-Vermögen abbauen, Spitzensteuer-Tarif neu staffeln (höhere Schwelle, dann progressiv weiter), klimaschädliche Subventionen abbauen.",
+    "konkret": [
+      "Vermögensteuer 1 % ab 1 Mio. Nettovermögen (Single) / 2 Mio. (Verheiratet), mit einheitlicher Bewertung nach BVerfG-Vorgabe — DIW-Modell ergibt ~22 Mrd. €/Jahr.",
+      "Erbschaftsteuer §§ 13a/13b reformieren: Mindeststeuer von 15 % auch bei Betriebsvermögens-Verschonung, BVerfG-Vorgabe von 2014 strukturell umsetzen.",
+      "Spitzensteuer-Tarif neu staffeln: Spitzensteuer (42 %) erst ab 80.000 € statt 66.760 €, dann progressiv weiter bis 49 % ab 250.000 € (statt 45 % Reichensteuer-Sprung).",
+      "Klimaschädliche Subventionen schrittweise abbauen (UBA-Bericht: ~65 Mrd. €/Jahr Potenzial), beginnend mit Dieselprivileg und Pendlerpauschale-Reform.",
+      "Kapitalertragsteuer-Reform: Abgeltungssteuer durch progressive Besteuerung ersetzen — verhindert Tarif-Spaltung Arbeit/Kapital.",
+      "Solidaritätszuschlag bleibt für Hochverdiener (gesetzlich gerichts­fest, BFH 2024)."
+    ],
+    "warum": "Vermögenskonzentration im Top-1% (30-35 % Nettovermögen) ist nicht durch demografische oder leistungsbasierte Faktoren erklärbar — sie ist Resultat von Vermögensteuer-Aussetzung, Erbschaftsteuer-Verschonung und Tarif-Spaltung Arbeit/Kapital. Korrektur ist sowohl fiskal- als auch verteilungs­politisch geboten. BVerfG-Vorgaben zur einheitlichen Bewertung sind erfüllbar.",
+    "wertannahmen": "§2 (Sozialstaatsprinzip) verlangt Korrektur von Vermögenskonzentration; §6 (Vorsicht) wird beachtet durch maßvolle Sätze und einheitliche Bewertung; Eigentumsschutz Art. 14 GG wird respektiert, sozialgebundenheit aktiviert.",
+    "trade_offs_eingestanden": "Bewertungs-Verwaltung kostet ~1-2 % des Aufkommens (Bach et al.); Kapitalabwanderungs-Risiko bei sehr hohen Sätzen real, deshalb moderate 1 %; politisch konfliktträchtig (2/3-Mehrheit für GG-relevante Änderungen).",
+    "url": "programm/steuersystem.html"
+  },
+  "evidenz_link": {
+    "url": "programm/steuersystem.html",
+    "label": "EVIDENZ-Position zum Steuersystem (vollständig)",
+    "note": "Hier steht die vollständige Optionsanalyse mit konkreten Tarif-Verteilungs­rechnungen."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert. Einzelne Werte (Top-1%-Anteil, Gini, Erbschaftsteuer-effektiver Satz) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

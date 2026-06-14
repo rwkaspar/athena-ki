@@ -1,0 +1,376 @@
+# Athena-Benchmark v0 — Gold-Set für sachpolitische Faktenfragen
+#
+# Zweck
+# -----
+# Vergleichbare Faktentreue zwischen Athena (RAG + Tier-Klassifikation) und
+# Standard-LLMs ohne RAG (ChatGPT, Claude, plain Mistral) messen. Jede Frage
+# hat eine konkrete, aus einer Tier-1-Quelle verifizierbare Antwort.
+#
+# Bewertung pro Antwort
+# ---------------------
+#   fact_hit:   enthält die Antwort eine der Strings aus 'accept'?     {0,1}
+#   hallucinated_url: zitiert die Antwort eine URL, die nicht aufrufbar/falsch ist? {0,1}
+#   source_tier_avg: über zitierte Quellen — was ist deren Median-Tier? {1..3 / "none"}
+#   declines_uncertain: hat das Modell bei dünner Faktenlage ehrlich passt gesagt? {0,1}
+#
+# Status-Flag pro Item
+# --------------------
+#   verified    — Antwort + Quelle händisch gegen die Tier-1-Quelle geprüft
+#   needs_check — Entwurf, vor Veröffentlichung des Benchmarks zu verifizieren
+#                 (Datum, Wortlaut, URL-Erreichbarkeit)
+#
+# Versionierung: gold_set_v0 ist der erste, kleine Datensatz. Bei größeren
+# Änderungen neue Version (v1, v2, …) — Vergleichbarkeit über die Zeit.
+
+version: v0
+created: 2026-06-09
+scope: bund
+size: 30
+
+questions:
+
+  # === Rente / Bürgergeld / Sozialpolitik ============================== (4)
+  - id: rente-001
+    topic: rente
+    question: "Wie hoch ist die Regelaltersgrenze in der gesetzlichen Rentenversicherung für den Geburtsjahrgang 1964?"
+    gold_answer: "67 Jahre"
+    verification_type: numerical
+    accept: ["67 Jahre", "67. Lebensjahr", "67"]
+    source: "https://www.gesetze-im-internet.de/sgb_6/__235.html"
+    source_quote: "§ 235 SGB VI — stufenweise Anhebung auf 67 für Jahrgänge ab 1964"
+    source_date: 2024-01-01
+    status: needs_check
+
+  - id: buergergeld-001
+    topic: bürgergeld
+    question: "Wie hoch ist der Regelbedarf im Bürgergeld für eine alleinstehende erwachsene Person ab Januar 2025?"
+    gold_answer: "563 Euro pro Monat"
+    verification_type: numerical
+    accept: ["563", "563 €", "563 Euro"]
+    source: "https://www.bmas.de/DE/Soziales/Grundsicherung/Buergergeld/buergergeld.html"
+    source_quote: "Regelbedarfsstufe 1 ab 01.01.2025: 563 €"
+    source_date: 2025-01-01
+    status: needs_check
+
+  - id: sozial-001
+    topic: sozialpolitik
+    question: "Wie hoch ist der gesetzliche Mindestlohn in Deutschland ab dem 1. Januar 2025?"
+    gold_answer: "12,82 Euro brutto pro Zeitstunde"
+    verification_type: numerical
+    accept: ["12,82", "12.82"]
+    source: "https://www.gesetze-im-internet.de/milog/__1.html"
+    source_quote: "MiLoG, Mindestlohnverordnung 2024 (BGBl. 2024 Teil I): 12,82 € ab 01.01.2025"
+    source_date: 2025-01-01
+    status: needs_check
+
+  - id: sozial-002
+    topic: sozialpolitik
+    question: "Wie hoch ist das Kindergeld pro Kind pro Monat in Deutschland (Stand 2025)?"
+    gold_answer: "255 Euro pro Monat"
+    verification_type: numerical
+    accept: ["255", "255 €", "255 Euro"]
+    source: "https://www.gesetze-im-internet.de/estg/__66.html"
+    source_quote: "§ 66 EStG — Kindergeldhöhe ab 01.01.2025"
+    source_date: 2025-01-01
+    status: needs_check
+
+  # === Steuern / Haushalt / Fiskalpolitik ============================== (5)
+  - id: steuer-001
+    topic: steuersystem
+    question: "Wie hoch ist der reguläre Spitzensteuersatz der deutschen Einkommensteuer (ohne Reichensteuer)?"
+    gold_answer: "42 Prozent"
+    verification_type: numerical
+    accept: ["42 %", "42%", "42 Prozent"]
+    source: "https://www.gesetze-im-internet.de/estg/__32a.html"
+    source_quote: "§ 32a EStG, Tarifformel: 42 % ab dem oberen Schwellenwert."
+    source_date: 2025-01-01
+    status: needs_check
+
+  - id: steuer-002
+    topic: steuersystem
+    question: "Wie hoch ist der Reichensteuersatz in der deutschen Einkommensteuer?"
+    gold_answer: "45 Prozent"
+    verification_type: numerical
+    accept: ["45 %", "45%", "45 Prozent"]
+    source: "https://www.gesetze-im-internet.de/estg/__32a.html"
+    source_quote: "§ 32a EStG — Reichensteuersatz 45 % ab gestaffeltem Schwellenwert."
+    source_date: 2025-01-01
+    status: needs_check
+
+  - id: steuer-003
+    topic: steuersystem
+    question: "Wie hoch ist der Regelsatz der Umsatzsteuer in Deutschland, und wie hoch der ermäßigte Satz?"
+    gold_answer: "Regelsatz 19 %, ermäßigt 7 %"
+    verification_type: numerical
+    accept: ["19", "7"]
+    accept_mode: all          # beide müssen vorkommen
+    source: "https://www.gesetze-im-internet.de/ustg_1980/__12.html"
+    source_quote: "§ 12 UStG — Regelsatz 19 %, ermäßigt 7 %."
+    source_date: 2025-01-01
+    status: needs_check
+
+  - id: schuldenbremse-001
+    topic: schuldenbremse
+    question: "Wie hoch ist die strukturelle Neuverschuldungsgrenze des Bundes nach Artikel 115 GG (Schuldenbremse)?"
+    gold_answer: "0,35 % des BIP konjunkturbereinigt"
+    verification_type: numerical
+    accept: ["0,35", "0.35"]
+    source: "https://www.gesetze-im-internet.de/gg/art_115.html"
+    source_quote: "Art. 115 Abs. 2 GG — strukturelle Neuverschuldung max. 0,35 % BIP."
+    source_date: 2009-08-01
+    status: needs_check
+
+  - id: schuldenbremse-002
+    topic: schuldenbremse
+    question: "Was sagt Artikel 109 Absatz 3 Grundgesetz zur Verschuldung der Länder?"
+    gold_answer: "Haushalte der Länder ohne Einnahmen aus Krediten auszugleichen"
+    verification_type: paragraph_text
+    accept: ["ohne Einnahmen aus Krediten", "ohne Kredite", "ausgeglichen"]
+    source: "https://www.gesetze-im-internet.de/gg/art_109.html"
+    source_quote: "Art. 109 Abs. 3 GG — Länder dürfen grundsätzlich keine Kredite aufnehmen (Schuldenbremse)."
+    source_date: 2009-08-01
+    status: needs_check
+
+  # === Klima / Energie / Umwelt ======================================== (4)
+  - id: klima-001
+    topic: klima
+    question: "Wann gingen die letzten drei Atomkraftwerke in Deutschland endgültig vom Netz?"
+    gold_answer: "15. April 2023"
+    verification_type: date
+    accept: ["15. April 2023", "15.04.2023", "April 2023"]
+    source: "https://www.bmuv.de/themen/atomenergie-strahlenschutz/nuklearer-arbeitsschutz/atomausstieg"
+    source_quote: "Isar 2, Emsland und Neckarwestheim 2 wurden am 15. April 2023 abgeschaltet."
+    source_date: 2023-04-15
+    status: needs_check
+
+  - id: klima-002
+    topic: energie
+    question: "Welches Anteilsziel für erneuerbare Energien am Bruttostromverbrauch hat das EEG für das Jahr 2030?"
+    gold_answer: "80 Prozent"
+    verification_type: numerical
+    accept: ["80 %", "80%", "80 Prozent"]
+    source: "https://www.gesetze-im-internet.de/eeg_2023/__1.html"
+    source_quote: "§ 1 Abs. 2 EEG 2023 — 80 % EE-Anteil am Bruttostromverbrauch bis 2030."
+    source_date: 2023-01-01
+    status: needs_check
+
+  - id: klima-003
+    topic: klima
+    question: "Was sieht das Kohleausstiegsgesetz als spätesten Termin für den Ausstieg aus der Kohleverstromung vor?"
+    gold_answer: "Spätestens 2038 (im Westen Optionen auf 2030/2035)"
+    verification_type: date
+    accept: ["2038", "2030"]
+    source: "https://www.gesetze-im-internet.de/kvbg/__2.html"
+    source_quote: "§ 2 KVBG — Kohleausstieg spätestens 2038."
+    source_date: 2020-08-14
+    status: needs_check
+
+  - id: klima-004
+    topic: klima
+    question: "Welches deutsche Klimaschutzgesetz-Ziel gilt für Treibhausgas-Neutralität?"
+    gold_answer: "Netto-Treibhausgasneutralität bis 2045"
+    verification_type: date
+    accept: ["2045"]
+    source: "https://www.gesetze-im-internet.de/ksg/__3.html"
+    source_quote: "§ 3 KSG — Netto-Treibhausgasneutralität bis 2045."
+    source_date: 2021-08-31
+    status: needs_check
+
+  # === Migration / Asyl ================================================ (2)
+  - id: migration-001
+    topic: migration
+    question: "Welche Länder sind in der Anlage II Asylgesetz als sichere Herkunftsstaaten gelistet (mindestens drei nennen)?"
+    gold_answer: "u. a. Albanien, Bosnien und Herzegowina, Ghana, Kosovo, Mazedonien, Senegal, Serbien, Montenegro"
+    verification_type: categorical
+    accept: ["Albanien", "Serbien", "Kosovo", "Ghana", "Senegal", "Montenegro", "Bosnien"]
+    accept_mode: at_least_three
+    source: "https://www.gesetze-im-internet.de/asylvfg_1992/anlage_ii.html"
+    source_quote: "Anlage II AsylG — Liste sicherer Herkunftsstaaten."
+    source_date: 2023-01-01
+    status: needs_check
+
+  - id: migration-002
+    topic: migration
+    question: "Wie lange dauert nach §29a AsylG die Bearbeitung eines Asylantrags aus einem sicheren Herkunftsstaat im Regelfall (Frist BAMF-Entscheidung)?"
+    gold_answer: "1 Woche Anhörungsfrist + beschleunigtes Verfahren (Wochenfrist)"
+    verification_type: numerical
+    accept: ["eine Woche", "1 Woche", "Wochenfrist"]
+    source: "https://www.gesetze-im-internet.de/asylvfg_1992/__29a.html"
+    source_quote: "§ 29a AsylG i. V. m. § 30a AsylG (beschleunigtes Verfahren)."
+    source_date: 2023-01-01
+    status: needs_check
+
+  # === KI-Regulation / Digitalpolitik ================================== (3)
+  - id: ki-001
+    topic: ki-regulation
+    question: "Unter welcher Verordnungsnummer wurde der EU AI Act 2024 erlassen?"
+    gold_answer: "Verordnung (EU) 2024/1689"
+    verification_type: categorical
+    accept: ["2024/1689", "VO 2024/1689"]
+    source: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
+    source_quote: "Verordnung (EU) 2024/1689 vom 13. Juni 2024."
+    source_date: 2024-06-13
+    status: verified
+
+  - id: ki-002
+    topic: ki-regulation
+    question: "Wie hoch ist die maximale Geldbuße nach EU AI Act für verbotene KI-Praktiken (Art. 99)?"
+    gold_answer: "35 Mio. € oder 7 % weltweiter Jahresumsatz, je nachdem was höher ist"
+    verification_type: numerical
+    accept: ["35", "7 %", "7%"]
+    accept_mode: all
+    source: "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX%3A32024R1689"
+    source_quote: "Art. 99 Abs. 3 AI Act — bis zu 35 Mio. € oder 7 % weltweiter Jahresumsatz."
+    source_date: 2024-06-13
+    status: needs_check
+
+  - id: ki-003
+    topic: digitalpolitik
+    question: "Wie hoch ist die maximale DSGVO-Geldbuße nach Art. 83 Abs. 5 DSGVO?"
+    gold_answer: "20 Mio. € oder 4 % weltweiter Jahresumsatz, je nachdem was höher ist"
+    verification_type: numerical
+    accept: ["20", "4 %", "4%"]
+    accept_mode: all
+    source: "https://dsgvo-gesetz.de/art-83-dsgvo/"
+    source_quote: "Art. 83 Abs. 5 DSGVO — bis zu 20 Mio. € oder 4 % weltweiter Jahresumsatz."
+    source_date: 2018-05-25
+    status: verified
+
+  # === Außenpolitik / Verteidigung ===================================== (3)
+  - id: verteidigung-001
+    topic: verteidigung
+    question: "Wie viele aktive Soldatinnen und Soldaten hatte die Bundeswehr Ende 2024 (BMVg-Jahresbericht)?"
+    gold_answer: "rund 181.000 (Stand 31.12.2024)"
+    verification_type: numerical
+    accept: ["181", "180", "182"]
+    source: "https://www.bmvg.de/de/themen/personal/personalzahlen"
+    source_quote: "BMVg-Personalstatistik 2024."
+    source_date: 2024-12-31
+    status: needs_check
+
+  - id: außenpolitik-001
+    topic: außenpolitik
+    question: "Welches Entscheidungsverfahren gilt nach Art. 31 EUV in der EU-Gemeinsamen Außen- und Sicherheitspolitik (GASP) im Regelfall?"
+    gold_answer: "Einstimmigkeit im Rat"
+    verification_type: categorical
+    accept: ["Einstimmigkeit", "einstimmig"]
+    source: "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=CELEX:12016M031"
+    source_quote: "Art. 31 EUV — Beschlüsse einstimmig durch den Rat."
+    source_date: 2009-12-01
+    status: verified
+
+  - id: außenpolitik-002
+    topic: verteidigung
+    question: "Wie hoch lag der deutsche Verteidigungshaushalt 2024 als Anteil am BIP (NATO-Definition)?"
+    gold_answer: "ca. 2,1 % des BIP (erstmals NATO-2-%-Ziel erreicht)"
+    verification_type: numerical
+    accept: ["2,1", "2.1"]
+    source: "https://www.nato.int/cps/en/natohq/news_224611.htm"
+    source_quote: "NATO Defence Expenditure Report 2024 — DE ca. 2,12 %."
+    source_date: 2024-06-01
+    status: needs_check
+
+  # === Bildung / Gesundheit ============================================ (2)
+  - id: bildung-001
+    topic: bildung
+    question: "Welchen Mittelwert erreichten deutsche Schüler:innen in der PISA-Erhebung 2022 in Lesekompetenz?"
+    gold_answer: "ca. 480 Punkte (statistisch unter dem OECD-Mittel von 476)"
+    verification_type: numerical
+    accept: ["480"]
+    source: "https://www.oecd.org/pisa/publications/PISA2022_DEU.pdf"
+    source_quote: "OECD PISA 2022 Country Note Germany — Lesekompetenz 480."
+    source_date: 2023-12-05
+    status: needs_check
+
+  - id: gesundheit-001
+    topic: gesundheit
+    question: "Wie viele Menschen waren 2024 in Deutschland in der gesetzlichen Krankenversicherung (GKV) versichert?"
+    gold_answer: "rund 74 Millionen"
+    verification_type: numerical
+    accept: ["74", "73,5", "74,4"]
+    source: "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung/zahlen-und-fakten-zur-krankenversicherung.html"
+    source_quote: "BMG-Statistik 2024 — ca. 74 Mio. GKV-Versicherte."
+    source_date: 2024-12-31
+    status: needs_check
+
+  # === Grundgesetz / Wahlrecht / Parlament ============================ (4)
+  - id: gg-001
+    topic: grundgesetz
+    question: "Wie lautet der vollständige Wortlaut von Artikel 20 Absatz 1 Grundgesetz?"
+    gold_answer: "Die Bundesrepublik Deutschland ist ein demokratischer und sozialer Bundesstaat."
+    verification_type: paragraph_text
+    accept: ["demokratischer und sozialer Bundesstaat"]
+    source: "https://www.gesetze-im-internet.de/gg/art_20.html"
+    source_quote: "Art. 20 Abs. 1 GG: Die Bundesrepublik Deutschland ist ein demokratischer und sozialer Bundesstaat."
+    source_date: 1949-05-23
+    status: verified
+
+  - id: gg-002
+    topic: parlamentarismus
+    question: "Wie viele Mitglieder hat der Deutsche Bundesrat (Stand: regulär nach Art. 51 GG)?"
+    gold_answer: "69 Mitglieder"
+    verification_type: numerical
+    accept: ["69"]
+    source: "https://www.gesetze-im-internet.de/gg/art_51.html"
+    source_quote: "Art. 51 GG i. V. m. Stimmverteilung der Länder — Summe 69."
+    source_date: 1990-10-03
+    status: verified
+
+  - id: wahlrecht-001
+    topic: wahlrecht
+    question: "In welcher Norm ist die Fünf-Prozent-Sperrklausel für den Bundestag verankert?"
+    gold_answer: "§ 6 Absatz 3 BWahlG"
+    verification_type: categorical
+    accept: ["§ 6", "BWahlG", "Bundeswahlgesetz"]
+    accept_mode: any
+    source: "https://www.gesetze-im-internet.de/bwahlg/__6.html"
+    source_quote: "§ 6 Abs. 3 BWahlG — Fünf-Prozent-Hürde."
+    source_date: 2023-06-08
+    status: needs_check
+
+  - id: gg-003
+    topic: parlamentarismus
+    question: "Wie lang ist die reguläre Wahlperiode des Deutschen Bundestags nach Art. 39 GG?"
+    gold_answer: "4 Jahre"
+    verification_type: numerical
+    accept: ["4 Jahre", "vier Jahre"]
+    source: "https://www.gesetze-im-internet.de/gg/art_39.html"
+    source_quote: "Art. 39 Abs. 1 GG — Wahlperiode vier Jahre."
+    source_date: 1976-08-30
+    status: verified
+
+  # === Parteienfinanzierung ============================================ (1)
+  - id: parteien-001
+    topic: parteienfinanzierung
+    question: "Welche absolute Obergrenze für die staatliche Parteienfinanzierung hat das Bundesverfassungsgericht 2023 verworfen — und welche Norm galt seither?"
+    gold_answer: "Die 2018 angehobene Obergrenze (ca. 190 Mio. €) wurde im Januar 2023 als verfassungswidrig verworfen; es gilt seither die alte Grenze (rund 165 Mio. €, jährlich indexiert)."
+    verification_type: paragraph_text
+    accept: ["verfassungswidrig", "BVerfG", "2023"]
+    source: "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2023/01/fs20230124_2bvf000118.html"
+    source_quote: "BVerfG, 2 BvF 1/18 vom 24.01.2023 — Anhebung der absoluten Obergrenze unvereinbar mit Art. 21 GG."
+    source_date: 2023-01-24
+    status: needs_check
+
+  # === Arbeitsmarkt ==================================================== (1)
+  - id: arbeit-001
+    topic: arbeitsmarkt
+    question: "Wie hoch war die Arbeitslosenquote in Deutschland im Jahresdurchschnitt 2024 (BA-Definition)?"
+    gold_answer: "5,7 % (Jahresdurchschnitt 2024 nach Bundesagentur für Arbeit)"
+    verification_type: numerical
+    accept: ["5,7", "5.7"]
+    source: "https://statistik.arbeitsagentur.de/SiteGlobals/Forms/Suche/Einzelheftsuche_Formular.html?topic_f=monatsbericht"
+    source_quote: "BA-Monatsberichte Dezember 2024 / Jahresrückblick — 5,7 %."
+    source_date: 2025-01-31
+    status: needs_check
+
+  # === Demografie / Statistik ========================================== (1)
+  - id: demografie-001
+    topic: demografie
+    question: "Wie hoch war die Lebenserwartung bei Geburt für neugeborene Jungen in Deutschland nach der Sterbetafel 2021/2023 (Destatis)?"
+    gold_answer: "78,2 Jahre"
+    verification_type: numerical
+    accept: ["78,2", "78.2", "78,3"]
+    source: "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/Tabellen/lebenserwartung-deutschland.html"
+    source_quote: "Destatis Sterbetafel 2021/2023 — neugeborene Jungen 78,2 Jahre."
+    source_date: 2024-07-01
+    status: needs_check

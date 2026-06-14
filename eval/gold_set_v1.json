@@ -1,0 +1,599 @@
+{
+  "schema_version": "1.0",
+  "name": "Athena Gold-Set v1 — Faktenwissen Bundespolitik",
+  "description": "30 sachpolitische Fragen mit verifizierbarer Antwort aus Tier-1-Quellen (Gesetz, Statistik, Behörde). Dient dem Benchmark Athena (RAG) vs. plain LLM auf Faktentreue, Halluzinationsrate und Quellen-Tier-Verteilung. Jede Frage mit accept_patterns für auto-grading + hallucination_traps für typische Fehlantworten. verify_needed=true heißt: Wert wurde von Claude vorgeschlagen, Robert muss vor Benchmark-Lauf gegen die gold_source-URL prüfen.",
+  "instructions_for_evaluator": "Vor dem Benchmark: jede Frage mit verify_needed=true gegen die gold_source-URL prüfen. Wert ggf. korrigieren, dann Flag auf false setzen. Beim Lauf: Antwort des Modells wird per Regex gegen accept_patterns gematcht. Match in mindestens einem Pattern = Hit. Zusätzlich: zitierte URLs im Antworttext gegen reale Tier-1-Quellen abgleichen → Halluzinations-Rate.",
+  "version": "v1",
+  "created": "2026-06-09",
+  "fields_covered": [
+    "schuldenbremse",
+    "buergergeld",
+    "rente",
+    "steuersystem",
+    "ki-regulation",
+    "klima",
+    "energie",
+    "migration",
+    "verteidigung",
+    "parlamentarismus",
+    "wahlrecht",
+    "parteienfinanzierung",
+    "bildung",
+    "gesundheit",
+    "aussenpolitik",
+    "grundgesetz",
+    "direkte-demokratie"
+  ],
+  "questions": [
+    {
+      "id": "gg-art-109-schuldenbremse",
+      "topic": "schuldenbremse",
+      "kind": "law_paragraph",
+      "question": "Welche maximale strukturelle Neuverschuldung erlaubt das Grundgesetz dem Bund nach Art. 109 Abs. 3 GG (in Prozent des nominalen BIP)?",
+      "gold_answer": "0,35 Prozent des nominalen Bruttoinlandsprodukts",
+      "gold_source": "https://www.gesetze-im-internet.de/gg/art_109.html",
+      "accept_patterns": [
+        "0[,.]35\\s*%",
+        "0[,.]35\\s*Prozent"
+      ],
+      "hallucination_traps": [
+        "0,5%",
+        "1%",
+        "3% (das ist Maastricht-Defizitkriterium, nicht GG)"
+      ],
+      "notes": "Verankert 2009 (Föderalismusreform II). Strukturell = konjunkturbereinigt. Länder: 0% (Art. 109 Abs. 3 S. 5).",
+      "verify_needed": false
+    },
+    {
+      "id": "schuldenbremse-laender-ab",
+      "topic": "schuldenbremse",
+      "kind": "law_paragraph",
+      "question": "Ab welchem Haushaltsjahr gilt die strukturelle Verschuldungsregel der Länder (0,00% BIP) verbindlich?",
+      "gold_answer": "2020",
+      "gold_source": "https://www.gesetze-im-internet.de/gg/art_143d.html",
+      "accept_patterns": [
+        "\\b2020\\b"
+      ],
+      "hallucination_traps": [
+        "2016 (Übergangsbeginn, nicht Pflicht)",
+        "2011"
+      ],
+      "notes": "Art. 143d GG: Übergangszeit 2011–2019, ab 2020 verbindlich.",
+      "verify_needed": false
+    },
+    {
+      "id": "schuldenbremse-aufnahme-gg",
+      "topic": "schuldenbremse",
+      "kind": "factual_statement",
+      "question": "In welchem Jahr wurde die Schuldenbremse durch die Föderalismusreform II ins Grundgesetz aufgenommen?",
+      "gold_answer": "2009",
+      "gold_source": "https://www.bgbl.de/xaver/bgbl/start.xav?startbk=Bundesanzeiger_BGBl&start=//*%5B@attr_id=%27bgbl109s2248.pdf%27%5D",
+      "accept_patterns": [
+        "\\b2009\\b"
+      ],
+      "hallucination_traps": [
+        "2010 (Inkrafttreten erste Effekte)",
+        "2008"
+      ],
+      "notes": "Beschlossen 29.05.2009 (Bundestag), 12.06.2009 (Bundesrat), BGBl. I S. 2248.",
+      "verify_needed": false
+    },
+    {
+      "id": "buergergeld-regelsatz-alleinstehend",
+      "topic": "buergergeld",
+      "kind": "number",
+      "question": "Wie hoch ist der Bürgergeld-Regelbedarf für Alleinstehende (Regelbedarfsstufe 1) zum 1. Januar 2026?",
+      "gold_answer": "563 Euro (Stand: unverändert seit 2024, keine Erhöhung zum 01.01.2026)",
+      "gold_source": "https://www.gesetze-im-internet.de/sgb_2/__20.html",
+      "accept_patterns": [
+        "\\b563\\b",
+        "563\\s*€",
+        "563\\s*EUR"
+      ],
+      "hallucination_traps": [
+        "502 (Wert 2023)",
+        "578 € (Erhöhung 2025 vermutet)"
+      ],
+      "notes": "Verifiziert durch Robert 2026-06-09: Wert 563 € unverändert.",
+      "verify_needed": false
+    },
+    {
+      "id": "buergergeld-rechtsgrundlage",
+      "topic": "buergergeld",
+      "kind": "law_paragraph",
+      "question": "In welchem Sozialgesetzbuch ist das Bürgergeld geregelt?",
+      "gold_answer": "Sozialgesetzbuch Zweites Buch (SGB II)",
+      "gold_source": "https://www.gesetze-im-internet.de/sgb_2/",
+      "accept_patterns": [
+        "SGB\\s*II",
+        "SGB\\s*2",
+        "Zweites?\\s+Buch\\s+Sozialgesetzbuch"
+      ],
+      "hallucination_traps": [
+        "SGB XII (Sozialhilfe, nicht Bürgergeld)",
+        "SGB III (Arbeitsförderung)"
+      ],
+      "notes": "Eingeführt durch Bürgergeld-Gesetz vom 16.12.2022 (BGBl. I S. 2328).",
+      "verify_needed": false
+    },
+    {
+      "id": "rente-regelaltersgrenze-1964",
+      "topic": "rente",
+      "kind": "number",
+      "question": "Was ist die Regelaltersgrenze nach SGB VI für Versicherte, die nach dem 31.12.1963 geboren wurden?",
+      "gold_answer": "67 Jahre",
+      "gold_source": "https://www.gesetze-im-internet.de/sgb_6/__235.html",
+      "accept_patterns": [
+        "\\b67\\s*(Jahre|J\\.|Jahren)\\b",
+        "Vollendung\\s+des\\s+67"
+      ],
+      "hallucination_traps": [
+        "65 Jahre (alte Regelaltersgrenze)",
+        "63 Jahre (ohne Abschlag bei 45 Beitragsjahren — andere Regelung)"
+      ],
+      "notes": "§ 235 SGB VI; schrittweise Anhebung von 65 auf 67 für Jahrgänge 1947–1963 (§ 235 Abs. 2).",
+      "verify_needed": false
+    },
+    {
+      "id": "rente-haltelinie-2031",
+      "topic": "rente",
+      "kind": "number",
+      "question": "Bis zu welchem Jahr ist das Sicherungsniveau vor Steuern (Rentenniveau) durch das Rentenpaket auf mindestens 48 Prozent gesetzlich abgesichert (Haltelinie)?",
+      "gold_answer": "Bis 2031 — Haltelinie 48 Prozent",
+      "gold_source": "https://www.bmas.de/DE/Soziales/Rente-und-Altersvorsorge/Rentenversicherungsbericht/rentenversicherungsbericht.html",
+      "accept_patterns": [
+        "\\b2031\\b",
+        "48\\s*%\\s*bis\\s*2031",
+        "48\\s*Prozent\\s*bis\\s*2031"
+      ],
+      "hallucination_traps": [
+        "2025 (Auslaufen alte Haltelinie)",
+        "2050 (zu weit)",
+        "43% (langfristige Prognose, nicht Haltelinie)"
+      ],
+      "notes": "Verifiziert durch Robert 2026-06-09: 48% bis 2031. Frage neu fokussiert auf Haltelinie statt auf den Punktwert eines Jahres.",
+      "verify_needed": false
+    },
+    {
+      "id": "estg-spitzensteuersatz",
+      "topic": "steuersystem",
+      "kind": "law_paragraph",
+      "question": "Wie hoch ist der reguläre Spitzensteuersatz der Einkommensteuer 2026 nach § 32a EStG (ohne Reichensteuer)?",
+      "gold_answer": "42 Prozent",
+      "gold_source": "https://www.gesetze-im-internet.de/estg/__32a.html",
+      "accept_patterns": [
+        "\\b42\\s*%",
+        "\\b42\\s*Prozent"
+      ],
+      "hallucination_traps": [
+        "45% (Reichensteuer-Satz, nicht regulärer Spitzen)",
+        "50%",
+        "40%"
+      ],
+      "notes": "§ 32a Abs. 1 Nr. 4 EStG. Reichensteuer (45%) greift ab höherem Einkommen (Nr. 5).",
+      "verify_needed": false
+    },
+    {
+      "id": "estg-reichensteuer-grenze",
+      "topic": "steuersystem",
+      "kind": "number",
+      "question": "Ab welchem zu versteuernden Einkommen (Einzelveranlagung) greift die Reichensteuer (45%) für das Veranlagungsjahr 2026?",
+      "gold_answer": "ca. 277.826 Euro (Einzelveranlagung, § 32a Abs. 1 Nr. 5 EStG; jährlich angepasst)",
+      "gold_source": "https://www.gesetze-im-internet.de/estg/__32a.html",
+      "accept_patterns": [
+        "277[.,]?826",
+        "27[78][.,]?\\d{3}"
+      ],
+      "hallucination_traps": [
+        "260.533 € (Wert 2023)",
+        "250.730 € (Wert 2021)"
+      ],
+      "notes": "TG bestätigt 2026-06-09. Wert kann sich durch Inflationsausgleichsgesetze ändern.",
+      "verify_needed": false
+    },
+    {
+      "id": "eu-ai-act-inkrafttreten",
+      "topic": "ki-regulation",
+      "kind": "factual_statement",
+      "question": "Wann ist die EU-KI-Verordnung (AI Act, VO (EU) 2024/1689) in Kraft getreten?",
+      "gold_answer": "1. August 2024",
+      "gold_source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+      "accept_patterns": [
+        "1\\.?\\s*August\\s*2024",
+        "01\\.08\\.2024",
+        "August\\s*2024"
+      ],
+      "hallucination_traps": [
+        "2. Februar 2025 (erste Anwendungsstufe, nicht Inkrafttreten)",
+        "2026 (volle Anwendbarkeit)"
+      ],
+      "notes": "Art. 113 VO 2024/1689: Inkrafttreten 20 Tage nach Veröffentlichung im Amtsblatt (12.07.2024) = 01.08.2024. Anwendbarkeit gestaffelt.",
+      "verify_needed": false
+    },
+    {
+      "id": "eu-ai-act-verbotene-praktiken",
+      "topic": "ki-regulation",
+      "kind": "factual_statement",
+      "question": "Welche KI-Praktiken sind nach Art. 5 EU-KI-Verordnung grundsätzlich verboten? Nenne mindestens drei Kategorien.",
+      "gold_answer": "u. a.: (1) unterschwellige Manipulation, die Schaden verursacht, (2) Ausnutzung von Schwächen vulnerabler Gruppen, (3) Social Scoring durch Behörden, (4) biometrische Echtzeit-Fernidentifizierung im öffentlichen Raum (mit Ausnahmen), (5) Predictive Policing rein auf Profiling-Basis, (6) untargeted-Scraping zur Erstellung von Gesichtserkennungsdatenbanken, (7) Emotionserkennung am Arbeitsplatz/in Bildung",
+      "gold_source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401689",
+      "accept_patterns": [
+        "Social[\\s-]?Scoring",
+        "biometrisch",
+        "Manipulation",
+        "Emotionserkennung",
+        "Predictive\\s+Policing"
+      ],
+      "hallucination_traps": [
+        "Generative KI verboten (falsch — nur reguliert)",
+        "Open-Source-Modelle verboten"
+      ],
+      "notes": "Auto-Grading: Match auf ≥3 distinct accept_patterns = Hit. Manuelle Plausibilitätskontrolle ratsam.",
+      "verify_needed": false,
+      "min_pattern_matches": 3
+    },
+    {
+      "id": "ksg-klimaneutralitaet-jahr",
+      "topic": "klima",
+      "kind": "law_paragraph",
+      "question": "Bis zu welchem Jahr ist im deutschen Klimaschutzgesetz (KSG) das Ziel der Klimaneutralität (Treibhausgasneutralität) festgelegt?",
+      "gold_answer": "2045",
+      "gold_source": "https://www.gesetze-im-internet.de/ksg/__3.html",
+      "accept_patterns": [
+        "\\b2045\\b"
+      ],
+      "hallucination_traps": [
+        "2050 (EU-Ziel, nicht DE-KSG)",
+        "2030 (Zwischenziel -65% vs. 1990)"
+      ],
+      "notes": "§ 3 Abs. 2 KSG: Treibhausgasneutralität bis 2045. § 3 Abs. 1: -65% bis 2030, -88% bis 2040 (vs. 1990).",
+      "verify_needed": false
+    },
+    {
+      "id": "uba-thg-emissionen-2024",
+      "topic": "klima",
+      "kind": "number",
+      "question": "Wie hoch waren Deutschlands gesamte Treibhausgas-Emissionen 2024 laut Umweltbundesamt (in Mio. Tonnen CO2-Äquivalente)?",
+      "gold_answer": "ca. 649 Mio. t CO2-Äq (UBA-Bilanz für 2024)",
+      "gold_source": "https://www.umweltbundesamt.de/themen/klima-energie/treibhausgas-emissionen",
+      "accept_patterns": [
+        "6[45]\\d\\s*Mio",
+        "6[45]\\d\\s*Millionen",
+        "0[,.]6[45]\\s*Gt"
+      ],
+      "hallucination_traps": [
+        "750 Mio. t (Wert 2022)",
+        "800 Mio. t (Wert vor 2020)"
+      ],
+      "notes": "TG bestätigt 2026-06-09. UBA-Endwert für 2024 ist bei ~649 Mio. t.",
+      "verify_needed": false
+    },
+    {
+      "id": "erneuerbare-stromanteil-2024",
+      "topic": "energie",
+      "kind": "number",
+      "question": "Wie hoch war der Anteil erneuerbarer Energien an der Bruttostromerzeugung in Deutschland im Jahr 2024 (in Prozent, laut AGEE-Stat/Destatis)?",
+      "gold_answer": "59,4 Prozent (Bruttostromerzeugung 2024)",
+      "gold_source": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/03/PD25_091_43312.html",
+      "accept_patterns": [
+        "59[,.]4\\s*%",
+        "59[,.]4\\s*Prozent",
+        "rund\\s*59\\s*%"
+      ],
+      "hallucination_traps": [
+        "55 % (Anteil am Bruttostromverbrauch BDEW, andere Bezugsgröße)",
+        "56 % (Wert 2023, nicht 2024)",
+        "80 % (Ziel 2030)"
+      ],
+      "notes": "Destatis Pressemitteilung 091/25 vom 26.03.2025: 59,4 % Anteil EE an inländischer Bruttostromerzeugung 2024 (256,4 Mrd. kWh). AGEE-Stat am UBA. Achtung: Bruttostromverbrauch ergibt ~55 % (BDEW) — andere Bezugsgröße.",
+      "verify_needed": false
+    },
+    {
+      "id": "asylantraege-2024",
+      "topic": "migration",
+      "kind": "number",
+      "question": "Wie viele Asyl-Erstanträge wurden im Jahr 2024 in Deutschland gestellt (laut BAMF)?",
+      "gold_answer": "229.751 Erstanträge (BAMF Asylgeschäftsstatistik 2024)",
+      "gold_source": "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
+      "accept_patterns": [
+        "22[89][.,]?\\d{3}",
+        "ca\\.?\\s*230[.,]?000",
+        "229\\s*Tausend"
+      ],
+      "hallucination_traps": [
+        "351.915 (Wert 2023)",
+        "120.000 (zu niedrig)"
+      ],
+      "notes": "TG bestätigt 2026-06-09. Quelle: BAMF Jahresbilanz Asyl 2024.",
+      "verify_needed": false
+    },
+    {
+      "id": "asylg-rechtsgrundlage",
+      "topic": "migration",
+      "kind": "factual_statement",
+      "question": "Welches deutsche Gesetz regelt das Asylverfahren?",
+      "gold_answer": "Asylgesetz (AsylG)",
+      "gold_source": "https://www.gesetze-im-internet.de/asylvfg_1992/",
+      "accept_patterns": [
+        "Asylgesetz",
+        "\\bAsylG\\b",
+        "Asylverfahrensgesetz"
+      ],
+      "hallucination_traps": [
+        "Asylbewerberleistungsgesetz (regelt nur Leistungen, nicht Verfahren)",
+        "Aufenthaltsgesetz (allgemeines Ausländerrecht)"
+      ],
+      "notes": "Bis 24.10.2015 'Asylverfahrensgesetz' (AsylVfG), seither 'Asylgesetz' (AsylG). Beide Bezeichnungen sollten als Match gelten.",
+      "verify_needed": false
+    },
+    {
+      "id": "bundeshaushalt-verteidigung-2025",
+      "topic": "verteidigung",
+      "kind": "number",
+      "question": "Wie hoch war der Einzelplan 14 (Bundesverteidigungsministerium) im Bundeshaushalt 2025 (Soll, in Mrd. Euro, ohne Sondervermögen Bundeswehr)?",
+      "gold_answer": "ca. 62,43 Mrd. Euro (Einzelplan 14, Soll 2025; nach Bereinigungsbeschluss 62,31 Mrd.)",
+      "gold_source": "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/Bundeshaushalt/Bundeshaushalt-2025/bundeshaushalt-2025.html",
+      "accept_patterns": [
+        "6[12][,.]\\d{1,2}\\s*Mrd",
+        "6[12]\\s*Milliarden",
+        "6[12][.,]\\d{3}\\s*Mio"
+      ],
+      "hallucination_traps": [
+        "53,3 Mrd. (alter Schätzwert, falsch)",
+        "100 Mrd. (Sondervermögen, nicht EP 14)",
+        "86,37 Mrd. (Gesamtverteidigung inkl. Sondervermögen + sonstige)"
+      ],
+      "notes": "EP 14 Soll 2025 = 62,43 Mrd. €. Nach Bereinigungsbeschluss Haushaltsausschuss: 62,31 Mrd. Zuzüglich Sondervermögen Bundeswehr (~24 Mrd.) ergibt sich ein Gesamtbild von ~86 Mrd. für Verteidigung. Quelle: BMF + Bundestag-Pressemitteilung kw38-2025.",
+      "verify_needed": false
+    },
+    {
+      "id": "nato-zwei-prozent-ziel",
+      "topic": "verteidigung",
+      "kind": "factual_statement",
+      "question": "Was besagt das NATO-Zwei-Prozent-Ziel?",
+      "gold_answer": "Jedes NATO-Mitglied soll mindestens 2 % seines BIP für Verteidigungsausgaben aufwenden",
+      "gold_source": "https://www.nato.int/cps/en/natohq/topics_67655.htm",
+      "accept_patterns": [
+        "\\b2\\s*%\\s*(des)?\\s*BIP",
+        "zwei\\s*Prozent\\s*(des)?\\s*BIP",
+        "2\\s*Prozent\\s*(des)?\\s*Bruttoinland"
+      ],
+      "hallucination_traps": [
+        "2 Mrd. € (falsche Einheit)",
+        "3% (neuere Diskussion, aber kein offizielles Ziel)"
+      ],
+      "notes": "Beschluss Gipfel Wales 2014, neu bekräftigt Vilnius 2023. Klare Soll-Vorgabe, keine harte Verpflichtung.",
+      "verify_needed": false
+    },
+    {
+      "id": "bundestag-soll-sitze-2023",
+      "topic": "wahlrecht",
+      "kind": "number",
+      "question": "Wie viele Sitze hat der Deutsche Bundestag als Soll-Größe nach dem Wahlrechtsreformgesetz vom 17. März 2023?",
+      "gold_answer": "630 Sitze",
+      "gold_source": "https://www.gesetze-im-internet.de/bwahlg/__1.html",
+      "accept_patterns": [
+        "\\b630\\b"
+      ],
+      "hallucination_traps": [
+        "598 (alte Mindestgröße)",
+        "709 (20. BT, vor Reform)",
+        "736 (Größe vor Anwendung Reform)"
+      ],
+      "notes": "§ 1 Abs. 1 BWahlG (neu). Erstmals angewendet bei BTW 23.02.2025 (21. Bundestag).",
+      "verify_needed": false
+    },
+    {
+      "id": "bwahlg-sperrklausel",
+      "topic": "wahlrecht",
+      "kind": "law_paragraph",
+      "question": "Welche Mindeststimmen-Hürde gilt für den Einzug einer Partei in den Bundestag über die Zweitstimme?",
+      "gold_answer": "5 Prozent der abgegebenen gültigen Zweitstimmen (Sperrklausel, § 6 BWahlG); Grundmandatsklausel (mindestens 3 Direktmandate) gilt nach BVerfG-Urteil 30.07.2024 (2 BvF 1/23) übergangsweise weiter",
+      "gold_source": "https://www.gesetze-im-internet.de/bwahlg/__6.html",
+      "accept_patterns": [
+        "\\b5\\s*%",
+        "fünf\\s*Prozent",
+        "Fünf-?Prozent",
+        "Grundmandatsklausel",
+        "drei\\s*Direktmandate?",
+        "3\\s*Wahlkreis"
+      ],
+      "hallucination_traps": [
+        "3 % (gibt es nicht im Bund)",
+        "Grundmandatsklausel abgeschafft (wäre Stand 2023-Reform, durch BVerfG 2024 wiederhergestellt)"
+      ],
+      "notes": "BVerfG 30.07.2024 (Az. 2 BvF 1/23 u. a.): 5 %-Klausel ohne Grundmandatsklausel verfassungswidrig. Bis zur gesetzlichen Neuregelung gilt 5 % + Grundmandatsklausel (≥ 3 Direktmandate). Vollständige Antwort enthält beides.",
+      "verify_needed": false,
+      "min_pattern_matches": 2
+    },
+    {
+      "id": "partg-staatliche-finanzierung-sockel",
+      "topic": "parteienfinanzierung",
+      "kind": "number",
+      "question": "Wie hoch ist der staatliche Festbetrag pro Wählerstimme nach § 18 Abs. 3 Nr. 1 PartG für die ersten 4 Millionen Stimmen (Bundestags-, Europa- oder Landtagswahlen)?",
+      "gold_answer": "1,00 Euro je Wählerstimme",
+      "gold_source": "https://www.gesetze-im-internet.de/partg/__18.html",
+      "accept_patterns": [
+        "1[,.]00?\\s*€",
+        "1\\s*Euro",
+        "einen?\\s*Euro"
+      ],
+      "hallucination_traps": [
+        "0,83 € (Wert für Stimmen über 4 Mio.)",
+        "0,70 € (Spendenanteil)"
+      ],
+      "notes": "§ 18 Abs. 3 Nr. 1 PartG. Für Stimmen >4 Mio.: 0,83 €. Spenden/Beiträge: 0,45 € je Euro (Nr. 3).",
+      "verify_needed": false
+    },
+    {
+      "id": "lobbyregister-rechtsgrundlage",
+      "topic": "parteienfinanzierung",
+      "kind": "factual_statement",
+      "question": "Welches Gesetz regelt das Lobbyregister beim Deutschen Bundestag?",
+      "gold_answer": "Lobbyregistergesetz (LobbyRG)",
+      "gold_source": "https://www.gesetze-im-internet.de/lobbyrg/",
+      "accept_patterns": [
+        "Lobbyregistergesetz",
+        "LobbyRG"
+      ],
+      "hallucination_traps": [
+        "Parteiengesetz (regelt Parteienfinanzierung, nicht Lobbying)",
+        "Transparenzgesetz (gibt es so nicht bundesweit)"
+      ],
+      "notes": "Inkrafttreten 01.01.2022, verschärft 01.03.2024 (legislativer Fußabdruck etc.).",
+      "verify_needed": false
+    },
+    {
+      "id": "kulturhoheit-laender",
+      "topic": "bildung",
+      "kind": "law_paragraph",
+      "question": "Welche staatliche Ebene ist nach dem Grundgesetz für die Schulbildung primär zuständig?",
+      "gold_answer": "Die Länder (Kulturhoheit), Art. 30 i. V. m. Art. 70 GG",
+      "gold_source": "https://www.gesetze-im-internet.de/gg/art_70.html",
+      "accept_patterns": [
+        "Länder",
+        "Kulturhoheit",
+        "Art\\.?\\s*30",
+        "Art\\.?\\s*70"
+      ],
+      "hallucination_traps": [
+        "Bund (falsch — Bund hat nur Rahmenkompetenz nach 91b GG)",
+        "EU"
+      ],
+      "notes": "Generalklausel Art. 30 GG, Gesetzgebungskompetenz Art. 70 GG. Bund-Länder-Kooperation nur über Art. 91b GG.",
+      "verify_needed": false
+    },
+    {
+      "id": "pisa-mathematik-2022",
+      "topic": "bildung",
+      "kind": "number",
+      "question": "Welchen durchschnittlichen Punktwert erzielten deutsche 15-Jährige in der PISA-Studie 2022 im Bereich Mathematik?",
+      "gold_answer": "475 Punkte",
+      "gold_source": "https://www.oecd.org/pisa/publications/pisa-2022-results-volume-i.htm",
+      "accept_patterns": [
+        "\\b475\\b",
+        "47[3-7]\\s*Punkte"
+      ],
+      "hallucination_traps": [
+        "500 (OECD-Mittel als Referenz)",
+        "493 (alter DE-Wert vor 2018)"
+      ],
+      "notes": "OECD PISA 2022 Volume I, bestätigt durch Suche 2026-06-09. OECD-Mittel 472. Niedrigster DE-Mathematik-Wert in PISA-Historie.",
+      "verify_needed": false
+    },
+    {
+      "id": "gkv-versichertenanteil-2023",
+      "topic": "gesundheit",
+      "kind": "number",
+      "question": "Welcher Anteil der Bevölkerung in Deutschland war 2023 gesetzlich krankenversichert (GKV)?",
+      "gold_answer": "ca. 88 Prozent (rd. 74 Mio. GKV-Versicherte; KBV/BMG)",
+      "gold_source": "https://www.bundesgesundheitsministerium.de/themen/krankenversicherung/zahlen-und-fakten-zur-krankenversicherung.html",
+      "accept_patterns": [
+        "8[78][,.]\\d?\\s*%",
+        "8[78]\\s*Prozent",
+        "rund\\s*88"
+      ],
+      "hallucination_traps": [
+        "100% (nicht alle PKV-Privatversicherten falsch zugeordnet)",
+        "73 Mio. (Versichertenzahl, nicht Quote)"
+      ],
+      "notes": "KBV-Versichertenstruktur / BMG GKV-Kennzahlen, bestätigt durch Suche 2026-06-09. PKV-Anteil rd. 10,5 %.",
+      "verify_needed": false
+    },
+    {
+      "id": "eu-mitgliedstaaten-2026",
+      "topic": "aussenpolitik",
+      "kind": "number",
+      "question": "Wie viele Mitgliedstaaten zählt die Europäische Union mit Stand 2026?",
+      "gold_answer": "27",
+      "gold_source": "https://european-union.europa.eu/principles-countries-history/eu-countries_de",
+      "accept_patterns": [
+        "\\b27\\b",
+        "siebenundzwanzig"
+      ],
+      "hallucination_traps": [
+        "28 (vor Brexit)",
+        "26"
+      ],
+      "notes": "Nach Brexit (31.01.2020) 27 Mitglieder. Keine Erweiterung bis 2026 erfolgt.",
+      "verify_needed": false
+    },
+    {
+      "id": "dsgvo-anwendbarkeit",
+      "topic": "ki-regulation",
+      "kind": "factual_statement",
+      "question": "Seit wann ist die EU-Datenschutz-Grundverordnung (DSGVO/GDPR) anwendbar?",
+      "gold_answer": "25. Mai 2018",
+      "gold_source": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32016R0679",
+      "accept_patterns": [
+        "25\\.?\\s*Mai\\s*2018",
+        "25\\.05\\.2018",
+        "Mai\\s*2018"
+      ],
+      "hallucination_traps": [
+        "2016 (Inkrafttreten, nicht Anwendbarkeit)",
+        "2020"
+      ],
+      "notes": "Art. 99 VO (EU) 2016/679: Inkrafttreten 24.05.2016, Geltung ab 25.05.2018.",
+      "verify_needed": false
+    },
+    {
+      "id": "gg-art-29-laenderneugliederung",
+      "topic": "direkte-demokratie",
+      "kind": "law_paragraph",
+      "question": "In welchem Artikel des Grundgesetzes ist ein bundesweiter Volksentscheid vorgesehen (Neugliederung des Bundesgebietes)?",
+      "gold_answer": "Art. 29 GG",
+      "gold_source": "https://www.gesetze-im-internet.de/gg/art_29.html",
+      "accept_patterns": [
+        "Art(ikel)?\\.?\\s*29\\s*GG",
+        "Art(ikel)?\\.?\\s*29\\s*Grundgesetz"
+      ],
+      "hallucination_traps": [
+        "Art. 20 GG (Demokratieprinzip allgemein)",
+        "Art. 146 GG (Volksabstimmung über neue Verfassung)"
+      ],
+      "notes": "Art. 29 GG: Bundesweite Volksabstimmung bei Länderneugliederung. Art. 146 GG: Volksabstimmung über neue Verfassung. Sonst gibt es bundesweit keinen Volksentscheid (st. Rspr.).",
+      "verify_needed": false
+    },
+    {
+      "id": "bundesrat-stimmen-bundesland",
+      "topic": "parlamentarismus",
+      "kind": "law_paragraph",
+      "question": "Wie viele Stimmen hat ein Bundesland mit mehr als 7 Millionen Einwohnern im Bundesrat nach Art. 51 Abs. 2 GG?",
+      "gold_answer": "6 Stimmen",
+      "gold_source": "https://www.gesetze-im-internet.de/gg/art_51.html",
+      "accept_patterns": [
+        "\\b6\\s*Stimmen\\b",
+        "sechs\\s*Stimmen"
+      ],
+      "hallucination_traps": [
+        "3 (Mindestzahl)",
+        "4 (für >2 Mio.)",
+        "5 (für >6 Mio.)",
+        "7 (gibt es nicht)"
+      ],
+      "notes": "Art. 51 Abs. 2 GG. Staffelung: ≥7 Mio. → 6 Stimmen, >6 Mio. → 5, >2 Mio. → 4, sonst 3.",
+      "verify_needed": false
+    },
+    {
+      "id": "gg-art-67-misstrauensvotum",
+      "topic": "parlamentarismus",
+      "kind": "law_paragraph",
+      "question": "Welche Voraussetzung muss erfüllt sein, damit der Bundestag den Bundeskanzler durch ein konstruktives Misstrauensvotum stürzen kann?",
+      "gold_answer": "Der Bundestag muss mit der Mehrheit seiner Mitglieder einen Nachfolger wählen (Art. 67 GG)",
+      "gold_source": "https://www.gesetze-im-internet.de/gg/art_67.html",
+      "accept_patterns": [
+        "Nachfolger\\s+wählen",
+        "konstruktiv",
+        "Mehrheit\\s+(seiner|der)\\s+Mitglieder",
+        "Art\\.?\\s*67\\s*GG"
+      ],
+      "hallucination_traps": [
+        "Einfaches Misstrauensvotum (gibt es im GG nicht für den Kanzler)",
+        "Zwei-Drittel-Mehrheit (falsch — Mehrheit der Mitglieder reicht)"
+      ],
+      "notes": "Art. 67 Abs. 1 GG. Unterscheidet sich vom Vertrauensvotum (Art. 68 GG).",
+      "verify_needed": false
+    }
+  ]
+}

@@ -52,3 +52,7 @@ logs/
 *.bak
 *.bak-*
 .backup.env
+
+# Eval-Harness: generierte Outputs (Quellcode + Dossiers werden versioniert)
+eval/runs/
+eval/reports/

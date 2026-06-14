@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "slug": "rente",
+  "title": "Rente & Altersvorsorge",
+  "lead": "Demografie, Rentenniveau, Renteneintrittsalter, Aktienrente — die zentralen Streitachsen, mit Tier-1-Bezug auf BMAS, DRV, Rentenversicherungsbericht, SVR und Demografie-Daten.",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Regelaltersgrenze für Jahrgänge ab 1964",
+      "value": "67 Jahre",
+      "source_title": "§ 235 SGB VI",
+      "source_url": "https://www.gesetze-im-internet.de/sgb_6/__235.html",
+      "verified": true
+    },
+    {
+      "label": "Sicherungsniveau-Haltelinie bis 2031",
+      "value": "48 %",
+      "source_title": "Rentenpaket / BMAS",
+      "source_url": "https://www.bmas.de/DE/Soziales/Rente-und-Altersvorsorge/Rentenversicherungsbericht/rentenversicherungsbericht.html",
+      "verified": true
+    },
+    {
+      "label": "Beitragssatz GRV 2025",
+      "value": "18,6 %",
+      "source_title": "DRV / § 158 SGB VI",
+      "source_url": "https://www.deutsche-rentenversicherung.de/",
+      "verify_needed": true,
+      "note": "Prognose: Anstieg bis 2030 auf ca. 20 %, bis 2040 auf 22 %."
+    },
+    {
+      "label": "Erwerbstätigen-Quote 60-64 (2023)",
+      "value": "ca. 64 %",
+      "source_title": "Destatis Mikrozensus",
+      "source_url": "https://www.destatis.de/DE/Themen/Arbeit/_inhalt.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Bundeszuschuss zur GRV (2024)",
+      "value": "ca. 116 Mrd. €",
+      "source_title": "BMF / DRV",
+      "source_url": "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/bundeshaushalt.html",
+      "verify_needed": true,
+      "note": "ca. 25 % des Bundeshaushalts."
+    },
+    {
+      "label": "Demografie: Rentner-zu-Beitragszahler-Quote",
+      "value": "2025 ca. 1:1,8 → 2040 ca. 1:1,3",
+      "source_title": "Destatis Bevölkerungsvorausberechnung",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/_inhalt.html",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "SGB VI (Rentenversicherung)",
+      "summary": "Renten-Anspruch, Beitrag, Berechnung, Renteneintritt, Schutzleistungen.",
+      "url": "https://www.gesetze-im-internet.de/sgb_6/"
+    },
+    {
+      "rule": "§ 235 SGB VI (Regelaltersgrenze)",
+      "summary": "67 Jahre für ab 1964 Geborene; schrittweise Anhebung von 65 für Jahrgänge 1947–1963.",
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__235.html"
+    },
+    {
+      "rule": "§ 154 SGB VI (Rentenniveau / Haltelinie)",
+      "summary": "Politisch-rechtlich verankerte Haltelinie für Sicherungsniveau vor Steuern bis 2031 (48 %).",
+      "url": "https://www.gesetze-im-internet.de/sgb_6/__154.html"
+    },
+    {
+      "rule": "Generationenkapital-Gesetz (2024)",
+      "summary": "Bundesweite Aktienrücklage als Stiftungs-Konstrukt, Einzahlungen aus Bundeshaushalt + Krediten, ab 2036 Entnahmen zur Beitragssatz-Stabilisierung.",
+      "url": "https://dserver.bundestag.de/btd/20/110/2011090.pdf"
+    },
+    {
+      "rule": "Art. 14 GG (Eigentumsschutz Renten)",
+      "summary": "BVerfG-Rechtsprechung: Rentenanwartschaften sind eigentumsähnlich geschützt — Kürzungen verfassungsrechtlich eng begrenzt.",
+      "url": "https://www.gesetze-im-internet.de/gg/art_14.html"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Sicherungsniveau-Haltelinie 48 % über 2031 hinaus verlängern, Regelaltersgrenze bei 67 halten, Generationenkapital ausbauen, abschlagsfreie Rente nach 45 Jahren bei 63 beibehalten.",
+      "key_claims": [
+        "Sicherungsniveau-Haltelinie ist Versprechen an die Generationen",
+        "Generationenkapital hilft langfristig, ist aber nicht ausreichend"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Haltelinien-Verlängerung kostet laut DRV-Modellen 8-15 Mrd. €/Jahr ab 2032 (steigend) — fiskal-relevant. Generationenkapital-Wirkung: Bundesregierung schätzt 0,1-0,3 Beitragspunkt-Entlastung ab 2036, also moderat. SVR und Wissenschaftlicher Beirat BMWi haben die Größenordnung als „nicht ausreichend\" eingestuft. SPD-Aussage ist insofern selbstkritisch ehrlich.",
+        "empirical_check": "DRV-Modellrechnungen Haltelinie-Verlängerung. SVR Jahresgutachten 2024 zu Rente. Generationenkapital-Gesetz Entwurfsbegründung.",
+        "tier1_sources": [
+          "https://www.deutsche-rentenversicherung.de/",
+          "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html",
+          "https://dserver.bundestag.de/btd/20/110/2011090.pdf"
+        ],
+        "value_assumptions": "Annahme: Generationenvertrag-Stabilität primär; Haltelinie als Versprechen ist politische Pflicht; demografische Last solidarisch tragen."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Renteneintrittsalter dynamisch an Lebenserwartung koppeln (höher als 67), private Vorsorge stärken, Generationenkapital ausbauen, Frühverrentung (mit 63) eingrenzen.",
+      "key_claims": [
+        "67-Jahre-Grenze ist demografisch nicht haltbar",
+        "Private Vorsorge muss stärker zur Säulen-Diversifizierung beitragen"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Demografie-Argument: Lebenserwartung steigt seit 1960 um ca. 3 Monate/Jahr, Rentenbezugsdauer entsprechend länger. „67 nicht haltbar\" trifft die fiskalische Logik. ABER: realer Renteneintritt liegt im Schnitt bei 63,5 Jahren (DRV 2024) — Anhebung auf 68/70 würde zunächst nicht das Eintrittsalter, sondern Abschlagshöhe und/oder Niveau treffen. Empirie aus DK, NL, FI mit Lebenserwartungs-Kopplung: marginale Eintritts-Verschiebung, hohe politische Akzeptanz wenn gradualisiert.",
+        "empirical_check": "DRV Rentenbezugsdauer-Statistik 2024. OECD Pensions at a Glance 2024. Dänische Lebenserwartungs-Kopplung seit 2006.",
+        "tier1_sources": [
+          "https://www.deutsche-rentenversicherung.de/",
+          "https://www.oecd.org/els/public-pensions/oecd-pensions-at-a-glance-19991363.htm",
+          "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/_inhalt.html"
+        ],
+        "value_assumptions": "Annahme: demografische Ehrlichkeit > politische Versprechen; private Vorsorge als Pflicht-Säule legitim; Eigenverantwortung primär."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Haltelinie 48 % verlängern, Renteneintrittsalter bei 67, Bürgerversicherung Rente (Selbstständige, Beamte einbeziehen), Generationenkapital sozial-ökologisch anlegen.",
+      "key_claims": [
+        "Bürgerversicherung verbreitert Beitragsbasis und entlastet GRV",
+        "Sozial-ökologische Anlage ist Risiko-Diversifizierung"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Bürgerversicherungs-Argument: DIW-Modellierungen zeigen kurzfristig Beitrags-Stabilisierung (~0,3-0,7 Punkte unter Status quo) durch Einbeziehung Selbstständiger und Beamte. Langfristig stützt der Effekt sich ab (mehr Beitragszahler = mehr Anspruch). Verfassungsrechtlich relevant: BVerfG-Schutz der Beamten-Versorgung Art. 33 V GG — Übergang nur sehr langfristig möglich. Sozial-ökologische Anlage: ESG-Performance-Empirie zeigt keinen signifikanten Renditeverlust (Morningstar 2024), aber höhere Vola in bestimmten Sektoren.",
+        "empirical_check": "DIW Bürgerversicherungs-Modelle. BVerfG zur Beamten-Versorgung Art. 33 V. Morningstar ESG Performance 2024.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.bundesverfassungsgericht.de/",
+          "https://www.morningstar.com/research"
+        ],
+        "value_assumptions": "Annahme: Solidargemeinschaft verbreitern; Beamten-Privilegien sozialpolitisch nicht mehr zeitgemäß; Nachhaltigkeit > Maximalrendite."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Aktienrente massiv ausbauen, Renteneintrittsalter flexibilisieren (Lebenserwartungs-Kopplung), private Vorsorge steuerlich begünstigen, Generationenkapital auf 200+ Mrd. €.",
+      "key_claims": [
+        "Aktienrente nach schwedischem Vorbild senkt Beitragssatz langfristig",
+        "Lebenserwartungs-Kopplung ist demografische Ehrlichkeit"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Schweden-Vergleich: AP7 (Premium-Säule) erzielt langfristig ~8-9 % p.a. real, finanziert ~12 % der Gesamtrente. Übertragbarkeit: Beitragsbasis und politische Stabilität sind in DE anders (kein dänisches Vorzeige-Modell). Beitrag-Stabilisierung durch Aktienrente: Wissenschaftlicher Beirat BMWi sieht bei 200 Mrd. €-Niveau Effekt von 0,5-1,0 Beitragspunkten ab 2040 — nicht der „Lösungs-Bringer\", aber substantieller Baustein.",
+        "empirical_check": "AP7 Performance 2000-2024. Wissenschaftlicher Beirat BMWi 2023 zur Aktienrente. OECD Pensions at a Glance 2024.",
+        "tier1_sources": [
+          "https://www.ap7.se/en/",
+          "https://www.bmwk.de/Redaktion/DE/Pressemitteilungen/2023/05/20230523-wissenschaftlicher-beirat-zur-rente.html",
+          "https://www.oecd.org/els/public-pensions/"
+        ],
+        "value_assumptions": "Annahme: Kapitalmarkt-Effizienz primär; Eigenverantwortung und Vorsorge-Pflicht legitim; Solidarprinzip nachrangig."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Rentenniveau auf 53 % anheben (vor Riester-Reform-Niveau), Regelaltersgrenze auf 65 zurücksetzen, Mindestrente 1.500 €, Bürgerversicherung Rente, Vermögensabgabe-Finanzierung.",
+      "key_claims": [
+        "Aktuelles Rentenniveau ist Altersarmut-Treiber",
+        "Mindestrente schützt vor Altersarmut"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Altersarmuts-Argument: Altersarmuts-Quote 2023 ca. 18 % (Destatis SOEP) — höher als allgemeine Armuts-Quote (16,8 %). Mindestrente 1.500 €: würde Altersarmut deutlich senken, Kosten laut DRV-Modellen 25-45 Mrd. €/Jahr. Niveau-Anhebung auf 53 %: dazu kommt Beitragssatz-Anstieg auf ~24 % oder massive Steuerfinanzierung (zusätzlicher Bundeszuschuss ~60-90 Mrd. €). Regelaltersgrenze 65: würde Rentenbezugsdauer um ca. 2 Jahre verlängern — fiskal-relevant negativ.",
+        "empirical_check": "Destatis SOEP Altersarmuts-Quote 2023. DRV-Modellrechnungen zur Niveau-Anhebung. OECD Pensions at a Glance zu Mindestrenten international.",
+        "tier1_sources": [
+          "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/_inhalt.html",
+          "https://www.deutsche-rentenversicherung.de/",
+          "https://www.oecd.org/els/public-pensions/"
+        ],
+        "value_assumptions": "Annahme: Altersarmut absolute Grenze; Solidar-Finanzierung über Vermögen legitim; demografische Last politisch korrigierbar."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Rente auf nationale Solidarität fokussieren, Migranten erst nach 35 Beitragsjahren voll anspruchsberechtigt, Mütterrente ausweiten, Aktienrente ablehnen, kein höheres Renteneintrittsalter.",
+      "key_claims": [
+        "Migranten profitieren überproportional von Rentensystem",
+        "Mütterrente korrigiert demografische Ungleichbehandlung"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Migranten-überproportional-Argument: Tatsächlich zahlen Migranten netto in die GRV ein (mehr Erwerbstätige, jüngere Altersstruktur — IAB-Studien zeigen Netto-Beiträge). Im SGB XII (Grundsicherung im Alter) erhöhter Anteil sichtbar, aber das ist NICHT Rente. Differenzierung 35 Beitragsjahre: verstößt gegen Art. 3 GG (Gleichbehandlung in Sozialversicherung), EU-Recht Koordinierung 883/2004. Mütterrente: rechtlich solidarpolitisch begründbar, aber fiskal-relevant (~5-8 Mrd. €/Jahr Ausweitung).",
+        "empirical_check": "IAB-Studien zu Migration und Sozialversicherungs-Bilanz 2018-2024. Art. 3 GG. VO (EG) 883/2004 (EU-Sozialversicherungs-Koordinierung). DRV Mütterrente-Kostenrechnung.",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.gesetze-im-internet.de/gg/art_3.html",
+          "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32004R0883",
+          "https://www.deutsche-rentenversicherung.de/"
+        ],
+        "value_assumptions": "Annahme: ethnisch-nationale Solidargemeinschaft; Migranten als Sondergruppe; demografische Steuerung durch Familienpolitik > Migration."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Rentenniveau auf 53 % anheben, Regelaltersgrenze bei 65 oder 67 (offen), Aktienrente ablehnen, Mindestrente 1.300 €, EU-Beitrags-Optimierung.",
+      "key_claims": [
+        "Niveau-Anhebung ist Generationen-gerecht (in beide Richtungen)",
+        "Aktienrente ist Spekulation mit Lebensentwürfen"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Niveau-Anhebungs-Argument: in der Generationengerechtigkeits-Logik ambivalent — verteilt Last auf jüngere Beitragszahler, nicht intergenerational ausgewogen. Aktienrente-Kritik: empirisch teils gestützt — schwedisches AP7-Modell hat in 2008-2009 und 2020-2022 starke Drawdowns gehabt, langfristige Performance gut. „Spekulation\" ist überzogen, aber Volatilitäts-Argument hat Substanz. Mindestrente 1.300 €: niedriger als Linke-Vorschlag, fiskal entsprechend günstiger (15-25 Mrd. €/Jahr).",
+        "empirical_check": "AP7 Performance Drawdowns 2008/2020. DRV-Modellrechnungen Mindestrente. SVR zur Niveau-Anhebung.",
+        "tier1_sources": [
+          "https://www.ap7.se/en/",
+          "https://www.deutsche-rentenversicherung.de/",
+          "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html"
+        ],
+        "value_assumptions": "Annahme: Sicherheit > Renditeoptimierung; Solidar-System primär; Kapitalmarkt-Risiken sozial nicht tragbar."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Haltelinie 48 % bis 2031 erfüllen, dann gradiente Anpassung mit Lebenserwartungs-Kopplung; Aktienrente moderat ausbauen, Bürgerversicherung Rente schrittweise einführen, Mindestrente für lange Beitragszeiten.",
+    "konkret": [
+      "Haltelinie 48 % bis 2031 erfüllen (Rentenpaket bereits in Kraft).",
+      "Ab 2032: Lebenserwartungs-Kopplung nach dänischem Modell, gradualisiert (ca. 2 Monate pro Jahr Lebenserwartungs-Anstieg), gestaffelt nach Berufsgruppen (Schwerarbeiter-Klausel).",
+      "Aktienrente (Generationenkapital) auf 250–300 Mrd. € bis 2040 ausbauen — moderat, nicht als Heilsversprechen, sondern als Risikodiversifizierung.",
+      "Bürgerversicherung schrittweise: Selbstständige ab 2030, Beamten-Neueinstellungen ab 2035 (Bestand: Art. 33 V GG-konform belassen).",
+      "Mindestrente von 1.300 € nach 35 Beitragsjahren (BSW-Modell adaptiert), für Soloselbstständige + Reinigungskräfte etc. — Kosten ~12 Mrd. €/Jahr.",
+      "Frühverrentung (mit 63 abschlagsfrei nach 45 Beitragsjahren) beibehalten."
+    ],
+    "warum": "Demografie ist keine politische Wahl, sondern Realität. Reine Haltelinien-Versprechen ohne Beitrags- oder Eintritts-Anpassung überfordern jüngere Generationen. Reine Kürzungs-Politik verstößt gegen Vertrauensschutz Art. 14 GG. Mehrsäulen-System mit Solidar-Kern und kapitalgedecktem Beitrag ist international etablierte Best Practice.",
+    "wertannahmen": "§1 (Sorgepflicht zwischen Generationen) wird intergenerational ausgewogen interpretiert: keine einseitige Last auf jüngeren Beitragszahlern, aber auch kein Bruch des Vertrauensschutzes für Bestandsrentner.",
+    "trade_offs_eingestanden": "Lebenserwartungs-Kopplung politisch unpopulär, gradualisiert über 20 Jahre nötig; Bürgerversicherung verfassungsrechtlich nur in langer Frist möglich; Mindestrente 12 Mrd. €/Jahr Steuerfinanzierung; Aktienrente Risiko in Crash-Phasen.",
+    "url": "programm/rente.html"
+  },
+  "evidenz_link": {
+    "url": "programm/rente.html",
+    "label": "EVIDENZ-Position zur Rente (vollständig)",
+    "note": "Hier steht die vollständige Optionsanalyse mit allen demografischen Pfaden und verfassungsrechtlichen Bewertungen."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (SGB VI, DRV, BVerfG). Einzelne Werte (Beitragssatz, Bundeszuschuss, Erwerbstätigen-Quote) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

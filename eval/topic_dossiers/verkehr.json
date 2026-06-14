@@ -1,0 +1,266 @@
+{
+  "schema_version": "1.0",
+  "slug": "verkehr",
+  "title": "Verkehr & Mobilität",
+  "lead": "Verbrenner-Aus, Tempolimit, ÖPNV, Bahn-Sanierung, Deutschlandticket — wer fordert was, und was sagen Tier-1-Quellen (UBA, KBA, DB, BMDV, ERK, IPCC) zur Wirkung?",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "THG-Emissionen Verkehrssektor 2024",
+      "value": "ca. 145 Mio. t CO₂-Äq",
+      "source_title": "UBA Bilanz März 2025",
+      "source_url": "https://www.umweltbundesamt.de/themen/verkehr-laerm/emissionsdaten",
+      "verify_needed": true,
+      "note": "Sektor verfehlt KSG-Sektorziel seit Jahren, einziger Sektor mit Wachstum statt Reduktion."
+    },
+    {
+      "label": "Pkw-Bestand Deutschland (01.01.2025)",
+      "value": "ca. 49,1 Mio.",
+      "source_title": "KBA Bestand",
+      "source_url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Bestand/bestand_node.html",
+      "verify_needed": true
+    },
+    {
+      "label": "E-Auto-Anteil Neuzulassungen 2024",
+      "value": "ca. 13,5 %",
+      "source_title": "KBA Neuzulassungen",
+      "source_url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/neuzulassungen_node.html",
+      "verify_needed": true,
+      "note": "Nach Wegfall der Umweltprämie 12/2023 deutlicher Einbruch."
+    },
+    {
+      "label": "Deutschlandticket-Abonnent:innen (Stand 2024)",
+      "value": "ca. 13 Mio.",
+      "source_title": "VDV / BMDV",
+      "source_url": "https://www.bmdv.bund.de/SharedDocs/DE/Artikel/K/deutschland-ticket.html",
+      "verify_needed": true
+    },
+    {
+      "label": "DB Fernverkehr Pünktlichkeit 2024",
+      "value": "ca. 62 %",
+      "source_title": "Deutsche Bahn AG Jahresbericht",
+      "source_url": "https://www.deutschebahn.com/de/konzern/im_ueberblick",
+      "verify_needed": true,
+      "note": "Niedrigster Wert seit Beginn der Erfassung."
+    },
+    {
+      "label": "Investitionsbedarf Schiene bis 2035",
+      "value": "ca. 200 Mrd. €",
+      "source_title": "BMDV / Allianz pro Schiene",
+      "source_url": "https://www.bmdv.bund.de/",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "KSG § 4 (Sektorziel Verkehr)",
+      "summary": "Verkehrssektor muss bis 2030 jährliche Höchstmengen einhalten — wurde 2021, 2022, 2023, 2024 verfehlt. Sofortprogramm-Pflicht im KSG verankert.",
+      "url": "https://www.gesetze-im-internet.de/ksg/"
+    },
+    {
+      "rule": "EU-VO 2023/851 (CO₂-Flottengrenzwerte)",
+      "summary": "Ab 2035 nur noch Pkw-Neuzulassungen ohne CO₂-Ausstoß. E-Fuels-Klausel (Tank-to-Wheel) bisher nicht delegiert ausformuliert.",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=CELEX:32023R0851"
+    },
+    {
+      "rule": "StVO § 3 (Tempolimits)",
+      "summary": "Innerorts 50, außerorts 100, Autobahn Richtgeschwindigkeit 130 (nicht verpflichtend).",
+      "url": "https://www.gesetze-im-internet.de/stvo_2013/__3.html"
+    },
+    {
+      "rule": "Regionalisierungsgesetz (RegG)",
+      "summary": "Bund-Länder-Finanzierung ÖPNV-Bestellung; Regionalisierungsmittel 2024: ca. 11,8 Mrd. €/Jahr.",
+      "url": "https://www.gesetze-im-internet.de/regg/"
+    },
+    {
+      "rule": "Gemeindeverkehrsfinanzierungsgesetz (GVFG)",
+      "summary": "Bundeszuschüsse für ÖPNV-Infrastruktur (Schienenwege, Bushöfe etc.); 2025 ca. 2 Mrd. €.",
+      "url": "https://www.gesetze-im-internet.de/gvfg/"
+    },
+    {
+      "rule": "Bundesschienenwegeausbaugesetz (BSWAG)",
+      "summary": "Investitionsplan-Logik für Schienenwege des Bundes; aktuell überarbeitet wegen Sanierungs-Bedarf.",
+      "url": "https://www.gesetze-im-internet.de/bschwag/"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Verbrenner-Aus 2035 halten, Deutschlandticket bei 49 € halten (Bundes-Co-Finanzierung), Bahn-Sanierung-Korridor finanzieren, Tempolimit 130 offen, Pendlerpauschale beibehalten.",
+      "key_claims": [
+        "Deutschlandticket ist soziale ÖPNV-Revolution",
+        "Verbrenner-Aus 2035 ist klimapolitisch und industriestrategisch notwendig"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Deutschlandticket-Wirkung: VDV-Auswertungen zeigen ~13 Mio. Abos, Verkehrsverlagerung Pkw→ÖPNV moderat (5-10 % der Nutzer), CO₂-Effekt im einstelligen Mio-t-Bereich (UBA-Schätzung). „Revolution\" ist überzeichnet — gut für sozialen Zugang, weniger für Klimawirkung. Verbrenner-Aus 2035: EU-rechtlich verankert, deutsche Industrie hat Modelle dafür gebaut (VW ID-Serie, Mercedes EQ etc.). „Industriestrategisch notwendig\" ist plausibel (Wettlauf mit chinesischer E-Auto-Industrie), aber komplex.",
+        "empirical_check": "VDV Deutschlandticket-Auswertung 2024. UBA-Schätzung CO₂-Effekt Deutschlandticket. KBA Neuzulassungs-Daten zu E-Autos.",
+        "tier1_sources": [
+          "https://www.vdv.de/presse.aspx",
+          "https://www.umweltbundesamt.de/themen/verkehr-laerm",
+          "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/neuzulassungen_node.html"
+        ],
+        "value_assumptions": "Annahme: ÖPNV als Daseinsvorsorge legitim; Bundes-Co-Finanzierung dauerhaft; Industriepolitik mit Klima-Logik vereinbar."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Verbrenner-Aus 2035 mit E-Fuels-Klausel aufweichen, kein Tempolimit, Bahn-Reform mit höherem Investitionsvolumen, Deutschlandticket nur Co-Finanzierung der Länder, Pendlerpauschale erhöhen.",
+      "key_claims": [
+        "Technologieoffenheit (E-Fuels) erlaubt Verbrenner-Erhalt mit Klimawirkung",
+        "Tempolimit hat marginalen Effekt — Eingriff in Freiheit"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "E-Fuels-Argument: Agora-Energiewende und IEA zeigen, dass E-Fuels für Pkw bis 2035-2040 nicht in Mengen verfügbar, ~5-7x teurer als Strom für BEVs (Wirkungsgrad-Kette). Skalierbarkeit für Massen-Pkw-Markt unrealistisch. E-Fuels sinnvoll: Luftfahrt, Schiffbau, schwere Lkw. Tempolimit-Argument: UBA 2023 schätzt Tempo-130-Effekt auf 1,9 Mio. t CO₂/Jahr — klein, aber nicht null (das ist mehr als manche kleinere Sektor-Klimaschutz-Maßnahmen). Akzeptanz: ADAC-Mitgliederumfrage 2024 zeigt ~50 % dafür.",
+        "empirical_check": "Agora E-Fuels-Studie 2024. IEA Energy Outlook 2024 zu Wirkungsgraden. UBA Tempolimit-Studie 2023. ADAC Mitgliederbefragung 2024.",
+        "tier1_sources": [
+          "https://www.agora-energiewende.de/publikationen/",
+          "https://www.iea.org/reports",
+          "https://www.umweltbundesamt.de/publikationen",
+          "https://www.adac.de/"
+        ],
+        "value_assumptions": "Annahme: individuelle Freiheit primär; Markt-Innovation > staatliche Vorgaben; Akzeptanz-Argument vor Effekt-Argument."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Verbrenner-Aus 2030 (national vorziehen), Tempolimit 130, Deutschlandticket bei 29 € (sozial gestaffelt), ÖPNV-Ausbau verdoppeln, Bahn-Vorrang vor Straße, Pendlerpauschale reformieren (Mobilitätsgeld).",
+      "key_claims": [
+        "Verbrenner-Aus 2030 ist technisch und wirtschaftlich machbar",
+        "ÖPNV-Verdoppelung ist Klima- und Sozialfrage"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Verbrenner-Aus-2030-Machbarkeit: Norwegen hat Nationalmarkt mit 90 %+ E-Auto-Anteil erreicht (Anreiz-getrieben). DE-Industrie: Modellpalette vorhanden, Ladeinfrastruktur-Skalierung Bottleneck (Wallboxen, Schnelllader). Vorziehen 2035→2030 (5 Jahre) erfordert Anreiz-Schub und Infrastruktur-Sprint. ÖPNV-Verdoppelung: VDV-Studien zeigen Investitionsbedarf ~200 Mrd. € bis 2035 (Schiene + Bus + Personal), kommunaler Personal-Bottleneck real.",
+        "empirical_check": "Norwegen E-Auto-Markt Statistik 2024. KBA E-Auto-Trends. VDV ÖPNV-Investitionsbedarf-Studie 2024.",
+        "tier1_sources": [
+          "https://www.ssb.no/en/transport-and-tourism",
+          "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/neuzulassungen_node.html",
+          "https://www.vdv.de/"
+        ],
+        "value_assumptions": "Annahme: Klimaschutz ist Sozialfrage; staatliche Steuerung legitim; Ordnungs-Recht > Marktanreize bei Pfadabhängigkeit."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Verbrenner-Aus 2035 mit E-Fuels-Klausel, kein Tempolimit, Deutschlandticket marktwirtschaftlich (kein dauerhafter Bundes-Zuschuss), Bahn-Reform mit Wettbewerb, Pendlerpauschale erhöhen.",
+      "key_claims": [
+        "Technologieoffenheit erhält Wettbewerb und Innovation",
+        "Marktwirtschaft im Bahnsektor erhöht Effizienz"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Technologieoffenheits-Argument: ökonomisch lehrbuchnah, in der Praxis kompliziert (s. CDU/CSU-Verdikt zu E-Fuels). Bahn-Wettbewerbs-Argument: UK-Privatisierung als Negativbeispiel (Network Rail Renationalisierung 2014), JP/CH als Positivbeispiel — Differenzierung Infrastruktur vs. Betrieb wichtig. DE-Modell DB AG + Wettbewerber im Regionalverkehr funktioniert teils gut, Fernverkehr kaum wettbewerblich.",
+        "empirical_check": "UK Network Rail Renationalisierung 2014. JR-Modell Japan. Schweizer SBB. DB-Geschäftsbericht 2024.",
+        "tier1_sources": [
+          "https://www.networkrail.co.uk/",
+          "https://www.jrtt.go.jp/",
+          "https://www.deutschebahn.com/"
+        ],
+        "value_assumptions": "Annahme: Markt-Effizienz primär; staatliche Vorgaben verzerren; Eigenverantwortung des Konsumenten."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Verbrenner-Aus 2030, Tempolimit 100/80, Deutschlandticket bei 9 € (oder kostenlos), Bahn vollständig wieder verstaatlichen, Massiver Schienen-Ausbau, Pkw-Verkehr halbieren.",
+      "key_claims": [
+        "Verkehrssektor verfehlt KSG seit Jahren — radikale Wende nötig",
+        "Kostenloser ÖPNV ist sozial-ökologisch geboten"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "KSG-Verfehlungs-Argument: empirisch eindeutig — UBA-Daten 2021-2024 zeigen Sektor steigt statt sinkt. Kostenloser ÖPNV: Beispiele Estland (Tallinn), Luxemburg — Verkehrsverlagerung moderat (10-15 %), Hauptwirkung sozial (Zugang). Massiv höhere Kosten (10-15 Mrd. €/Jahr für DE) bei geringer Klimawirkung im Vergleich zu Investitionen in Infrastruktur. Tempolimit 100/80: UBA-Schätzung 100 auf BAB ~5 Mio. t/Jahr, deutlich mehr als 130er-Limit.",
+        "empirical_check": "UBA Verkehrs-Bilanz 2024. Tallinn-Estland Studie kostenloser ÖPNV. Luxemburg-Bilanz seit 2020. UBA Tempolimit-Studien 100 vs. 130.",
+        "tier1_sources": [
+          "https://www.umweltbundesamt.de/publikationen",
+          "https://www.tallinn.ee/eng/",
+          "https://www.eea.europa.eu/"
+        ],
+        "value_assumptions": "Annahme: radikale Verkehrswende sozial-ökologisch geboten; Markt-Mechanik versagt; Verstaatlichung als Lösungs-Hebel."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Verbrenner-Aus 2035 kippen, kein Tempolimit, Deutschlandticket abschaffen, Bahn-Reform marktwirtschaftlich aber DB AG erhalten, Pendlerpauschale erhöhen, KFZ-Steuer senken.",
+      "key_claims": [
+        "Verbrenner-Aus zerstört deutsche Autoindustrie",
+        "Klimaschutz im Verkehr ist national wirkungslos"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Autoindustrie-Zerstörungs-Argument: alle deutschen Hersteller haben Multi-Milliarden in BEV-Transformation investiert (VW 180 Mrd., Mercedes 60 Mrd., BMW 30 Mrd. bis 2030). Verbrenner-Aus-Verschiebung würde diese Strategien entwerten. Chinesische BEV-Konkurrenz ist Hauptbedrohung, nicht EU-Regulierung. National-wirkungslos-Argument: gleiche Empirik wie AfD-Klima (s. Klima-Dossier). DE-Verkehrssektor 145 Mio. t — Reduktion auf 85 Mio. (KSG 2030-Ziel) nicht trivial, aber europäische Pfadabhängigkeit.",
+        "empirical_check": "VW/Mercedes/BMW Investitionspläne 2023-2024. Chinesische BEV-Markt-Daten (BYD, Geely). UBA Verkehrs-Sektorziele.",
+        "tier1_sources": [
+          "https://www.volkswagen-group.com/de/investor-relations",
+          "https://group.mercedes-benz.com/investors/",
+          "https://www.bmwgroup.com/de/investor-relations.html",
+          "https://www.umweltbundesamt.de/themen/verkehr-laerm"
+        ],
+        "value_assumptions": "Annahme: Automobilindustrie als nationale Identität; Klimaschutz nationalstaatlich wirkungslos; EU-Vorgaben als Souveränitätsverletzung."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Verbrenner-Aus 2035 (technologieoffen), Tempolimit 130 (offen), Deutschlandticket dauerhaft bei 49 € durch Bundes-Co-Finanzierung, Bahn-Reform mit Investitions-Vorrang, Pendlerpauschale erhöhen für Landbevölkerung.",
+      "key_claims": [
+        "Verkehrswende muss sozial verträglich sein, sonst scheitert sie",
+        "Landbevölkerung darf nicht zur ÖPNV-Stadt-Logik gezwungen werden"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Sozial-verträgliche-Wende-Argument: empirisch belegt durch Gelbwesten-Bewegung Frankreich 2018, AfD-Wahlanteile auf dem Land. ÖPNV-Stadt-vs-Land-Argument: VDV-Daten zeigen sehr geringe ÖPNV-Bedeutung in ländlichen Regionen (<10 % der Wege), Pkw bleibt dort dominant. Deutschlandticket-Wirkung auf dem Land moderat, Bundes-Co-Finanzierung politisch konfliktträchtig.",
+        "empirical_check": "Frankreich Gelbwesten 2018 Studien. VDV Stadt-Land-Verkehrsstatistik. ADAC Mobilitäts-Befragung Land.",
+        "tier1_sources": [
+          "https://www.insee.fr/fr/statistiques",
+          "https://www.vdv.de/",
+          "https://www.adac.de/"
+        ],
+        "value_assumptions": "Annahme: soziale Akzeptanz primär; Stadt-Land-Gerechtigkeit als Wert; Pkw-Erhalt für Landbevölkerung legitim."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Verbrenner-Aus 2030 (mit EU-Push), Tempolimit 130, ÖPNV-Ausbau verdoppeln, Bahn-Sanierung mit 200-Mrd-Sondervermögen, Deutschlandticket dauerhaft bei 49 €, Pendlerpauschale durch Mobilitätsgeld ersetzen.",
+    "konkret": [
+      "Verbrenner-Aus 2030 für Neuzulassungen (5 Jahre vor EU-Vorgabe) — parallel EU-Push für Vorziehen, nicht national alleingang. Ladeinfrastruktur-Sprint bis 2028.",
+      "Tempolimit 130 auf Autobahnen (UBA-Effekt 1,9 Mio. t CO₂/Jahr, gesundheitliche Co-Benefits Lärm + Verkehrstote).",
+      "ÖPNV-Sondervermögen 200 Mrd. € bis 2035 (Schiene + Bus + kommunaler Personal-Aufbau). Bund-Länder-Co-Finanzierung dauerhaft sichern.",
+      "Bahn-Reform mit Trennung Infrastruktur (vollstaatlich, gemeinwohlorientiert) und Betrieb (Wettbewerb in Regionalverkehr, DB AG bleibt Hauptbetreiber Fernverkehr). Investitionen vor Ideologie.",
+      "Deutschlandticket dauerhaft bei 49 € durch dauerhafte Bundes-Co-Finanzierung (1,5 Mrd. €/Jahr), sozial gestaffelte Variante (29 € für Bürgergeld-Bezieher).",
+      "Pendlerpauschale durch Mobilitätsgeld ersetzen: einheitlicher Pauschalbetrag (z. B. 0,40 €/km), unabhängig vom Steuersatz — beendet die Bevorteilung von Spitzenverdienern."
+    ],
+    "warum": "Verkehrssektor verfehlt KSG seit 2021 (UBA), Sofortprogramm-Pflicht. Reine Anreiz-Logik reicht nicht (Marktversagen bei Pfadabhängigkeit Pkw → Infrastruktur). Bahn-Sanierungsstau (62 % Pünktlichkeit 2024) ist Daseinsvorsorge-Versagen. Soziale Akzeptanz muss durch Mobilitätsgeld + erschwingliches Ticket gesichert werden.",
+    "wertannahmen": "§1 (Sorgepflicht für Ökosysteme) verlangt Sektor-Reduktion; §2 (soziale Teilhabe) verlangt erschwinglichen Zugang; §3 (industriepolitische Vorausschau) verlangt frühen Verbrenner-Aus statt Verzögerungs-Strategie wie Trump in den USA.",
+    "trade_offs_eingestanden": "Verbrenner-Aus-Vorziehen kostet politisches Kapital + Industrie-Anpassungs-Druck; ÖPNV-Sondervermögen ist Schuldenbremse-Konfliktlinie (s. Schuldenbremse-Dossier); Tempolimit politisch unpopulär bei Auto-Lobby; Mobilitätsgeld-Reform Verteilungs-Konflikt mit Spitzenverdienern.",
+    "url": "programm/klima-energie.html"
+  },
+  "evidenz_link": {
+    "url": "programm/klima-energie.html",
+    "label": "EVIDENZ-Position zu Verkehr (Teil der Klima-Energie-Position)",
+    "note": "Verkehr ist bei EVIDENZ als Cluster der Klima-Energie-Position integriert — siehe dort für die vollständige Optionsanalyse."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (UBA, KBA, KSG, EU-VO 2023/851). Einzelne Werte (THG 2024, Pkw-Bestand, E-Auto-Anteil) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

@@ -1,0 +1,258 @@
+{
+  "schema_version": "1.0",
+  "slug": "buergergeld",
+  "title": "Bürgergeld & Grundsicherung",
+  "lead": "Wie hoch soll die Grundsicherung sein, wie streng die Sanktionen, wer bekommt was und unter welchen Bedingungen? Athena prüft jede Position gegen Tier-1-Quellen (BA, IAB, BMAS, Mindestlohnkommission, BVerfG).",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Regelbedarf Alleinstehende 2026",
+      "value": "563 €/Monat",
+      "source_title": "§ 20 SGB II + Regelbedarfs-Fortschreibungsverordnung",
+      "source_url": "https://www.gesetze-im-internet.de/sgb_2/__20.html",
+      "verified": true
+    },
+    {
+      "label": "Bürgergeld-Beziehende (Erwerbsfähige + Angehörige)",
+      "value": "ca. 5,5 Mio.",
+      "source_title": "BA Statistik SGB II",
+      "source_url": "https://statistik.arbeitsagentur.de/Statistikdaten/Detail/Aktuell/iiia7/grundsicherung-sgbii-grundsicherung-sgbii/grundsicherung-sgbii-d-0-202412-xlsx.xlsx",
+      "verify_needed": true
+    },
+    {
+      "label": "Mindestlohn 2026",
+      "value": "12,82 €/h",
+      "source_title": "Mindestlohnkommission Beschluss 2024",
+      "source_url": "https://www.mindestlohn-kommission.de/DE/Bericht/bericht_node.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Lohnabstand Mindestlohn 40h vs. Bürgergeld (Alleinstehend, netto)",
+      "value": "rund 400–500 €/Monat zugunsten Erwerbstätigkeit",
+      "source_title": "IW Köln Lohnabstandsrechnung 2024",
+      "source_url": "https://www.iwkoeln.de/themen/sozialpolitik.html",
+      "verify_needed": true,
+      "note": "Inklusive Wohngeld/Kinderzuschlag bei Erwerbstätigkeit."
+    },
+    {
+      "label": "Sanktionen 2024 (verhängte Pflichtverletzungen)",
+      "value": "ca. 215.000",
+      "source_title": "BA Sanktionsstatistik",
+      "source_url": "https://statistik.arbeitsagentur.de/",
+      "verify_needed": true
+    },
+    {
+      "label": "Vermittlungsquote SGB II (Übergang in Erwerbstätigkeit/Jahr)",
+      "value": "ca. 19 %",
+      "source_title": "IAB-Forschungsbericht 2024",
+      "source_url": "https://doku.iab.de/forschungsbericht/2024/",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "SGB II (Bürgergeld-Gesetz von 2022)",
+      "summary": "Regelbedarf, Erwerbsanreize, Mitwirkungspflichten, Sanktionen.",
+      "url": "https://www.gesetze-im-internet.de/sgb_2/"
+    },
+    {
+      "rule": "BVerfG 1 BvL 7/16 (05.11.2019)",
+      "summary": "Sanktionen über 30 % der Regelleistung verfassungswidrig — Existenzminimum darf nicht unterschritten werden.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2019/11/ls20191105_1bvl000716.html"
+    },
+    {
+      "rule": "BVerfG 1 BvL 10/10 (18.07.2012)",
+      "summary": "AsylbLG-Leistungen unter Existenzminimum verfassungswidrig — Existenzminimum gilt für alle.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2012/07/ls20120718_1bvl001010.html"
+    },
+    {
+      "rule": "§ 31a SGB II (Sanktionen)",
+      "summary": "Kürzungen bei Pflichtverletzung, gestaffelt (10–30 %). 100 %-Sanktionen bei Komplett-Verweigerung der Mitwirkung in der neuen Sicherheitspaket-Regelung 2024.",
+      "url": "https://www.gesetze-im-internet.de/sgb_2/__31a.html"
+    },
+    {
+      "rule": "Mindestlohngesetz (MiLoG)",
+      "summary": "Allgemeiner gesetzlicher Mindestlohn seit 2015, Anpassung durch Mindestlohnkommission.",
+      "url": "https://www.gesetze-im-internet.de/miloggesetz/"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Bürgergeld als Existenzsicherung beibehalten, Sanktionsregeln aus dem Sicherheitspaket 2024 mittragen (bis 100 % bei Komplett-Verweigerung), Hinzuverdienstgrenzen reformieren, Qualifizierung statt Vermittlungs-Druck.",
+      "key_claims": [
+        "Bürgergeld senkt nicht die Arbeitsbereitschaft — Lohnabstand bleibt deutlich",
+        "Qualifizierung statt Sanktion ist langfristig effektiver"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025 + Sicherheitspaket 2024",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Lohnabstands-Argument: IW Köln und IAB rechnen 400-500 €/Monat netto bei Vollzeit-Mindestlohn vor — Lohnabstand ist real, aber bei Kinderbetreuung kann der Anreiz sich angleichen (Hinzuverdienstgrenzen). Qualifizierungs-Effekt: IAB-Forschung zeigt mittelfristig höhere Stabilität als reine Vermittlung — aber nur bei freiwilliger Beteiligung, bei Druck sinkt der Effekt erheblich.",
+        "empirical_check": "IAB Kurzbericht 2024 zur Bürgergeld-Wirkung. IW Lohnabstandsrechnung 2024. BVerfG 1 BvL 7/16 zu Sanktions-Grenzen.",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.iwkoeln.de/themen/sozialpolitik.html",
+          "https://www.gesetze-im-internet.de/sgb_2/"
+        ],
+        "value_assumptions": "Annahme: Existenzminimum als Pflicht; Erwerbsanreiz wird sekundär durch Lohnstruktur, nicht primär durch Sanktionen erzeugt."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Bürgergeld zurück auf Hartz-IV-Logik: striktere Sanktionen, Vermittlungspflicht, niedrigere Hinzuverdienstgrenzen, Bürgergeld für ukrainische Geflüchtete streichen (zurück auf AsylbLG).",
+      "key_claims": [
+        "Bürgergeld hat Arbeitsanreize spürbar gesenkt",
+        "Aktivierende Sozialpolitik (Hartz IV) war erfolgreicher"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "datenmäßig offen",
+        "summary": "Anreiz-Senkungs-Argument: IAB findet bisher keinen messbaren Rückgang der Erwerbsneigung nach Bürgergeld-Einführung 2023 — Vermittlungsquote 2023-2024 stabil bei ~19 %, lange Untererfassung. Hartz-IV-Erfolgs-Argument: IAB- und SVR-Bewertungen zeigen Beschäftigungsanstieg 2005-2012 stark mit Konjunktur (Lohnzurückhaltung, Exporte) korreliert; ursächliche Zuordnung allein zu Hartz IV ist empirisch umstritten. Sanktionen-Skalierung: BVerfG-Grenzen müssen eingehalten werden.",
+        "empirical_check": "IAB-Forschungsbericht 2024 zu Bürgergeld-Wirkung. SVR Jahresgutachten 2024 zu Arbeitsmarkt 2005-2024. BVerfG 1 BvL 7/16.",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2019/11/ls20191105_1bvl000716.html"
+        ],
+        "value_assumptions": "Annahme: Aktivierung > Existenzsicherung; Sanktionen sind effektives Anreizinstrument; Ungleichbehandlung Ukraine vs. andere Geflüchtete legitim."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Bürgergeld inflationsfest erhöhen, Sanktionen aus Sicherheitspaket 2024 zurücknehmen, Wohnkostenpauschalen realitätsnah, Existenzsicherung als Grundrecht stärken.",
+      "key_claims": [
+        "Sanktionsverschärfung 2024 verstößt gegen BVerfG-Vorgaben",
+        "Inflations-Anpassung schützt Existenzminimum verfassungsfest"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "BVerfG-Vorgaben-Argument: 1 BvL 7/16 (2019) zieht 30 %-Grenze regulär, eröffnet aber Ausnahmen bei „beharrlicher Verweigerung“. Die 100 %-Sanktion 2024 wird in der juristischen Literatur unterschiedlich bewertet — ein BVerfG-Verfahren ist zu erwarten. Inflations-Anpassung: § 28a SGB XII regelt jährliche Fortschreibung — die Forderung wäre Verschärfung dieser bestehenden Regel, kein Novum.",
+        "empirical_check": "BVerfG 1 BvL 7/16. Juristische Kommentare zum Sicherheitspaket 2024 (DAV-Stellungnahme). § 28a SGB XII.",
+        "tier1_sources": [
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2019/11/ls20191105_1bvl000716.html",
+          "https://anwaltverein.de/de/newsroom/stellungnahmen",
+          "https://www.gesetze-im-internet.de/sgb_12/"
+        ],
+        "value_assumptions": "Annahme: Existenzminimum ist Grundrechts-Schutzgut, das Aktivierungsdruck überwiegt; Sanktions-Skepsis aus grundrechts-orientierter Perspektive."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Erwerbsanreize stärken (höhere Hinzuverdienstgrenzen), gleichzeitig Vermittlungs-Pflicht durchsetzen, Bürgergeld nicht senken, aber Sanktionsmöglichkeiten ausweiten bei Komplett-Verweigerung.",
+      "key_claims": [
+        "Hinzuverdienst-Reform setzt richtige Anreize an der Schnittstelle",
+        "Anreize wirken besser als Sanktionen"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Hinzuverdienst-Argument: IAB-Modellierungen zeigen, dass aktuelle Transferentzugsraten (>80 % bei niedrigem Hinzuverdienst) Arbeit unattraktiv machen. Reform-Vorschläge (z. B. Aktivrente, Negative Einkommensteuer) sind in der Forschung gut belegt, Umsetzung politisch komplex (Fiskalkosten). Anreiz > Sanktion: internationale Evidenz (Card/Krueger-Schule, Bonin/Schaffner) tendiert in diese Richtung — Effektgrößen aber bescheiden.",
+        "empirical_check": "IAB Forschungsbericht 2023 zu Transferentzugsraten. ZEW Studien zu Hinzuverdienstgrenzen. Internationale Meta-Analysen (Card-Schule).",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.zew.de/publikationen",
+          "https://www.nber.org/papers"
+        ],
+        "value_assumptions": "Annahme: ökonomische Anreiz-Logik primär; Eigenverantwortung als Leitprinzip; staatliche Existenzsicherung als Mindeststandard, nicht als Komfort-Niveau."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Sanktionsfreies Bürgergeld, Regelsatz auf 813 €/Monat anheben, Vermögensanrechnung lockern, Wohnkosten in voller Höhe übernehmen, schrittweise zur sanktionsfreien Mindestsicherung.",
+      "key_claims": [
+        "Aktuelle Regelsätze decken Existenzminimum nicht ab",
+        "Sanktionen sind verfassungs-problematisch und ineffektiv"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Regelsatz-zu-niedrig-Argument: Paritätischer Wohlfahrtsverband schätzt 813 € als bedarfsgerecht (2024), DIW 740 €. Methodik der Regelbedarfs-Berechnung wird in der Wissenschaft seit Jahren kritisiert (Statistikmethodik zu eng). Sanktions-Wirkung: IAB-Metastudien zeigen kleine bis null Effekte auf Vermittlungsquote, bei deutlichen negativen Auswirkungen auf Gesundheit und Stabilität.",
+        "empirical_check": "Paritätischer Bericht 2024 zu Regelbedarf-Methodik. IAB-Forschungsbericht 2024 zu Sanktionen. DIW-Berechnungen zur Bedarfsfestlegung.",
+        "tier1_sources": [
+          "https://www.der-paritaetische.de/themen/sozialleistungen/",
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html"
+        ],
+        "value_assumptions": "Annahme: Existenzsicherung als Grundrecht ohne Bedingung; Sanktions-Skepsis aus sozialpolitischer Perspektive; soziale Teilhabe > Erwerbszwang."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Bürgergeld auf Hartz-IV-Niveau zurück, deutlich strengere Sanktionen, Ausschluss von Ukraine-Geflüchteten (zurück zu AsylbLG), Vorrang für deutsche Staatsbürger im Vermittlungs-Pool.",
+      "key_claims": [
+        "Bürgergeld ist Magnet für Asyl-Migranten",
+        "Aktivierende Sozialpolitik (Hartz IV) hat Arbeitsmarkt-Wunder ermöglicht"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "widerlegt + teilweise gestützt",
+        "summary": "Magnet-Argument: keine empirische Evidenz für Sozialleistungs-Pull-Effekt bei Asyl-Migration (CESifo 2018, IAB 2019, OECD Migration Outlook 2024). Aktivierende-Sozialpolitik-Argument: SVR und IAB zeigen, dass der Beschäftigungsanstieg 2005-2012 maßgeblich konjunkturell und durch Lohnzurückhaltung getragen war — Hartz IV ist ein Faktor, nicht der dominante. Diskriminierung deutscher vs. nicht-deutscher Antragsteller: verstößt gegen Art. 3 GG und EU-Antidiskriminierungs-Recht.",
+        "empirical_check": "CESifo Welfare Magnets 2018. IAB-Kurzbericht 09/2019. OECD International Migration Outlook 2024. SVR Jahresgutachten zu Arbeitsmarkt 2005-2024. Art. 3 GG.",
+        "tier1_sources": [
+          "https://www.cesifo.org/en/publications",
+          "https://doku.iab.de/kurzber/2019/kb0919.pdf",
+          "https://www.oecd.org/migration/international-migration-outlook-1999124x.htm",
+          "https://www.sachverstaendigenrat-wirtschaft.de/jahresgutachten.html"
+        ],
+        "value_assumptions": "Annahme: Vorrang für Inländer; Sozialstaat als Bevölkerungs-Selektions-Instrument; Aktivierung als Disziplinierungs-Mechanismus."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Bürgergeld erhalten, aber strengere Mitwirkungspflicht (keine sanktionsfreie Variante), Ausnahmen für Eltern und Pflegende, Bürgergeld nicht für Asyl-Migranten in den ersten Jahren.",
+      "key_claims": [
+        "Bürgergeld muss aktivierend, nicht ruhigstellend sein",
+        "Bürgergeld für Asyl-Migranten ist Pull-Faktor"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Aktivierungs-Argument: empirisch teils gestützt — Wagner/Spannagel finden, dass moderate Mitwirkungspflicht ohne Existenz-Druck Vermittlungsquoten leicht erhöht; absolute Sanktionsfreiheit (Linke-Position) ist empirisch suboptimal. Pull-Faktor-Argument bei Asyl: gleiche Empirik wie bei AfD — kein robuster Effekt nachweisbar (s. CESifo, IAB). Differenzierung bei Pflegende/Eltern: rechtlich und empirisch sinnvoll, im aktuellen SGB II bereits teilweise verankert.",
+        "empirical_check": "Wagner/Spannagel 2024 zu Sanktions-Effekten. CESifo 2018 + IAB 2019 zu Pull-Faktoren. § 10 SGB II zu Zumutbarkeits-Ausnahmen.",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.cesifo.org/en/publications",
+          "https://www.gesetze-im-internet.de/sgb_2/__10.html"
+        ],
+        "value_assumptions": "Annahme: Sozialstaat hat Inländer-Vorrang in den ersten Aufenthaltsjahren; Aktivierungs-Logik gilt, aber mit grundrechtlicher Grenze; Mitwirkungspflicht > Sanktionsfreiheit."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Existenzminimum sichern, Anreize an der Schnittstelle reformieren, Sanktionen am BVerfG-Rahmen halten, Hartz-IV-Logik nicht zurückbringen.",
+    "konkret": [
+      "Regelsatz weiter dynamisch fortschreiben, Methodik der Regelbedarfs-Berechnung wissenschaftlich überarbeiten (Statistik-Methodik zu eng kritisiert vom Paritätischen, DIW).",
+      "Transferentzugsraten an der Schnittstelle Bürgergeld → Erwerbstätigkeit absenken (höhere Hinzuverdienstgrenzen), damit jeder verdiente Euro spürbar mehr Netto bedeutet.",
+      "Sanktionen am BVerfG-Rahmen 1 BvL 7/16 (max. 30 % regulär) halten — 100 %-Sanktionen aus Sicherheitspaket 2024 zurücknehmen, weil verfassungsrechtlich riskant.",
+      "Wohnkostenpauschalen an realen Mieten ausrichten (regional gestaffelt), statt Differenzbeträge unbezahlt zu lassen.",
+      "Bürgergeld bleibt diskriminierungsfrei für alle Anspruchsberechtigten — keine Diskriminierung nach Staatsangehörigkeit, weil Art. 3 GG und EU-Recht das verbieten.",
+      "Qualifizierungs-Pflicht für Erwerbsfähige ohne Ausbildung gegen verpflichtende Lohnsubvention der ersten 12 Monate — Aktivierung statt Sanktion."
+    ],
+    "warum": "Existenzminimum ist Grundrecht (BVerfG 1 BvL 1/09). Wirksame Aktivierung läuft über Hinzuverdienst-Anreize, nicht über Sanktionen — die IAB-Empirie ist da klar. Hartz-IV-Reaktivierung wäre symbolpolitisch, nicht ergebnisorientiert.",
+    "wertannahmen": "§1 (Sorgepflicht) für Existenzminimum; §4 (Aktivierung als geteilte Verantwortung von Staat + Bezieher); §6 (Vorsicht vor verfassungsrechtlich riskanten Sanktions-Verschärfungen).",
+    "trade_offs_eingestanden": "Höhere Hinzuverdienstgrenzen kosten 4–8 Mrd. €/Jahr (BMAS-Schätzung), wissenschaftliche Methodik-Reform der Regelbedarfs-Berechnung dauert 2–3 Jahre, Sanktions-Rücknahme politisch konflikt­trächtig.",
+    "url": "programm/buergergeld.html"
+  },
+  "evidenz_link": {
+    "url": "programm/buergergeld.html",
+    "label": "EVIDENZ-Position zu Bürgergeld (vollständig)",
+    "note": "Hier steht die vollständige Optionsanalyse mit Verworfenen-Optionen und konkreter Sozialdaten."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (SGB II, BVerfG, BA-Statistik, IAB). Einzelne Werte (Sanktionszahlen 2024, Mindestlohn 2026, Vermittlungsquote 2024) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}

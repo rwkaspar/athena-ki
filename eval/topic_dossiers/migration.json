@@ -1,0 +1,231 @@
+{
+  "schema_version": "1.0",
+  "slug": "migration",
+  "title": "Migration & Asyl",
+  "lead": "Wer fordert was — und was sagt die Empirie? Athena prüft jede Partei-Position nach derselben Methodik gegen Tier-1-Quellen (BAMF, BA, IAB, Destatis, Gesetzestexte).",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Asyl-Erstanträge 2024",
+      "value": "229.751",
+      "source_title": "BAMF Asylgeschäftsstatistik 2024",
+      "source_url": "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
+      "verified": true
+    },
+    {
+      "label": "Schutzquote 2024 (bereinigt)",
+      "value": "ca. 40–45 %",
+      "source_title": "BAMF Jahresbilanz Asyl 2024",
+      "source_url": "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
+      "verify_needed": true,
+      "note": "Bereinigte Schutzquote = nur inhaltliche Entscheidungen, ohne Verfahrenseinstellungen."
+    },
+    {
+      "label": "AsylbLG-Ausgaben (Bund+Länder+Kommunen)",
+      "value": "ca. 6,3 Mrd. € (2022)",
+      "source_title": "Destatis Sozialleistungen — Asylbewerberleistungen",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Asylbewerberleistungen/_inhalt.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Personen mit Migrationshintergrund (Bevölkerung)",
+      "value": "rd. 26 %",
+      "source_title": "Destatis Mikrozensus 2023",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Migration-Integration/_inhalt.html",
+      "verify_needed": true
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "Art. 16a GG",
+      "summary": "Politisch Verfolgte genießen Asylrecht. Sichere-Drittstaaten-Regelung (Abs. 2), sicherer-Herkunftsstaaten-Regelung (Abs. 3).",
+      "url": "https://www.gesetze-im-internet.de/gg/art_16a.html"
+    },
+    {
+      "rule": "Asylgesetz (AsylG)",
+      "summary": "Asylverfahren, Schutzformen (Asyl, Flüchtlingsschutz, subsidiärer Schutz), Dublin-Zuständigkeiten.",
+      "url": "https://www.gesetze-im-internet.de/asylvfg_1992/"
+    },
+    {
+      "rule": "Aufenthaltsgesetz (AufenthG)",
+      "summary": "Aufenthaltstitel, Erwerbsmigration (§ 18 ff.), Fachkräfteeinwanderungsgesetz 2023.",
+      "url": "https://www.gesetze-im-internet.de/aufenthg_2004/"
+    },
+    {
+      "rule": "EU-GEAS-Reform 2024",
+      "summary": "Gemeinsames Europäisches Asylsystem: Asylgrenzverfahren, Solidaritätsmechanismus, Eurodac-Reform. Anwendungsstart 06/2026.",
+      "url": "https://eur-lex.europa.eu/legal-content/DE/TXT/?uri=OJ:L_202401356"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Geordnete, humanitäre Migration mit klaren Verfahren und schneller Integration. Festhalten am individuellen Asylrecht, aber schnellere Verfahren und konsequente Rückführungen abgelehnter Asylsuchender.",
+      "key_claims": [
+        "Asylverfahren beschleunigen verkürzt Sozialleistungen-Bezugsdauer",
+        "Integration in den Arbeitsmarkt ist die wirksamste Migrationspolitik"
+      ],
+      "position_source": "SPD-Regierungsprogramm 2025, Kapitel Migration",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "Empirisch belastbar: schnellere Verfahren senken AsylbLG-Bezugsdauer (IAB). Frühe Arbeitsmarktintegration erhöht Steueraufkommen langfristig — Wirkung ist aber an Mindestlohn und Sprachkompetenz gebunden. Skalierung der Verfahrensgeschwindigkeit hängt am BAMF-Personalausbau.",
+        "empirical_check": "IAB-Studien 2018-2024 zeigen: Erwerbsquote Geflüchteter nach 5 Jahren ca. 50%, nach 8 Jahren ca. 60% (Männer). Verfahrensdauer 2018-2023 zwischen 7 und 22 Monaten, abhängig vom Herkunftsland.",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
+          "https://www.gesetze-im-internet.de/asylvfg_1992/"
+        ],
+        "value_assumptions": "Annahme: Asylrecht individuell (Art. 16a) bleibt; Integration vor Begrenzung; Arbeitsmarkt-Logik primär gegenüber Sicherheitslogik."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Strenge Begrenzung irregulärer Migration: konsequente Zurückweisungen an deutschen Grenzen, Drittstaaten-Asylverfahren nach britischem Vorbild, sichere Herkunftsstaaten erweitern, Bürgergeld für Geduldete absenken.",
+      "key_claims": [
+        "Drittstaaten-Asylverfahren senken Asylanträge erheblich",
+        "Zurückweisungen an Grenzen sind rechtlich möglich"
+      ],
+      "position_source": "Union-Wahlprogramm 2025, Kapitel Sicherheit & Migration",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "datenmäßig offen",
+        "summary": "Drittstaaten-Modell hat keine validierte empirische Wirkung in DE-Kontext. Britisches Ruanda-Modell wurde nie skaliert umgesetzt — kein belastbarer Effektnachweis. Zurückweisungen an Grenzen rechtlich umstritten: EuGH-Urteile (CJEU C-808/18 u. a.) setzen enge Grenzen.",
+        "empirical_check": "Ruanda-Plan UK: 2022-2024 keine erfolgreichen Überstellungen, im Juli 2024 aufgegeben. Australien-Vergleich (Nauru, Manus): Reduktion Bootsankünfte, aber sehr hohe Kosten pro Person, schwere Menschenrechtskritik (UNHCR-Berichte).",
+        "tier1_sources": [
+          "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
+          "https://curia.europa.eu/juris/document/document.jsf?docid=242563",
+          "https://www.unhcr.org/news/news-releases/unhcr-warning-uk-rwanda-asylum-plan"
+        ],
+        "value_assumptions": "Annahme: Externalisierung des Asylverfahrens ist legitim; Reduktion der Zugangszahlen wiegt schwerer als Verfahrens-Individualität."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Aufrechterhaltung des individuellen Asylrechts, sichere Fluchtwege (humanitäre Visa, Resettlement), schnelle Anerkennung von Bildungsabschlüssen, Bleiberecht für gut integrierte Geduldete.",
+      "key_claims": [
+        "Resettlement-Programme reduzieren irreguläre Migration",
+        "Schnelle Arbeitsmarkt-Integration ist fiskalisch positiv binnen 10 Jahren"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025, Kapitel Asyl & Integration",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "Resettlement-Wirkung auf Gesamt-Migration empirisch klein bis moderat (UNHCR-Daten: globale Resettlement-Quote <1% der Schutzsuchenden). Fiskal-positiver Effekt nach ca. 8-12 Jahren plausibel (ZEW, RWI), kürzere Zeithorizonte zeigen Netto-Kosten.",
+        "empirical_check": "ZEW 2019: Fiskal-positiver Effekt Geflüchteter nach ca. 12 Jahren bei mittlerer Qualifikation. RWI: Erwerbsquote stark abhängig von Bildungsanerkennung — Anerkennungsdauer Median 2 Jahre.",
+        "tier1_sources": [
+          "https://www.unhcr.org/global-trends",
+          "https://www.zew.de/publikationen",
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx"
+        ],
+        "value_assumptions": "Annahme: Migrations-Logik humanitär-gesetzlich; langfristige Kosten-Nutzen-Bilanz wiegt schwerer als kurzfristige Belastung."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Erwerbsmigration priorisieren (Fachkräfte), Asylverfahren effizient gestalten, Spurwechsel für gut integrierte Geduldete, klare Trennung Asyl/Arbeitsmigration.",
+      "key_claims": [
+        "Punkte-System nach kanadischem Vorbild deckt Fachkräftebedarf",
+        "Effizientere Asylverfahren senken Verwaltungskosten"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025, Kapitel Wirtschaft & Migration",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "Kanadisches Punkte-System empirisch: hohe Selektivität, gute Arbeitsmarktintegration der Aufgenommenen — aber Gesamtmigration in CA war über Jahrzehnte deutlich höher als in DE pro Kopf. Spurwechsel-Wirkung in DE: § 19d AufenthG (2023) zeigt geringe Inanspruchnahme bisher.",
+        "empirical_check": "Statistics Canada: Wirtschaftsmigration-Anteil ~58% der Permanent Residents 2023. DE-Fachkräfteeinwanderungsgesetz: Anträge 2024 unter Prognose. OECD Migration Outlook 2024 zeigt: DE-Bürokratie ist Bottleneck.",
+        "tier1_sources": [
+          "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html",
+          "https://www.oecd.org/migration/international-migration-outlook-2024",
+          "https://www.gesetze-im-internet.de/aufenthg_2004/"
+        ],
+        "value_assumptions": "Annahme: ökonomischer Nutzen ist Hauptkriterium; humanitäre Migration als separates Spur ohne Beeinträchtigung der Erwerbsmigration."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Universelles Recht auf Asyl bewahren, sichere Fluchtwege, Frontex-Externalisierung beenden, Bleiberecht ausweiten, AsylbLG abschaffen zugunsten regulärer Sozialleistungen.",
+      "key_claims": [
+        "AsylbLG verschlechtert Integration und ist diskriminierend",
+        "Externalisierung an Frontex verletzt internationales Recht"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025, Kapitel Geflüchtete",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt",
+        "summary": "AsylbLG-Diskriminierungs-Argument: BVerfG 2012 (1 BvL 10/10) hat Leistungssätze für verfassungswidrig erklärt — Logik der Differenzierung umstritten. Frontex-Externalisierung: NGO-Berichte und UNHCR dokumentieren Push-Backs; EuGH-Verfahren laufen. Beide Punkte haben rechtliche Substanz.",
+        "empirical_check": "BVerfG 1 BvL 10/10 (18.07.2012): Leistungen unter Existenzminimum verfassungswidrig. UNHCR Reports 2022-2024 Mittelmeer-Route. Frontex-OLAF-Untersuchung 2022 zu Push-Backs.",
+        "tier1_sources": [
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2012/07/ls20120718_1bvl001010.html",
+          "https://www.unhcr.org/global-trends",
+          "https://www.europarl.europa.eu/doceo/document/TA-9-2022-0211_DE.html"
+        ],
+        "value_assumptions": "Annahme: humanitäre Logik primär; AsylbLG-Differenzierung als grundrechts-problematisch eingestuft."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Sofortige Zurückweisung an Grenzen, Aussetzung Familiennachzug, Begrenzung Asylrecht auf Tarifrahmen (Mindestquoten), Aufenthalts-Konsolidierung statt Spurwechsel, „Remigration“.",
+      "key_claims": [
+        "Asylzuwanderung kostet jährlich Milliarden netto, die für Rente/Bildung fehlen",
+        "PKS zeigt überproportionale Tatverdächtigen-Quoten bei Zuwanderern"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025, Kapitel Migration & Sicherheit",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "teilweise gestützt + teilweise widerlegt",
+        "summary": "Kostenargument: Brutto-Ausgaben (AsylbLG ~6,3 Mrd. €, 2022) faktisch korrekt. Netto-Bilanz hängt am Zeithorizont — fiskal-positiv ab ca. 12 Jahren (ZEW/IAB), in den ersten 5-7 Jahren netto negativ. PKS-Argument: Roh-Tatverdächtigen-Quote bei Zugewanderten höher als bei Inländern, aber demografisch korrigiert (Alter, Geschlecht, sozioökon. Status) reduziert sich der Befund erheblich; ausländerrechtliche Delikte (sonst nicht strafbar) treiben einen Teil des Unterschieds (BKA-Bundeslagebild, KFN-Forschung).",
+        "empirical_check": "Brutto-Kosten Destatis. ZEW 2019 zur Fiskalbilanz. BKA PKS 2024 zeigt Roh-Differenz. KFN-Studien zu Normierung. „Remigration“ als Konzept hat in Forschungs-Literatur keinen umsetzbaren Pfad — Massenausweisungen sind nach Art. 4 4. ZP EMRK verboten.",
+        "tier1_sources": [
+          "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Asylbewerberleistungen/_inhalt.html",
+          "https://www.bka.de/DE/AktuelleInformationen/StatistikenLagebilder/PolizeilicheKriminalstatistik/pks_node.html",
+          "https://www.kfn.de/publikationen/",
+          "https://www.coe.int/de/web/conventions/full-list?module=treaty-detail&treatynum=117"
+        ],
+        "value_assumptions": "Annahme: Bruttokosten-Logik primär; ethnisch-kulturelle Homogenität als implizit höherwertig gegenüber Integration; Sicherheits-Logik vor Verfahrens-Individualität."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Migration begrenzen wegen Lohndruck im Niedriglohnsektor, Asylrecht restriktiver auslegen, EU-Außengrenzen stärker schützen, aber „Remigration“ wie AfD wird ausdrücklich abgelehnt.",
+      "key_claims": [
+        "Hohe Zuwanderung drückt Löhne im Niedriglohnsektor",
+        "Asylrecht muss restriktiver werden, ohne Menschenrechte zu verletzen"
+      ],
+      "position_source": "BSW-Programm 2025 + Wagenknecht-Reden Bundestag",
+      "verify_needed": true,
+      "athena_analysis": {
+        "verdict": "datenmäßig offen",
+        "summary": "Lohndruck-Argument: deutsche Forschung uneinheitlich. IAB-Studien finden geringe bis keine signifikanten Effekte auf den Mindestlohn-Floor; internationale Meta-Analysen (Borjas-Schule vs. Card-Schule) widersprechen sich. Mindestlohn als unterer Anker dämpft theoretisch Substitution. Empirie für „erheblicher Lohndruck“ im DE-Kontext fehlt.",
+        "empirical_check": "IAB-Forschungsberichte zu Migration und Arbeitsmarkt 2018-2024. Mindestlohnkommission Berichte 2018-2024 ohne kausale Identifikation eines Migrations-Lohndruck-Effekts. Lohnstrukturerhebung Destatis: Niedriglohn-Quote 2018-2023 trotz Migration leicht rückläufig.",
+        "tier1_sources": [
+          "https://www.iab.de/de/publikationen/aktuelle-publikationen.aspx",
+          "https://www.mindestlohn-kommission.de/DE/Bericht/bericht_node.html",
+          "https://www.destatis.de/DE/Themen/Arbeit/Verdienste/_inhalt.html"
+        ],
+        "value_assumptions": "Annahme: Verteilungswirkung auf einheimische Niedriglohnempfänger ist Hauptkriterium; humanitäre vs. ökonomische Logik werden zugunsten der ökonomischen aufgelöst."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Humanisierung der EU-Außengrenze gekoppelt an einen 8-achsigen Integrations-Overhaul. Keine Verschärfung an der Grenze, sondern legale Wege + faire Verfahren + harte Integrationspflichten.",
+    "konkret": [
+      "Resettlement auf 30.000–50.000 Personen/Jahr ausweiten (aktuell ca. 5.000), plus humanitäre Visa und Botschaftsverfahren als sichere legale Wege.",
+      "Asylverfahren in 4–6 Wochen mit garantierter anwaltlicher Vertretung statt jahrelangem Schwebezustand.",
+      "Frontex an Grundrechte binden, Pushbacks aktiv unterbinden, griechische Küstenwache disziplinieren.",
+      "Integration als 8-achsiges Sub-Paket: Sprachkurse ab Tag 1, Anerkennung von Abschlüssen, Spurwechsel ins Erwerbsleben, kommunale Aufnahme-Quoten, kein Wohnsitzzwang nach Anerkennung, Staatsbürgerschaft nach 5–7 Jahren bei Erwerbsintegration.",
+      "Kein Drittstaaten-Modell UK-Ruanda-Art (juristisch nicht tragfähig, empirisch wirkungslos), keine Pushbacks, keine pauschale Ausweitung sicherer Herkunftsstaaten."
+    ],
+    "warum": "Kontrolle entsteht durch funktionierende Verfahren plus Integration, nicht durch Symbolpolitik an der Grenze. Die 2015/16-Lektion: ohne Integrations-Overhaul scheitert jeder Humanisierungs-Kurs an Akzeptanz und kommunalen Kapazitäten.",
+    "wertannahmen": "§1 (Sorgepflicht für alle Menschen weltweit) wird verteidigt, gekoppelt an §2 (kommunale Aufnahmekapazitäten) und §4 (Integration als Verpflichtung beider Seiten).",
+    "trade_offs_eingestanden": "Resettlement-Ausweitung kostet kurzfristig politisches Kapital im Wahlkampf, Integrations-Overhaul kostet ca. 5–8 Mrd. €/Jahr, Wirkung ist erst nach 5–10 Jahren voll messbar.",
+    "url": "programm/migration-asyl.html"
+  },
+  "evidenz_link": {
+    "url": "programm/migration-asyl.html",
+    "label": "EVIDENZ-Position zu Migration & Asyl",
+    "note": "Hier steht die vollständige Optionsanalyse mit allen 7 Reformclustern."
+  },
+  "methodik_note": "Athenas Analysen werden zusätzlich durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Alle Verdikte werden veröffentlicht — auch wenn die Empirie eine AfD- oder BSW-Position stützt. Verdikte: gestützt · teilweise gestützt · widerlegt · datenmäßig offen.",
+  "draft_status": "Entwurf v1 — Tier-1-Quellen sind verifiziert, einzelne Zahlen (insb. Schutzquote 2024, AsylbLG-Ausgaben 2022, Mikrozensus-Quote 2023) brauchen Live-Verifikation. Athena-Analysen werden nach aitest-Lauf finalisiert."
+}

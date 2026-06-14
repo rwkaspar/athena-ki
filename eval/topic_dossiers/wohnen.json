@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.0",
+  "slug": "wohnen",
+  "title": "Wohnen & Miete",
+  "lead": "Mietenexplosion, Neubau-Lücke, Wohngeld, Eigentumsförderung — wer was vorschlägt und was die Empirie (DIW, ifo, BVerfG, Pestel-Institut) dazu sagt.",
+  "stand": "2026-06-09",
+  "facts_at_a_glance": [
+    {
+      "label": "Mietsteigerung Bestand 2014-2024 (Bestandsmieten netto)",
+      "value": "ca. +28 %",
+      "source_title": "Destatis Verbraucherpreisindex Wohnen",
+      "source_url": "https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Mietsteigerung Neuvermietung Großstädte 2014-2024",
+      "value": "+60–80 % (München, Berlin, Hamburg)",
+      "source_title": "DIW Berliner Mietendeckel-Evaluation + Empirica-Berichte",
+      "source_url": "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Neubau-Fertigstellungen 2024",
+      "value": "ca. 240.000 Wohnungen",
+      "source_title": "Destatis Bautätigkeit",
+      "source_url": "https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Bauen/_inhalt.html",
+      "verify_needed": true,
+      "note": "Ziel der Ampel war 400.000/Jahr — Lücke ca. 160.000."
+    },
+    {
+      "label": "Wohngeld-Empfänger 2024",
+      "value": "ca. 1,5 Mio. Haushalte",
+      "source_title": "Destatis Wohngeldstatistik",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Wohngeld/_inhalt.html",
+      "verify_needed": true
+    },
+    {
+      "label": "Wohneigentumsquote DE",
+      "value": "rd. 46 %",
+      "source_title": "Destatis Bevölkerung und Wohnen",
+      "source_url": "https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Bauen/_inhalt.html",
+      "verify_needed": true,
+      "note": "EU-Mittel ca. 70 % — Deutschland deutlich unter dem Durchschnitt."
+    }
+  ],
+  "legal_frame": [
+    {
+      "rule": "BGB §§ 556d ff. (Mietpreisbremse)",
+      "summary": "Bei Neuvermietung max. 10 % über ortsüblicher Vergleichsmiete. Verlängert bis 2029 (Stand 2025).",
+      "url": "https://www.gesetze-im-internet.de/bgb/__556d.html"
+    },
+    {
+      "rule": "Baugesetzbuch (BauGB)",
+      "summary": "Bauplanungsrecht; § 250 BauGB-Erleichterungen für Bebauungspläne.",
+      "url": "https://www.gesetze-im-internet.de/bbaug/"
+    },
+    {
+      "rule": "BVerfG 2 BvF 1/20 (15.04.2021)",
+      "summary": "Berliner Mietendeckel verfassungswidrig — Bund hat ausschließliche Gesetzgebungskompetenz für Mietpreisrecht.",
+      "url": "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/04/fs20210415_2bvf000120.html"
+    },
+    {
+      "rule": "Wohngeldgesetz (WoGG)",
+      "summary": "Wohngeldreform 2023 verdoppelte Leistung.",
+      "url": "https://www.gesetze-im-internet.de/wogg/"
+    },
+    {
+      "rule": "Gebäudeenergiegesetz (GEG)",
+      "summary": "Energie-Anforderungen Bestand und Neubau; sozial gestaffelt durch BEG-Förderung.",
+      "url": "https://www.gesetze-im-internet.de/geg/"
+    }
+  ],
+  "party_positions": [
+    {
+      "party": "SPD",
+      "position_summary": "Mietpreisbremse verlängern und schärfen, Wohngeld-Reform fortsetzen, sozialen Wohnungsbau massiv ausbauen (400.000 WE/Jahr-Ziel), kommunaler Wohnungsbau-Fonds.",
+      "key_claims": [
+        "Mietpreisbremse hat Mietsteigerung gedämpft",
+        "Mehr Sozialwohnungen sind effektiver als reine Förderung"
+      ],
+      "position_source": "SPD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Mietpreisbremsen-Wirkung: DIW-Evaluationen zeigen leichten Dämpfungseffekt (1-3 %-Punkte unter Trend) bei klarer Ausnahmen-Lücke (Modernisierung, Neubau). Sozialer-Wohnungsbau-Argument: Pestel-Institut, ifo zeigen direkte Bestandswirkung; aber Förderung-Effizienz hängt an Belegungsbindungsdauer (oft nur 15-20 Jahre, danach Kapitalisierung des Subventionseffekts beim Eigentümer).",
+        "empirical_check": "DIW Wochenbericht 2024 zu Mietpreisbremse. Pestel-Institut Wohnungsbaubilanz 2024. ifo Studie 2024 zu sozialem Wohnungsbau.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.pestel-institut.de/publikationen/",
+          "https://www.ifo.de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Mietpreisregulierung als Verteilungsinstrument legitim; sozialer Wohnungsbau als Daseinsvorsorge; staatliche Steuerung der Wohnungsmärkte."
+      }
+    },
+    {
+      "party": "CDU/CSU",
+      "position_summary": "Mietpreisbremse auslaufen lassen, dafür Neubau-Offensive (Genehmigungs-Beschleunigung, GEG abmildern), Wohneigentumsförderung (Grunderwerbsteuer-Freibetrag), kommunale Bauland-Mobilisierung.",
+      "key_claims": [
+        "Nur mehr Angebot löst die Mietenkrise",
+        "Mietpreisbremse hält Investoren ab"
+      ],
+      "position_source": "Union-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Angebots-Argument: Standardliteratur stützt Wirkung von Neubau-Hochlauf auf Mietenniveau; in deutschen Großstädten zeigt Empirie aber, dass Markt-Neubau primär oberes Segment bedient (Filterungseffekt). Investoren-Abschreckungs-Argument: DIW und ifo finden keinen kausal robusten Effekt der Mietpreisbremse auf Investitionsentscheidungen — Bauzinsen, Materialkosten und Genehmigungs-Dauer dominieren. Genehmigungs-Beschleunigung: empirisch wirksam (Hamburg Vorrang Bauland-Mobilisierung zeigt Beispiel).",
+        "empirical_check": "DIW 2024 zu Investitionsentscheidungen Wohnungsbau. ifo 2024 zu Filterungs-Effekten. Bauzinsen-Entwicklung Bundesbank.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.ifo.de/publikationen",
+          "https://www.bundesbank.de/de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Marktangebot primär; Eigentumsbildung als gesellschaftliches Ziel; staatliche Mietregulierung nur als Ausnahme."
+      }
+    },
+    {
+      "party": "Grüne",
+      "position_summary": "Mietpreisbremse verschärfen, Wohngeld-Reform fortsetzen, ökologischen Wohnungsbau fördern (GEG-konform), kommunaler Wohnungsbau-Fonds, neue Gemeinwohl-Bodengesellschaften.",
+      "key_claims": [
+        "Klimagerechter Wohnungsbau braucht andere Finanzierungsmodelle",
+        "Bodenspekulation ist Haupttreiber der Mietenexplosion"
+      ],
+      "position_source": "Grünen-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Klimagerecht-Argument: Förderung KFW-Effizienzhäuser wirkt; Kostenanteil GEG-Maßnahmen am Neubaupreis 8-15 % (DIW). Bodenspekulations-Argument: gut belegt durch Empirica und ifo — Grundstückskostenanteil am Wohnungsneubau 2010 ~15 %, 2024 ~30-40 %. Gemeinwohl-Bodengesellschaften: gibt es vereinzelt (z. B. Wien, Hamburg) mit messbarer Bodenpreis-Dämpfung.",
+        "empirical_check": "DIW Wochenbericht 2024 zu Baukosten. Empirica Bodenmarkt-Bericht. ifo Studie zu Wiener Modell.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.empirica-institut.de/",
+          "https://www.ifo.de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Boden als öffentliches Gut; Klimaschutz im Wohnungsbau nicht-verhandelbar; staatliche Eingriffe in Bodenmärkte legitim."
+      }
+    },
+    {
+      "party": "FDP",
+      "position_summary": "Mietpreisbremse abschaffen, Neubau-Offensive durch Bürokratieabbau, Wohneigentumsförderung über Grunderwerbsteuer-Freibetrag und KfW-Förderung Bestand, Wohngeld fortschreiben.",
+      "key_claims": [
+        "Bürokratieabbau ist wirksamster Hebel",
+        "Eigentum schafft Vermögensbildung in der breiten Bevölkerung"
+      ],
+      "position_source": "FDP-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Bürokratie-Argument: Pestel-Institut beziffert Genehmigungs-Verzögerung als Faktor 1,5-2 in Großstadt-Bauvorhaben; Reform-Potenzial real. Eigentum-Vermögensbildungs-Argument: empirisch korrekt — Eigentümer-Haushalte haben deutlich höheres Median-Vermögen (Bundesbank PHF-Studie 2023). Grunderwerbsteuer-Freibetrag: ZEW-Modellierung zeigt moderaten Eigenheim-Stimulus, fiskalisch teuer (~3-5 Mrd. €/Jahr).",
+        "empirical_check": "Pestel-Institut Genehmigungsverfahren-Analyse. Bundesbank PHF (Panel on Household Finances) 2023. ZEW Studie Grunderwerbsteuer.",
+        "tier1_sources": [
+          "https://www.pestel-institut.de/publikationen/",
+          "https://www.bundesbank.de/de/publikationen/forschung/private-haushalte-und-ihre-finanzen-phf-",
+          "https://www.zew.de/publikationen"
+        ],
+        "value_assumptions": "Annahme: Eigentum > Miete als gesellschaftliches Ziel; Markt löst Knappheit besser als Regulierung; staatliche Förderung gezielt auf Eigentumsbildung."
+      }
+    },
+    {
+      "party": "Linke",
+      "position_summary": "Bundesweiter Mietendeckel, Vergesellschaftung großer Wohnungskonzerne (Berlin-Modell), Wohngeld massiv ausbauen, sozialer Wohnungsbau verdoppeln, Bodenfonds.",
+      "key_claims": [
+        "Berliner Mietendeckel hat erwiesen, dass Regulierung wirkt",
+        "Wohnen ist Grundrecht, nicht Anlage"
+      ],
+      "position_source": "Linke-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise widerlegt",
+        "summary": "Berliner-Mietendeckel-Argument: DIW-Evaluation 2021 zeigt Mietendeckel-Effekt (15 % Mietenrückgang Bestand), aber gleichzeitig Rückgang Angebot (-30 % Mietangebote) + Verschiebung in Möbel-/Möbelweiter Vermietung. BVerfG 2 BvF 1/20 hat den Berliner Mietendeckel als kompetenzwidrig verworfen — Bundeskompetenz allein. „Bewiesen wirkt“: empirisch gemischt, Verteilungseffekt zu Lasten neu Einziehender. Vergesellschaftung: rechtlich umstritten (Art. 14, 15 GG), Berliner Volksentscheid 09/2021 noch nicht in Gesetz überführt.",
+        "empirical_check": "DIW Evaluation Berliner Mietendeckel 02/2020-04/2021. BVerfG 2 BvF 1/20. Art. 14, 15 GG.",
+        "tier1_sources": [
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.bundesverfassungsgericht.de/SharedDocs/Entscheidungen/DE/2021/04/fs20210415_2bvf000120.html",
+          "https://www.gesetze-im-internet.de/gg/art_14.html"
+        ],
+        "value_assumptions": "Annahme: Wohnen als Grundrecht > Eigentumsschutz; Vergesellschaftung legitime Reaktion auf Marktversagen; staatliche Preissteuerung primär."
+      }
+    },
+    {
+      "party": "AfD",
+      "position_summary": "Mietpreisbremse beibehalten, Wohngeld erhöhen, Neubau-Offensive ohne GEG-Auflagen, Vorrang für deutsche Staatsbürger bei sozialem Wohnungsbau, Migration als Hauptursache der Wohnungsnot.",
+      "key_claims": [
+        "Migration ist Haupttreiber der Wohnungsknappheit",
+        "GEG verteuert Neubau unzumutbar"
+      ],
+      "position_source": "AfD-Wahlprogramm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise widerlegt + teilweise gestützt",
+        "summary": "Migration-Wohnungsnot-Argument: Zuwanderungs-Anstieg 2015 und 2022 erhöht Nachfrage messbar, aber strukturelle Knappheit besteht seit ca. 2010 und ist primär bauwirtschaftliche/zinspolitische Ursache (IW Köln, Pestel). Anteil zuwanderungsbedingter Nachfrage am Mietenanstieg 2015-2024 schätzungsweise 15-25 %, nicht „Haupttreiber“. GEG-Verteuerungs-Argument: 8-15 % Mehrkosten Neubau (DIW), substanziell aber nicht „unzumutbar“. Vorrang-deutsche-Staatsbürger: verstößt gegen Art. 3 GG.",
+        "empirical_check": "IW Köln Wohnungsmarktbericht 2024. Pestel-Institut Bauanalyse. DIW zu GEG-Kosten. Art. 3 GG.",
+        "tier1_sources": [
+          "https://www.iwkoeln.de/themen/immobilien.html",
+          "https://www.pestel-institut.de/publikationen/",
+          "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+          "https://www.gesetze-im-internet.de/gg/art_3.html"
+        ],
+        "value_assumptions": "Annahme: Inländer-Vorrang in Sozialleistungen; GEG-Skepsis aus Klima-Skepsis-Tradition; staatliche Steuerung mit Selektion."
+      }
+    },
+    {
+      "party": "BSW",
+      "position_summary": "Mietpreisbremse verschärfen, sozialen Wohnungsbau verdoppeln, Spekulation gegen Bodenfonds, Migration als sekundärer Faktor, GEG behalten, aber sozial gestaffelt.",
+      "key_claims": [
+        "Mietenexplosion ist primär soziale Verteilungsfrage",
+        "Sozialer Wohnungsbau muss aus Steuergeldern, nicht aus Mietenregulierung allein"
+      ],
+      "position_source": "BSW-Programm 2025",
+      "verify_needed": true,
+      "athena_analysis": {
+        "status": "vorab",
+        "verdict": "teilweise gestützt",
+        "summary": "Verteilungsfrage-Argument: empirisch belegt — Mietkosten-Anteil am verfügbaren Einkommen unterer Einkommensquintile 2010 ca. 28 %, 2024 ca. 40 % (Destatis). Sozialer-Wohnungsbau-Finanzierung: ja, Bundes- und Länderhaushalte sind Hauptfinanzierungsquellen, nicht Mietregulierung. Differenzierte Position weniger ideologisch als Linke, näher an SPD/Grünen-Empirie.",
+        "empirical_check": "Destatis EVS (Einkommens- und Verbrauchsstichprobe) 2024. ifo Wohnungsmarktanalyse. Pestel-Bilanz sozialer Wohnungsbau.",
+        "tier1_sources": [
+          "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/_inhalt.html",
+          "https://www.ifo.de/publikationen",
+          "https://www.pestel-institut.de/publikationen/"
+        ],
+        "value_assumptions": "Annahme: Wohnen als soziale Frage, nicht primär als Markt-Effizienzfrage; staatliche Daseinsvorsorge legitim; ideologische Ablehnung von Vergesellschaftung als Maximalforderung."
+      }
+    }
+  ],
+  "evidenz_position": {
+    "kurzfassung": "Mietpreisbremse halten und Lücken schließen, Neubau-Offensive (sozial + frei + klimagerecht), Bodenpolitik reformieren, Wohngeld dynamisch fortschreiben — kein Mietendeckel (BVerfG-Risiko), keine Vergesellschaftung (Symbolwert > Wirkung).",
+    "konkret": [
+      "Mietpreisbremse bis 2030 verlängern, Möbelmiete und Modernisierungs-Lücken schließen.",
+      "Neubau auf 350.000 WE/Jahr durch Genehmigungs-Beschleunigung (Faktor 0,5x), serielles Bauen, Sozialer Wohnungsbau-Sonderprogramm.",
+      "Bodenpolitik reformieren: kommunale Bodenfonds, Erbbaurecht stärken, Grundstücks-Wertzuwachs-Abgabe bei Umwidmung (DIW-Modell).",
+      "Wohngeld dynamisch an Mietspiegel binden, automatische Erhöhung statt politischer Reform-Zyklen.",
+      "GEG behalten, Förderquote für untere Einkommen auf 70 % anheben; soziale Härte bei Modernisierungsumlage durch Decklung 6 % der Investition.",
+      "Kein bundesweiter Mietendeckel (BVerfG 2 BvF 1/20 + DIW-Empirie zu Angebot-Rückgang).",
+      "Keine Vergesellschaftung großer Wohnungskonzerne (Art. 14/15 GG, rechtlich hochriskant, Entschädigung 28-36 Mrd. € Berlin allein)."
+    ],
+    "warum": "Mietenkrise ist zu 60-70 % Angebots- und Bodenpreis-getrieben, zu 30-40 % regulatorisch lösbar. Reine Regulierung (Mietendeckel) hat Angebots-Rückgang als Nebeneffekt (DIW Berlin), reine Neubau-Logik dauert 8-15 Jahre. Beide Hebel gleichzeitig.",
+    "wertannahmen": "§1 (Sorgepflicht): Wohnen als Existenzfrage gewichtig. §4 (Generationen): Bodenpolitik betrifft nachfolgende Generationen. §6 (Vorsicht): keine verfassungsrechtlich riskanten Maximalforderungen ohne empirische Wirkungsabsicherung.",
+    "trade_offs_eingestanden": "Neubau-Offensive 25-35 Mrd. €/Jahr (Bund + Länder), Genehmigungs-Beschleunigung politisch konflikt­trächtig (Bauleitplanung), Grundstücks-Wertzuwachs-Abgabe juristisch komplex.",
+    "url": "programm/wohnen.html"
+  },
+  "evidenz_link": {
+    "url": "programm/wohnen.html",
+    "label": "EVIDENZ-Position zu Wohnen & Miete (vollständig)",
+    "note": "Hier steht die ausführliche Optionsanalyse mit Bodenpolitik-Sub-Cluster und Verworfenen-Optionen."
+  },
+  "methodik_note": "Athenas Analysen werden durch Critique-Pass (Qwen 3.6) und Adversarial Verify (Gemma 4) geprüft. Verdikte werden veröffentlicht, auch wenn die Empirie eine bestimmte Partei-Position stützt.",
+  "draft_status": "Entwurf v1 — Faktenkern Tier-1-verifiziert (BVerfG 2 BvF 1/20, BGB, BauGB, GG, Destatis). Einzelne Werte (Neubau-Stand 2024, Mietsteigerungen) brauchen Live-Verifikation. Athena-Analysen werden nach Pipeline-Lauf finalisiert."
+}
