@@ -228,5 +228,43 @@
     ],
     "konfidenz": "mittel"
   },
-  "critique": "Hier ist die methodische Überprüfung der vorliegenden Analyse:\n\n### 1. Faktische Stimmigkeit gegen Quellen\n*   **Fehlerhafte Norm-Referenz (Art. 87a vs. Art. 78a):** In der Analyse wird das Sondervermögen Bundeswehr mit „Art. <0xC2>78a“ (bzw. im Kontext der Textkorrektur als fehlerhafter String) aufgeführt. Die Quelle nennt jedoch explizit **„Art. 87a“**.\n*   **Fehlerhafte Größenangabe (Kumulierter Spielraum):** In der Analyse wird der Spielraum des SVR-Modells mit „21,<0C2>_6 Mrd. € bis 5\n\n### 2. Methodische Lücken\n*   **Fehlende Option der \"Sondervermögen\" als Reformwerkzeug:** Die Entscheidungsfrage lautet explizit: *„Und wie soll mit der Praxis der Sondervermögen umgegangen werden?“*. Während die Analyse das BVerfG-Urteil zum Klimafonds und das Bundeswehr-Sondervermögen als Fakten nennt, fehlt in der Tabelle der Handlungsoptionen eine explizite Option zur Regelung oder Reform des Einsatzes von Sondervermögen (z. B. „Verbot von Sondervermögen“ oder „Verankerung im Kernhaushalt“).\n*   **Unvollständiger Vergleich der Länder-Ausnahmen:** Die Analyse erwähnt zwar das Verschuldungsverbot für Länder, lässt aber die in den Quellen beschriebene „Heterogenität“ (Unterschiedliche landesrechtliche Konkretisierungen) bei den Handlungsoptionen außer Acht. Eine Option zur Harmonisierung der Länderregeln fehlt.\n\n### 3. Sprachliche Schmuggelware\n*   Keine Beanstandungen. (Die Analyse bleibt trotz der Verwendung von Begriffen wie „Massive Änderung“ innerhalb des durch die Quellen vorgegebenen Rahmens neutral und beschreibt lediglich die Tragweite der Optionen).\n\n### 4. Quellenverwendung und Tier-Disziplin\n*   **Mangelhafte Kennzeichnung von Artefakten:** Die Analyse übernimmt fehlerhaft die fehlerhaften Zeichenfolgen aus den Quellen-Chunks (z. B. `<0xC2>78a`, `21,<0C2>_6 Mrd. €`). Anstatt diese als korrigierte Fakten zu präsentieren oder als unleserliche Quell-Artefakte zu markieren, werden sie eins zu eins in die „Faktenlage“ integriert, was die faktische Zuverlässigkeit der Analyse untergräbt.\n*   **Unpräzise Quellenattribution bei \"Soziale Härten\":** Der Punkt „soziale Härten (Athena-Optionsanalyse)“ im Contra-Teil von Option 1 ist problematisch. Die Quelle (SVR Wirtschaft) liefert keine Belege für soziale Härten; diese Information scheint aus dem Trainingswissen der KI zu stammen, wird aber fälschlicherweise als Teil der vorliegenden Analyse/Quellen-Synthese deklariert."
+  "critique": "Hier ist die methodische Überprüfung der vorliegenden Analyse:\n\n### 1. Faktische Stimmigkeit gegen Quellen\n*   **Fehlerhafte Norm-Referenz (Art. 87a vs. Art. 78a):** In der Analyse wird das Sondervermögen Bundeswehr mit „Art. <0xC2>78a“ (bzw. im Kontext der Textkorrektur als fehlerhafter String) aufgeführt. Die Quelle nennt jedoch explizit **„Art. 87a“**.\n*   **Fehlerhafte Größenangabe (Kumulierter Spielraum):** In der Analyse wird der Spielraum des SVR-Modells mit „21,<0C2>_6 Mrd. € bis 5\n\n### 2. Methodische Lücken\n*   **Fehlende Option der \"Sondervermögen\" als Reformwerkzeug:** Die Entscheidungsfrage lautet explizit: *„Und wie soll mit der Praxis der Sondervermögen umgegangen werden?“*. Während die Analyse das BVerfG-Urteil zum Klimafonds und das Bundeswehr-Sondervermögen als Fakten nennt, fehlt in der Tabelle der Handlungsoptionen eine explizite Option zur Regelung oder Reform des Einsatzes von Sondervermögen (z. B. „Verbot von Sondervermögen“ oder „Verankerung im Kernhaushalt“).\n*   **Unvollständiger Vergleich der Länder-Ausnahmen:** Die Analyse erwähnt zwar das Verschuldungsverbot für Länder, lässt aber die in den Quellen beschriebene „Heterogenität“ (Unterschiedliche landesrechtliche Konkretisierungen) bei den Handlungsoptionen außer Acht. Eine Option zur Harmonisierung der Länderregeln fehlt.\n\n### 3. Sprachliche Schmuggelware\n*   Keine Beanstandungen. (Die Analyse bleibt trotz der Verwendung von Begriffen wie „Massive Änderung“ innerhalb des durch die Quellen vorgegebenen Rahmens neutral und beschreibt lediglich die Tragweite der Optionen).\n\n### 4. Quellenverwendung und Tier-Disziplin\n*   **Mangelhafte Kennzeichnung von Artefakten:** Die Analyse übernimmt fehlerhaft die fehlerhaften Zeichenfolgen aus den Quellen-Chunks (z. B. `<0xC2>78a`, `21,<0C2>_6 Mrd. €`). Anstatt diese als korrigierte Fakten zu präsentieren oder als unleserliche Quell-Artefakte zu markieren, werden sie eins zu eins in die „Faktenlage“ integriert, was die faktische Zuverlässigkeit der Analyse untergräbt.\n*   **Unpräzise Quellenattribution bei \"Soziale Härten\":** Der Punkt „soziale Härten (Athena-Optionsanalyse)“ im Contra-Teil von Option 1 ist problematisch. Die Quelle (SVR Wirtschaft) liefert keine Belege für soziale Härten; diese Information scheint aus dem Trainingswissen der KI zu stammen, wird aber fälschlicherweise als Teil der vorliegenden Analyse/Quellen-Synthese deklariert.",
+  "adversarial": [
+    {
+      "aussage": "Die Schuldenbremse ist seit 2009 in den Artikeln 109 und 115 des Grundgesetzes verankert und begrenzt die Nettokreditaufnahme.",
+      "verdict": "haelt",
+      "begruendung": "Die Quellen bestätigen explizit, dass die Schuldenbremse im Jahr 2009 in den Artikeln 109 und 115 verankert wurde."
+    },
+    {
+      "aussage": "Für den Bund gilt eine strukturelle Defizitgrenze von maximal 0,35 % des BIP, für die Länder gilt seit 2020 ein vollständiges strukturelles Neuverschuldungsverbot.",
+      "verdict": "widerlegt",
+      "begruendung": "Die Quellen enthalten keinerlei Informationen über eine spezifische strukturelle Defizitgrenze von 0,35 % für den Bund oder ein vollständiges strukturelles Neuverschuldungsverbot für die Länder."
+    },
+    {
+      "aussage": "Eine Überschreitung der Schuldenbremse ist nur bei Naturkatastrophen oder außergewöhnlichen Notsituationen zulässig.",
+      "verdict": "zweifelhaft",
+      "begruendung": "Die Quellen nennen lediglich die Existenz der Schuldenbremse im Grundgesetz, enthalten aber keine explizite Aufzählung der zulässigen Ausnahmegründe wie Naturkatastrophen oder Notsituationen."
+    },
+    {
+      "aussage": "Ein Sondervermögen für die Bundeswehr in Höhe von 100 Mrd. € wurde via GG-Änderung (Art. 146a) geschaffen.",
+      "verdict": "widerlegt",
+      "begruendung": ""
+    },
+    {
+      "aussage": "Das BVerfG-Urteil vom 15.11.2023 erklärte die Umwidmung von Corona-Krediten für den Klimafonds als verfassungswidrig.",
+      "verdict": "zweifelhaft",
+      "begruendung": "Die vorliegenden Quellen enthalten keinerlei Informationen oder Belege zum BVerfG-Urteil vom 15.11.2023 oder der Umwidmung von Corona-Krediten."
+    },
+    {
+      "aussage": "Für den Bundeshaushalt 2025 beträgt die geplante Nettokreditaufnahme 51,3 Mrd. €.",
+      "verdict": "zweifelhaft",
+      "begruendung": "Die Quellen enthalten keine konkrete Zahl zur geplanten Nettokreditaufnahme für den Bundeshaushalt 2025."
+    },
+    {
+      "aussage": "Eine Reform zur Erhöhung der fiskalischen Flexibilität könnte den strukturellen Verschuldungsspielraum bis 2027 um 21,6 Mrd. € bis 57,5 Mrd. € erhöhen.",
+      "verdict": "zweifelhaft",
+      "begruendung": "Die Quellen nennen zwar einen kumulativen strukturellen Verschuldungsspielraum bis 2027, spezifizieren aber keine exakten Zahlen wie 21,6 Mrd. € oder 57,5 Mrd. €."
+    }
+  ],
+  "adversarial_model": "gemma4:26b"
 }

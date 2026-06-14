@@ -28,6 +28,42 @@ FRAGE: {question}
 """
 
 
+def adversarial_verify(facts, context, host):
+    """Adversarial Verification: ein UNABHÄNGIGES Modell (andere Familie als die
+    Antwort) versucht AKTIV, jede Aussage zu widerlegen — nur anhand der Quellen.
+    Hält die Aussage dem Widerlegungsversuch stand? Im Zweifel skeptisch. Das ist
+    schärfer als die Faktentreue-Prüfung (stützt die Quelle?) und der holistische
+    Critique-Pass — es ist der gezielte Angriff auf jede Einzelaussage."""
+    import json as _j
+    import re as _re
+    from langchain_ollama import OllamaLLM
+    m = OllamaLLM(model=os.getenv("ADVERSARIAL_MODEL", "mistral-small3.2:latest"),
+                  base_url=host, timeout=300, reasoning=False)
+    out = []
+    for f in facts:
+        aussage = f.get("aussage", "")
+        prompt = (
+            "Du bist ein extrem skeptischer Gegen-Prüfer. Versuche AKTIV, die folgende "
+            "Aussage zu WIDERLEGEN — ausschließlich anhand der Quellen. Stützen die Quellen "
+            "sie klar und du kannst sie nicht widerlegen: verdict \"haelt\". Widersprechen die "
+            "Quellen ihr oder belegen sie nicht: \"widerlegt\". Unklar: \"zweifelhaft\". "
+            "Im Zweifel skeptisch.\n"
+            "Antworte NUR als JSON: {\"verdict\":\"haelt|widerlegt|zweifelhaft\",\"begruendung\":\"<1 Satz>\"}\n\n"
+            f"QUELLEN:\n{context}\n\nAUSSAGE: {aussage}"
+        )
+        try:
+            raw = m.invoke(prompt)
+            js = _re.search(r"\{.*\}", raw, _re.S)
+            d = _j.loads(js.group(0)) if js else {}
+        except Exception:
+            d = {"verdict": "zweifelhaft", "begruendung": "Gegenprüfung nicht abgeschlossen."}
+        v = (d.get("verdict") or "zweifelhaft").strip().lower()
+        if v not in ("haelt", "widerlegt", "zweifelhaft"):
+            v = "zweifelhaft"
+        out.append({"aussage": aussage, "verdict": v, "begruendung": d.get("begruendung", "")})
+    return out
+
+
 def _ser(o):
     if o is None:
         return None
@@ -52,24 +88,29 @@ def main():
     from structure import structure_analysis
     from verify import verify_claims
     from critique import create_critique_chain
-    from langchain_ollama import OllamaLLM
+    from langchain_mistralai import ChatMistralAI
 
     print("… Stufe 1: Retrieval (Bund)", file=sys.stderr)
     vs, _ = serve._get_components(a.scope)
     docs = tier_aware_retrieve(vs, a.question, k=serve.RETRIEVER_K, fetch_k=50,
                                sim_floor=a.sim_floor, max_k=a.max_k)
 
-    print("… Stufe 2: Antwort (Ollama, lokal)", file=sys.stderr)
-    llm = OllamaLLM(model=os.getenv("ANSWER_MODEL", "gemma4:31b"),
-                    base_url=os.environ.get("OLLAMA_HOST", "http://100.101.225.56:11434"),
-                    timeout=600, reasoning=False)
-    answer = llm.invoke(ANSWER_PROMPT.format(context=format_docs(docs), question=a.question))
+    # Position/Antwort = Mistral (das echte Positions-Modell), läuft über die API
+    # (nicht auf der iGPU). Critique = athena (qwen-basiert), Adversarial = gemma4.
+    print("… Stufe 2: Position (Mistral)", file=sys.stderr)
+    llm = ChatMistralAI(model="mistral-large-latest", api_key=os.environ["MISTRAL_API_KEY"],
+                        temperature=0.2, max_tokens=2200, timeout=180)
+    answer = llm.invoke(ANSWER_PROMPT.format(context=format_docs(docs), question=a.question)).content
 
     print("… Stufe 3: Strukturierte Optionsanalyse", file=sys.stderr)
     analysis = structure_analysis(answer)
     print("… Stufe 4: Faktentreue-Verifikation", file=sys.stderr)
     analysis = verify_claims(analysis, docs)
-    print("… Stufe 5: Critique-Pass (Devil's Advocate)", file=sys.stderr)
+    analysis_d = _ser(analysis) or {}
+    print("… Stufe 5: Adversarial Verification (unabhängiges Modell)", file=sys.stderr)
+    host = os.environ.get("OLLAMA_HOST", "http://100.101.225.56:11434")
+    adversarial = adversarial_verify(analysis_d.get("faktenlage", []), format_docs(docs), host)
+    print("… Stufe 6: Critique-Pass (Devil's Advocate)", file=sys.stderr)
     critique = create_critique_chain()(a.question, docs, answer)
 
     out = {
@@ -83,7 +124,8 @@ def main():
             "excerpt": " ".join((d.page_content or "").split())[:240],
         } for d in docs],
         "answer": answer,
-        "analysis": _ser(analysis),
+        "analysis": analysis_d,
+        "adversarial": adversarial,
         "critique": critique,
     }
     js = json.dumps(out, ensure_ascii=False, indent=2, default=str)
