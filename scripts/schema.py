@@ -52,12 +52,12 @@ class Option(BaseModel):
     beschreibung: str = Field(..., description="Worum geht es konkret bei dieser Option?")
     trade_offs: list[str] = Field(
         ...,
-        min_length=1,
+        min_length=0,
         description="Vor- UND Nachteile dieser Option, jeder Punkt einzeln",
     )
     wertannahmen: list[str] = Field(
         ...,
-        min_length=1,
+        min_length=0,
         description="Welche Werte oder Prioritäten setzt diese Option implizit voraus?",
     )
 

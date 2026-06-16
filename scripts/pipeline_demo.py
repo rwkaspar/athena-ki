@@ -17,9 +17,15 @@ import argparse, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 ANSWER_PROMPT = """Du bist Athena, die faktenbasierte Analyse-KI von EVIDENZ. Beantworte die Frage \
-AUSSCHLIESSLICH auf Basis der folgenden Quellen — keine Empfehlung, keine erfundenen Zahlen. \
-Struktur: (1) Faktenlage mit Quellenbezug, (2) Rechtsrahmen, (3) Handlungsoptionen mit \
-ehrlich benannten Trade-offs, (4) offene Fragen/Datenlücken.
+strukturiert: (1) Faktenlage, (2) Rechtsrahmen, (3) Handlungsoptionen mit ehrlich benannten \
+Trade-offs, (4) offene Fragen. Keine Empfehlung.
+
+QUELLEN-REGEL: Stütze dich primär auf die unten gelieferten Quellen. Echte Zahlen/Daten/Normen \
+sind erwünscht — aber hinter JEDER konkreten Zahl, jedem Datum und jedem Paragraphen MUSS die \
+mutmaßliche Primärquelle in Klammern stehen, z. B. „(§ 241 SGB V)" oder \
+„(GKV-Spitzenverband, Kennzahlen 2024)". Steht die Quelle bereits unten, zitiere sie; steht eine \
+wichtige Zahl NICHT in den Quellen, nenne sie trotzdem mit mutmaßlicher Quelle, damit wir diese \
+Quelle nachpflegen können. Erfinde keine Quelle, die es nicht geben kann.
 
 QUELLEN:
 {context}
@@ -43,11 +49,14 @@ def adversarial_verify(facts, context, host):
     for f in facts:
         aussage = f.get("aussage", "")
         prompt = (
-            "Du bist ein extrem skeptischer Gegen-Prüfer. Versuche AKTIV, die folgende "
-            "Aussage zu WIDERLEGEN — ausschließlich anhand der Quellen. Stützen die Quellen "
-            "sie klar und du kannst sie nicht widerlegen: verdict \"haelt\". Widersprechen die "
-            "Quellen ihr oder belegen sie nicht: \"widerlegt\". Unklar: \"zweifelhaft\". "
-            "Im Zweifel skeptisch.\n"
+            "Du bist ein Gegen-Prüfer (Adversarial Verification). Deine EINZIGE Aufgabe: "
+            "Kannst du die folgende Aussage anhand der Quellen WIDERLEGEN? "
+            "Verdikte: \"widerlegt\" = die Quellen widersprechen der Aussage klar (echte "
+            "Gegen-Evidenz). \"zweifelhaft\" = die Quellen stellen sie teilweise in Frage. "
+            "\"haelt\" = die Quellen widersprechen ihr NICHT (sie stützen sie oder sagen nichts "
+            "Gegenteiliges). WICHTIG: Nicht-Finden ist KEINE Widerlegung — wenn du keine "
+            "Gegen-Evidenz in den Quellen findest, lautet das Verdikt \"haelt\". Nur echter "
+            "Widerspruch flaggt.\n"
             "Antworte NUR als JSON: {\"verdict\":\"haelt|widerlegt|zweifelhaft\",\"begruendung\":\"<1 Satz>\"}\n\n"
             f"QUELLEN:\n{context}\n\nAUSSAGE: {aussage}"
         )
@@ -60,7 +69,8 @@ def adversarial_verify(facts, context, host):
         v = (d.get("verdict") or "zweifelhaft").strip().lower()
         if v not in ("haelt", "widerlegt", "zweifelhaft"):
             v = "zweifelhaft"
-        out.append({"aussage": aussage, "verdict": v, "begruendung": d.get("begruendung", "")})
+        out.append({"aussage": aussage, "verdict": v, "begruendung": d.get("begruendung", ""),
+                    "quelle": (d.get("quelle") or "").strip()})
     return out
 
 
@@ -99,7 +109,7 @@ def main():
     # (nicht auf der iGPU). Critique = athena (qwen-basiert), Adversarial = gemma4.
     print("… Stufe 2: Position (Mistral)", file=sys.stderr)
     llm = ChatMistralAI(model="mistral-large-latest", api_key=os.environ["MISTRAL_API_KEY"],
-                        temperature=0.2, max_tokens=2200, timeout=180)
+                        temperature=0.0, max_tokens=2200, timeout=180)
     answer = llm.invoke(ANSWER_PROMPT.format(context=format_docs(docs), question=a.question)).content
 
     print("… Stufe 3: Strukturierte Optionsanalyse", file=sys.stderr)

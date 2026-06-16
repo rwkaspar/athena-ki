@@ -1,0 +1,146 @@
+{
+  "runs": [
+    {
+      "datei": "pipeline_demo_gesundheit.json",
+      "thema": "Wie ist die gesetzliche Krankenversicherung in Deutschland finanziert und welche Reformoptionen gibt es?",
+      "aussagen": 6,
+      "geerdet": 1,
+      "quote": 0.17
+    },
+    {
+      "datei": "pipeline_demo_ki.json",
+      "thema": "Welche Pflichten gelten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung?",
+      "aussagen": 3,
+      "geerdet": 0,
+      "quote": 0.0
+    },
+    {
+      "datei": "pipeline_demo_rente.json",
+      "thema": "Sollte das gesetzliche Renteneintrittsalter an die steigende Lebenserwartung gekoppelt werden?",
+      "aussagen": 3,
+      "geerdet": 3,
+      "quote": 1.0
+    },
+    {
+      "datei": "pipeline_demo_schuldenbremse.json",
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussagen": 7,
+      "geerdet": 1,
+      "quote": 0.14
+    }
+  ],
+  "gaps": [
+    {
+      "thema": "Wie ist die gesetzliche Krankenversicherung in Deutschland finanziert und welche Reformoptionen gibt es?",
+      "aussage": "Die GKV finanziert sich durch einkommensabhängige Beiträge und Bundeszuschüsse gemäß § 221 SGB V.",
+      "verification_status": "nicht_belegt",
+      "adversarial_verdict": "haelt",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Wie ist die gesetzliche Krankenversicherung in Deutschland finanziert und welche Reformoptionen gibt es?",
+      "aussage": "Der Beitragssatz 2024 beträgt 14,6 % plus ein durchschnittlicher Zusatzbeitrag von 1,6 %.",
+      "verification_status": "nicht_belegt",
+      "adversarial_verdict": "haelt",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Wie ist die gesetzliche Krankenversicherung in Deutschland finanziert und welche Reformoptionen gibt es?",
+      "aussage": "Die Beitragsbemessungsgrenze für 2024 liegt bei 62.100 € pro Jahr.",
+      "verification_status": "nicht_belegt",
+      "adversarial_verdict": "haelt",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Wie ist die gesetzliche Krankenversicherung in Deutschland finanziert und welche Reformoptionen gibt es?",
+      "aussage": "Für das Jahr 2025 wird ein Defizit von etwa 27 Mrd. € prognostiziert.",
+      "verification_status": "teilweise",
+      "adversarial_verdict": "widerlegt",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Wie ist die gesetzliche Krankenversicherung in Deutschland finanziert und welche Reformoptionen gibt es?",
+      "aussage": "PKV-Versicherte zahlen im Durchschnitt etwa 1.200 € pro Jahr weniger als GKV-Versicherte bei gleichem Einkommen.",
+      "verification_status": "verifiziert",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Welche Pflichten gelten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung?",
+      "aussage": "Die EU-KI-Verordnung definiert in Artikel 16 konkrete Pflichten für Anbieter von Hochrisiko-KI-Systemen, die in Anhang III eingestuft sind.",
+      "verification_status": "teilweise",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "KI-Verordnung (AI Act), Anhang III",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Welche Pflichten gelten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung?",
+      "aussage": "Hochrisiko-KI-Systeme sind solche, die ein erhebliches Risiko für Gesundheit, Sicherheit oder Grundrechte darstellen und nicht unter Ausnahmen fallen.",
+      "verification_status": "nicht_belegt",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "KI-Verordnung (AI Act), Artikel 6 bzw. Anhang III",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Welche Pflichten gelten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung?",
+      "aussage": "Die Pflichten gelten unabhängig vom Standort des Anbieters, sofern das System in der EU vermarktet oder genutzt wird.",
+      "verification_status": "nicht_belegt",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "EU-KI-Verordnung (AI Act), insbesondere Bestimmungen zur Anwendbarkeit/Geltungsbereich",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussage": "Für den Bund gilt eine strukturelle Defizitgrenze von maximal 0,35 % des BIP, für die Länder gilt seit 2020 ein vollständiges strukturelles Neuverschuldungsverbot.",
+      "verification_status": "verifiziert",
+      "adversarial_verdict": "widerlegt",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussage": "Eine Überschreitung der Schuldenbremse ist nur bei Naturkatastrophen oder außergewöhnlichen Notsituationen zulässig.",
+      "verification_status": "verifiziert",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussage": "Ein Sondervermögen für die Bundeswehr in Höhe von 100 Mrd. € wurde via GG-Änderung (Art. 146a) geschaffen.",
+      "verification_status": "teilweise",
+      "adversarial_verdict": "widerlegt",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussage": "Das BVerfG-Urteil vom 15.11.2023 erklärte die Umwidmung von Corona-Krediten für den Klimafonds als verfassungswidrig.",
+      "verification_status": "verifiziert",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussage": "Für den Bundeshaushalt 2025 beträgt die geplante Nettokreditaufnahme 51,3 Mrd. €.",
+      "verification_status": "verifiziert",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    },
+    {
+      "thema": "Sollte die Schuldenbremse für Investitionen reformiert werden?",
+      "aussage": "Eine Reform zur Erhöhung der fiskalischen Flexibilität könnte den strukturellen Verschuldungsspielraum bis 2027 um 21,6 Mrd. € bis 57,5 Mrd. € erhöhen.",
+      "verification_status": "verifiziert",
+      "adversarial_verdict": "zweifelhaft",
+      "hinweis_quelle": "",
+      "prioritaet": "primärquelle suchen (amtlich/aktuell bevorzugt)"
+    }
+  ]
+}
