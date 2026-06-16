@@ -1,15 +1,25 @@
-# Amtliche Primärquellen-Portale für den wiederkehrenden Crawl (recurring_crawl.py).
-# Eine Index-/Übersichts-URL pro Zeile. Der Crawler erntet daraus neue Dokumente
-# (PDFs/Detailseiten), Dedup gegen bereits Bekanntes. Zeilen mit # sind Kommentare.
-# >>> KURATIEREN: hier neue amtliche Quellen-Portale ergänzen/entfernen. <<<
+# Amtliche/wissenschaftliche Primärquellen-Portale für den wiederkehrenden Crawl
+# (recurring_crawl.py). Eine Publikations-/Übersichts-URL pro Zeile. Der Crawler
+# erntet daraus neue Dokumente (PDFs/Detailseiten), Dedup gegen bereits Bekanntes.
+# Zeilen mit # sind Kommentare.  >>> KURATIEREN: hier ergänzen/entfernen. <<<
+#
+# Stand 2026-06-16: alle aktiven Seeds verifiziert (HTTP 200 + echte Dokument-Links).
 
-# Wirtschaft / Finanzen (Gutachten, Monatsberichte)
-https://www.sachverstaendigenrat-wirtschaft.de/publikationen.html
+# Wirtschaft / Finanzen (Gutachten, Diskussionspapiere, Monatsberichte)
+https://www.zew.de/publikationen
 https://www.bundesbank.de/de/publikationen/berichte/monatsberichte
-https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche-Finanzen/oeffentliche-finanzen.html
+https://www.sachverstaendigenrat-wirtschaft.de/publikationen.html
 
-# Klima / Umwelt
+# Bundestag — wissenschaftliche Dienste / Analysen (sehr gute Primär-Aufbereitung)
+https://www.bundestag.de/dokumente/analysen
+
+# Umwelt / Klima
+https://www.umweltbundesamt.de/publikationen
 https://expertenrat-klima.de/publikationen/
 
-# Rechnungsprüfung
-https://www.bundesrechnungshof.de/de/veroeffentlichungen
+# --- Beobachten / brauchen bessere URL (aktuell crawler-untauglich) ---
+# ifo Institut:        JS-gerendert, keine statischen Links — andere URL/Quelle nötig
+# IW Köln:             401 (Bot-Schutz)
+# DIW Berlin:          Timeout — ggf. /wochenbericht-Direktarchiv testen
+# destatis:            zuvor viele tote Links erzeugt — nur mit stabiler Publikations-URL
+# BMF / Bundesrechnungshof: lieferten 0 Dokumente — konkrete Publikations-Liste suchen
