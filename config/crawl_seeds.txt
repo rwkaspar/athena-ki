@@ -1,0 +1,15 @@
+# Amtliche Primärquellen-Portale für den wiederkehrenden Crawl (recurring_crawl.py).
+# Eine Index-/Übersichts-URL pro Zeile. Der Crawler erntet daraus neue Dokumente
+# (PDFs/Detailseiten), Dedup gegen bereits Bekanntes. Zeilen mit # sind Kommentare.
+# >>> KURATIEREN: hier neue amtliche Quellen-Portale ergänzen/entfernen. <<<
+
+# Wirtschaft / Finanzen (Gutachten, Monatsberichte)
+https://www.sachverstaendigenrat-wirtschaft.de/publikationen.html
+https://www.bundesbank.de/de/publikationen/berichte/monatsberichte
+https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche-Finanzen/oeffentliche-finanzen.html
+
+# Klima / Umwelt
+https://expertenrat-klima.de/publikationen/
+
+# Rechnungsprüfung
+https://www.bundesrechnungshof.de/de/veroeffentlichungen
