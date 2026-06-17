@@ -37,7 +37,7 @@ REVIEW_MODEL = os.getenv("ATHENA_REVIEW_MODEL", "mistral-large-latest")
 # (lokal/kein Rate-Limit, für Batch-Crawl mit vielen Quellen).
 REVIEW_PROVIDER = os.getenv("ATHENA_REVIEW_PROVIDER", "mistral")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
-OLLAMA_REVIEW_MODEL = os.getenv("ATHENA_REVIEW_OLLAMA_MODEL", "athena-bund")
+OLLAMA_REVIEW_MODEL = os.getenv("ATHENA_REVIEW_OLLAMA_MODEL", "athena")
 
 # Tag-Leitplanken: bevorzugte Begriffe für Konsistenz. Das LLM darf neue Tags
 # vergeben, soll aber zuerst hier passende wählen (verhindert Wildwuchs).

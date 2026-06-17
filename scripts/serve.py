@@ -78,8 +78,8 @@ ABSTAIN_MESSAGE = (
 # Mistral: API-Modelle — Persona wird zur Laufzeit als SystemMessage angehängt.
 LLM_MODEL_FOR_SCOPE = {
     "ollama": {
-        "pfofeld": "athena",
-        "bund": "athena-bund",
+        "pfofeld": "athena-pfofeld",
+        "bund": "athena",  # athena = föderales Standardmodell (umbenannt aus athena-bund)
     },
     "mistral": {
         # 'large-latest' = Frontier-Class für Athena-Hauptanalysen.
@@ -182,7 +182,7 @@ VACATION_MESSAGE = os.getenv(
 )
 
 # Concurrency-Schutz für Ollama-Inferenz: aitest (30 GB RAM) verträgt nur EINE
-# athena-bund-Inferenz gleichzeitig — zwei parallele CPU-Läufe (je ~24 GB)
+# athena-Inferenz gleichzeitig — zwei parallele CPU-Läufe (je ~24 GB)
 # sprengen den RAM, der Ollama-Runner crasht ("model runner has unexpectedly
 # stopped" / RemoteProtocolError). Wir serialisieren daher lokale Inferenz mit
 # einem Lock. Mistral ist eine externe API ohne dieses Limit → kein Lock.
@@ -2227,7 +2227,8 @@ def openai_chat_completions(req: OpenAIChatRequest):
 # Backend bleibt Mistral; Ollama-Protokoll ist nur Transport.
 
 def _parse_ollama_model(model: str) -> tuple[str, bool]:
-    """Akzeptiert 'athena-bund', 'athena-bund-canon', 'athena-bund:latest' etc."""
+    """Akzeptiert 'athena', 'athena-pfofeld', 'bund-canon', 'athena-bund:latest' etc.
+    ('athena-bund' bleibt als Alias gültig, parst weiterhin zu scope=bund)."""
     m = (model or "").strip().lower()
     # ":tag" abschneiden
     if ":" in m:

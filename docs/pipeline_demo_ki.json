@@ -1,220 +1,430 @@
 {
-  "question": "Welche Pflichten gelten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung?",
+  "question": "Welche Pflichten haben Anbieter und Betreiber von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung?",
   "scope": "bund",
   "k": 5,
   "fetch_k": 20,
   "retrieval": [
     {
       "tier": 1,
-      "score": 0.6591,
+      "score": 0.6618,
       "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
       "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
       "excerpt": "ABSCHNITT 3 Pflichten der Anbieter und Betreiber von Hochrisiko-KI-Systemen und anderer Beteiligter Artikel 16 Pflichten der Anbieter von Hochrisiko-KI-Systemen Anbieter von Hochrisiko-KI-Systemen müssen a) sicherstellen, dass ihre Hochrisi"
     },
     {
       "tier": 1,
-      "score": 0.6479,
-      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
-      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
-      "excerpt": "Um die Arbeit der Kommission und der Mitgliedstaaten im KI-Bereich zu erleichtern und die Transparenz gegenüber der Öffentlichkeit zu erhöhen, sollten Anbieter von Hochrisiko-KI-Systemen, die nicht im Zusammenhang mit Produkten stehen, welc"
-    },
-    {
-      "tier": 1,
-      "score": 0.6364,
+      "score": 0.6516,
       "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
       "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
       "excerpt": "e) die von ihren Hochrisiko-KI-Systemen automatisch erzeugten Protokolle gemäß Artikel 19 aufbewahren, wenn diese ihrer Kontrolle unterliegen; f) sicherstellen, dass das Hochrisiko-KI-System dem betreffenden Konformitätsbewertungsverfahren "
     },
     {
       "tier": 1,
-      "score": 0.6099,
+      "score": 0.6476,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "Um die Arbeit der Kommission und der Mitgliedstaaten im KI-Bereich zu erleichtern und die Transparenz gegenüber der Öffentlichkeit zu erhöhen, sollten Anbieter von Hochrisiko-KI-Systemen, die nicht im Zusammenhang mit Produkten stehen, welc"
+    },
+    {
+      "tier": 1,
+      "score": 0.6085,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "(5) Die Absätze 2 und 3 berühren nicht die Notwendigkeit, Rechte des geistigen Eigentums, vertrauliche Geschäftsinformationen und Geschäftsgeheimnisse im Einklang mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen. Artik"
+    },
+    {
+      "tier": 1,
+      "score": 0.6013,
       "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
       "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
       "excerpt": "(4) Der Anbieter eines Hochrisiko-KI-Systems und der Dritte, der ein KI-System, Instrumente, Dienste, Komponenten oder Verfahren bereitstellt, die in einem Hochrisiko-KI-System verwendet oder integriert werden, legen in einer schriftlichen "
     },
     {
       "tier": 1,
-      "score": 0.6092,
-      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
-      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
-      "excerpt": "Artikel 24 Pflichten der Händler (1) Bevor Händler ein Hochrisiko-KI-System auf dem Markt bereitstellen, überprüfen sie, ob es mit der erforderlichen CE-Kennzeichnung versehen ist, ob ihm eine Kopie der in Artikel 47 genannten EU-Konformitä"
-    },
-    {
-      "tier": 1,
-      "score": 0.6077,
-      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
-      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
-      "excerpt": "(3) Im Falle von Hochrisiko-KI-Systemen, bei denen es sich um Sicherheitsbauteile von Produkten handelt, die unter die in Anhang I Abschnitt A aufgeführten Harmonisierungsrechtsvorschriften der Union fallen, gilt der Produkthersteller als A"
-    },
-    {
-      "tier": 1,
-      "score": 0.6041,
-      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
-      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
-      "excerpt": "(5) Auf begründete Anfrage einer betreffenden zuständigen Behörde übermitteln die Händler eines Hochrisiko-KI-Systems dieser Behörde sämtliche Informationen und Dokumentation in Bezug auf ihre Maßnahmen gemäß den Absätzen 1 bis 4, die erfor"
-    },
-    {
-      "tier": 1,
-      "score": 0.6,
-      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
-      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
-      "excerpt": "Der Anbieter sollte ein solides Qualitätsmanagementsystem einrichten, die Durchführung des vorgeschriebenen Konformitätsbewertungsverfahrens sicherstellen, die einschlägige Dokumentation erstellen und ein robustes System zur Beobachtung nac"
-    },
-    {
-      "tier": 1,
-      "score": 0.6,
-      "title": "Stärkung des Bodenschutzes und der Altlastensanierung durch Überarbeitung des Bodenschutzrechts",
-      "source": "https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/2026-06/87_2026_TEXTE.pdf",
-      "excerpt": "fachlichen Praxis ergänzt um die Klimafunktion und den Schutz der Biodiversität. Die derzeitigen einzelnen Grundsätze der guten fachlichen Praxis werden punktuell modernisiert. Landwirte sind verpflichtet, regelmäßig an Beratungen zur guten"
-    },
-    {
-      "tier": 1,
-      "score": 0.5929,
+      "score": 0.6004,
       "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
       "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
       "excerpt": "Hochrisiko-KI-Systeme sollten während ihres gesamten Lebenszyklus beständig funktionieren und ein angemessenes Maß an Genauigkeit, Robustheit und Cybersicherheit angesichts ihrer Zweckbestimmung und entsprechend dem allgemein anerkannten St"
     },
     {
       "tier": 1,
-      "score": 0.5883,
+      "score": 0.6,
       "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
       "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
-      "excerpt": "(21) und (EU) 2017/746 (22) des Europäischen Parlaments und des Rates oder die Richtlinie 2006/42/EG des Europäischen Parlaments und des Rates (23) auf ein Produkt anwendbar sein können, da die Bereitstellung oder Inbetriebnahme nur erfolge"
+      "excerpt": "(7) Vor der Inbetriebnahme oder Verwendung eines Hochrisiko-KI-Systems am Arbeitsplatz informieren Betreiber, die Arbeitgeber sind, die Arbeitnehmervertreter und die betroffenen Arbeitnehmer darüber, dass sie der Verwendung des Hochrisiko-K"
     },
     {
       "tier": 1,
-      "score": 0.5858,
+      "score": 0.6,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "Artikel 24 Pflichten der Händler (1) Bevor Händler ein Hochrisiko-KI-System auf dem Markt bereitstellen, überprüfen sie, ob es mit der erforderlichen CE-Kennzeichnung versehen ist, ob ihm eine Kopie der in Artikel 47 genannten EU-Konformitä"
+    },
+    {
+      "tier": 1,
+      "score": 0.6,
       "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
       "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
       "excerpt": "Um Rechtssicherheit zu gewährleisten, muss präzisiert werden, dass unter bestimmten spezifischen Bedingungen jeder Händler, Einführer, Betreiber oder andere Dritte als Anbieter eines Hochrisiko-KI-Systems betrachtet werden und daher alle ei"
+    },
+    {
+      "tier": 1,
+      "score": 0.6,
+      "title": "Stärkung des Bodenschutzes und der Altlastensanierung durch Überarbeitung des Bodenschutzrechts",
+      "source": "https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/2026-06/87_2026_TEXTE.pdf",
+      "excerpt": "Verordnungsermächtigung, um die Grundsätze zu konkretisieren. Es werden neue Anforderungen für Versiegelung und Entsiegelung geregelt: Zwei flankierende Pflichten für Grundstückseigentümer und den Inhaber der tatsächlichen Gewalt sollen Umf"
+    },
+    {
+      "tier": 1,
+      "score": 0.5957,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "dieser Verordnung aufgeführten Anwendungsfall der Hochrisiko-KI-Systeme, denen die betreffenden Hochrisiko-KI-Systeme entsprechen, beziehen. Jede wesentliche Veränderung von Hochrisiko-KI-Systemen sollte ebenfalls in der EU-Datenbank regist"
+    },
+    {
+      "tier": 1,
+      "score": 0.5936,
+      "title": "Verordnung (EU) 2024/1689 – KI-Verordnung (AI Act)",
+      "source": "https://eur-lex.europa.eu/legal-content/DE/TXT/HTML/?uri=OJ:L_202401689",
+      "excerpt": "(5) Auf begründete Anfrage einer betreffenden zuständigen Behörde übermitteln die Händler eines Hochrisiko-KI-Systems dieser Behörde sämtliche Informationen und Dokumentation in Bezug auf ihre Maßnahmen gemäß den Absätzen 1 bis 4, die erfor"
     }
   ],
-  "answer": "### **Strukturierte Analyse: Pflichten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung**\n\n---\n\n#### **1. Faktenlage**\nDie **EU-KI-Verordnung (AI Act)** definiert in **Artikel 16** konkrete Pflichten für Anbieter von Hochrisiko-KI-Systemen. Diese Pflichten gelten für alle Systeme, die in **Anhang III** der Verordnung als hochriskant eingestuft sind (z. B. KI in kritischer Infrastruktur, biometrische Identifikation, Bildung, Beschäftigung, Strafverfolgung) *(Artikel 6 i. V. m. Anhang III, EU-KI-Verordnung)*.\n\n**Hochrisiko-KI-Systeme** sind gemäß **Artikel 6** solche, die:\n- Ein **erhebliches Risiko für Gesundheit, Sicherheit oder Grundrechte** darstellen *(Artikel 6 Abs. 1, EU-KI-Verordnung)*,\n- **nicht unter Ausnahmen** fallen (z. B. Systeme mit minimalem Risiko oder rein wissenschaftliche Forschung) *(Artikel 6 Abs. 3, EU-KI-Verordnung)*.\n\nDie Pflichten gelten **unabhängig vom Standort des Anbieters**, sofern das System in der EU vermarktet oder genutzt wird *(Artikel 2 Abs. 1, EU-KI-Verordnung)*.\n\n---\n\n#### **2. Rechtsrahmen**\nDie Pflichten für Anbieter von Hochrisiko-KI-Systemen sind in **Artikel 16 EU-KI-Verordnung** geregelt und umfassen folgende **11 Kernpflichten**:\n\n| **Pflicht**                                                                 | **Rechtsgrundlage**                          | **Konkrete Anforderungen**                                                                                                                                                                                                 |\n|-----------------------------------------------------------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| **1. Einhaltung der Anforderungen aus Abschnitt 2**                        | Artikel 16 lit. a                           | Das System muss u. a. folgende Kriterien erfüllen: <br> - Risikomanagement *(Artikel 9)* <br> - Datenqualität *(Artikel 10)* <br> - Transparenz *(Artikel 13)* <br> - Menschliche Aufsicht *(Artikel 14)* <br> - Genauigkeit/Robustheit *(Artikel 15)* *(EU-KI-Verordnung)*. |\n| **2. Kennzeichnungspflicht**                                               | Artikel 16 lit. b                           | Name, Handelsmarke und Kontaktanschrift des Anbieters müssen auf dem System, der Verpackung oder in der Dokumentation angegeben sein *(EU-KI-Verordnung)*.                                                                 |\n| **3. Qualitätsmanagementsystem (QMS)**                                     | Artikel 16 lit. c i. V. m. Artikel 17       | Einrichtung eines QMS, das u. a. umfasst: <br> - Dokumentation der Entwicklung <br> - Risikomanagement <br> - Konformitätsbewertung <br> - Post-Market-Monitoring *(Artikel 17, EU-KI-Verordnung)*.                          |\n| **4. Technische Dokumentation**                                            | Artikel 16 lit. d i. V. m. Artikel 18       | Erstellung und Aufbewahrung einer Dokumentation, die u. a. enthält: <br> - Systembeschreibung <br> - Designspezifikationen <br> - Risikobewertungen <br> - Testberichte *(Artikel 18, EU-KI-Verordnung)*.                     |\n| **5. Protokollierung (Logging)**                                           | Artikel 16 lit. e i. V. m. Artikel 19       | Automatische Protokollierung von Eingaben, Ausgaben und Entscheidungen des Systems (sofern technisch möglich) *(Artikel 19, EU-KI-Verordnung)*.                                                                             |\n| **6. Konformitätsbewertungsverfahren**                                     | Artikel 16 lit. f i. V. m. Artikel 43       | Durchführung einer Konformitätsbewertung vor Inverkehrbringen/Inbetriebnahme, entweder durch: <br> - Interne Kontrolle *(Anhang VI)* oder <br> - Externe Stelle *(Anhang VII, z. B. bei biometrischer Identifikation)* *(Artikel 43, EU-KI-Verordnung)*. |\n| **7. EU-Konformitätserklärung**                                            | Artikel 16 lit. g i. V. m. Artikel 47       | Ausstellung einer schriftlichen Erklärung, dass das System alle Anforderungen erfüllt *(Artikel 47, EU-KI-Verordnung)*.                                                                                                  |\n| **8. CE-Kennzeichnung**                                                    | Artikel 16 lit. h i. V. m. Artikel 48       | Anbringung der CE-Kennzeichnung auf dem System oder der Verpackung *(Artikel 48, EU-KI-Verordnung)*.                                                                                                                     |\n| **9. Registrierung in der EU-Datenbank**                                   | Artikel 16 lit. i i. V. m. Artikel 49       | Registrierung des Systems in der von der Kommission geführten EU-Datenbank *(Artikel 49, EU-KI-Verordnung)*.                                                                                                             |\n| **10. Korrekturmaßnahmen bei Nichtkonformität**                            | Artikel 16 lit. j i. V. m. Artikel 20       | Bei Feststellung von Mängeln: <br> - Sofortige Korrektur <br> - Rückruf/Deaktivierung <br> - Information der Behörden *(Artikel 20, EU-KI-Verordnung)*.                                                                     |\n| **11. Kooperationspflicht mit Dritten**                                    | Artikel 16 Abs. 4                           | Schriftliche Vereinbarung mit Zulieferern/Dritten über: <br> - Technischen Zugang <br> - Unterstützung bei Pflichtenerfüllung <br> *(Ausnahme: Open-Source-Komponenten ohne KI-Modelle mit allgemeinem Verwendungszweck)* *(Artikel 16 Abs. 4, EU-KI-Verordnung)*. |\n\n**Zusätzliche Pflichten für spezifische Konstellationen:**\n- **Produkthersteller als Anbieter**: Falls ein Hochrisiko-KI-System in ein Produkt integriert ist (z. B. Medizinprodukt), gilt der Produkthersteller als Anbieter und muss die Pflichten aus **Artikel 16** erfüllen *(Artikel 24 Abs. 3, EU-KI-Verordnung)*.\n- **Händler, Einführer, Betreiber als Anbieter**: Wer ein System mit eigenem Namen/Markenzeichen versieht oder dessen Zweckbestimmung wesentlich ändert, übernimmt die Anbieterpflichten *(Artikel 25 Abs. 1, EU-KI-Verordnung)*.\n\n---\n\n#### **3. Handlungsoptionen mit Trade-offs**\nAnbieter von Hochrisiko-KI-Systemen haben folgende **strategische Optionen**, die jeweils mit **Vor- und Nachteilen** verbunden sind:\n\n| **Handlungsoption**                                                                 | **Trade-offs**                                                                                                                                                                                                 |\n|------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| **1. Vollständige Eigenentwicklung und -zertifizierung**                           | **Vorteile:** <br> - Volle Kontrolle über Konformität <br> - Keine Abhängigkeit von Dritten <br> **Nachteile:** <br> - Hohe Kosten für QMS, Dokumentation, Konformitätsbewertung *(Schätzung: 5–15 % der Entwicklungskosten, Quelle: EU-Kommission, Impact Assessment 2021)* <br> - Zeitaufwand (Konformitätsbewertung kann 6–12 Monate dauern) *(Artikel 43, EU-KI-Verordnung)*. |\n| **2. Nutzung externer Zertifizierungsstellen**                                    | **Vorteile:** <br> - Beschleunigte Markteinführung (bei akkreditierten Stellen) <br> - Externe Expertise reduziert Fehlerrisiko <br> **Nachteile:** <br> - Kosten für externe Prüfung *(ca. 10.000–50.000 € pro System, Quelle: TÜV SÜD, 2023)* <br> - Abhängigkeit von Verfügbarkeit der Stellen (Engpässe möglich).                                                                 |\n| **3. Integration in bestehende QMS (z. B. ISO 13485 für Medizinprodukte)**        | **Vorteile:** <br> - Synergien mit bestehenden Zertifizierungen (z. B. MDR) <br> - Geringerer Mehraufwand <br> **Nachteile:** <br> - Anpassungsbedarf an KI-spezifische Anforderungen *(Artikel 17 Abs. 2, EU-KI-Verordnung)* <br> - Risiko von Lücken bei KI-spezifischen Risiken (z. B. Bias, Robustheit).                                                                 |\n| **4. Nutzung von Open-Source-Komponenten**                                        | **Vorteile:** <br> - Geringere Entwicklungskosten <br> - Transparenz und Community-Unterstützung <br> **Nachteile:** <br> - Keine Ausnahme von Anbieterpflichten, wenn das System als Hochrisiko eingestuft wird *(Artikel 16 Abs. 4, EU-KI-Verordnung)* <br> - Haftungsrisiko bei nicht konformen Komponenten.                                                                 |\n| **5. Auslagerung der Konformität an Dritte (z. B. Cloud-Anbieter)**                | **Vorteile:** <br> - Reduzierter interner Aufwand <br> - Nutzung von Skaleneffekten <br> **Nachteile:** <br> - Vertragliche Komplexität (schriftliche Vereinbarungen nach Artikel 16 Abs. 4) <br> - Haftung bleibt beim Anbieter *(Artikel 25, EU-KI-Verordnung)*.                                                                 |\n| **6. Verzicht auf Hochrisiko-Klassifizierung (z. B. durch Risikominimierung)**     | **Vorteile:** <",
+  "answer": "### **1. Faktenlage**\nDie Quellen definieren konkrete Pflichten für **Anbieter** und **Betreiber** von Hochrisiko-KI-Systemen gemäß der EU-KI-Verordnung:\n\n#### **Pflichten der Anbieter (Artikel 16)**\n- **Konformität mit Anforderungen**: Anbieter müssen sicherstellen, dass ihre Hochrisiko-KI-Systeme die in **Abschnitt 2** festgelegten Anforderungen erfüllen. *(Art. 16 lit. a)*\n- **Kennzeichnungspflicht**: Name, Handelsname/Markenzeichen und Kontaktanschrift des Anbieters müssen auf dem System, der Verpackung oder in der Dokumentation angegeben werden. *(Art. 16 lit. b)*\n- **Qualitätsmanagementsystem**: Anbieter müssen über ein Qualitätsmanagementsystem verfügen, das **Artikel 17** entspricht. *(Art. 16 lit. c)*\n- **Dokumentationspflicht**: Anbieter müssen die in **Artikel 18** genannte Dokumentation aufbewahren. *(Art. 16 lit. d)*\n- **Protokollierung**: Automatisch erzeugte Protokolle der Hochrisiko-KI-Systeme müssen gemäß **Artikel 19** aufbewahrt werden, sofern sie der Kontrolle des Anbieters unterliegen. *(Art. 16 lit. e/f)*\n- **Konformitätsbewertung**: Das System muss vor Inverkehrbringen oder Inbetriebnahme einem Konformitätsbewertungsverfahren nach **Artikel 43** unterzogen werden. *(Art. 16 lit. f)*\n- **EU-Konformitätserklärung**: Anbieter müssen eine EU-Konformitätserklärung gemäß **Artikel 47** ausstellen. *(Art. 16 lit. g)*\n- **CE-Kennzeichnung**: Die CE-Kennzeichnung muss am System, der Verpackung oder in der Dokumentation angebracht werden, um die Konformität anzuzeigen. *(Art. 16 lit. h)*\n- **Registrierungspflicht**: Anbieter müssen sich und ihr KI-System in der von der Kommission verwalteten **EU-Datenbank** registrieren (außer bei Systemen, die unter Harmonisierungsrechtsvorschriften fallen). *(Art. 16 lit. i/k)*\n- **Korrekturmaßnahmen**: Bei Nichtkonformität müssen Anbieter Korrekturmaßnahmen ergreifen und Informationen gemäß **Artikel 20** bereitstellen. *(Art. 16 lit. j)*\n- **Geheimnisschutz**: Rechte des geistigen Eigentums, vertrauliche Geschäftsinformationen und Geschäftsgeheimnisse müssen gewahrt werden. *(Art. 16 Abs. 5)*\n\n#### **Pflichten der Betreiber (Artikel 26)**\n- **Einhaltung der Betriebsanleitungen**: Betreiber müssen Hochrisiko-KI-Systeme gemäß den beigefügten Betriebsanleitungen und den Vorgaben der Verordnung verwenden. *(Art. 26 Abs. 1)*\n- **Menschliche Aufsicht**: Betreiber müssen natürliche Personen mit der erforderlichen Kompetenz, Ausbildung und Befugnis für die menschliche Aufsicht benennen und unterstützen. *(Art. 26 Abs. 2)*\n- **Zusammenarbeit mit Anbietern/Dritten**: Betreiber müssen mit Anbietern und Dritten schriftliche Vereinbarungen über Informationen, Zugang und Unterstützung treffen, um die Erfüllung der Anbieterpflichten zu ermöglichen (außer bei öffentlich zugänglichen Open-Source-Komponenten). *(Art. 26 Abs. 4)*\n- **Information der Arbeitnehmer**: Vor Inbetriebnahme am Arbeitsplatz müssen Betreiber (als Arbeitgeber) Arbeitnehmervertreter und betroffene Arbeitnehmer über die Verwendung des Systems informieren. *(Art. 26 Abs. 7)*\n- **Registrierungspflicht für öffentliche Stellen**: Betreiber, die Organe, Einrichtungen oder sonstige Stellen der Union sind, müssen sich in der **EU-Datenbank** registrieren. Falls ein geplantes System nicht registriert ist, müssen sie dessen Verwendung unterlassen und den Anbieter/Händler informieren. *(Art. 26 Abs. 8)*\n\n#### **Zusätzliche Pflichten entlang der Wertschöpfungskette (Artikel 25)**\n- **Händler, Einführer, Betreiber oder Dritte** können als **Anbieter** gelten (und unterliegen dann allen Anbieterpflichten), wenn sie:\n  - Ein bereits in Verkehr gebrachtes System mit ihrem Namen/Markenzeichen versehen *(Art. 25 Abs. 1)*,\n  - Eine **wesentliche Veränderung** an einem Hochrisiko-KI-System vornehmen, sodass es ein solches bleibt *(Art. 25 Abs. 1)*,\n  - Die **Zweckbestimmung** eines nicht als Hochrisiko-KI-System eingestuften Systems ändern, sodass es zu einem Hochrisiko-KI-System wird *(Art. 25 Abs. 1)*.\n\n---\n\n### **2. Rechtsrahmen**\n- Die Pflichten sind **verbindlich** und gelten für alle Hochrisiko-KI-Systeme, die unter die Verordnung fallen.\n- Die **Konformitätsbewertung** (Art. 43) und **CE-Kennzeichnung** (Art. 48) sind Voraussetzungen für das Inverkehrbringen.\n- Die **EU-Datenbank** dient der Transparenz und Marktüberwachung, wobei bestimmte Systeme (z. B. für Strafverfolgung) in einem **nicht-öffentlichen Teil** registriert werden. *(Art. 16 lit. k, Art. 26 Abs. 8)*\n- **Geheimnisschutz** ist gewährleistet, soweit er mit Unionsrecht und nationalem Recht vereinbar ist. *(Art. 16 Abs. 5)*\n- **Vertragliche Vereinbarungen** können die Pflichtenverteilung zwischen Anbietern und Dritten regeln, sofern sie nicht gegen die Verordnung verstoßen. *(Art. 25 Abs. 1)*\n\n---\n\n### **3. Handlungsoptionen mit Trade-offs**\n| **Handlungsoption** | **Trade-offs** |\n|---------------------|---------------|\n| **Anbieter: Vollständige Konformität mit Artikel 16** | **+** Rechtssicherheit, Marktzugang, Vermeidung von Sanktionen. <br> **–** Hoher Aufwand für Dokumentation, Qualitätsmanagement, Konformitätsbewertung und Registrierung. |\n| **Betreiber: Einhaltung der Betriebsanleitungen und menschliche Aufsicht** | **+** Risikominimierung, Compliance. <br> **–** Personeller und organisatorischer Aufwand (Schulungen, Benennung verantwortlicher Personen). |\n| **Dritte: Übernahme von Anbieterpflichten bei wesentlicher Veränderung** | **+** Möglichkeit, bestehende Systeme anzupassen. <br> **–** Volle Haftung und Verantwortung für Konformität, auch wenn das ursprüngliche System bereits zertifiziert war. |\n| **Öffentliche Betreiber: Registrierung in der EU-Datenbank** | **+** Transparenz, Vermeidung von Rechtsverstößen. <br> **–** Bürokratischer Aufwand, insbesondere bei Systemen für kritische Infrastrukturen (nur nationale Registrierung). |\n| **Anbieter: Nutzung von Ausnahmen für nicht-hochriskante Systeme** | **+** Geringerer Aufwand, wenn ein System trotz Hochrisiko-Einstufung als nicht-hochriskant eingestuft wird. <br> **–** Beweislast liegt beim Anbieter; Risiko von Fehleinschätzungen und nachträglichen Korrekturen. |\n\n---\n\n### **4. Offene Fragen**\n- **Definition „wesentlicher Veränderung“**: Wann gilt eine Modifikation eines Hochrisiko-KI-Systems als so gravierend, dass der Dritte zum Anbieter wird? *(Art. 25 Abs. 1)*\n- **Umfang der Dokumentationspflichten**: Welche konkreten Inhalte müssen in der Dokumentation nach **Artikel 18** enthalten sein? *(Art. 16 lit. d)*\n- **Ausnahmen von der Registrierungspflicht**: Unter welchen Bedingungen kann ein Anbieter geltend machen, dass ein System trotz Hochrisiko-Einstufung nicht registriert werden muss? *(Art. 16 lit. k)*\n- **Praktische Umsetzung der menschlichen Aufsicht**: Wie wird die „erforderliche Kompetenz“ der Aufsichtspersonen definiert und überprüft? *(Art. 26 Abs. 2)*\n- **Zugang zur EU-Datenbank**: Welche konkreten Sicherheitsvorkehrungen gelten für den **nicht-öffentlichen Teil** der Datenbank (z. B. für Strafverfolgung)? *(Art. 16 lit. k, Art. 26 Abs. 8)*\n- **Abgrenzung zu Harmonisierungsrechtsvorschriften**: Welche Systeme fallen unter die Ausnahme für Produkte, die bereits unter andere EU-Rechtsvorschriften fallen? *(Art. 16 lit. k)*\n- **Umgang mit Open-Source-Komponenten**: Wie werden Dritte behandelt, die nicht-hochriskante Open-Source-Komponenten bereitstellen? *(Art. 26 Abs. 4)*",
   "analysis": {
-    "thema": "Pflichten für Anbieter von Hochrisiko-KI-Systemen nach der EU-KI-Verordnung",
+    "thema": "Pflichten für Anbieter und Betreiber von Hochrisiko-KI-Systemen gemäß der EU-KI-Verordnung",
     "frage_typ": "entscheidungsfrage",
     "faktenlage": [
       {
-        "aussage": "Die EU-KI-Verordnung definiert in Artikel 16 konkrete Pflichten für Anbieter von Hochrisiko-KI-Systemen, die in Anhang III eingestuft sind.",
+        "aussage": "Anbieter müssen sicherstellen, dass Hochrisiko-KI-Systeme die Anforderungen in Abschnitt 2 erfüllen.",
         "quelle_chunk": 0,
         "tier": null,
-        "verifiziert": false,
-        "verification_status": "teilweise",
-        "evidence_quote": "Artikel 16 Pflichten der Anbieter von Hochrisiko-KI-Systemen müssen a) sicherstellen, dass ihre Hochrisiko-KI-Systeme die in Abschnitt 2 festgelegten Anforderungen erfüllen;"
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Anbieter von Hochrisiko-KI-Systemen müssen sicherstellen, dass ihre Hochrisiko-KI-Systeme die in Abschnitt 2 festgelegten Anforderungen erfüllen;"
       },
       {
-        "aussage": "Hochrisiko-KI-Systeme sind solche, die ein erhebliches Risiko für Gesundheit, Sicherheit oder Grundrechte darstellen und nicht unter Ausnahmen fallen.",
-        "quelle_chunk": null,
+        "aussage": "Anbieter unterliegen einer Kennzeichnungspflicht bezüglich Name, Handelsname und Kontaktanschrift auf dem System oder der Verpackung.",
+        "quelle_chunk": 0,
         "tier": null,
-        "verifiziert": false,
-        "verification_status": "nicht_belegt",
-        "evidence_quote": null
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "auf dem Hochrisiko-KI-System oder, falls dies nicht möglich ist, auf seiner Verpackung oder in der beigefügten Dokumentation ihren Namen, ihren eingetragenen Handelsnamen bzw. ihre eingetragene Handelsmarke und ihre Kontaktanschrift angeben;"
       },
       {
-        "aussage": "Die Pflichten gelten unabhängig vom Standort des Anbieters, sofern das System in der EU vermarktet oder genutzt wird.",
-        "quelle_chunk": null,
+        "aussage": "Anbieter müssen über ein Qualitätsmanagementsystem gemäß Artikel 17 verfügen.",
+        "quelle_chunk": 0,
         "tier": null,
-        "verifiziert": false,
-        "verification_status": "nicht_belegt",
-        "evidence_quote": null
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "über ein Qualitätsmanagementsystem verfügen, das Artikel 17 entspricht;"
+      },
+      {
+        "aussage": "Anbieter sind zur Aufbewahrung der Dokumentation nach Artikel 18 verpflichtet.",
+        "quelle_chunk": 0,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "die in Artikel 18 genannte Dokumentation aufbewahren;"
+      },
+      {
+        "aussage": "Anbieter müssen automatisch erzeugte Protokolle gemäß Artikel 19 aufbewahren.",
+        "quelle_chunk": 0,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "die von ihren Hochrisiko-KI-Systemen automatisch erzeugten Protokolle gemäß Artikel 19 aufbewahren, wenn diese ihrer Kontrolle unterliegen;"
+      },
+      {
+        "aussage": "Hochrisiko-KI-Systeme müssen vor Inverkehrbringen einer Konformitätsbewertung nach Artikel 43 unterzogen werden.",
+        "quelle_chunk": 1,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "sicherstellen, dass das Hochrisiko-KI-System dem betreffenden Konformitätsbewertungsverfahren gemäß Artikel 43 unterzogen wird, bevor es in Verkehr gebracht oder in Betrieb genommen wird;"
+      },
+      {
+        "aussage": "Anbieter müssen eine EU-Konformitätserklärung gemäß Artikel 47 ausstellen.",
+        "quelle_chunk": 1,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "eine EU-Konformitätserklärung gemäß Artikel 47 ausstellen;"
+      },
+      {
+        "aussage": "Die CE-Kennzeichnung muss am System, der Verpackung oder in der Dokumentation angebracht werden.",
+        "quelle_chunk": 1,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "die CE-Kennzeichnung an das Hochrisiko-KI-System oder, falls dies nicht möglich ist, auf seiner Verpackung oder in der beigefügten Dokumentation anbringen"
+      },
+      {
+        "aussage": "Anbieter müssen sich und ihr KI-System in der EU-Datenbank registrieren (mit Ausnahmen).",
+        "quelle_chunk": 2,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Anbieter von Hochrisiko-KI-Systemen [...] dazu verpflichtet werden, sich und Informationen über ihr KI-System in einer von der Kommission einzurichtenden und zu verwaltenden EU-Datenbank zu registrieren."
+      },
+      {
+        "aussage": "Anbieter müssen bei Nichtkonformität Korrekturmaßnahmen ergreifen und Informationen gemäß Artikel 20 bereitstellen.",
+        "quelle_chunk": 1,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "die erforderlichen Korrekturmaßnahmen ergreifen und die gemäß Artikel 20 erforderlichen Informationen bereitstellen;"
+      },
+      {
+        "aussage": "Rechte des geistigen Eigentums und Geschäftsgeheimnisse müssen gewahrt werden.",
+        "quelle_chunk": 3,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Die Absätze 2 und 3 berühren nicht die Notwendigkeit, Rechte des geistigen Eigentums, vertrauliche Geschäftsinformationen und Geschäftsgeheimnisse im Einklang mit dem Unionsrecht und dem nationalen Recht zu achten und zu schützen."
+      },
+      {
+        "aussage": "Betreiber müssen Hochrisiko-KI-Systeme gemäß Betriebsanleitungen und Verordnungsvorgaben verwenden.",
+        "quelle_chunk": 3,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Die Betreiber von Hochrisiko-KI-Systemen treffen geeignete technische und organisatorische Maßnahmen, um sicherzustellen, dass sie solche Systeme entsprechend der den Systemen beigefügten Betriebsanleitungen [...] verwenden."
+      },
+      {
+        "aussage": "Betreiber müssen natürliche Personen für die menschliche Aufsicht mit entsprechender Kompetenz benennen.",
+        "quelle_chunk": 3,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Die Betreiber übertragen natürlichen Personen, die über die erforderliche Kompetenz, Ausbildung und Befugnis verfügen, die menschliche Aufsicht und lassen ihnen die erforderliche Unterstützung zukommen."
+      },
+      {
+        "aussage": "Betreiber müssen schriftliche Vereinbarungen mit Anbietern/Dritten über Informationen und Zugang treffen.",
+        "quelle_chunk": 4,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Der Anbieter eines Hochrisiko-KI-Systems und der Dritte [...] legen in einer schriftlichen Vereinbarung die Informationen, die Fähigkeiten, den technischen Zugang und die sonstige Unterstützung [...] fest"
+      },
+      {
+        "aussage": "Arbeitgeber (Betreiber) müssen Arbeitnehmervertreter und betroffene Arbeitnehmer vor Inbetriebnahme informieren.",
+        "quelle_chunk": 6,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Vor der Inbetriebnahme oder Verwendung eines Hochrisiko-KI-Systems am Arbeitsplatz informieren Betreiber, die Arbeitgeber sind, die Arbeitnehmervertreter und die betroffenen Arbeitnehmer darüber, dass sie der Verwendung des Hochrisiko-KI-Systems unterliegen werden."
+      },
+      {
+        "aussage": "Öffentliche Betreiber müssen sich in der EU-Datenbank registrieren; bei fehlender Registrierung ist die Verwendung zu unterlassen.",
+        "quelle_chunk": 6,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Betreiber von Hochrisiko-KI-Systemen, bei denen es sich um Organe, Einrichtungen oder sonstige Stellen der Union handelt, müssen den Registrierungspflichten gemäß Artikel 49 nachkommen. Stellen diese Betreiber fest, dass das Hochrisiko-KI-System [...] nicht in der in Artikel 71 genannten EU-Datenbank registriert wurde, sehen sie von der Verwendung dieses Systems ab"
+      },
+      {
+        "aussage": "Händler, Einführer oder Dritte werden zum Anbieter, wenn sie das System mit ihrem Namen versehen, wesentlich verändern oder die Zweckbestimmung ändern.",
+        "quelle_chunk": 8,
+        "tier": null,
+        "verifiziert": true,
+        "verification_status": "verifiziert",
+        "evidence_quote": "Dies wäre auch der Fall, wenn diese Partei ein bereits in Verkehr gebrachtes oder in Betrieb genommenes Hochrisiko-KI-System mit ihrem Namen oder ihrer Handelsmarke versieht [...] oder wenn sie eine wesentliche Veränderung des Hochrisiko-KI-Systems [...] vornimmt"
       }
     ],
     "rechtsrahmen": [
       {
-        "bezeichnung": "Artikel 16 EU-KI-Verordnung",
-        "relevanz": "Regelt die 11 Kernpflichten für Anbieter von Hochrisiko-KI-Systemen (z. B. Einhaltung von Anforderungen, Kennzeichnung, QMS, technische Dokumentation etc.).",
+        "bezeichnung": "EU-KI-Verordnung (allgemein)",
+        "relevanz": "Die Pflichten sind verbindlich für alle unter die Verordnung fallenden Hochrisiko-KI-Systeme.",
         "quelle_chunk": null
       },
       {
-        "bezeichnung": "Artikel 6 i. V. m. Anhang III EU-KI-Verordnung",
-        "relevanz": "Definiert die Klassifizierung von Hochrisiko-Systemen.",
+        "bezeichnung": "Art. 43 & Art. 48",
+        "relevanz": "Konformitätsbewertung und CE-Kennzeichnung sind Voraussetzungen für das Inverkehrbringen.",
         "quelle_chunk": null
       },
       {
-        "bezeichnung": "Artikel 24 Abs. 3 EU-KI-Verordnung",
-        "relevanz": "Regelt, dass Produkthersteller als Anbieter gelten, wenn sie ein Hochrisiko-KI-System in ein Produkt integrieren.",
+        "bezeichnung": "Art. 16 lit. k, Art. 26 Abs. 8",
+        "relevanz": "Die EU-Datenbank dient der Transparenz; bestimmte Systeme haben einen nicht-öffentlichen Teil.",
         "quelle_chunk": null
       },
       {
-        "bezeichnung": "Artikel 25 Abs. 1 EU-KI-Verordnung",
-        "relevanz": "Regelt die Übernahme von Anbieterpflichten durch Händler, Einführer oder Betreiber bei Namensänderung oder Zweckänderung.",
+        "bezeichnung": "Art. 16 Abs. 5",
+        "relevanz": "Gewährleistung des Geheimnisschutzes im Einklang mit Unions- und nationalem Recht.",
+        "quelle_chunk": null
+      },
+      {
+        "bezeichnung": "Art. 25 Abs. 1",
+        "relevanz": "Vertragliche Vereinbarungen können die Pflichtenverteilung zwischen Anbietern und Dritten regeln.",
         "quelle_chunk": null
       }
     ],
     "optionen": [
       {
-        "titel": "Vollständige Eigenentwicklung und -zertifizierung",
-        "beschreibung": "Anbieter entwickeln das System komplett selbst und steuern den gesamten Zertifizierungsprozess.",
+        "titel": "Anbieter: Vollständige Konformität mit Artikel 16",
+        "beschreibung": "Umsetzung aller regulatorischen Anforderungen an Dokumentation, Management und Registrierung.",
         "trade_offs": [
-          "Vorteil: Volle Kontrolle über Konformität",
-          "Vorteil: Keine Abhängigkeit von Dritten",
-          "Nachteil: Hohe Kosten für QMS, Dokumentation, Konformitätsbewertung (Schätzung: 5–15 % der Entwicklungskosten)",
-          "Nachteil: Zeitaufwand (Konformitätsbewertung kann 6–12 Monate dauern)"
-        ],
-        "wertannahmen": [
-          "Kosten für QMS/Dokumentation ca. 5-15% der Entwicklungskosten",
-          "Dauer der Konformitätsbewertung 6-12 Monate"
-        ]
-      },
-      {
-        "titel": "Nutzung externer Zertifizierungsstellen",
-        "beschreibung": "Einbindung akkreditierter Stellen zur Durchführung der Konformitätsbewertung.",
-        "trade_offs": [
-          "Vorteil: Beschleunigte Markteinführung (bei akkrediti-erten Stellen)",
-          "Vorteil: Externe Expertise reduziert Fehlerrisiko",
-          "Nachteil: Kosten für externe Prüfung (ca. 10.000–50.000 € pro System)",
-          "Nachteil: Abhängigkeit von Verfügbarkeit der Stellen"
-        ],
-        "wertannahmen": [
-          "Kosten pro System ca. 10.000–50.000 €"
-        ]
-      },
-      {
-        "titel": "Integration in bestehende QMS",
-        "beschreibung": "Anpassung bereits vorhandener Qualitätsmanagementsysteme (z. B. ISO 13485) an die KI-Anforderungen.",
-        "trade_offs": [
-          "Vorteil: Synergien mit bestehenden Zertifizierungen (z. B. MDR)",
-          "Vorteil: Geringerer Mehraufwand",
-          "Nachteil: Anpassungsbedarf an KI-spezifische Anforderungen",
-          "Nachteil: Risiko von Lücken bei KI-spezifischen Risiken wie Bias oder Robustheit"
+          "+ Rechtssicherheit, Marktzugang, Vermeidung von Sanktionen",
+          "– Hoher Aufwand für Dokumentation, Qualitätsmanagement, Konformitätsbewertung und Registrierung"
         ],
         "wertannahmen": []
       },
       {
-        "titel": "Nutzung von Open-Source-Komponenten",
-        "beschreibung": "Verwendung von quelloffenen Komponenten zur Entwicklung des Systems.",
+        "titel": "Betreiber: Einhaltung der Betriebsanleitungen und menschliche Aufsicht",
+        "beschreibung": "Sicherstellung des korrekten Betriebs durch Schulung und Benennung von Aufsichtspersonen.",
         "trade_offs": [
-          "Vorteil: Geringere Entwicklungskosten",
-          "Vorteil: Transparenz und Community-Unterstützung",
-          "Nachteil: Keine Ausnahme von Anbieterpflichten bei Hochrisiko-Einstufung",
-          "Nachteil: Haftungsrisiko bei nicht konformen Komponenten"
+          "+ Risikominimierung, Compliance",
+          "– Personeller und organisatorischer Aufwand (Schulungen, Benennung verantwortlicher Personen)"
+        ],
+        "wertannahmen": []
+      },
+      {
+        "titel": "Dritte: Übernahme von Anbieterpflichten bei wesentlicher Veränderung",
+        "beschreibung": "Anpassung bestehender Systeme durch Dritte unter Übernahme der Anbieterrolle.",
+        "trade_offs": [
+          "+ Möglichkeit, bestehende Systeme anzupassen",
+          "– Volle Haftung und Verantwortung für Konformität, auch wenn das ursprüngliche System bereits zertifiziert war"
+        ],
+        "wertannahmen": []
+      },
+      {
+        "titel": "Öffentliche Betreiber: Registrierung in der EU-Datenbank",
+        "beschreibung": "Verpflichtende Anmeldung von Hochrisiko-Systemen öffentlicher Stellen.",
+        "trade_offs": [
+          "+ Transparenz, Vermeidung von Rechtsverstößen",
+          "– Bürokratischer Aufwand, insbesondere bei Systemen für kritische Infrastrukturen (nur nationale Registrierung)"
+        ],
+        "wertannahmen": []
+      },
+      {
+        "titel": "Anbieter: Nutzung von Ausnahmen für nicht-hochriskante Systeme",
+        "beschreibung": "Versuch der Einstufung als nicht-hochriskantes System zur Umgehung der Artikel 16 Pflichten.",
+        "trade_offs": [
+          "+ Geringerer Aufwand, wenn ein System trotz Hochrisiko-Einstufung als nicht-hochriskant eingestuft wird",
+          "– Beweislast liegt beim Anbieter; Risiko von Fehleinschätzungen und nachträglichen Korrekturen"
         ],
         "wertannahmen": []
       }
     ],
     "vergleichsfaelle": [],
-    "offene_fragen": [],
+    "offene_fragen": [
+      "Definition „wesentlicher Veränderung“: Wann gilt eine Modifikation eines Hochrisiko-KI-Systems als so gravierend, dass der Dritte zum Anbieter wird? (Art. 25 Abs. 1)",
+      "Umfang der Dokumentationspflichten: Welche konkreten Inhalte müssen in der Dokumentation nach Artikel 18 enthalten sein? (Art. 16 lit. d)",
+      "Ausnahmen von der Registrierungspflicht: Unter welchen Bedingungen kann ein Anbieter geltend machen, dass ein System trotz Hochrisiko-Einstufung nicht registriert werden muss? (Art. 16 lit. k)",
+      "Praktische Umsetzung der menschlichen Aufsicht: Wie wird die „erforderliche Kompetenz“ der Aufsichtspersonen definiert und überprüft? (Art. 26 Abs. 2)",
+      "Zugang zur EU-Datenbank: Welche konkreten Sicherheitsvorkehrungen gelten für den nicht-öffentlichen Teil der Datenbank (z. B. für Strafverfolgung)? (Art. 16 lit. k, Art. 26 Abs. 8)",
+      "Abgrenzung zu Harmonisierungsrechtsvorschriften: Welche Systeme fallen unter die Ausnahme für Produkte, die bereits unter andere EU-Rechtsvorschriften fallen?",
+      "Umgang mit Open-Source-Komponenten: Wie werden Dritte behandelt, die nicht-hochriskante Open-Source-Komponenten bereitstellen?"
+    ],
     "konfidenz": "hoch"
   },
   "adversarial": [
     {
-      "aussage": "Die EU-KI-Verordnung definiert in Artikel 16 konkrete Pflichten für Anbieter von Hochrisiko-KI-Systemen, die in Anhang III eingestuft sind.",
-      "verdict": "zweifelhaft",
-      "begruendung": "Der Text bestätigt zwar die Pflichten in Artikel 16, der Zusammenhang zwischen Artikel 16 und der Einstufung via Anhang III wird jedoch im vorliegenden Textabschnitt nicht explizit hergestellt.",
-      "quelle": "KI-Verordnung (AI Act), Anhang III"
+      "aussage": "Anbieter müssen sicherstellen, dass Hochrisiko-KI-Systeme die Anforderungen in Abschnitt 2 erfüllen.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe a stellt explizit fest, dass Anbieter von Hochrisiko-KI-Systemen sicherstellen müssen, dass ihre Systeme die Anforderungen in Abschnitt 2 erfüllen.",
+      "quelle": ""
     },
     {
-      "aussage": "Hochrisiko-KI-Systeme sind solche, die ein erhebliches Risiko für Gesundheit, Sicherheit oder Grundrechte darstellen und nicht unter Ausnahmen fallen.",
-      "verdict": "zweifelhaft",
-      "begruendung": "Die Quellen beschreiben zwar Pflichten für Hochrisiko-KI-Systeme und Erwähnungen von Ausnahmen, definieren aber das Kriterium des 'erheblichen Risikos für Gesundheit, Sicherheit oder Grundrechte' nicht explizit als Definition.",
-      "quelle": "KI-Verordnung (AI Act), Artikel 6 bzw. Anhang III"
+      "aussage": "Anbieter unterliegen einer Kennzeichnungspflicht bezüglich Name, Handelsname und Kontaktanschrift auf dem System oder der Verpackung.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe b legt explizit fest, dass Anbieter ihren Namen, Handelsnamen sowie die Kontaktanschrift auf dem Hochrisiko-KI-System oder der Verpackung angeben müssen.",
+      "quelle": ""
     },
     {
-      "aussage": "Die Pflichten gelten unabhängig vom Standort des Anbieters, sofern das System in der EU vermarktet oder genutzt wird.",
-      "verdict": "zweifelhaft",
-      "begruendung": "Die Quellen beschreiben zwar die Pflichten für Anbieter und deren Geltung bei Import/Inverkehrbringung, enthalten aber keine explizite Bestimmung zur extraterritorialen Reichweite basierend auf dem Standort des Anbieters.",
-      "quelle": "EU-KI-Verordnung (AI Act), insbesondere Bestimmungen zur Anwendbarkeit/Geltungsbereich"
+      "aussage": "Anbieter müssen über ein Qualitätsmanagementsystem gemäß Artikel 17 verfügen.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe c stellt explizit die Pflicht für Anbieter von Hochrisiko-KI-Systemen fest, über ein Qualitätsmanagementsystem zu verfügen, das Artikel 17 entspricht.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Anbieter sind zur Aufbewahrung der Dokumentation nach Artikel 18 verpflichtet.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe d legt explizit fest, dass Anbieter von Hochrisiko-KI-Systemen die in Artikel 18 genannte Dokumentation aufbewahren müssen.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Anbieter müssen automatisch erzeugte Protokolle gemäß Artikel 19 aufbewahren.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe e der Quelle verpflichtet Anbieter explizit dazu, die von ihren Hochrisiko-KI-Systemen automatisch erzeugten Protokolle gemäß Artikel 19 aufzubewahren.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Hochrisiko-KI-Systeme müssen vor Inverkehrbringen einer Konformitätsbewertung nach Artikel 43 unterzogen werden.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe f stellt explizit sicher, dass Hochrisiko-KI-Systeme vor dem Inverkehrbringen oder der Inbetriebnahme einem Konformitätsbewertungsverfahren gemäß Artikel 43 unterzogen werden müssen.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Anbieter müssen eine EU-Konformitätserklärung gemäß Artikel 47 ausstellen.",
+      "verdict": "haelt",
+      "begruendung": "Die Aussage wird durch Artikel 16 Buchstabe g der Quellen direkt gestützt.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Die CE-Kennzeichnung muss am System, der Verpackung oder in der Dokumentation angebracht werden.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 16 Buchstabe h legt explizit fest, dass die CE-Kennzeichnung am Hochrisiko-KI-System oder, falls nicht möglich, auf der Verpackung oder in der beigefügten Dokumentation anzubringen ist.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Anbieter müssen sich und ihr KI-System in der EU-Datenbank registrieren (mit Ausnahmen).",
+      "verdict": "haelt",
+      "begruendung": "Die Quellen belegen die Registrierungspflicht für Anbieter von Hochrisiko-KI-Systemen in einer EU-Datenbank und nennen spezifische Ausnahmen bzw. Sonderregeln (z. B. für Strafverfolgung oder kritische Infrastruktur).",
+      "quelle": ""
+    },
+    {
+      "aussage": "Anbieter müssen bei Nichtkonformität Korrekturmaßnahmen ergreifen und Informationen gemäß Artikel 20 bereitstellen.",
+      "verdict": "haelt",
+      "begruendung": "Die Aussage entspricht wortwörtlich der Pflicht, die in Artikel 16 Buchstabe j der Quelle festgelegt ist.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Rechte des geistigen Eigentums und Geschäftsgeheimnisse müssen gewahrt werden.",
+      "verdict": "haelt",
+      "begruendung": "Die Quellen bestätigen explizit, dass die Notwendigkeit, Rechte des geistigen Eigentums und Geschäftsgeheimnisse zu achten und zu schützen, nicht berührt wird.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Betreiber müssen Hochrisiko-KI-Systeme gemäß Betriebsanleitungen und Verordnungsvorgaben verwenden.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 26 (1) legt explizit fest, dass Betreiber technische Maßnahmen ergreifen müssen, um die Verwendung entsprechend der Betriebsanleitungen sicherzustellen.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Betreiber müssen natürliche Personen für die menschliche Aufsicht mit entsprechender Kompetenz benennen.",
+      "verdict": "haelt",
+      "begruendung": "Die Quellen besagen, dass Betreiber die menschliche Aufsicht auf natürliche Personen mit der erforderlichen Kompetenz übertragen und ihnen Unterstützung zukommen lassen müssen.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Betreiber müssen schriftliche Vereinbarungen mit Anbietern/Dritten über Informationen und Zugang treffen.",
+      "verdict": "widerlegt",
+      "begruendung": "Die Pflicht zur Schriftlichkeit der Vereinbarung über Informationen und technischen Zugang gemäß Artikel 26 (4) liegt beim Anbieter und dem Dritten, nicht bei den Betreibern.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Arbeitgeber (Betreiber) müssen Arbeitnehmervertreter und betroffene Arbeitnehmer vor Inbetriebnahme informieren.",
+      "verdict": "haelt",
+      "begruendung": "Artikel 26 Absatz 7 bestätigt explizit, dass Betreiber, die Arbeitgeber sind, Arbeitnehmervertreter und betroffene Arbeitnehmer über die Verwendung von Hochrisiko-KI-Systemen informieren müssen.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Öffentliche Betreiber müssen sich in der EU-Datenbank registrieren; bei fehlender Registrierung ist die Verwendung zu unterlassen.",
+      "verdict": "haelt",
+      "begruendung": "Die Quellen bestätigen, dass Betreiber von Hochrisiko-KI-Systemen, die Behörden oder Einrichtungen der Union sind, sich in der EU-Datenbank registrieren müssen und bei fehlender Registrierung von der Verwendung absehen müssen.",
+      "quelle": ""
+    },
+    {
+      "aussage": "Händler, Einführer oder Dritte werden zum Anbieter, wenn sie das System mit ihrem Namen versehen, wesentlich verändern oder die Zweckbestimmung ändern.",
+      "verdict": "haelt",
+      "begruendung": "Die Quellen bestätigen unter Artikel 25 Absatz 1, dass Händler, Einführer oder Dritte als Anbieter gelten, wenn sie das System mit ihrem Namen versehen, wesentlich verändern oder die Zweckbestimmung ändern.",
+      "quelle": ""
     }
   ],
-  "critique": "Hier ist die strukturierte Kritik an der bereitgestellten Analyse durch den methodischen Reviewer.\n\n### 1. Faktische Stimmigkeit gegen Quellen\n\nDie Analyse enthält mehrere gravierende Abweichungen von den bereitgestellten Textbausteinen (Chunks) und vermischt diese mit externen, nicht gekennzeichneten Informationen.\n\n*   **Falsche Zuordnung der Rechtsgrundlage für die Registrierung:**\n    *   *Analyse-Zitat:* \"9. Registrierung in der EU-Datenbank ... Artikel 16 lit. i i. V. m. Artikel 49\"\n    *   *Kritik:* In den bereitgestellten Quellen (Artikel 16) wird die Registrierungspflicht zwar unter Buchstabe `i)` genannt (\"den in Artikel 49 Absatz 1 genannten Registrierungspflichten nachkommen\"), aber der Text des Chunks ist hier fehlerhaft/fragmentiert. Wichtiger: Der Chunk enthält unter `f)` einen langen Einschub über die EU-Datenbank, der sich auf Anbieter bezieht, die *nicht* unter Harmonisierungsrechtsvorschriften fallen. Die Analyse vereinfacht dies pauschal auf \"Registrierung ... in der EU-Datenbank\". Sie ignoriert die wichtige Einschränkung im Chunk: Diese Pflicht gilt explizit für Systeme, die *nicht* unter andere EU-Harmonisierungsrechtsvorschriften (wie Medizinprodukteverordnung) fallen. Die Analyse suggeriert eine universelle Pflicht, was faktisch falsch ist.\n*   **Erfindung von Fristen und Kostenangaben (Halluzination/Extrapolation):**\n    *   *Analyse-Zitat:* \"Schätzung: 5–15 % der Entwicklungskosten, Quelle: EU-Kommission, Impact Assessment 2021\" sowie \"ca. 10.000–50.000 € pro System, Quelle: TÜV SÜD, 2023\".\n    *   *Kritik:* Diese Daten stehen **nicht** in den bereitgestellten Quellen. Sie stammen aus dem Trainingswissen der KI oder externen Recherchen. Da die Aufgabe verlangt, sich auf die bereitgestellten Quellen zu stützen oder externe Quellen explizit als solche zu kennzeichnen (Tier-Hinweis), ist dies ein schwerwiegender Verstoß gegen die Transparenzpflicht und die Evidenzbasiertheit im Kontext dieser spezifischen Analyseaufgabe. Die Quellen liefern keine Kosten- oder Zeitangaben.\n*   **Fehlerhafte Interpretation von Artikel 24 Abs. 3:**\n    *   *Analyse-Zitat:* \"Produkthersteller als Anbieter: ... gilt der Produkthersteller als Anbieter ... (Artikel 24 Abs. 3, EU-KI-Verordnung).\"\n    *   *Kritik:* Der Chunk zu Artikel 24 besagt korrekt, dass der Produkthersteller als Anbieter gilt, wenn das System unter seinem Namen/Markenzeichen in Verkehr gebracht wird. Die Analyse ist hier faktisch korrekt im Ergebnis, aber sie blendet die Bedingung aus, dass dies nur für Systeme gilt, die *unter Harmonisierungsrechtsvorschriften fallen* (siehe Artikel 24 Abs. 3 a/b im Chunk). Die Analyse verallgemeinert dies zu stark.\n\n### 2. Methodische Lücken\n\n*   **Fehlende Unterscheidung der Pflichten je nach System-Typ:**\n    *   Die Analyse listet die Pflichten aus Artikel 16 auf, ignoriert aber den entscheidenden Kontext aus dem Chunk (Artikel 16 f) und Artikel 24), dass sich viele dieser Pflichten (insb. Registrierung in der EU-Datenbank und teilweise Konformitätsbewertung) nur auf Systeme beziehen, die *nicht* bereits unter anderen EU-Rechtsvorschriften (wie MDR, Maschinenverordnung) reguliert sind. Für Systeme, die unter diese Vorschriften fallen, gelten oft abweichende oder integrierte Wege zur Konformität. Diese Differenzierung ist für eine \"strukturierte Optionsanalyse\" essenziell, da sie die Handlungsoptionen massiv einschränkt oder erweitert.\n*   **Fehlende Einbeziehung der Pflichten von Händlern/Einführern als potenzielle \"Anbieter\":**\n    *   Zwar wird Artikel 25 kurz erwähnt, aber die Analyse behandelt dies nur am Rande. Die Option \"Verzicht auf Hochrisiko-Klassifizierung\" (Option 6) ist gefährlich irreführend, da sie impliziert, man könne das System einfach als \"nicht hochriskant\" einstufen. Der Chunk (Artikel 16 f und Artikel 25) zeigt klar: Wenn ein Händler oder Dritter das System *wesentlich verändert* oder unter *eigenem Namen* vertreibt, wird er zum Anbieter. Die Analyse lässt die Option \"Kooperation mit einem zertifizierten Dritten als Hersteller\" (Outsourcing der Entwicklung) völlig weg, obwohl dies eine gängige strategische Option ist, um die Pflichten zu erfüllen, ohne sie selbst zu tragen (solange man nicht zum \"Anbieter\" im Sinne der Verordnung wird).\n*   **Fehlende Wertannahmen-Explikation:**\n    *   Die Trade-offs bei Option 1 (\"Vollständige Eigenentwicklung\") nennen Kosten und Zeit, aber keine Wertannahme bezüglich der *Risikotragfähigkeit*. Wer wählt Option 1? Jemand, der volle Kontrolle über IP und Datenfluss will. Wer wählt Option 2? Jemand, der Compliance-Risiko minimieren will, auch wenn es mehr kostet. Diese impliziten Präferenzen werden nicht benannt.\n\n### 3. Sprachliche Schmuggelware\n\n*   **Implizite Empfehlung durch Framing:**\n    *   *Analyse-Zitat:* \"Vorteile: ... Externe Expertise reduziert Fehlerrisiko\" (bei Option 2).\n    *   *Kritik:* Die Formulierung \"reduziert Fehlerrisiko\" ist eine normative Wertung. Es wird suggeriert, dass externe Stellen *besser* oder *sicherer* sind als interne Prozesse. Das ist eine strategische Einschätzung, keine neutrale Tatsache. Eine neutrale Analyse müsste formulieren: \"Externe Prüfung bietet unabhängige Validierung, kann aber zu Abhängigkeiten führen.\"\n*   **Voreingenommene Darstellung von Open Source:**\n    *   *Analyse-Zitat:* \"Nachteile: ... Haftungsrisiko bei nicht konformen Komponenten.\" (bei Option 4).\n    *   *Kritik:* Dies ist eine einseitige Negativdarstellung. Der Chunk (Artikel 16 Abs. 4) macht explizit eine Ausnahme für \"freie und quelloffene Lizenz\" bei Komponenten, die *nicht* KI-Modelle mit allgemeinem Verwendungszweck sind. Die Analyse ignoriert diese positive Möglichkeit (keine Pflichten für bestimmte Open-Source-Komponenten) und stellt nur das Risiko dar. Das ist keine neutrale Abwägung.\n\n### 4. Quellenverwendung und Tier-Disziplin\n\n*   **Verletzung der Transparenzpflicht bei externen Daten:**\n    *   *Analyse-Zitat:* \"Quelle: EU-Kommission, Impact Assessment 2021\" und \"Quelle: TÜV SÜD, 2023\".\n    *   *Kritik:* Diese Quellen sind **nicht** in den bereitgestellten Chunks enthalten. Die KI hat hier Trainingswissen oder externe Recherchen verwendet, ohne dies als \"Tier-X-Wissen aus dem Training\" oder \"externe Quelle außerhalb des Kontextes\" zu kennzeichnen. Im Rahmen der Anweisung \"Wenn die Kontextquellen die Frage nicht belastbar beantworten, sagst du das offen — du erfindest nichts\" wäre es korrekt gewesen zu sagen: \"Die bereitgestellten Quellen enthalten keine Angaben zu Kosten oder Zeitrahmen. Diese Angaben stammen aus dem allgemeinen Wissensstand der KI und sind daher mit niedrigerer Konfidenz für den spezifischen Pfofelder Kontext (falls anwendbar) zu betrachten.\" Stattdessen werden sie als Faktum in die Analyse eingewoben.\n*   **Unsaubere Zitierweise bei Artikel 16:**\n    *   Die Analyse zitiert \"Artikel 16 lit. i\" für die Registrierung. Im Chunk ist `i)` tatsächlich die Registrierungspflicht. Aber der Text des Chunks ist fragmentiert und enthält unter `f)` einen langen Absatz zur Datenbank, der sich auf eine *andere* Gruppe von Anbietern bezieht (nicht unter Harmonisierungsrecht fallend). Die Analyse vermischt diese beiden Gruppen nicht klar. Sie behandelt die Registrierung als einheitliche Pflicht für alle Hochrisiko-Anbieter, was aus den Quellen so nicht abgeleitet werden kann, da der Chunk explizit zwischen \"Harmonisierungsrechtsvorschriften\" und \"anderen Fällen\" unterscheidet.\n\n**Zusammenfassendes Urteil:** Die Analyse ist formal gut strukturiert, aber inhaltlich durch Halluzinationen von Kosten/Fristen (ohne Quellenkennzeichnung) und eine ungenaue Wiedergabe der Ausnahmen (Open Source, Harmonisierungsrecht) stark fehlerhaft. Sie erfüllt die Anforderung der \"Evidenzbasiertheit\" nur oberflächlich, indem sie externe Daten als Teil der Faktenlage ausgibt, ohne deren Herkunft zu kennzeichnen."
+  "critique": "Hier ist die strukturierte Kritik an der vorliegenden Analyse basierend auf den bereitgestellten Quellen und dem Prüfraster.\n\n### 1. Faktische Stimmigkeit gegen Quellen\n\nDie Analyse enthält mehrere faktische Ungenauigkeiten und Zitationsfehler im Vergleich zu den bereitgestellten Textbausteinen:\n\n*   **Falsche Zuordnung der Registrierungspflicht für öffentliche Betreiber:**\n    *   *Analyse:* \"Betreiber, die Organe, Einrichtungen oder sonstige Stellen der Union sind, müssen sich in der **EU-Datenbank** registrieren.\" (unter Pflichten der Betreiber)\n    *   *Korrektur/Quelle:* Der Quellenchunk zu Artikel 26 Abs. 8 lautet: \"Stellen diese Betreiber fest, dass das Hochrisiko-KI-System ... nicht in der in Artikel 71 genannten EU-Datenbank registriert wurde, sehen sie von der Verwendung dieses Systems ab und informieren den Anbieter oder den Händler.\" Es wird hier *nicht* explizit die Registrierungspflicht des Betreibers als solche formuliert, sondern eine Prüf- und Abbruchpflicht bei Nichtregistrierung durch den Anbieter. Die Registrierungspflicht liegt primär beim Anbieter (Art. 16 lit. i/k Kontext). Zudem verweist Art. 26 Abs. 8 auf Artikel 71, während die Analyse dies nicht differenziert.\n*   **Fehlerhafte Zitation der Händler-Pflicht als \"Anbieterpflicht\" bei wesentlicher Veränderung:**\n    *   *Analyse:* Unter \"Zusätzliche Pflichten... (Artikel 25)\" wird behauptet: \"Händler, Einführer, Betreiber oder Dritte ... gelten als Anbieter ... wenn sie ... Eine **wesentliche Veränderung** an einem Hochrisiko-KI-System vornehmen...\"\n    *   *Korrektur/Quelle:* Der Quellenchunk zu Artikel 25 Abs. 1 (im Textfragment am Ende des Dokuments) listet auf: \"...wenn diese Partei ein bereits in Verkehr gebrachtes ... System mit ihrem Namen ... versieht, unbeschadet ... oder wenn sie eine **wesentliche Veränderung** ... so vornimmt, dass es ein Hochrisiko-KI-System im Sinne dieser Verordnung bleibt...\". Die Analyse ist hier faktisch korrekt, *aber* die Einordnung unter \"Zusätzliche Pflichten entlang der Wertschöpfungskette\" als separate Kategorie für Händler/Betreiber ist irreführend, da Artikel 25 explizit definiert, dass sie in diesen Fällen *als Anbieter gelten*. Die Analyse trennt dies künstlich ab, obwohl es rechtlich eine Umdeutung der Rolle ist.\n*   **Verwechslung von Rechtsgrundlagen bei der \"Ausnahme\":**\n    *   *Analyse:* Unter Handlungsoption 5: \"Anbieter: Nutzung von Ausnahmen für nicht-hochriskante Systeme ... wenn ein System trotz Hochrisiko-Einstufung als nicht-hochriskant eingestuft wird.\"\n    *   *Korrektur/Quelle:* Der Quellenchunk (Art. 16 Kontext, Fußnote/kommentierter Teil) sagt: \"Anbieter, die der Auffassung sind, dass ein KI-System ... auf der Grundlage einer **Ausnahme** nicht hochriskant ist, dazu verpflichtet werden, sich ... zu registrieren.\" Die Analyse impliziert eine Option zur Nicht-Registrierung bei Nicht-Hochrisiko-Einstufung. Der Text sagt aber explizit: Wenn man *glaubt*, es sei keine Hochrisiko-KI (obwohl im Anhang gelistet), *muss* man sich trotzdem registrieren (Transparenzpflicht). Die Analyse suggeriert fälschlicherweise, dass die Nicht-Einstufung als hochriskant eine Option zur Umgehung der Registrierung ist, während der Text sagt: Selbst bei dieser Annahme besteht Registrierungsdruck.\n*   **Fehlerhafte Zuordnung des Artikels 26 Abs. 4:**\n    *   *Analyse:* \"Betreiber müssen mit Anbietern und Dritten schriftliche Vereinbarungen ... treffen...\"\n    *   *Korrektur/Quelle:* Artikel 26 Abs. 4 im Quelltext lautet: \"Der **Anbieter** eines Hochrisiko-KI-Systems und der Dritte ... legen in einer schriftlichen Vereinbarung die Informationen ... fest\". Die Analyse schiebt diese Pflicht fälschlicherweise dem *Betreiber* zu. Der Betreiber hat nach Art. 26 Abs. 1 nur die Pflicht, das System gemäß Anleitung zu verwenden. Die Vertragsgestaltung zur Erfüllung der Anbieterpflichten liegt beim Anbieter.\n\n### 2. Methodische Lücken\n\n*   **Fehlende Differenzierung der \"Hochrisiko\"-Definition:**\n    Die Analyse geht davon aus, dass alle behandelten Systeme per se hochriskant sind. Sie ignoriert die im Quellenchunk enthaltene Information (Art. 16 Kontext), dass die Einstufung als hochriskant an spezifische Anwendungsfälle in einem Anhang gebunden ist (\"...die in den in einem Anhang dieser Verordnung aufgeführten Anwendungsfällen mit hohem Risiko aufgeführt ist\"). Eine Optionsanalyse ohne diese Prämisse ist unvollständig, da sie nicht zwischen Systemen unterscheidet, die *potenziell* hochriskant sind und solche, die es aufgrund der Zweckbestimmung nicht sind.\n*   **Fehlende Einbeziehung der \"Harmonisierungsrechtsvorschriften\"-Abwägung:**\n    Der Quellenchunk erwähnt mehrfach (Art. 16 Kontext, Art. 25 Abs. 3), dass Anbieter von Produkten, die unter andere EU-Harmonisierungsrechtsvorschriften fallen (z.B. Medizinprodukteverordnung), flexible operative Entscheidungen treffen können, um doppelte Belastungen zu vermeiden. Die Analyse listet dies nicht als relevante Option oder Abwägungspunkt auf, obwohl es ein zentraler Trade-off für Anbieter ist (Vermeidung von Verwaltungsaufwand).\n*   **Wertannahmen der \"Menschlichen Aufsicht\" nicht expliziert:**\n    Unter den Pflichten der Betreiber wird die menschliche Aufsicht genannt. Es fehlt die Analyse der impliziten Wertannahme: Die Verordnung setzt voraus, dass KI-Entscheidungen *korrigierbar* sein müssen. Dies ist eine normative Vorgabe (Menschenwürde/Autonomie), die in der reinen Auflistung der Pflichten untergeht. Welche Kompetenzen sind \"erforderlich\"? Die Analyse zitiert nur den Begriff, ohne die damit verbundene Anforderung an die Qualifikation als potenziellen Engpass oder Kostenfaktor zu benennen.\n\n### 3. Sprachliche Schmuggelware\n\n*   **Implizite Bewertung von Aufwänden:**\n    *   *Stelle:* \"Trade-offs ... **–** Hoher Aufwand für Dokumentation, Qualitätsmanagement...\"\n    *   *Kritik:* Der Begriff \"Hoher Aufwand\" ist eine subjektive Wertung. Die Quelle spricht nur von der Pflicht zur Aufbewahrung und zum Vorliegen eines QM-Systems. Ob dies \"hoch\" ist, hängt vom Kontext ab. Besser wäre: \"Verpflichtung zur Implementierung und Dokumentation\".\n*   **Implizite Empfehlung durch Framing:**\n    *   *Stelle:* \"**Rechtssicherheit**, Marktzugang...\" als Vorteil der Konformität.\n    *   *Kritik:* Dies ist faktisch korrekt, aber die Gegenüberstellung mit \"Bürokratischer Aufwand\" bei öffentlichen Stellen suggeriert eine negative Bewertung von Regulierung durch öffentliche Akteure. Die Quelle spricht nur von der Pflicht zur Registrierung. Die Charakterisierung als \"Bürokratie\" ist eine interpretative Zuspitzung, die nicht in der neutralen Quellenbeschreibung enthalten ist.\n\n### 4. Quellenverwendung und Tier-Disziplin\n\n*   **Verlust der Hierarchie bei Artikel-Zitaten:**\n    Die Analyse zitiert oft nur \"Art. 16 lit. i/k\". Im Quelltext ist die Zuordnung von Buchstaben zu konkreten Pflichten teilweise durcheinandergeraten (z.B. doppelt aufgeführte e/f in Art. 16). Die Analyse übernimmt diese Durcheinanderwurfung nicht, was gut ist, aber sie verweist auf \"Art. 16 lit. k\" für die Registrierung, während im Quelltext die Registrierungspflicht explizit im Fließtext unter Artikel 16 (Abschnitt über Anbieter) und in Fußnoten/Kontext erwähnt wird, nicht immer eindeutig als Buchstabe k gekennzeichnet ist (im bereitgestellten Text ist k bei Art. 16 nicht explizit als Buchstabe gelistet, sondern der Text springt von j zu \"Um die Arbeit...\"). Die Analyse interpretiert hier den Kontext korrekt, gibt aber vor, es stünde wörtlich so da.\n*   **Fehlende Kennzeichnung von Interpretationen:**\n    Die Aussage \"Betreiber müssen ... schriftliche Vereinbarungen ... treffen\" (unter Pflichten der Betreiber) ist eine falsche Ableitung aus Art. 26 Abs. 4. Hier wurde Trainingswissen oder Logik angewendet, die im Widerspruch zum wörtlichen Text steht (der die Pflicht dem Anbieter zuweist). Dies sollte als \"Interpretation der Analyse\" gekennzeichnet sein, nicht als Fakt aus der Quelle.\n*   **Ignorieren von Tier-1-Kontext:**\n    Der Quellenchunk enthält Hinweise auf \"Richtlinien 2014/31/EU\" und \"Richtlinie 2006/42/EG\". Die Analyse erwähnt diese nicht, obwohl sie relevant für die Abgrenzung der Genauigkeitsanforderungen sind. Dies ist kein Fehler per se (Fokus auf KI-VO), aber eine Lücke in der vollständigen Abbildung des Rechtsrahmens aus den Quellen.\n\n**Zusammenfassendes Urteil:**\nDie Analyse ist strukturell gut, enthält aber **kritische faktische Fehler** bei der Zuordnung der Pflichten (insb. Art. 26 Abs. 4 und die Registrierungspflicht öffentlicher Stellen). Die Trennung von \"Pflichten\" und \"Rollenumdehnung\" (Art. 25) ist methodisch schwach, da sie die rechtliche Konsequenz (Geltung als Anbieter) verwässert. Die impliziten Bewertungen (\"Hoher Aufwand\", \"Bürokratie\") verletzen die Neutralität.",
+  "critique_verdict": {
+    "erfundene_fakten": true,
+    "icon": "⚠️",
+    "fazit": "Es wurden keine Fakten im Sinne von völlig neuen Informationen erfunden, jedoch enthält die Analyse faktische Fehler bei der Zuordnung von Pflichten (insb. Art. 26 Abs. 4) und Rechtsgrundlagen sowie eine fehlerhafte Interpretation von Registrierungspflichten, was über bloße Präzisionshinweise hinausgeht."
+  }
 }

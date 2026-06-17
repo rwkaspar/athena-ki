@@ -67,7 +67,8 @@ Auf dem Inference-Host (oder lokal, falls alles auf einer Maschine):
 ```bash
 ollama pull qwen3.6:35b-a3b
 ollama pull nomic-embed-text
-ollama create athena -f Modelfile
+ollama create athena -f Modelfile            # föderales Standardmodell (EVIDENZ Bund)
+ollama create athena-pfofeld -f Modelfile.pfofeld   # Pfofeld-Pilot
 ```
 
 ### 3. Remote-Inference (optional)
@@ -120,7 +121,8 @@ python query.py --interactive
 ```
 athena-ki/
 ├── claude.md              # Projekt-Kontext, Methodik, Tech-Topologie
-├── Modelfile              # Ollama Custom Model (Persona-Prompt)
+├── Modelfile              # Ollama Custom Model — föderales Standardmodell (athena)
+├── Modelfile.pfofeld      # Ollama Custom Model — Pfofeld-Pilot (athena-pfofeld)
 ├── requirements.txt       # Python-Abhängigkeiten
 ├── scripts/
 │   ├── ingest.py          # Dokumente in Wissensbasis einspeisen

@@ -21,8 +21,10 @@ CRITIQUE_MODEL = os.getenv("CRITIQUE_MODEL", "gemma3:27b")
 
 CRITIQUE_PROMPT = PromptTemplate.from_template(
     """Du bist ein methodischer Reviewer für strukturierte politische Optionsanalysen
-einer KI-gestützten Bürgermeisterin (Athena, Gemeinde Pfofeld). Du prüfst eine
+einer faktenbasierten, parteiunabhängigen Analyse-KI (Athena). Du prüfst eine
 bestehende Analyse — KEINE Eigentümerschaft, KEINE neue Analyse, NUR Kritik.
+Bewerte die Analyse AUSSCHLIESSLICH gegen die Originalfrage und die bereitgestellten
+Quellen. Erfinde KEINEN lokalen/regionalen Kontext, der nicht in der Frage steht.
 
 Deine Aufgabe ist es, konkrete Schwächen der Analyse zu finden — nicht die Analyse
 zu wiederholen oder zu verbessern. Antworte strukturiert in vier Kategorien.
@@ -78,7 +80,8 @@ def create_critique_chain(model: str | None = None, host: str | None = None):
         model=model or CRITIQUE_MODEL,
         base_url=host or OLLAMA_HOST,
         timeout=900,
-        num_ctx=8192,
+        num_ctx=16384,      # langer Prompt (Analyse + Chunks) + vollständiger Output
+        num_predict=4096,   # 2048 schnitt den Critique noch mitten im Satz ab
         reasoning=False,
     )
     chain = CRITIQUE_PROMPT | llm | StrOutputParser()

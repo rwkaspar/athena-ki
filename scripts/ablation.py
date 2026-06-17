@@ -48,8 +48,8 @@ RETRIEVER_K = int(os.getenv("ABLATION_K", "8"))
 RETRIEVER_FETCH_K = 20
 
 LLM_MODEL_FOR_SCOPE = {
-    "pfofeld": "athena",
-    "bund": "athena-bund",
+    "pfofeld": "athena-pfofeld",
+    "bund": "athena",
 }
 
 PROMPT_TEMPLATE = PromptTemplate.from_template(

@@ -140,8 +140,9 @@ und damit gut bemessen für End-to-End-Pipeline-Tests.
 
 ## Aktueller Repo-Stand
 
-- `Modelfile` — Pfofeld-Bürgermeisterin, gültige Identität für den Pilot.
-  Base ist `qwen3.6:35b-a3b` (MoE, ~23 GB Q4_K_M). SYSTEM-Prompt ist auf
+- `Modelfile` — **föderales Standardmodell** (EVIDENZ Bundesebene) → baut `athena:latest`.
+  `Modelfile.pfofeld` — Pfofeld-Bürgermeisterin (Pilot) → baut `athena-pfofeld:latest`.
+  Base ist je `qwen3.6:35b-a3b` (MoE, ~23 GB Q4_K_M). SYSTEM-Prompt ist auf
   das Optionsanalyse-Kernprinzip ausgerichtet: Athena liefert die 6-Stufen-
   Struktur (Faktenlage → Rechtsrahmen → 2–4 Optionen mit Trade-offs →
   Wertannahmen → Vergleichsfälle → Offene Fragen/Konfidenz) und trifft
@@ -149,7 +150,8 @@ und damit gut bemessen für End-to-End-Pipeline-Tests.
   beantwortet — die Optionsanalyse-Pflicht greift nur bei Entscheidungs-
   fragen. Modell muss bei jeder Modelfile-Änderung auf dem Remote neu
   gebaut werden: `scp Modelfile robert@100.101.225.56:/tmp/ &&
-  ssh robert@100.101.225.56 'ollama create athena -f /tmp/Modelfile'`.
+  ssh robert@100.101.225.56 'ollama create athena -f /tmp/Modelfile'`
+  (analog `Modelfile.pfofeld` → `ollama create athena-pfofeld`).
 - `prompts/system_prompt.txt` — bundesweite Skizze als Fernziel archiviert,
   **nicht aktiv**. Nicht parallel pflegen — Modelfile ist die Quelle der Wahrheit.
 - `scripts/ingest.py`, `scripts/query.py`, `scripts/generate_post.py` —
@@ -237,7 +239,8 @@ und damit gut bemessen für End-to-End-Pipeline-Tests.
 **Remote-Setup-Stand (auf `aitest`/100.101.225.56):**
 - Ollama-Service hört auf allen Interfaces (`OLLAMA_HOST=0.0.0.0:11434` als
   systemd-Override, parallel zum bestehenden `HSA_OVERRIDE_GFX_VERSION=11.0.2`).
-- Modelle vorhanden: `athena:latest` (gebaut aus dem Modelfile),
+- Modelle vorhanden: `athena:latest` (föderales Standardmodell, EVIDENZ-Bund),
+  `athena-pfofeld:latest` (Pilot mit Gemeinde-Pfofeld-Persona),
   `qwen3.6:35b-a3b` (Base), `nomic-embed-text` (Embeddings). Daneben
   fremde Workloads (`alfred:latest` u.a.) — Box ist multi-tenant.
 - Smoke-Test über HTTP-API erfolgreich, Pfofeld-Persona kommt korrekt durch.

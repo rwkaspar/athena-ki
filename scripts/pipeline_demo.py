@@ -20,12 +20,12 @@ ANSWER_PROMPT = """Du bist Athena, die faktenbasierte Analyse-KI von EVIDENZ. Be
 strukturiert: (1) Faktenlage, (2) Rechtsrahmen, (3) Handlungsoptionen mit ehrlich benannten \
 Trade-offs, (4) offene Fragen. Keine Empfehlung.
 
-QUELLEN-REGEL: Stütze dich primär auf die unten gelieferten Quellen. Echte Zahlen/Daten/Normen \
-sind erwünscht — aber hinter JEDER konkreten Zahl, jedem Datum und jedem Paragraphen MUSS die \
-mutmaßliche Primärquelle in Klammern stehen, z. B. „(§ 241 SGB V)" oder \
-„(GKV-Spitzenverband, Kennzahlen 2024)". Steht die Quelle bereits unten, zitiere sie; steht eine \
-wichtige Zahl NICHT in den Quellen, nenne sie trotzdem mit mutmaßlicher Quelle, damit wir diese \
-Quelle nachpflegen können. Erfinde keine Quelle, die es nicht geben kann.
+STRIKTE QUELLENBINDUNG: Nutze AUSSCHLIESSLICH Aussagen, die direkt aus den unten gelieferten \
+Quellen belegbar sind, und zitiere dahinter den Paragraphen/die Quelle wörtlich (z. B. „(Art. 16 \
+KI-VO)"). Nenne KEINE Zahl, kein Datum, keinen Paragraphen und keinen Eigennamen, der nicht in den \
+Quellen steht — ergänze NICHTS aus deinem Vorwissen. Was die Quellen nicht hergeben, kommt unter \
+(4) als offene Frage — NICHT erfinden, NICHT aus dem Gedächtnis ergänzen. Lieber wenige, voll \
+belegte Aussagen als viele unbelegte.
 
 QUELLEN:
 {context}
@@ -72,6 +72,48 @@ def adversarial_verify(facts, context, host):
         out.append({"aussage": aussage, "verdict": v, "begruendung": d.get("begruendung", ""),
                     "quelle": (d.get("quelle") or "").strip()})
     return out
+
+
+def critique_verdict(critique_text, host):
+    """Fasst den (langen) Critique-Pass in EINE faire Verdikt-Zeile zusammen — für die
+    Methodik-Seite. Anderes Modell (gemma4) als der Critique selbst. Unterscheidet
+    inhaltlich falsche Aussagen (= Faktenfehler) von bloßen Präzisions-/Methodenhinweisen,
+    damit ein gründlicher Review nicht als „durchgefallen" missverstanden wird."""
+    import json as _j
+    import re as _re
+    from langchain_ollama import OllamaLLM
+    if not (critique_text or "").strip():
+        return {}
+    m = OllamaLLM(model=os.getenv("VERDICT_MODEL", "gemma4:26b"),
+                  base_url=host, timeout=300, num_ctx=16384, num_predict=400, reasoning=False)
+    prompt = (
+        "Du fasst das Ergebnis eines methodischen Critique-Reviews einer Optionsanalyse in EIN "
+        "faires Verdikt zusammen. Die ENTSCHEIDENDE Frage für eine faktenbasierte Politik-KI ist: "
+        "Wurden Fakten/Zahlen ERFUNDEN — also Aussagen behauptet, die in KEINER der Quellen stehen "
+        "(Halluzination)?\n"
+        "WICHTIGE Unterscheidung: Eine falsche ZUORDNUNG von Inhalten, die sehr wohl in den Quellen "
+        "stehen (z. B. der richtige Artikel/Absatz, die richtige Rolle), ist KEINE Erfindung, "
+        "sondern ein Präzisions-/Zuordnungshinweis. Ebenso sind Methoden- oder Formulierungshinweise "
+        "KEINE Erfindung. Ein gründlicher Review findet fast immer solche Hinweise — das ist gewollt "
+        "und kein Durchfallen. Nur eine echte Erfindung (unbelegte Behauptung) ist ein Faktenfehler.\n"
+        "Antworte NUR als JSON: {\"erfundene_fakten\": true|false (wurden unbelegte, in KEINER Quelle "
+        "stehende Aussagen/Zahlen erfunden?), \"icon\": \"\\u2705\" wenn KEINE erfundenen Fakten "
+        "(auch wenn es Präzisionshinweise gibt), sonst \"\\u26a0\\ufe0f\", \"fazit\": \"<EIN "
+        "stützender, ehrlicher Satz: zuerst, dass keine Fakten erfunden wurden und alle Aussagen "
+        "quellenbasiert sind (falls zutreffend), dann knapp, welche Präzisierungen der Review "
+        "anmerkt>\"}\n\n"
+        f"CRITIQUE:\n{critique_text}"
+    )
+    try:
+        raw = m.invoke(prompt)
+        js = _re.search(r"\{.*\}", raw, _re.S)
+        d = _j.loads(js.group(0)) if js else {}
+    except Exception:
+        return {}
+    if not d.get("fazit"):
+        return {}
+    d["icon"] = d.get("icon") or ("⚠️" if d.get("erfundene_fakten") else "✅")
+    return d
 
 
 def _ser(o):
@@ -121,7 +163,14 @@ def main():
     host = os.environ.get("OLLAMA_HOST", "http://100.101.225.56:11434")
     adversarial = adversarial_verify(analysis_d.get("faktenlage", []), format_docs(docs), host)
     print("… Stufe 6: Critique-Pass (Devil's Advocate)", file=sys.stderr)
-    critique = create_critique_chain()(a.question, docs, answer)
+    # Scope-richtiges Critique-Modell: athena (föderales Standardmodell) für bund, sonst
+    # athena-pfofeld (Pilot mit eingebranntem Gemeinde-Pfofeld-System-Prompt, der eine
+    # Bundes-Analyse fälschlich an „Gemeinde Pfofeld" messen würde).
+    crit_model = os.getenv("CRITIQUE_MODEL") or (
+        "athena:latest" if a.scope == "bund" else "athena-pfofeld:latest")
+    critique = create_critique_chain(model=crit_model)(a.question, docs, answer)
+    print("… Stufe 7: Critique-Verdikt (faire Zusammenfassung)", file=sys.stderr)
+    verdict = critique_verdict(critique, host)
 
     out = {
         "question": a.question, "scope": a.scope,
@@ -137,6 +186,7 @@ def main():
         "analysis": analysis_d,
         "adversarial": adversarial,
         "critique": critique,
+        "critique_verdict": verdict,
     }
     js = json.dumps(out, ensure_ascii=False, indent=2, default=str)
     if a.out:
