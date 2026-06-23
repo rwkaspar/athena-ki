@@ -92,6 +92,15 @@ REVIEW_SCHEMA_HINT = """Antworte AUSSCHLIESSLICH mit einem JSON-Objekt, keine Er
     "rationale": "1-2 Sätze: wie übertragbar auf deutsche Verhältnisse (Rechtsrahmen, Wohlfahrtsstaat-Niveau, Lohn-/Steuerstruktur, Größenordnung)?",
     "caveats": ["konkrete Unterschiede, je 1 kurze Phrase"]
   },
+  "methodik": {
+    "studiendesign": "rct|beobachtung|review|meta_analyse|statistik|gutachten|gesetzestext|bericht|kommentar|unbekannt",
+    "datenbasis": "1 kurze Phrase: worauf stützt sich die Quelle (amtliche Statistik, Umfrage N=…, Registerdaten, Einzelfall, keine)",
+    "zeitraum": "Erhebungs-/Bezugszeitraum, falls erkennbar (z. B. 2019–2023), sonst 'unbekannt'",
+    "interessenkonflikt": "none|possible|likely|unknown",
+    "interessenkonflikt_detail": "1 kurze Phrase: Funding/Auftraggeber/politische Nähe, falls erkennbar",
+    "replikation": "repliziert|einzelstudie|n/a|unbekannt"
+  },
+  "implikation_richtung": "NUR DOKUMENTATION, KEIN Aufnahmekriterium: in welche politische Richtung deuten die Aussagen der Quelle? 1 neutrale Phrase (z. B. 'stützt höhere Migration', 'spricht gegen Mindestlohnerhöhung', 'neutral/deskriptiv').",
   "recommendation": "approve|reject|needs_human",
   "summary": "1 Satz Gesamtfazit für den menschlichen Reviewer"
 }
@@ -102,7 +111,14 @@ Regeln zu transferability_de:
 - "direct" = gleiche Institutionen/Recht (z. B. EU-Recht, OECD-Methodik direkt anwendbar).
 - "partial" = ähnliches System mit klaren Unterschieden (z. B. UK NHS-Studie zu DE-Gesundheit).
 - "limited" = strukturelle Unterschiede dominieren (z. B. US-Sozialstaat-Studie).
-- "context_only" = nur als Vergleich, kein Politik-Input."""
+- "context_only" = nur als Vergleich, kein Politik-Input.
+
+Regeln zu methodik & implikation_richtung (WICHTIG — Entkopplung gegen Bias):
+- methodik beschreibt NUR Qualität/Machart der Quelle, unabhängig von ihrem Ergebnis.
+- implikation_richtung wird AUSSCHLIESSLICH zur Bias-Transparenz erfasst und darf
+  `relevant`, `suggested_tier`, `publisher_trust` und `recommendation` NICHT
+  beeinflussen. Eine Quelle wird NIE aufgenommen oder abgelehnt, WEIL ihr Ergebnis
+  (un)erwünscht ist — sondern allein wegen Methodik, Herkunft und Relevanz."""
 
 
 def _build_llm(provider: str = None):
