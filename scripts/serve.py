@@ -1201,6 +1201,13 @@ def verify_pending(request: Request):
         adv = ([{"vote": v.get("vote"), "reason": v.get("reason"), "email": v.get("email"),
                  "at": v.get("at")} for v in votes] if is_admin else [])
         my = next((v for v in votes if v.get("email") == sess.get("email")), None) if sess.get("email") else None
+        # disputed = mindestens je eine Pro- UND eine Contra-Stimme → umstrittene
+        # Evidenz (wird nicht entfernt, sondern sichtbar markiert).
+        _vset = {v.get("vote") for v in votes}
+        disputed = ("pro" in _vset) and ("contra" in _vset)
+        # kritische Stimme = Contra/Unklar MIT Begründung (für Pflicht-Dissens).
+        has_critical = any(v.get("vote") in ("contra", "unklar") and (v.get("reason") or "").strip()
+                           for v in votes)
         out.append({
             "id": m.get("id"), "kind": m.get("kind"), "source": _source_value(m),
             "note": m.get("note"), "submitted_at": m.get("submitted_at"),
@@ -1216,7 +1223,9 @@ def verify_pending(request: Request):
                 "publisher": ar.get("publisher"), "publisher_trust": ar.get("publisher_trust"),
                 "relevant": ar.get("relevant"), "suggested_tier": ar.get("suggested_tier"),
                 "topics": ar.get("topics"), "country": ar.get("country"),
+                "methodik": ar.get("methodik"), "implikation_richtung": ar.get("implikation_richtung"),
             },
+            "disputed": disputed, "has_critical": has_critical,
             "advisory_votes": adv, "vote_count": len(votes),
             "my_vote": {"vote": my.get("vote"), "reason": my.get("reason")} if my else None,
         })
@@ -1274,7 +1283,22 @@ async def verify_decide(request: Request):
         raise HTTPException(status_code=404, detail="Submission nicht gefunden.")
     meta = load_meta(sub_dir)
     ar = meta.get("auto_review") or {}
+    votes = meta.get("advisory_votes") or []
+    _vset = {v.get("vote") for v in votes}
+    disputed = ("pro" in _vset) and ("contra" in _vset)
+    has_critical = any(v.get("vote") in ("contra", "unklar") and (v.get("reason") or "").strip()
+                       for v in votes)
+    red_team = bool(body.get("red_team"))
     if decision == "ja":
+        # Pflicht-Dissens (Leitsatz): keine Aufnahme ohne dokumentierten Dissens
+        # ODER begründeten Konsens. Dissens = ≥1 kritische Stimme (Contra/Unklar mit
+        # Begründung). Begründeter Konsens = Admin bestätigt consensus_ack + Begründung.
+        consensus_ack = bool(body.get("consensus_ack"))
+        if not has_critical and not (consensus_ack and len(reason) >= 40):
+            raise HTTPException(status_code=409, detail=(
+                "Pflicht-Dissens: Aufnahme erst nach mindestens einer kritischen Bewertung "
+                "(Contra/Unklar mit Begruendung) — oder begruendetem Konsens "
+                "(Haekchen 'begruendeter Konsens' + Begruendung mind. 40 Zeichen)."))
         tier = int(tier_in) if str(tier_in) in ("1", "2", "3") else int(ar.get("suggested_tier") or 3)
         label = (ar.get("publisher") or "User-Submission")[:120]
         if ar.get("ingest_status") == "ingested_tier0":
@@ -1303,10 +1327,13 @@ async def verify_decide(request: Request):
         move_to(sub_dir, APPROVED_DIR, extra_meta={
             "approved_at": datetime.now(timezone.utc).isoformat(),
             "approved_tier": tier, "approved_label": label,
-            "decided_by": sess["role"], "decision_reason": reason})
+            "decided_by": sess["role"], "decision_reason": reason,
+            "disputed": disputed, "red_team": red_team})
         _log_status(sid, "verified", {"verified": True, "tier": tier,
-                    "decided_via": "web", "decision_reason": reason})
-        return {"ok": True, "decision": "ja", "tier": tier, "ingest": ingest_note}
+                    "decided_via": "web", "decision_reason": reason,
+                    "disputed": disputed, "red_team": red_team})
+        return {"ok": True, "decision": "ja", "tier": tier, "ingest": ingest_note,
+                "disputed": disputed, "red_team": red_team}
     if decision == "nein":
         if ar.get("ingest_status") == "ingested_tier0":
             _update_tier0_chunks(meta, -1, "")
