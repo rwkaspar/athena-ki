@@ -1277,7 +1277,7 @@ async def verify_decide(request: Request):
     tier_in = body.get("tier")
     from review_submissions import (load_meta, _update_tier0_chunks, _log_status,
                                     move_to, ingest_submission, APPROVED_DIR, REJECTED_DIR,
-                                    CLARIFICATION_DIR, _set_source_lang_tags)
+                                    CLARIFICATION_DIR, _set_source_lang_tags, _set_source_review_tags)
     sub_dir = SUBMISSIONS_DIR / "pending" / sid
     if not sid or not sub_dir.exists():
         raise HTTPException(status_code=404, detail="Submission nicht gefunden.")
@@ -1324,6 +1324,10 @@ async def verify_decide(request: Request):
             ingest_note += (f" · lang:{lang_code or '—'}"
                             + (f" translation_of={translation_of}" if to != "-" else " (eigenständig)")
                             + f" [{n_tag} chunks]")
+        # Review-Status auf die Chunks schreiben → wird auf quellen.html als Badge sichtbar.
+        n_rev = _set_source_review_tags(meta, disputed, red_team)
+        if disputed or red_team:
+            ingest_note += f" · review-tags[{n_rev}: {'disputed ' if disputed else ''}{'red-team' if red_team else ''}]".rstrip()
         move_to(sub_dir, APPROVED_DIR, extra_meta={
             "approved_at": datetime.now(timezone.utc).isoformat(),
             "approved_tier": tier, "approved_label": label,

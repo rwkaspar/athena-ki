@@ -177,6 +177,40 @@ def print_summary(idx: int, total: int, submission_dir: Path, meta: dict) -> Non
     print("=" * 70)
 
 
+def _set_source_review_tags(meta: dict, disputed: bool = False, red_team: bool = False) -> int:
+    """Setzt Review-Pseudo-Tags (`disputed` / `red-team`) auf ALLEN Chunks einer Quelle,
+    damit der Status auf quellen.html sichtbar wird (eigene Badges, aus dem Themen-Filter
+    ausgeschlossen). Idempotent (entfernt vorhandene erst). Nur URL-Quellen.
+    Liefert Anzahl aktualisierter Chunks."""
+    from retrieval import collection_names_for, get_chroma_client
+    source_url = meta.get("url") if meta.get("kind") == "url" else None
+    if not source_url:
+        return 0
+    client = get_chroma_client()
+    affected = 0
+    for coll_name in collection_names_for(meta.get("scope", "pfofeld")):
+        try:
+            coll = client.get_collection(coll_name)
+            got = coll.get(where={"source": source_url})
+        except Exception:
+            continue
+        ids = got.get("ids") or []
+        if not ids:
+            continue
+        metas = got.get("metadatas") or []
+        for m in metas:
+            tags = [t for t in (m.get("topics") or "").split(",")
+                    if t.strip() and t.strip().lower() not in ("disputed", "red-team", "red_team")]
+            if disputed:
+                tags.append("disputed")
+            if red_team:
+                tags.append("red-team")
+            m["topics"] = ",".join(tags)
+        coll.update(ids=ids, metadatas=metas)
+        affected += len(ids)
+    return affected
+
+
 def ingest_submission(submission_dir: Path, meta: dict, tier: int, label: str) -> int:
     """Ruft ingest.py mit den passenden Parametern auf, vererbt env. Liefert rc."""
     scope = meta.get("scope", "pfofeld")
