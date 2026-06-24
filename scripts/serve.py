@@ -1218,6 +1218,9 @@ def verify_pending(request: Request):
             "lang_name": ar.get("lang_name"),
             "needs_language_review": bool(m.get("needs_language_review")),
             "is_translation_of": m.get("is_translation_of") or ar.get("is_translation_of"),
+            "translation_candidate_title": ar.get("translation_candidate_title"),
+            "translation_confidence": ar.get("translation_confidence"),
+            "translation_method": ar.get("translation_method"),
             "athena": {
                 "recommendation": ar.get("recommendation"), "summary": ar.get("summary"),
                 "publisher": ar.get("publisher"), "publisher_trust": ar.get("publisher_trust"),

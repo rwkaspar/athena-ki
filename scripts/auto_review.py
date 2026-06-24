@@ -318,6 +318,66 @@ def _guess_translation_original(url: str, lang_code: str) -> str | None:
     return None
 
 
+def _detect_translation_original_llm(meta: dict, sample: str, lang_code: str) -> dict | None:
+    """Findet das wahrscheinliche deutschsprachige Original einer fremdsprachigen
+    Quelle — ohne dass ein Mensch es kennen muss. bge-m3 ist multilingual: eine
+    Übersetzung desselben Dokuments liegt im Embedding-Raum direkt beim Original.
+    Schritt 1: cross-linguale Ähnlichkeitssuche im Bestand → Kandidaten.
+    Schritt 2: LLM bestätigt „selbes Dokument, nur übersetzt?".
+    Liefert {is_translation_of, translation_confidence, translation_candidate_title}
+    oder None (kein belastbares Paar → eigenständige Quelle)."""
+    if not sample or len(sample.strip()) < 80:
+        return None
+    try:
+        import serve  # lazy: vermeidet zirkulären Import
+        vectorstores, _ = serve._get_components(meta.get("scope", "bund"))
+    except Exception as e:
+        print(f"[trans-detect] Bestand nicht ladbar: {type(e).__name__}", file=sys.stderr)
+        return None
+    self_url = (meta.get("url") or "").rstrip("/")
+    cands: dict[str, tuple] = {}  # source_url -> (score, title, snippet)
+    for store in vectorstores.values():
+        try:
+            hits = store.similarity_search_with_relevance_scores(sample[:1500], k=8)
+        except Exception:
+            continue
+        for doc, score in hits:
+            su = (doc.metadata.get("source") or "").rstrip("/")
+            if not su or su == self_url:
+                continue
+            if su not in cands or score > cands[su][0]:
+                cands[su] = (float(score), doc.metadata.get("title") or su, (doc.page_content or "")[:400])
+    if not cands:
+        return None
+    best_url, (score, title, snippet) = max(cands.items(), key=lambda kv: kv[1][0])
+    if score < 0.55:  # zu unähnlich → mit hoher Wahrscheinlichkeit kein Paar
+        return None
+    # LLM-Bestätigung (Titel + Auszüge, sprachübergreifend)
+    import json as _j
+    import re as _re
+    prompt = (
+        "Prüfe, ob zwei Dokumente DASSELBE Dokument in verschiedenen Sprachen sind "
+        "(Übersetzung/Sprachfassung) — NICHT nur dasselbe Thema. Gleicher Inhalt, "
+        "gleiche Struktur, gleicher Herausgeber = ja. Nur thematisch ähnlich = nein.\n\n"
+        f"DOKUMENT A (Sprache {lang_code}):\nTitel: {meta.get('title') or '(unbekannt)'}\n"
+        f"Auszug: {sample[:600]}\n\n"
+        f"DOKUMENT B (Bestand):\nTitel: {title}\nAuszug: {snippet}\n\n"
+        "Antworte NUR als JSON: {\"selbes_dokument\": true|false, \"konfidenz\": 0.0-1.0, "
+        "\"begruendung\": \"<1 kurzer Satz>\"}"
+    )
+    try:
+        raw = _build_llm().invoke(prompt)
+        content = raw.content if hasattr(raw, "content") else str(raw)
+        d = _j.loads(_re.search(r"\{.*\}", content, _re.S).group(0))
+    except Exception:
+        return None
+    if d.get("selbes_dokument") and float(d.get("konfidenz") or 0) >= 0.6:
+        return {"is_translation_of": best_url,
+                "translation_confidence": round(float(d["konfidenz"]), 2),
+                "translation_candidate_title": title}
+    return None
+
+
 def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
     """Verdict zeitstempeln, an meta.json schreiben, ggf. Tier-0 ingestieren, loggen.
     Gemeinsamer Abschluss für LLM-Bewertung UND Vorfilter-Entscheidung."""
@@ -344,6 +404,15 @@ def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
                 if guess:
                     verdict["is_translation_of"] = guess
                     meta["is_translation_of"] = guess
+                    verdict["translation_method"] = "url-heuristik"
+            # Kein URL-Treffer → semantische Erkennung (multilingual + LLM), damit
+            # kein Mensch das Original kennen muss.
+            if not meta.get("is_translation_of"):
+                det = _detect_translation_original_llm(meta, sample, lang["code"])
+                if det:
+                    verdict.update(det)
+                    meta["is_translation_of"] = det["is_translation_of"]
+                    verdict["translation_method"] = "embedding+llm"
     except Exception:
         pass
     # Topics zentral normalisieren: Aliase auflösen (z. B. aussenpolitik →
