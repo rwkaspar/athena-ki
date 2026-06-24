@@ -1222,6 +1222,7 @@ def verify_pending(request: Request):
                 "recommendation": ar.get("recommendation"), "summary": ar.get("summary"),
                 "publisher": ar.get("publisher"), "publisher_trust": ar.get("publisher_trust"),
                 "relevant": ar.get("relevant"), "suggested_tier": ar.get("suggested_tier"),
+                "tier_reasoning": ar.get("tier_reasoning"),
                 "topics": ar.get("topics"), "country": ar.get("country"),
                 "methodik": ar.get("methodik"), "implikation_richtung": ar.get("implikation_richtung"),
             },
