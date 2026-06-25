@@ -1444,6 +1444,58 @@ async def verify_vote(request: Request):
     return {"ok": True, "vote": vote}
 
 
+def _source_has_tag(source: str, scope: str, tag: str) -> bool:
+    """Prüft, ob die Chunks einer Quelle ein bestimmtes Pseudo-Tag tragen (z. B. red-team)."""
+    from retrieval import get_chroma_client, collection_names_for
+    client = get_chroma_client()
+    for coll in collection_names_for(scope):
+        try:
+            got = client.get_collection(coll).get(where={"source": source}, limit=1)
+        except Exception:
+            continue
+        for m in (got.get("metadatas") or []):
+            if tag.lower() in [t.strip().lower() for t in (m.get("topics") or "").split(",")]:
+                return True
+    return False
+
+
+@app.post("/verify/challenge")
+async def verify_challenge(request: Request):
+    """Eine bereits aufgenommene Quelle anfechten: markiert sie als 'disputed'
+    (sichtbar auf quellen.html), protokolliert Anfechter:in + Grund. Reviewer & Admin.
+    Entfernt die Quelle NICHT — umstrittene Evidenz bleibt sichtbar; das Kernteam
+    löst auf (Tier ändern / behalten / entfernen)."""
+    sess = _verify_session(request)
+    if not sess or sess["role"] not in ("reviewer", "admin"):
+        raise HTTPException(status_code=401, detail="nicht angemeldet")
+    ip = request.client.host if request.client else "?"
+    if not _rate_ok(ip, "challenge", 20, 3600):
+        raise HTTPException(status_code=429, detail="Zu viele Anfechtungen. Bitte später erneut.")
+    body = await request.json()
+    source = (body.get("source") or "").strip()
+    reason = (body.get("reason") or "").strip()[:2000]
+    scope = (body.get("scope") or DEFAULT_SCOPE).strip()
+    if not source.startswith("http"):
+        raise HTTPException(status_code=400, detail="Nur URL-Quellen können angefochten werden.")
+    if len(reason) < 10:
+        raise HTTPException(status_code=400, detail="Bitte eine Begründung angeben (min. 10 Zeichen).")
+    from review_submissions import _set_source_review_tags
+    # bestehenden red-team-Status erhalten (nicht überschreiben)
+    red_team = _source_has_tag(source, scope, "red-team")
+    n = _set_source_review_tags({"kind": "url", "url": source, "scope": scope},
+                                disputed=True, red_team=red_team)
+    if n == 0:
+        raise HTTPException(status_code=404, detail="Quelle nicht im Korpus gefunden.")
+    entry = {"at": datetime.now(timezone.utc).isoformat(), "source": source,
+             "by": sess.get("email") or sess["role"], "role": sess["role"],
+             "reason": reason, "scope": scope, "chunks": n}
+    chlog = SUBMISSIONS_DIR / "challenges.jsonl"
+    chlog.parent.mkdir(parents=True, exist_ok=True)
+    with open(chlog, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    return {"ok": True, "disputed": True, "chunks": n}
+
+
 @app.get("/search")
 def search(q: str, k: int = 10, scope: str = DEFAULT_SCOPE):
     """Volltextsuche über beide Collections eines Scopes, ohne LLM."""
