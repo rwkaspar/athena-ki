@@ -1152,8 +1152,10 @@ def _user_languages(email: str | None) -> list[str]:
 def verify_profile(request: Request):
     """Eigenes Reviewer-Profil zurückgeben (aktuell: Sprachkenntnisse)."""
     sess = _verify_require(request)
+    u = _accounts_load().get(sess.get("email") or "") or {}
     return {"email": sess.get("email"), "role": sess["role"],
-            "languages": _user_languages(sess.get("email"))}
+            "languages": _user_languages(sess.get("email")),
+            "kernteam_status": (u.get("kernteam_application") or {}).get("status")}
 
 
 @app.post("/verify/profile/languages")
@@ -1491,9 +1493,156 @@ async def verify_challenge(request: Request):
              "reason": reason, "scope": scope, "chunks": n}
     chlog = SUBMISSIONS_DIR / "challenges.jsonl"
     chlog.parent.mkdir(parents=True, exist_ok=True)
+    entry["type"] = "challenge"
     with open(chlog, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
     return {"ok": True, "disputed": True, "chunks": n}
+
+
+# ─── Kernteam: Bewerbung + Konsole (Bewerbungen freigeben, Streitfälle auflösen) ───
+
+@app.post("/verify/apply-kernteam")
+async def verify_apply_kernteam(request: Request):
+    """Ein:e Reviewer:in bewirbt sich fürs Kernteam. Gate ist Parteimitgliedschaft:
+    Name (+ optional Mitgliedsnummer) wird vom Kernteam gegen die Mitgliederliste
+    geprüft. Kein Self-Upgrade — Freigabe nur durch bestehendes Kernteam."""
+    sess = _verify_require(request)
+    if sess["role"] == "admin":
+        raise HTTPException(status_code=400, detail="Du bist bereits im Kernteam.")
+    email = sess.get("email")
+    if not email:
+        raise HTTPException(status_code=400, detail="Kein Reviewer-Account.")
+    body = await request.json()
+    member_name = (body.get("member_name") or "").strip()[:120]
+    member_id = (body.get("member_id") or "").strip()[:60]
+    statement = (body.get("statement") or "").strip()[:2000]
+    if not member_name or len(statement) < 20:
+        raise HTTPException(status_code=400,
+                            detail="Bitte Namen (als Mitglied) und kurze Begründung (min. 20 Zeichen) angeben.")
+    users = _accounts_load()
+    u = users.get(email)
+    if not u:
+        raise HTTPException(status_code=404, detail="Account nicht gefunden.")
+    u["kernteam_application"] = {"at": datetime.now(timezone.utc).isoformat(), "status": "pending",
+                                 "member_name": member_name, "member_id": member_id, "statement": statement}
+    _accounts_save(users)
+    return {"ok": True, "status": "pending"}
+
+
+@app.get("/verify/applications")
+def verify_applications(request: Request):
+    sess = _verify_require(request)
+    if sess["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Nur Kernteam.")
+    out = []
+    for email, u in _accounts_load().items():
+        ap = u.get("kernteam_application")
+        if ap and ap.get("status") == "pending":
+            out.append({"email": email, **ap})
+    return {"total": len(out), "applications": out}
+
+
+@app.post("/verify/applications/decide")
+async def verify_applications_decide(request: Request):
+    sess = _verify_require(request)
+    if sess["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Nur Kernteam.")
+    body = await request.json()
+    email = (body.get("email") or "").strip().lower()
+    decision = (body.get("decision") or "").strip()
+    reason = (body.get("reason") or "").strip()[:2000]
+    users = _accounts_load()
+    u = users.get(email)
+    if not u or not u.get("kernteam_application"):
+        raise HTTPException(status_code=404, detail="Bewerbung nicht gefunden.")
+    if decision == "grant":
+        u["role"] = "admin"
+        u["kernteam_application"]["status"] = "granted"
+    elif decision == "reject":
+        u["kernteam_application"]["status"] = "rejected"
+    else:
+        raise HTTPException(status_code=400, detail="decision muss grant|reject sein.")
+    u["kernteam_application"]["decided_at"] = datetime.now(timezone.utc).isoformat()
+    u["kernteam_application"]["decided_by"] = sess.get("email") or "admin"
+    u["kernteam_application"]["decision_reason"] = reason
+    _accounts_save(users)
+    return {"ok": True, "decision": decision, "email": email}
+
+
+@app.get("/verify/disputes")
+def verify_disputes(request: Request):
+    sess = _verify_require(request)
+    if sess["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Nur Kernteam.")
+    scope = request.query_params.get("scope", DEFAULT_SCOPE)
+    chlog = SUBMISSIONS_DIR / "challenges.jsonl"
+    latest = {}
+    if chlog.exists():
+        for line in chlog.read_text(encoding="utf-8").splitlines():
+            try:
+                e = json.loads(line)
+            except Exception:
+                continue
+            if e.get("type") == "resolve":
+                continue
+            if e.get("source"):
+                latest[e["source"]] = e  # spätere Zeile gewinnt → jüngste Anfechtung
+    out = []
+    for s in _collect_sources(scope):
+        topics = [str(t).lower() for t in (s.get("topics") or [])]
+        if "disputed" not in topics:
+            continue
+        ch = latest.get(s.get("source")) or {}
+        out.append({"source": s.get("source"), "title": s.get("title"),
+                    "tier_rank": s.get("tier_rank"), "chunks": s.get("chunks"),
+                    "red_team": "red-team" in topics,
+                    "challenge_reason": ch.get("reason"), "challenge_by": ch.get("by"),
+                    "challenge_at": ch.get("at")})
+    return {"total": len(out), "disputes": out, "scope": scope}
+
+
+@app.post("/verify/resolve")
+async def verify_resolve(request: Request):
+    """Kernteam löst einen Streitfall auf: umstritten lassen / Tier ändern /
+    entfernen / Dispute aufheben. Alles protokolliert."""
+    sess = _verify_require(request)
+    if sess["role"] != "admin":
+        raise HTTPException(status_code=403, detail="Nur Kernteam.")
+    body = await request.json()
+    source = (body.get("source") or "").strip()
+    action = (body.get("action") or "").strip()
+    reason = (body.get("reason") or "").strip()[:2000]
+    scope = (body.get("scope") or DEFAULT_SCOPE).strip()
+    if not source.startswith("http"):
+        raise HTTPException(status_code=400, detail="Nur URL-Quellen.")
+    if len(reason) < 5:
+        raise HTTPException(status_code=400, detail="Bitte eine Begründung angeben.")
+    from review_submissions import set_source_tier, delete_source, _set_source_review_tags
+    result = {}
+    if action == "retier":
+        tier = int(body["tier"]) if str(body.get("tier")) in ("1", "2", "3") else None
+        if tier is None:
+            raise HTTPException(status_code=400, detail="tier 1|2|3 nötig.")
+        result = {"retier": tier, "chunks": set_source_tier(source, scope, tier, reason)}
+    elif action == "remove":
+        result = {"removed_chunks": delete_source(source, scope)}
+    elif action == "clear":
+        red_team = _source_has_tag(source, scope, "red-team")
+        result = {"cleared": True,
+                  "chunks": _set_source_review_tags({"kind": "url", "url": source, "scope": scope},
+                                                    disputed=False, red_team=red_team)}
+    elif action == "keep":
+        result = {"kept_disputed": True}
+    else:
+        raise HTTPException(status_code=400, detail="action: keep|retier|remove|clear")
+    entry = {"at": datetime.now(timezone.utc).isoformat(), "type": "resolve", "source": source,
+             "by": sess.get("email") or sess["role"], "action": action, "reason": reason,
+             "scope": scope, **result}
+    chlog = SUBMISSIONS_DIR / "challenges.jsonl"
+    chlog.parent.mkdir(parents=True, exist_ok=True)
+    with open(chlog, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    return {"ok": True, **result}
 
 
 @app.get("/search")

@@ -211,6 +211,60 @@ def _set_source_review_tags(meta: dict, disputed: bool = False, red_team: bool =
     return affected
 
 
+def set_source_tier(source_url: str, scope: str, new_tier: int, reason: str = "") -> int:
+    """Setzt tier_rank einer bereits aufgenommenen Quelle neu (Auf-/Abwertung durch
+    das Kernteam) — auf ALLEN Chunks, unabhängig vom bisherigen Tier. Liefert Anzahl
+    aktualisierter Chunks. Ersetzt den manuellen DB-Eingriff."""
+    from retrieval import collection_names_for, get_chroma_client
+    if not source_url:
+        return 0
+    client = get_chroma_client()
+    affected = 0
+    for coll_name in collection_names_for(scope):
+        try:
+            coll = client.get_collection(coll_name)
+            got = coll.get(where={"source": source_url})
+        except Exception:
+            continue
+        ids = got.get("ids") or []
+        metas = got.get("metadatas") or []
+        if not ids:
+            continue
+        for m in metas:
+            m["tier_rank"] = new_tier
+            m["source_type"] = "static" if new_tier == 1 else "fresh"
+            m["verified_at"] = datetime.now(timezone.utc).isoformat()
+            if reason:
+                m["retier_note"] = reason[:300]
+        for i in range(0, len(ids), 80):
+            coll.update(ids=ids[i:i + 80], metadatas=metas[i:i + 80])
+        affected += len(ids)
+    return affected
+
+
+def delete_source(source_url: str, scope: str) -> int:
+    """Entfernt ALLE Chunks einer Quelle aus dem Korpus (Kernteam-Auflösung eines
+    Streitfalls). Liefert Anzahl gelöschter Chunks."""
+    from retrieval import collection_names_for, get_chroma_client
+    if not source_url:
+        return 0
+    client = get_chroma_client()
+    affected = 0
+    for coll_name in collection_names_for(scope):
+        try:
+            coll = client.get_collection(coll_name)
+            got = coll.get(where={"source": source_url})
+        except Exception:
+            continue
+        ids = got.get("ids") or []
+        if not ids:
+            continue
+        for i in range(0, len(ids), 200):
+            coll.delete(ids=ids[i:i + 200])
+        affected += len(ids)
+    return affected
+
+
 def ingest_submission(submission_dir: Path, meta: dict, tier: int, label: str) -> int:
     """Ruft ingest.py mit den passenden Parametern auf, vererbt env. Liefert rc."""
     scope = meta.get("scope", "pfofeld")
