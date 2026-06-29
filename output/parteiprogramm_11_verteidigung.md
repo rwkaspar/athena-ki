@@ -1,6 +1,11 @@
 # 11. Verteidigung & Sicherheit — EVIDENZ-Position v0.1
 
 **Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-28 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0
+<!-- TLDR-START -->
+**Worum geht's:** Wie sollen Verteidigung und Sicherheit bei NATO-Beitrag, Bundeswehr, Wehrdienst, Rüstungsexporten, Ukraine, Israel, Atomwaffen und China ausgerichtet werden, ohne unnötige Eskalation?
+**EVIDENZ-Position:** EVIDENZ beschließt ein 10-Cluster-Paket auf Basis von §1, §5 und §6 und verwirft 5 % BIP, eigene Atomwaffen und Wehrpflicht. Der Verteidigungshaushalt bleibt bei 2 % BIP, ergänzt um zusätzlich 1 % BIP für Sicherheitsmodernisierung (Cyber, KRITIS, Zivilschutz), und die Bundeswehr wird über ein 5-Achsen-Paket bei freiwilligem Dienst reformiert. Rüstungsexporte werden restriktiv gehandhabt und EU-harmonisiert, die Ukraine substanziell mit Eskalationsgrenzen unterstützt (inkl. Taurus mit Einsatzbeschränkung) und gegenüber Israel eine differenziert-kritische Linie mit Stopp offensiver Waffen während des Gaza-Kriegs und Anerkennung von ICJ/ICC eingenommen. Hinzu kommen der Ausstieg aus der nuklearen Teilhabe bei vollem NATO-Verbleib, pragmatische EU-Verteidigungsintegration, ein massiv ausgebauter Heimat- und Cyberschutz sowie wirtschaftliches De-Risking statt Decoupling gegenüber China.
+<!-- TLDR-END -->
+
 
 ## Entscheidungsfrage
 

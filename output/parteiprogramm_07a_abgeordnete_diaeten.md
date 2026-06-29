@@ -1,5 +1,10 @@
 # 7a. Abgeordneten-Entschädigung & Privilegien — EVIDENZ-Position v0.1
 **Status:** 🟢 entschieden (menschlich bestätigt 2026-06-11) · Optionsanalyse: Mistral Large + Wertekanon v1.0 · Kernfakten adversarial gegengeprüft (Web/Claude)
+<!-- TLDR-START -->
+**Worum geht's:** Wie sollen Diäten, Altersversorgung, Übergangsgeld, Nebeneinkünfte und Sozialversicherung der Abgeordneten reformiert werden, um Gleichbehandlung herzustellen, ohne die Funktionsfähigkeit des Parlaments zu gefährden?
+**EVIDENZ-Position:** EVIDENZ beschließt eine evidenzbasierte Reform. Die Diäten werden an das 3,5-fache des Medianeinkommens (rund 7.000 € brutto/Monat) gekoppelt, was gegenüber der aktuellen Diät von 11.833 €/Monat etwa −40 % bedeutet, aber die verfassungsrechtlich geforderte amtsangemessene Entschädigung wahrt. Die eigenständige Altersentschädigung wird abgeschafft und durch Einbeziehung in die gesetzliche Rentenversicherung ersetzt (mit Wahl-Übergangsregel für max. 10 Jahre), das Übergangsgeld auf 6 Monate reduziert und Nebeneinkünfte auf 15 % der Diäten begrenzt sowie ab 1.000 €/Jahr transparent gemacht. Abgeordnete werden voll in GKV und GRV einbezogen; der fiskalische Effekt ist gering und wird bewusst als Glaubwürdigkeits- und Gleichbehandlungssignal akzeptiert.
+<!-- TLDR-END -->
+
 
 ---
 

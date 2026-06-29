@@ -1,6 +1,11 @@
 # 9. Klima & Energie — EVIDENZ-Position v0.1
 
 **Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-25 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0
+<!-- TLDR-START -->
+**Worum geht's:** Wie kann Deutschland die Klimaziele (Klimaneutralität 2045, −65 % bis 2030) sektorübergreifend tatsächlich erreichen, ohne soziale Härten zu erzeugen?
+**EVIDENZ-Position:** EVIDENZ beschließt ein 8-Cluster-Paket und verwirft einen Kernkraft-Wiedereinstieg. Kohleausstieg und Verbrenner-Aus werden auf 2030 vorgezogen (jeweils mit Strukturhilfen und H2-ready-Gasbackup bzw. EU-Push), das Heizungsgesetz wird mit Sanierungspflicht für die schlechtesten Klassen, hoher Förderung (bis 100 % für Geringverdiener) und einer Modernisierungsumlage von maximal 1 €/m² sozial abgesichert beschleunigt. Der Erneuerbaren-Ausbau wird über gestraffte Genehmigungen, ein verbindliches 2-%-Flächenziel und verpflichtende Bürgerenergie-Beteiligung (mind. 25 %) vorangetrieben, die Industrie über ausgeweitete Klimaschutzverträge, CBAM und einen befristeten Industriestrompreis transformiert. Hinzu kommen eine Umsteuerung der Agrarmittel mit Moor-Wiedervernässung und Tierhaltungsreduktion, verbindliche Klimaanpassung sowie ein erhöhter deutscher Beitrag zur internationalen Klimagerechtigkeit (Loss & Damage auf 1–2 Mrd. €/Jahr).
+<!-- TLDR-END -->
+
 
 ## Entscheidungsfrage
 

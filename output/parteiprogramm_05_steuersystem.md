@@ -1,6 +1,11 @@
 # 5. Steuersystem — EVIDENZ-Position v0.1
 
 **Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-24 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0
+<!-- TLDR-START -->
+**Worum geht's:** Wie soll das deutsche Steuersystem bei Vermögen, Erbschaft, Spitzeneinkommen, Finanzmärkten, ökologischem Konsum und der Bündelung von Sozialleistungen reformiert werden?
+**EVIDENZ-Position:** EVIDENZ beschließt ein 6-Achsen-Paket und verwirft Status quo und Flachsteuer. Es führt eine Vermögensteuer von 1 % ab 2 Mio. € (mit Ertragsvorbehalt und Exit Tax, erwartetes Aufkommen 11–15 Mrd. €/Jahr) wieder ein, reformiert die Erbschaftsteuer zu einem einheitlichen Satz von 20 % mit 200.000 € Freibetrag pro Erbe statt Verschonungsregeln, und führt neue Spitzensteuerstufen (48 % ab 250.000 €, 55 % ab 500.000 €, 60 % ab 1 Mio. €) samt Integration der Abgeltungsteuer ein. Hinzu kommen eine nur EU-weite Finanzmarktsteuer (0,1 % auf Aktien/Devisen, 1 % auf Krypto) sowie ökologische Konsumsteuern mit CO2-Preis auf 200 €/Tonne bis 2030 und pro Kopf zurückgezahltem Klimageld (~240 €/Person/Jahr). Langfristiges Ziel ist eine negative Einkommensteuer mit Vollintegration der Sozialleistungen, beginnend mit der Kindergrundsicherung.
+<!-- TLDR-END -->
+
 
 ## Entscheidungsfrage
 

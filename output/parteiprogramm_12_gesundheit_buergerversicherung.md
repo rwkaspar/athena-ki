@@ -1,5 +1,10 @@
 # 12. Gesundheit — Bürgerversicherung — EVIDENZ-Position v0.1
 **Status:** 🟢 entschieden (menschlich bestätigt 2026-06-11) · Optionsanalyse: Mistral Large + Wertekanon v1.0 · Kernfakten adversarial gegengeprüft (Web/Claude)
+<!-- TLDR-START -->
+**Worum geht's:** Soll die gesetzliche Krankenversicherung zu einer Bürgerversicherung ausgebaut werden, in die alle einkommensabhängig einzahlen, und wie wird die private Krankenvollversicherung behandelt?
+**EVIDENZ-Position:** EVIDENZ wählt die Bürgerversicherung mit Vollintegration in sieben Achsen. Alle Einwohner zahlen einkommensabhängige Beiträge auf alle Einkommensarten inklusive Kapitalerträgen in eine erweiterte GKV, die Beitragsbemessungsgrenze wird aufgehoben, und private Zusatzversicherungen bleiben erlaubt. Die PKV-Vollversicherung wird für Neuverträge untersagt, bestehende Verträge laufen mit Bestandsschutz und übertragbaren Altersrückstellungen aus; Beamte werden über eine zehnjährige Übergangsregelung statt der Beihilfe voll einbezogen, ebenso Selbstständige. Die geschätzten Mehreinnahmen von 20–30 Mrd. €/Jahr sollen den durchschnittlichen Beitragssatz um 0,5–1 Prozentpunkt senken und Leistungen ausbauen.
+<!-- TLDR-END -->
+
 
 ---
 

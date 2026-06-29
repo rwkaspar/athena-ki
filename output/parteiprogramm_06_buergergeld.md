@@ -1,6 +1,11 @@
 # 6. Bürgergeld / Grundsicherung — EVIDENZ-Position v0.1
 
 **Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-24 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0
+<!-- TLDR-START -->
+**Worum geht's:** Wie sollen Bürgergeld und Grundsicherung bei Regelsatz, Sanktionen, Vermögensfreibeträgen und Struktur reformiert werden?
+**EVIDENZ-Position:** EVIDENZ beschließt ein Vier-Achsen-Paket und verwirft sowohl Sanktionsverschärfung als auch ein bedingungsloses Grundeinkommen. Der Regelsatz wird mit 813 €/Monat für Alleinstehende (bzw. dynamisch bei 60 % des Medianeinkommens) armutsfest gemacht, und statt Sanktionen tritt ein skandinavisches Fördermodell mit Qualifizierung und psychosozialer Betreuung, wobei Sanktionen auf maximal 10 % des Regelsatzes begrenzt werden. Die Vermögensfreibeträge steigen auf 100.000 € pro Haushalt plus 30.000 € je weiterer Person mit automatischer Inflationsanpassung. Langfristiges Ziel ist eine negative Einkommensteuer, beginnend kurzfristig mit der Kindergrundsicherung; die geschätzten Mehrkosten von rund 25–35 Mrd. €/Jahr werden über die Steuerreform finanziert.
+<!-- TLDR-END -->
+
 
 ## Entscheidungsfrage
 

@@ -1,6 +1,11 @@
 # 8. Rente & Altersvorsorge — EVIDENZ-Position v0.1
 
 **Status:** 🟢 entschieden · 2026-05-24 · **Modell:** Mistral Large 2 (API)
+<!-- TLDR-START -->
+**Worum geht's:** Wie soll die Rente angesichts des demografischen Wandels finanziert und ausgestaltet werden — wer zahlt ein, wie hoch ist das Rentenniveau, welche Kapitaldeckung und welches Eintrittsalter?
+**EVIDENZ-Position:** EVIDENZ beschließt ein 4-Säulen-Paket. Eine Bürgerversicherung lässt alle Erwerbstätigen einschließlich Selbstständiger, Beamter und Politiker einzahlen, was den Beitragssatz für Arbeitnehmer um etwa 3 Prozentpunkte senkt. Der Sinkpfad des Rentenniveaus wird gestoppt und auf 53 % angehoben und gehalten (statt ~43 % bis 2030), bewusst als dokumentierter Vertrauensvorschuss, primär finanziert über die verbreiterte Beitragsbasis. Ergänzend kommt ein verpflichtender staatlicher Aktienfonds nach schwedischem AP7-Modell (2,5 % des Bruttoeinkommens, ~0,1 % Verwaltungskosten, steuerbegünstigt), während das Renteneintrittsalter bei 67 bleibt und Längerarbeiten nur über Anreize statt pauschaler Anhebung gefördert wird.
+<!-- TLDR-END -->
+
 
 ## Entscheidungsfrage
 

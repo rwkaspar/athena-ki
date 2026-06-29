@@ -1,6 +1,11 @@
 # 10. Migration & Asyl — EVIDENZ-Position v0.1
 
 **Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-28 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0
+<!-- TLDR-START -->
+**Worum geht's:** Wie sollen Zugang, Asylverfahren, Integration und Staatsbürgerschaft reformiert werden, ohne den humanitären Anspruch aufzugeben und ohne Kommunen zu überfordern?
+**EVIDENZ-Position:** EVIDENZ beschließt ein 7-Cluster-Paket mit humanitärer Linie, gekoppelt an einen unverhandelbaren Integrations-Overhaul. An der EU-Außengrenze setzt es auf sichere, legale Einreisewege (Resettlement 30.000–50.000/Jahr statt ~5.000), grundrechtsgebundene Frontex und verpflichtende Seenotrettung, dazu schnelle, faire Asylverfahren in nationalen Ankunftszentren (Ziel 4–6 Wochen) und die Ablehnung von Drittstaaten- und Pushback-Modellen. Die Fachkräftemigration läuft über ein nachfragegewichtetes Punktesystem mit Spurwechsel, und die Integration wird in acht Achsen (Sprache, Verfassungskurs, Arbeitsmarktzugang, Wohnen, Bildung, Familiennachzug, Anti-Diskriminierung, kommunale Finanzierung) komplett überarbeitet. Die Einbürgerung wird auf 3 Jahre Regelwartezeit bei B2-Niveau mit automatischem ius soli umgestellt.
+<!-- TLDR-END -->
+
 
 ## Entscheidungsfrage
 
