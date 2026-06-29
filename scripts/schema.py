@@ -46,6 +46,21 @@ class Norm(BaseModel):
     quelle_chunk: int | None = Field(None, description="Chunk-Index, falls in den Quellen wörtlich genannt")
 
 
+class Wertwirkung(BaseModel):
+    """Wie stark eine Option einen Paragraphen des EVIDENZ-Wertekanons stützt
+    (positiv) oder belastet (negativ). Nur befüllt, wenn der Kanon der Analyse
+    als Wertegrundlage beigegeben war (apply_value_canon)."""
+    paragraph: Literal["§1", "§2", "§3", "§4", "§5", "§6", "§7"] = Field(
+        ..., description="Paragraph des Wertekanons (§1 Sorgepflicht, §2 Verteilung, "
+        "§3 Freiheit, §4 Gemeinschaft, §5 Wissenschaft, §6 Risiko, §7 Demokratie)")
+    intensitaet: int = Field(
+        ..., ge=-100, le=100,
+        description="Wirkung auf diesen Wert: +100 = stützt stark, 0 = neutral, "
+        "-100 = belastet stark. Vorzeichen = Richtung, Betrag = Stärke.")
+    begruendung: str = Field(
+        "", description="1 kurzer Satz: warum diese Wirkung/Richtung")
+
+
 class Option(BaseModel):
     """Eine Lösungsoption mit Trade-offs und Wertannahmen."""
     titel: str = Field(..., description="Kurzer prägnanter Titel der Option")
@@ -59,6 +74,11 @@ class Option(BaseModel):
         ...,
         min_length=0,
         description="Welche Werte oder Prioritäten setzt diese Option implizit voraus?",
+    )
+    wertwirkung: list[Wertwirkung] = Field(
+        default_factory=list,
+        description="Wirkung der Option auf die §§1–7 des Wertekanons (je -100..+100). "
+        "NUR befüllen, wenn der Wertekanon der Analyse beigegeben ist (apply_value_canon).",
     )
 
 

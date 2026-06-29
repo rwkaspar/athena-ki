@@ -43,6 +43,12 @@ Schema-Felder:
     - beschreibung (string)
     - trade_offs (array von string)
     - wertannahmen (array von string)
+    - wertwirkung (array von Objekten): NUR befüllen, wenn die Analyse eine Wertekanon-
+      Bewertung (§§1–7) enthält — sonst []. Jedes Objekt hat:
+        - paragraph (string, einer von "§1".."§7")
+        - intensitaet (integer -100..100): +100 = Option stützt diesen Wert stark,
+          0 = neutral, -100 = belastet ihn stark
+        - begruendung (string): 1 kurzer Satz, warum
 - vergleichsfaelle (array von string)
 - offene_fragen (array von string)
 - konfidenz (string, einer von "hoch", "mittel", "niedrig")

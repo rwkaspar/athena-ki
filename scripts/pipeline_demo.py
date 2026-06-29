@@ -29,8 +29,20 @@ belegte Aussagen als viele unbelegte.
 
 QUELLEN:
 {context}
-
+{canon_block}
 FRAGE: {question}
+"""
+
+CANON_BLOCK = """
+WERTEKANON-BEWERTUNG: Beurteile für JEDE Handlungsoption zusätzlich, wie sie auf die \
+sieben Paragraphen des EVIDENZ-Wertekanons wirkt. Gib das pro Option als kleine Tabelle \
+mit Zeilen „§N: <Wert von -100 bis +100> — <kurze Begründung>" aus. +100 = die Option \
+stützt diesen Wert stark, 0 = neutral, -100 = sie belastet ihn stark. Das ist KEINE \
+Empfehlung — es macht nur transparent, welche Werte eine Option berührt. Bewerte alle \
+§1–§7; was eine Option nicht berührt, ist 0.
+
+WERTEKANON (§§1–7):
+{canon}
 """
 
 
@@ -133,6 +145,8 @@ def main():
     ap.add_argument("--sim-floor", type=float, default=0.45)
     ap.add_argument("--max-k", type=int, default=15)  # Positions-Pipeline: breit
     ap.add_argument("--out")
+    ap.add_argument("--value-canon", action="store_true",
+                    help="Wertekanon §§1–7 beigeben → pro Option Wert-Wirkung (-100..100)")
     a = ap.parse_args()
 
     import serve
@@ -151,8 +165,17 @@ def main():
     # (nicht auf der iGPU). Critique = athena (qwen-basiert), Adversarial = gemma4.
     print("… Stufe 2: Position (Mistral)", file=sys.stderr)
     llm = ChatMistralAI(model="mistral-large-latest", api_key=os.environ["MISTRAL_API_KEY"],
-                        temperature=0.0, max_tokens=2200, timeout=180)
-    answer = llm.invoke(ANSWER_PROMPT.format(context=format_docs(docs), question=a.question)).content
+                        temperature=0.0, max_tokens=2800, timeout=180)
+    canon_block = ""
+    if a.value_canon:
+        canon_path = os.path.join(os.path.dirname(__file__), "..", "config", "wertekanon.md")
+        try:
+            canon_txt = open(canon_path, encoding="utf-8").read()
+            canon_block = CANON_BLOCK.format(canon=canon_txt)
+        except OSError as e:
+            print(f"[warn] Wertekanon nicht ladbar: {e}", file=sys.stderr)
+    answer = llm.invoke(ANSWER_PROMPT.format(context=format_docs(docs), question=a.question,
+                                             canon_block=canon_block)).content
 
     print("… Stufe 3: Strukturierte Optionsanalyse", file=sys.stderr)
     analysis = structure_analysis(answer)
