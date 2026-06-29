@@ -266,7 +266,44 @@
           "+ Rechtssicherheit, Marktzugang, Vermeidung von Sanktionen",
           "– Hoher Aufwand für Dokumentation, Qualitätsmanagement, Konformitätsbewertung und Registrierung"
         ],
-        "wertannahmen": []
+        "wertannahmen": [],
+        "wertwirkung": [
+          {
+            "paragraph": "§1",
+            "intensitaet": 50,
+            "begruendung": "Die Option fördert die langfristige Funktionsfähigkeit von Ökosystemen durch standardisierte Umwelt- und Sicherheitsdokumentation, belastet aber kurzfristig Ressourcen, was den Wohlstandszuwachs über "
+          },
+          {
+            "paragraph": "§2",
+            "intensitaet": 10,
+            "begruendung": "Rechtssicherheit schützt Eigentum (Art. 14 GG), doch der hohe Dokumentationsaufwand belastet insbesondere kleine Akteure und könnte die Sockelschwerte für Existenzsicherung indirekt durch administrati"
+          },
+          {
+            "paragraph": "§3",
+            "intensitaet": -20,
+            "begruendung": "Die 'Vollständige Konformität' schränkt die Individualfreiheit und unternehmerische Handlungsfreiheit stark ein, ohne dass zwingend ein direkter Schaden für andere oder wissenschaftlicher Konsens im S"
+          },
+          {
+            "paragraph": "§4",
+            "intensitaet": -10,
+            "begruendung": "Der Fokus auf technische Konformität untergräbt gewachsene Gemeinschaftsstrukturen und lokale Traditionen zugunsten einer standardisierten, bürokratischen Ordnung."
+          },
+          {
+            "paragraph": "§5",
+            "intensitaet": 80,
+            "begruendung": "Die Option zwingt zur lückenlosen Dokumentation und Transparenz, was die Faktenbasis für politische Entscheidungen massiv verbessert und dem Prinzip der Wissenschaftsbasierten Entscheidungsfindung die"
+          },
+          {
+            "paragraph": "§6",
+            "intensitaet": 60,
+            "begruendung": "Durch die Vermeidung von Sanktionen und die Sicherung des Marktzugangs wird das Vorsichtsprinzip bei regulatorischen Risiken angewendet, was Innovationsoffenheit im rechtlichen Rahmen stabilisiert."
+          },
+          {
+            "paragraph": "§7",
+            "intensitaet": 30,
+            "begruendung": "Die strukturierte Dokumentation fördert die Faktentransparenz für den demokratischen Konflikt, aber der Zwang zur 'Vollständigen Konformität' kann den organisierten Streit um neue Lebensbedingungen ei"
+          }
+        ]
       },
       {
         "titel": "Betreiber: Einhaltung der Betriebsanleitungen und menschliche Aufsicht",
@@ -275,7 +312,44 @@
           "+ Risikominimierung, Compliance",
           "– Personeller und organisatorischer Aufwand (Schulungen, Benennung verantwortlicher Personen)"
         ],
-        "wertannahmen": []
+        "wertannahmen": [],
+        "wertwirkung": [
+          {
+            "paragraph": "§1",
+            "intensitaet": 80,
+            "begruendung": "Die menschliche Aufsicht minimiert das Risiko von Systemausfällen, die das Existenzminimum oder Ökosysteme gefährden könnten, und priorisiert damit den Schutz der in §1 genannten Güter."
+          },
+          {
+            "paragraph": "§2",
+            "intensitaet": 40,
+            "begruendung": "Durch die Sicherstellung eines sicheren Betriebs wird indirekt zur Wahrung des Existenzminimums beigetragen; der hohe personelle Aufwand kann jedoch Ressourcen binden, die für direkte Umverteilung gen"
+          },
+          {
+            "paragraph": "§3",
+            "intensitaet": 90,
+            "begruendung": "Die Option bewahrt die individuelle Freiheit durch menschliche Kontrolle und erfüllt die kumulative Bedingung des §3(iii), indem sie wissenschaftlich fundierte Sicherheitsstandards gegen reinen Effizi"
+          },
+          {
+            "paragraph": "§4",
+            "intensitaet": 60,
+            "begruendung": "Sie anerkennt das Kollektivgut der Sicherheit und Gemeinschaft, ohne jedoch traditionelle Strukturen blind zu folgen, sondern setzt auf moderne, verantwortungsvolle Organisationsformen."
+          },
+          {
+            "paragraph": "§5",
+            "intensitaet": 85,
+            "begruendung": "Die explizite Forderung nach Einhaltung von Betriebsanleitungen und Schulungen stellt die Faktenbasis und den wissenschaftlichen Konsens über sichere Systemnutzung in den Mittelpunkt der Entscheidungs"
+          },
+          {
+            "paragraph": "§6",
+            "intensitaet": 90,
+            "begruendung": "Das Vorsichtsprinzip wird durch menschliche Aufsicht als Puffer gegen irreversible Schäden aktiv umgesetzt, was bei potenziell katastrophalen Risiken im Sinne von §6 geboten ist."
+          },
+          {
+            "paragraph": "§7",
+            "intensitaet": 50,
+            "begruendung": "Die Option strukturiert den Konflikt um Ressourceneinsatz (Aufwand vs. Sicherheit) durch transparente Regeln, lässt aber den demokratischen Aushandlungsprozess über die konkrete Ausgestaltung offen."
+          }
+        ]
       },
       {
         "titel": "Dritte: Übernahme von Anbieterpflichten bei wesentlicher Veränderung",
@@ -284,7 +358,44 @@
           "+ Möglichkeit, bestehende Systeme anzupassen",
           "– Volle Haftung und Verantwortung für Konformität, auch wenn das ursprüngliche System bereits zertifiziert war"
         ],
-        "wertannahmen": []
+        "wertannahmen": [],
+        "wertwirkung": [
+          {
+            "paragraph": "§1",
+            "intensitaet": -20,
+            "begruendung": "Die Übernahme von Anbieterpflichten durch Dritte erhöht das Risiko für die Existenzsicherung und Ökosysteme, da Haftungs- und Qualitätskontrollmechanismen bei externen Anpassungen oft schwächer sind a"
+          },
+          {
+            "paragraph": "§2",
+            "intensitaet": -10,
+            "begruendung": "Die volle Haftung durch Dritte kann zu höheren Kosten oder geringerer Servicequalität für die Schlechtestgestellten führen, wenn diese die Anpassungskosten nicht tragen können."
+          },
+          {
+            "paragraph": "§3",
+            "intensitaet": 10,
+            "begruendung": "Die Möglichkeit zur Anpassung durch Dritte kann die Individualfreiheit erhöhen, indem sie mehr Wahlmöglichkeiten und Flexibilität bietet, solange die Konformität gewährleistet bleibt."
+          },
+          {
+            "paragraph": "§4",
+            "intensitaet": -5,
+            "begruendung": "Die Veränderung bestehender Systeme durch Dritte könnte etablierte Gemeinschaften oder Traditionen stören, wenn die Anpassungen nicht mit den lokalen Gegebenheiten übereinstimmen."
+          },
+          {
+            "paragraph": "§5",
+            "intensitaet": 30,
+            "begruendung": "Die Übernahme von Anbieterpflichten durch Dritte erfordert eine klare Faktenbasis und transparente Dokumentation der Konformität, was die wissenschaftliche Fundierung der Entscheidung stärkt."
+          },
+          {
+            "paragraph": "§6",
+            "intensitaet": -40,
+            "begruendung": "Die volle Haftung für Konformität bei externen Anpassungen birgt das Risiko irreversibler Schäden, wenn die neuen Systeme nicht ausreichend getestet oder zertifiziert sind."
+          },
+          {
+            "paragraph": "§7",
+            "intensitaet": 15,
+            "begruendung": "Die strukturierte Übernahme von Pflichten durch Dritte kann den demokratischen Prozess stärken, indem sie klare Verantwortlichkeiten und Transparenz in der Konfliktlösung bietet."
+          }
+        ]
       },
       {
         "titel": "Öffentliche Betreiber: Registrierung in der EU-Datenbank",
@@ -293,7 +404,44 @@
           "+ Transparenz, Vermeidung von Rechtsverstößen",
           "– Bürokratischer Aufwand, insbesondere bei Systemen für kritische Infrastrukturen (nur nationale Registrierung)"
         ],
-        "wertannahmen": []
+        "wertannahmen": [],
+        "wertwirkung": [
+          {
+            "paragraph": "§1",
+            "intensitaet": 30,
+            "begruendung": "Die Option stärkt die Ökosystem-Funktionsfähigkeit indirekt durch effizientere KI-Nutzung und sichert das Menschen-Existenzminimum durch Vermeidung von Systemausfällen in kritischen Infrastrukturen."
+          },
+          {
+            "paragraph": "§2",
+            "intensitaet": 10,
+            "begruendung": "Die Verteilungswirkung ist neutral bis leicht positiv, da Transparenz Machtungleichgewichte zwischen Staat und Bürgern reduziert, der bürokratische Aufwand jedoch Ressourcen bindet."
+          },
+          {
+            "paragraph": "§3",
+            "intensitaet": 50,
+            "begruendung": "Sie stützt Individualfreiheit durch Transparenz und ermöglicht staatliche Eingriffe nur bei nachgewiesenen Hochrisiken, was die Kumulativklausel des §3(iii) operationalisiert."
+          },
+          {
+            "paragraph": "§4",
+            "intensitaet": 20,
+            "begruendung": "Sie priorisiert das Individuum durch Informationszugang über traditionelle Verwaltungshoheit, ohne kollektive Schutzgüter wesentlich zu gefährden."
+          },
+          {
+            "paragraph": "§5",
+            "intensitaet": 80,
+            "begruendung": "Sie erzwingt faktische Offenlegung und wissenschaftsbasierte Risikobewertung für Hochrisiko-Systeme, was den Kernanspruch auf Faktenbasis direkt umsetzt."
+          },
+          {
+            "paragraph": "§6",
+            "intensitaet": 70,
+            "begruendung": "Sie implementiert das Vorsichtsprinzip bei irreversiblen Risiken durch Registrierungspflicht, balanciert dies aber durch die Begrenzung auf Hochrisikofälle gegen Innovationshemmnisse."
+          },
+          {
+            "paragraph": "§7",
+            "intensitaet": 60,
+            "begruendung": "Sie fördert organisierten Konflikt durch transparente Faktenbasis für die Öffentlichkeit, ersetzt aber nicht den demokratischen Prozess durch technische Registrierung."
+          }
+        ]
       },
       {
         "titel": "Anbieter: Nutzung von Ausnahmen für nicht-hochriskante Systeme",
@@ -302,7 +450,44 @@
           "+ Geringerer Aufwand, wenn ein System trotz Hochrisiko-Einstufung als nicht-hochriskant eingestuft wird",
           "– Beweislast liegt beim Anbieter; Risiko von Fehleinschätzungen und nachträglichen Korrekturen"
         ],
-        "wertannahmen": []
+        "wertannahmen": [],
+        "wertwirkung": [
+          {
+            "paragraph": "§1",
+            "intensitaet": -60,
+            "begruendung": "Die Umgehung von Pflichten gefährdet die Transparenz und Risikokontrolle, was das Existenzminimum und die Ökosystem-Funktionsfähigkeit durch unkontrollierte KI-Risiken belastet."
+          },
+          {
+            "paragraph": "§2",
+            "intensitaet": -40,
+            "begruendung": "Durch die Vermeidung von Compliance-Kosten wird der Wettbewerbsvorteil auf Kosten potenzieller Schäden Dritter erlangt, was das Differenzprinzip für Schwächste untergräbt."
+          },
+          {
+            "paragraph": "§3",
+            "intensitaet": -85,
+            "begruendung": "Dies ist ein direkter Verstoß gegen §3(iii), da wissenschaftlicher Konsens über Risiken ignoriert wird und die Freiheit des Anbieters auf Kosten der Sicherheit anderer ausgeübt wird."
+          },
+          {
+            "paragraph": "§4",
+            "intensitaet": -30,
+            "begruendung": "Das Individuum (Anbieter) setzt sich gegen kollektive Schutzgüter (Vertrauen in digitale Infrastruktur) durch, ohne dass ein höheres Gut dies rechtfertigt."
+          },
+          {
+            "paragraph": "§5",
+            "intensitaet": -90,
+            "begruendung": "Die bewusste Fehleinschätzung widerspricht der Pflicht zur Faktenbasis und transparenten Darstellung des wissenschaftlichen Konsenses über Risiken."
+          },
+          {
+            "paragraph": "§6",
+            "intensitaet": -70,
+            "begruendung": "Das Vorsichtsprinzip wird missachtet, indem potenziell katastrophale Risiken durch formale Einstufungsmanipulation ignoriert werden."
+          },
+          {
+            "paragraph": "§7",
+            "intensitaet": -50,
+            "begruendung": "Demokratie und Faktentransparenz werden untergraben, da die Entscheidung auf Täuschung statt auf offener Abwägung basiert."
+          }
+        ]
       }
     ],
     "vergleichsfaelle": [],

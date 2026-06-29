@@ -1,5 +1,9 @@
 ## 1. Direkte Demokratie auf Bundesebene
 **Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-19 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** [EVIDENZ v1.0](https://www.notion.so/36532d5409c7811bb9c1d5018b1ed286)
+<!-- TLDR-START -->
+**Worum geht's:** Soll Deutschland bundesweite Volksentscheide einführen — und wenn ja, mit welchen Hürden, in welchen Themen und mit welchen Grenzen?
+**EVIDENZ-Position:** Ja — aber als Hybridmodell nach irischem Vorbild. Vor jedem Volksentscheid erarbeitet ein per Los bestimmter Bürgerrat aus 100 bis 200 Menschen gemeinsam mit Sachverständigen über mehrere Monate eine öffentliche Empfehlung. Eine Volksinitiative braucht rund 0,5 % der Stimmberechtigten, ein Volksbegehren rund 3 %, der Volksentscheid eine einfache Mehrheit bei mindestens 40 % Beteiligung. Tabu bleiben Grundrechte (Art. 1–19 GG) und neue Ausgaben über 50 Milliarden Euro.
+<!-- TLDR-END -->
 ### Entscheidungsfrage
 Soll EVIDENZ bundesweite Volksbegehren und Volksentscheide einführen — und wenn ja, mit welchen Quoren, in welchen Sachgebieten, mit welchen Ausschlüssen (z. B. Haushalt, Grundrechte)?
 ### Athena-Optionsanalyse
