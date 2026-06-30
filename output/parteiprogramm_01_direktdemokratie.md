@@ -11,7 +11,7 @@ Soll EVIDENZ bundesweite Volksbegehren und Volksentscheide einführen — und we
 - **Bundesebene**: Direkte Demokratie ist im GG nur in Form von Volksabstimmungen bei Neugliederung des Bundesgebiets (Art. 29 GG) und über eine neue Verfassung (Art. 146 GG, theoretisch) vorgesehen. Bundesweite Volksentscheide zu Sachfragen existieren nicht.
 - **Länderebene**: Alle 16 Länder kennen Volksbegehren/Volksentscheide, mit sehr unterschiedlichen Quoren (Bayern: 10 % Unterschriften, 25 % Zustimmungsquorum; Hamburg: 5 % / 20 %).
 - **Internationale Vergleichsfälle**: Schweiz (50–100 k Unterschriften, Doppelmehr für Verfassungsänderungen, keine Themenausschlüsse), Italien (500 k + 50 % + 1 Stimme), Irland (Bürgerrat vor Referendum), Kalifornien (5–8 % der Wählerstimmen).
-- **Empirische Befunde**: Schweiz: höhere Bürgerbeteiligung, geringere Staatsverschuldung, aber Status-quo-Verzerrung und Populismusrisiko (Minarettverbot 2009). Bayern: hohe Hürden → \~20 % Erfolgsquote, aber stabile Ergebnisse. Hamburg nach Quoren-Senkung 2019: mehr erfolgreiche Volksentscheide (Energienetze-Rückkauf 2013). Berlin: „Deutsche Wohnen & Co. enteignen“ (2021) erfolgreich, Umsetzung umstritten. Kalifornien: Initiative-Overload und Lobbyismus.
+- **Empirische Befunde**: Schweiz: höhere Bürgerbeteiligung, geringere Staatsverschuldung, aber Status-quo-Verzerrung und Populismusrisiko (Minarettverbot 2009). Bayern: hohe Hürden → ~20 % Erfolgsquote, aber stabile Ergebnisse. Hamburg nach Quoren-Senkung 2019: mehr erfolgreiche Volksentscheide (Energienetze-Rückkauf 2013). Berlin: „Deutsche Wohnen & Co. enteignen“ (2021) erfolgreich, Umsetzung umstritten. Kalifornien: Initiative-Overload und Lobbyismus.
 #### Rechtsrahmen
 - **Art. 20 II GG**: „Alle Staatsgewalt geht vom Volke aus. Sie wird vom Volke in Wahlen und Abstimmungen ausgeübt.“ — „Abstimmungen“ ist auslegungsoffen, eine ausdrückliche Ermächtigung für Sachentscheide fehlt jedoch.
 - **Art. 76 GG**: Gesetzgebungsinitiative bei Bundestag, Bundesrat, Bundesregierung — Volksgesetzgebung wäre paralleler Initiativweg.
@@ -27,22 +27,22 @@ Soll EVIDENZ bundesweite Volksbegehren und Volksentscheide einführen — und we
 - **Contra**: Legitimationsdefizit, Politikverdrossenheit, Innovationshemmnis, Vertrauensverlust.
 - **Wertannahmen**: Repräsentative Demokratie ist überlegen; Bürger sind nicht ausreichend informiert für komplexe Themen; Minderheitenschutz vor Mehrheitsentscheidungen.
 **Option 2 — Konservatives Modell (hohe Quoren, breite Themenausschlüsse)**
-- Volksinitiative: \~1 % (≈650 k Unterschriften). Volksbegehren: \~5 % (≈3,25 Mio.). Volksentscheid: 25 % Zustimmungsquorum.
-- Themenausschlüsse: Haushalt (\>1 Mrd. €), Grundrechte (Art. 1–19 GG), internationale Verträge, Löhne/Soziales.
+- Volksinitiative: ~1 % (≈650 k Unterschriften). Volksbegehren: ~5 % (≈3,25 Mio.). Volksentscheid: 25 % Zustimmungsquorum.
+- Themenausschlüsse: Haushalt (>1 Mrd. €), Grundrechte (Art. 1–19 GG), internationale Verträge, Löhne/Soziales.
 - Keine öffentliche Kampagnenfinanzierung.
 - **Pro**: Kontrollierte Einführung, geringes Populismusrisiko, Minderheitenschutz, Stabilität.
-- **Contra**: Hohe Hürden → kaum erfolgreiche Entscheide (Bayern-Erfahrung \~20 %), Elitenprivileg bei Kampagnen, Frustration durch Symbolpolitik.
+- **Contra**: Hohe Hürden → kaum erfolgreiche Entscheide (Bayern-Erfahrung ~20 %), Elitenprivileg bei Kampagnen, Frustration durch Symbolpolitik.
 - **Wertannahmen**: Direkte Demokratie ist riskant, aber kontrollierbar; Bürger brauchen Schutz vor kurzfristigen Entscheidungen; Parlament bleibt Hauptgesetzgeber.
 **Option 3 — Progressives Modell (niedrige Quoren, schmale Themenausschlüsse)**
-- Volksinitiative: \~0,5 % (≈325 k). Volksbegehren: \~3 % (≈1,95 Mio.). Volksentscheid: einfache Mehrheit + 50 % Beteiligungsschwelle.
-- Themenausschlüsse nur: Grundrechte (Art. 1–19 GG), Neuausgaben \>10 Mrd. €, EU-/NATO-Austritte.
+- Volksinitiative: ~0,5 % (≈325 k). Volksbegehren: ~3 % (≈1,95 Mio.). Volksentscheid: einfache Mehrheit + 50 % Beteiligungsschwelle.
+- Themenausschlüsse nur: Grundrechte (Art. 1–19 GG), Neuausgaben >10 Mrd. €, EU-/NATO-Austritte.
 - Öffentliche, gleichberechtigte Kampagnenfinanzierung (z. B. 50 ct/Bürger für Pro/Contra-Seite).
 - **Pro**: Hohe Bürgerbeteiligung, Innovation, Korrektiv gegen Politikverdrossenheit, Transparenz.
 - **Contra**: Populismusrisiko (z. B. Abschaffung CO₂-Steuer), Komplexitätsproblem bei technischen Themen, indirekte Minderheitengefährdung, hohe Verfahrenskosten.
 - **Wertannahmen**: Bürger sind mündig genug für direkte Demokratie; mehr Beteiligung stärkt Legitimation; Minderheitenschutz durch Verfassungsgericht reicht.
 **Option 4 — Hybridmodell (Volksgesetzgebung + verpflichtende Bürgerräte, „Irland-Modell“)**
-- Volksinitiative: \~0,5 %. Vor jedem Volksentscheid losbasierter Bürgerrat (100–200 Personen) mit Empfehlung. Volksbegehren: \~3 %. Volksentscheid: einfache Mehrheit + 40 % Beteiligungsschwelle.
-- Themenausschlüsse: Grundrechte, Neuausgaben \>50 Mrd. €.
+- Volksinitiative: ~0,5 %. Vor jedem Volksentscheid losbasierter Bürgerrat (100–200 Personen) mit Empfehlung. Volksbegehren: ~3 %. Volksentscheid: einfache Mehrheit + 40 % Beteiligungsschwelle.
+- Themenausschlüsse: Grundrechte, Neuausgaben >50 Mrd. €.
 - Verpflichtende öffentliche Deliberation: TV-Duelle, Bürgerforen, Faktenchecks.
 - **Pro**: Bürgerräte filtern populistische Forderungen; Kombination Beteiligung + Expertise; Minderheitenschutz durch deliberativen Schritt; Lernprozess für Bürger.
 - **Contra**: Verfahren langsam und teuer; Akzeptanzproblem bei Konflikten Bürgerrat ↔ Volk; Manipulationsrisiko bei Bürgerrat-Besetzung; Zeitaufwand (Monate–Jahre).
@@ -62,11 +62,11 @@ Soll EVIDENZ bundesweite Volksbegehren und Volksentscheide einführen — und we
 ### EVIDENZ-Position
 **Option 5 — Hybridmodell mit verpflichtendem Bürgerrat (Irland-Modell).**
 Konkrete Ausgestaltung:
-- Volksinitiative: \~0,5 % der Stimmberechtigten (≈ 325.000 Unterschriften)
+- Volksinitiative: ~0,5 % der Stimmberechtigten (≈ 325.000 Unterschriften)
 - Vor jedem Volksentscheid: losbasierter Bürgerrat (100–200 Personen) erarbeitet über mehrere Monate eine öffentliche Empfehlung, beraten durch Sachverständige
-- Volksbegehren: \~3 % der Stimmberechtigten (≈ 1,95 Mio.)
+- Volksbegehren: ~3 % der Stimmberechtigten (≈ 1,95 Mio.)
 - Volksentscheid: einfache Mehrheit + 40 % Beteiligungsschwelle
-- Themenausschlüsse: Grundrechte (Art. 1–19 GG), Neuausgaben \> 50 Mrd. €
+- Themenausschlüsse: Grundrechte (Art. 1–19 GG), Neuausgaben > 50 Mrd. €
 - Verpflichtende öffentliche Deliberation: TV-Duelle, Bürgerforen, dokumentierte Faktenchecks
 - Referenzmodelle: Irland (Abtreibungsreferendum 2018), Oregon (Citizens’ Initiative Review)
 ### Begründung

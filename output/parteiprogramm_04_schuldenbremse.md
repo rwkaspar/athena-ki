@@ -9,8 +9,8 @@ Wie soll die Schuldenbremse (GG Art. 109, 115) reformiert werden — strikt halt
 - **Sondervermögen Bundeswehr 100 Mrd. € (2022, GG-Änderung Art. 87a)**.
 - **Investitionsstau** bei Infrastruktur, Klima, Digitalisierung geschätzt 600–1.000 Mrd. € bis 2035 (Tier 1, ERK 2025b).
 - **Klima-Finanzierungslücke** 135–255 Mrd. €/Jahr für Energie, Gebäude, Verkehr (Tier 1, ERK 2025b).
-- **KTF (Klima- und Transformationsfonds)**: Einnahmen aus CO₂-Bepreisung \~12 Mrd. €/Jahr reichen nicht aus.
-- **Aktuelle Verschuldung** \~63 % BIP (Maastricht-Kriterium 60 %).
+- **KTF (Klima- und Transformationsfonds)**: Einnahmen aus CO₂-Bepreisung ~12 Mrd. €/Jahr reichen nicht aus.
+- **Aktuelle Verschuldung** ~63 % BIP (Maastricht-Kriterium 60 %).
 - **Soziale Verteilungswirkung**: ERK 2025b (RZ 184) — aktuelle Klimapolitik ist *nicht* sozial gerecht gestaltet; einkommensschwache Haushalte tragen höhere Lasten durch CO₂-Bepreisung.
 #### Rechtsrahmen
 - **GG Art. 109, 115**: Schuldenbremse; Änderungen erfordern Zwei-Drittel-Mehrheit in Bundestag und Bundesrat.
@@ -35,9 +35,9 @@ Praxis als legitimer Notausgang akzeptieren oder als Schuldenbremse-Umgehung ver
 #### Faktenprüfung der drei initialen Annahmen (Athena, 2026-05-20)
 Um die menschliche Entscheidung sauber zu fundieren, wurden die intuitiven Annahmen über die nicht-Mainstream-Varianten (Goldene Regel + unabhängiger Rat; Bürgerrat für Sondervermögen; Generationen-Konto) gegen Athena geprüft:
 **Annahme 1: „Unabhängiger Expertenrat ist träge und teuer.“ — *Teilweise widerlegt*.**
-- Expertenrat Klimafragen (ERK): \~1,5 Mio. €/Jahr, Gutachten in 3–9 Monaten
-- Sachverständigenrat Wirtschaft: \~2–2,5 Mio. €/Jahr, Hauptgutachten in 9–12 Monaten
-- Monopolkommission: \~1,2 Mio. €/Jahr
+- Expertenrat Klimafragen (ERK): ~1,5 Mio. €/Jahr, Gutachten in 3–9 Monaten
+- Sachverständigenrat Wirtschaft: ~2–2,5 Mio. €/Jahr, Hauptgutachten in 9–12 Monaten
+- Monopolkommission: ~1,2 Mio. €/Jahr
 - Im Kontext: 1–2,5 Mio. €/Jahr ist bei 400 Mrd. € Bundeshaushalt vernachlässigbar (0,0006 %). Verfahrenszeit 3–12 Monate ist kürzer als parlamentarische Verfahren typischerweise sind.
 - *Schlussfolgerung*: „Träge und teuer“ trifft absolut, aber im Kontext einer Schuldenentscheidung über 100+ Mrd. € über Jahrzehnte irrelevant.
 **Annahme 2: „2/3-Mehrheit für GG-Änderungen ist ohnehin das Bottleneck — zusätzlicher Bürgerrat unnötig.“ — *Mit falscher Begründung*.**
@@ -60,7 +60,7 @@ Um die menschliche Entscheidung sauber zu fundieren, wurden die intuitiven Annah
 **Variante A+C kombiniert: Generationen-Konto-Prinzip (C) + unabhängiger Expertenrat als operationeller Mechanismus (A). Kein Bürgerrat-Filter (B verworfen). Sondervermögen-Praxis wird durch das Generationen-Konto strukturell obsolet.**
 Konkrete Position:
 **(1) Grundprinzip — Generationen-Konto.** Änderung Art. 115 GG: Schulden für Investitionen sind zulässig, wenn (und nur wenn) wissenschaftlich dokumentiert ist, dass die Investition künftigen Generationen einen **Netto-Nutzen** bringt — d. h. die unterlassenen Kosten ohne Investition (Klimaschäden, Infrastrukturverfall, Bildungs-Opportunitätskosten) übersteigen die Schuldenkosten der Investition. Die Dokumentation muss vor Haushaltsbeschluss öffentlich vorliegen.
-**(2) Operationeller Mechanismus — Unabhängiger Generationenrat.** Ein neu zu schaffender Rat (Modell: ERK, \~5–10 Mitglieder, Sekretariat 10–15 Mitarbeiter, geschätzte Kosten 1,5–2,5 Mio. €/Jahr) prüft pro Haushaltsjahr, ob geplante Investitionsschulden das Netto-Nutzen-Kriterium erfüllen. Mitglieder werden auf 5–10 Jahre berufen, Berufung durch Bundespräsident auf Vorschlag eines breit aufgestellten Gremiums (ähnlich Wissenschaftsrat). Stimmungs-Veto durch absolute Mehrheit, Bürgerrechte-Prüfung integriert.
+**(2) Operationeller Mechanismus — Unabhängiger Generationenrat.** Ein neu zu schaffender Rat (Modell: ERK, ~5–10 Mitglieder, Sekretariat 10–15 Mitarbeiter, geschätzte Kosten 1,5–2,5 Mio. €/Jahr) prüft pro Haushaltsjahr, ob geplante Investitionsschulden das Netto-Nutzen-Kriterium erfüllen. Mitglieder werden auf 5–10 Jahre berufen, Berufung durch Bundespräsident auf Vorschlag eines breit aufgestellten Gremiums (ähnlich Wissenschaftsrat). Stimmungs-Veto durch absolute Mehrheit, Bürgerrechte-Prüfung integriert.
 **(3) Strukturelle Verbindlichkeit.** Bestehende strukturelle Defizitgrenze 0,35 % Bund bleibt für **konsumtive** Ausgaben in Kraft. Nur Investitionen, die den Netto-Nutzen-Test bestehen, sind zusätzlich kreditfinanzierbar. Damit ist die Schuldenbremse für Konsum erhalten, für nachweislich generationengerechte Investitionen geöffnet.
 **(4) Sondervermögen-Praxis** wird strukturell **obsolet**: Jede Investition, die das Netto-Nutzen-Kriterium erfüllt, läuft regulär durch den Haushalt; jede, die es nicht erfüllt, ist auch als Sondervermögen nicht legitim. Damit entfällt die Diskussion um „Umgehung vs. Notausgang“.
 **(5) EU-Konformität.** Anpassung an EU-Stabilitätspakt-Reform 2024 (grüne Investitionen) so weit möglich, ohne die strenge Maastricht-Logik aufzugeben.
@@ -88,7 +88,7 @@ Wenn §6 konsistent mit §1 gelesen wird, wiegt **Investition gegen Klimakatastr
 - **Operationelle Restunsicherheit**: Methodik des Netto-Nutzen-Tests ist Neuland. EVIDENZ akzeptiert, dass die genaue Mess- und Prüfmethodik in der Umsetzung weiter ausgearbeitet werden muss — dies ist eine Forschungsaufgabe, die der unabhängige Rat erste Antworten geben muss.
 - **BVerfG-Reibungsrisiko**: Das BVerfG könnte starre Nutzennachweispflicht als Eingriff in die Haushaltsautonomie (Art. 110 GG) werten. EVIDENZ akzeptiert dieses Risiko mit Verweis auf den Klima-Beschluss 2021 als Brücke.
 - **Politische Durchsetzbarkeit**: GG-Änderung erfordert 2/3-Mehrheit — kurzfristig nicht zu erreichen. Akzeptiert als langfristige Reformaufgabe (ähnlich wie bei Direktdemokratie, Politikfeld 1).
-- **Mehrkosten für Prüfinfrastruktur**: \~2 Mio. €/Jahr für Generationenrat. Akzeptiert als triviale Kosten gegenüber Investitionsvolumen.
+- **Mehrkosten für Prüfinfrastruktur**: ~2 Mio. €/Jahr für Generationenrat. Akzeptiert als triviale Kosten gegenüber Investitionsvolumen.
 - **Konfliktrisiko mit EU**: Konstrukt ist unkonventionell. Akzeptiert, weil EU-Reform 2024 selbst grüne Spielräume öffnet.
 **Bewusst nicht geteilte Wertannahmen aus anderen Optionen:**
 - *Aus Option 1 (FDP-Status-quo)*: „Generationengerechtigkeit = keine Schulden“ — nicht geteilt. Generationengerechtigkeit ist Netto-Nutzen-Frage, nicht Schuldenfrei-Frage.

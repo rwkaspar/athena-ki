@@ -15,7 +15,7 @@ Wie soll das Bundeswahlrecht (BWahlG) reformiert werden — bleibt der Stand der
 - **BVerfGE 1, 208 / 6, 84 / 120, 82 / 131, 316**: Hürden müssen verhältnismäßig sein, jede Stimme gleichen Erfolgswert
 #### Vier untersuchte Optionen
 - **Option 1 — Status quo (BWahlG 2023 + BVerfG-Korrektur)**: 630 feste Sitze, 5% oder 3 Direktmandate, keine Überhang/Ausgleich.
-- **Option 2 — Flexible Größe mit Obergrenze**: max. \~700 Sitze, 5% oder 3 Direktmandate, Rückkehr zu Überhang- und Ausgleichsmandaten.
+- **Option 2 — Flexible Größe mit Obergrenze**: max. ~700 Sitze, 5% oder 3 Direktmandate, Rückkehr zu Überhang- und Ausgleichsmandaten.
 - **Option 3 — 3%-Hürde, Grundmandatsklausel abschaffen**: 630 feste Sitze, nur noch 3%-Hürde.
 - **Option 4 — MMP (Neuseeland-Modell)**: flexible Sitzzahl, 5% oder 1 Direktmandat, voller Überhangausgleich.
 (Option 5 — Mehrheitswahl à la Frankreich — wurde wegen BVerfG-Inkompatibilität mit Art. 38 GG ausgeschlossen. Option 6 — Parlamentarismus-Paket inkl. 5-Jahres-Periode, Direktwahl Bundeskanzler, Geschlechterparität — wird als eigenes Politikfeld behandelt.)
