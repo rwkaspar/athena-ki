@@ -42,10 +42,14 @@ Zu prüfende Analyse:
 
 Prüfraster:
 
-1. **Faktische Stimmigkeit gegen Quellen.** Welche Behauptungen in der Analyse
-   stimmen NICHT mit den bereitgestellten Quellen überein? Schau besonders genau
-   auf: Norm-Nummern (Artikel, Paragraphen), Quoren, Fristen, Größen- und
-   Zeitangaben, Eigennamen. Zitiere die problematische Stelle wörtlich.
+1. **Faktische Stimmigkeit gegen Quellen.** Prüfe NUR überprüfbare FAKTENBEHAUPTUNGEN
+   (Ist-Zahlen, Rechtslage, Prognosen, Studienergebnisse): Welche stimmen NICHT mit den
+   Quellen überein oder sind dort unbelegt? Schau genau auf Norm-Nummern, Quoren, Fristen,
+   Größen-/Zeitangaben, Eigennamen. Zitiere die problematische Stelle wörtlich.
+   WICHTIG — NICHT als Faktenfehler werten: politische FORDERUNGEN, ZIELWERTE und normative
+   Positionen der Partei (z. B. „das Niveau SOLL auf 53 % angehoben werden", „wir wollen X",
+   „Tabu bleibt Y"). Das sind Wertentscheidungen, keine Faktenbehauptungen — sie können nicht
+   „falsch" oder „erfunden" sein. Eine Forderung ist kein Faktenfehler.
 
 2. **Methodische Lücken.** Welche relevanten Lösungsoptionen wurden nicht erwogen?
    Welche Wertannahmen fehlen oder sind nicht expliziert? Welche Vergleichsfälle

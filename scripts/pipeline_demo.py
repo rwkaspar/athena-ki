@@ -55,7 +55,7 @@ def adversarial_verify(facts, context, host):
     import json as _j
     import re as _re
     from langchain_ollama import OllamaLLM
-    m = OllamaLLM(model=os.getenv("ADVERSARIAL_MODEL", "mistral-small3.2:latest"),
+    m = OllamaLLM(model=os.getenv("ADVERSARIAL_MODEL", "gemma4:26b"),
                   base_url=host, timeout=300, reasoning=False)
     out = []
     for f in facts:
