@@ -438,8 +438,14 @@ def _honcho_list_sessions(workspace_id: str, peer_id: str) -> list[dict]:
 
 
 @app.get("/memory/export")
-def memory_export(scope: str, peer_id: str):
-    """Liefert alle gespeicherten Nachrichten eines Peers als JSON. DSGVO Art. 20 (Datenportabilität)."""
+def memory_export(scope: str, peer_id: str, request: Request):
+    """Liefert alle gespeicherten Nachrichten eines Peers als JSON. DSGVO Art. 20 (Datenportabilität).
+    Auth: nur angemeldeter Admin — sonst wäre die (client-generierte, in Logs/URLs leakende)
+    peer_id ein direkter Objektzugriff auf fremde Konversationen (IDOR). DSGVO-Anfragen laufen
+    über das Kernteam; eine spätere Self-Service-UI bräuchte ein Peer-Besitz-Token."""
+    sess = _verify_require(request)
+    if sess.get("role") != "admin":
+        raise HTTPException(status_code=403, detail="nur Admin (DSGVO-Bearbeitung).")
     if scope not in LLM_MODEL_FOR_SCOPE.get(DEFAULT_PROVIDER, {}):
         raise HTTPException(status_code=400, detail=f"Unbekannter Scope: {scope!r}")
     sessions = _honcho_list_sessions(scope, peer_id)
@@ -466,11 +472,16 @@ def memory_export(scope: str, peer_id: str):
 
 
 @app.delete("/memory/delete")
-def memory_delete(scope: str, peer_id: str):
+def memory_delete(scope: str, peer_id: str, request: Request):
     """Löscht alle Sessions des Peers in diesem Workspace. DSGVO Art. 17 (Recht auf Löschung).
     Achtung: das löscht die Session komplett, nicht nur die Messages des Peers — sonst
     bleibt eine inkonsistente Konversation aus Sicht der KI zurück. Bei geteilten Sessions
-    sollte das später anders gehandhabt werden (aktuell: jeder Peer hat eigene Sessions)."""
+    sollte das später anders gehandhabt werden (aktuell: jeder Peer hat eigene Sessions).
+    Auth: nur angemeldeter Admin — sonst könnte jeder mit einer fremden peer_id deren
+    gesamte Historie löschen (IDOR bei einem destruktiven Endpoint)."""
+    sess = _verify_require(request)
+    if sess.get("role") != "admin":
+        raise HTTPException(status_code=403, detail="nur Admin (DSGVO-Löschung).")
     if scope not in LLM_MODEL_FOR_SCOPE.get(DEFAULT_PROVIDER, {}):
         raise HTTPException(status_code=400, detail=f"Unbekannter Scope: {scope!r}")
     sessions = _honcho_list_sessions(scope, peer_id)

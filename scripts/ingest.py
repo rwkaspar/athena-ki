@@ -216,37 +216,35 @@ def ingest_pdf_url(url: str):
         print(f"   ⛔ URL blockiert (SSRF-Schutz): {e}")
         return []
     print(f"📥 Lade PDF: {url}")
-    import tempfile
+    from net_safety import safe_get           # SSRF-Schutz + geprüfte Redirects
+    from upload_security import scan_bytes, extract_pdf_text
+    from langchain_core.documents import Document
     headers = {"User-Agent": USER_AGENT, "Accept": "application/pdf,*/*"}
+    MAX_PDF_BYTES = 30 * 1024 * 1024          # Obergrenze gegen Speicher-Erschöpfung
     for attempt in range(1, MAX_RETRIES + 1):
         try:
-            r = req.get(url, headers=headers, timeout=PDF_DOWNLOAD_TIMEOUT_S, stream=True, allow_redirects=True)
+            r = safe_get(url, headers=headers, timeout=PDF_DOWNLOAD_TIMEOUT_S, stream=True)
             r.raise_for_status()
-            ctype = r.headers.get("Content-Type", "").lower()
-            if "pdf" not in ctype and "application/octet-stream" not in ctype:
-                print(f"   ⚠️ Content-Type ist '{ctype}', kein PDF")
-                # nicht abbrechen — manche Server senden text/html und liefern trotzdem PDF
-            with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
-                for chunk in r.iter_content(chunk_size=64*1024):
-                    if chunk:
-                        tmp.write(chunk)
-                tmp_path = tmp.name
-            size = os.path.getsize(tmp_path)
-            print(f"   PDF geladen: {size} Bytes -> {tmp_path}")
-            if size < 1024:
+            # In Bytes mit hartem Cap laden (kein unbegrenzter Download in den RAM).
+            buf = bytearray()
+            for chunk in r.iter_content(chunk_size=64 * 1024):
+                if chunk:
+                    buf.extend(chunk)
+                    if len(buf) > MAX_PDF_BYTES:
+                        print(f"   ⚠️ PDF > {MAX_PDF_BYTES} Bytes — abgebrochen")
+                        return []
+            data = bytes(buf)
+            print(f"   PDF geladen: {len(data)} Bytes")
+            if len(data) < 1024:
                 print(f"   ⚠️ PDF verdaechtig klein, ueberspringe")
-                os.unlink(tmp_path)
                 return []
-            try:
-                loader = PyPDFLoader(tmp_path)
-                docs = loader.load()
-                # source-Metadaten auf Original-URL setzen, nicht Temp-Pfad
-                for d in docs:
-                    d.metadata["source"] = url
-                print(f"   {len(docs)} Seite(n) geladen aus PDF")
-                return docs
-            finally:
-                os.unlink(tmp_path)
+            # Parsing NICHT im Prozess (pypdf-Lücken/Bomben), sondern nach ClamAV-Scan
+            # in der Docker-Sandbox — dieselbe Härtung wie beim Datei-Upload.
+            scan_bytes(data)                    # fail-closed bei fehlendem clamd
+            text = extract_pdf_text(data)       # isolierter Container, text-only
+            docs = [Document(page_content=text, metadata={"source": url})]
+            print(f"   Text extrahiert ({len(text)} Zeichen) via Sandbox")
+            return docs
         except Exception as e:
             if attempt < MAX_RETRIES:
                 wait = attempt * 2

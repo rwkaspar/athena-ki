@@ -143,14 +143,13 @@ def _fetch_sample(meta: dict, submission_dir: Path) -> tuple[str, str]:
             headers = {"User-Agent": "Athena-KI/1.0 (+review)"}
             # PDF-URLs: herunterladen + Text extrahieren (requests+Tag-Strip ergäbe
             # nur Binär-Müll → LLM bewertet ins Leere → fälschlich needs_human/reject).
+            # Parsing läuft NICHT im Server-Prozess (pypdf-Lücken/Ressourcen-Bomben),
+            # sondern nach ClamAV-Scan in derselben Docker-Sandbox wie Datei-Uploads.
             if urlparse(url).path.lower().endswith(".pdf"):
-                import tempfile
-                from pypdf import PdfReader
+                from upload_security import scan_bytes, extract_pdf_text
                 r = safe_get(url, timeout=30, headers={**headers, "Accept": "application/pdf,*/*"})
-                with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as tmp:
-                    tmp.write(r.content); tmp.flush()
-                    reader = PdfReader(tmp.name)
-                    text = " ".join((p.extract_text() or "") for p in reader.pages[:5])
+                scan_bytes(r.content)             # ClamAV (fail-closed)
+                text = extract_pdf_text(r.content)  # sandboxed, kein in-process pypdf
                 text = re.sub(r"\s+", " ", text).strip()
                 return url, text[:4000] or "[PDF ohne extrahierbaren Text]"
             r = safe_get(url, timeout=20, headers=headers)
@@ -427,13 +426,16 @@ def _finalize_review(submission_dir, meta, source, domain, verdict, sample=""):
         json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
     )
 
-    # Auto-Ingest als TIER 0 (unverifiziert), wenn Athena nicht ablehnt.
-    # Tier 0 ist im Retrieval per Default ausgeschlossen → keine Vergiftung der
-    # normalen Analysen. Die Hochstufung auf Tier 1-3 macht ein Mensch
-    # (review_submissions.py). Bei "reject" wird nichts eingepflegt.
+    # Auto-Ingest als TIER 0 (unverifiziert) NUR bei klarem "approve".
+    # "needs_human" bleibt in Quarantäne (submissions/pending/) und wird NICHT in
+    # ChromaDB aufgenommen, bis ein Mensch freigibt — sonst könnte ein Angreifer
+    # per unklar formulierter Einreichung Prompt-Injection/Poisoning in den Korpus
+    # schleusen (der LLM-Reviewer prüft Publisher/Relevanz, nicht Injection). Der
+    # menschliche Freigabe-Pfad (review_submissions.py / /verify/decide) ingestet
+    # die Quelle beim Approve ohnehin frisch. Bei "reject"/"needs_human" nichts.
     ingest_status = "not_ingested"
     rec = verdict.get("recommendation")
-    if rec in ("approve", "needs_human") and not verdict.get("error"):
+    if rec == "approve" and not verdict.get("error"):
         # Athenas vorgeschlagener Rang wird als 'vorläufig-tierN'-Tag mitgeführt:
         # retrieval.py gewichtet die unverifizierte Quelle damit gemäß ihrer
         # vermuteten Qualität (statt pauschal niedrigstem Boost). Bei der
