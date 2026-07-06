@@ -74,7 +74,8 @@ def _fetch(url: str) -> tuple[str, str]:
     """Liefert (content_type, text). PDFs werden als ct='pdf' erkannt, Text leer
     (Crawler bewertet PDFs allein anhand der URL als Dokument)."""
     try:
-        r = requests.get(url, timeout=TIMEOUT, headers={"User-Agent": USER_AGENT})
+        from net_safety import safe_get  # SSRF-Schutz + geprüfte Redirects
+        r = safe_get(url, timeout=TIMEOUT, headers={"User-Agent": USER_AGENT})
     except Exception:
         return "", ""
     # Tote/funktionslose Seiten (404/410/5xx …) NICHT ernten und nicht weiterverfolgen.

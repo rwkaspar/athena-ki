@@ -209,6 +209,12 @@ def _looks_like_pdf(url: str) -> bool:
 def ingest_pdf_url(url: str):
     """PDF herunterladen (mit Timeout) und ueber PyPDFLoader parsen.
     Vermeidet das Haengen von WebBaseLoader bei PDF-URLs."""
+    from net_safety import assert_url_safe, BlockedURLError
+    try:
+        assert_url_safe(url)
+    except BlockedURLError as e:
+        print(f"   ⛔ URL blockiert (SSRF-Schutz): {e}")
+        return []
     print(f"📥 Lade PDF: {url}")
     import tempfile
     headers = {"User-Agent": USER_AGENT, "Accept": "application/pdf,*/*"}
@@ -254,6 +260,12 @@ def ingest_pdf_url(url: str):
 def ingest_url(url: str, *, allow_render_fallback: bool = True):
     """Dispatcher: PDF -> ingest_pdf_url, sonst HTML via WebBaseLoader mit
     Timeout, bei leerem Ergebnis automatisch Fallback auf ingest_url_rendered."""
+    from net_safety import assert_url_safe, BlockedURLError
+    try:
+        assert_url_safe(url)
+    except BlockedURLError as e:
+        print(f"   ⛔ URL blockiert (SSRF-Schutz): {e}")
+        return []
     if _looks_like_pdf(url):
         return ingest_pdf_url(url)
 
@@ -301,6 +313,12 @@ def ingest_url_rendered(url: str, wait_selector: str | None = None):
     Nötig für Seiten wie gesetze-bayern.de, die Inhalte erst per JavaScript
     nachladen. wait_selector erlaubt das Warten auf einen konkreten DOM-Knoten,
     sonst wird auf 'networkidle' gewartet."""
+    from net_safety import assert_url_safe, BlockedURLError
+    try:
+        assert_url_safe(url)
+    except BlockedURLError as e:
+        print(f"   ⛔ URL blockiert (SSRF-Schutz): {e}")
+        return []
     from playwright.sync_api import sync_playwright
 
     print(f"📥 Lade URL (JS-gerendert): {url}")

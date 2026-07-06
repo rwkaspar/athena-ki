@@ -12,9 +12,7 @@ Quellen im Output mit "(Live-Fetch, Tier X, nicht versioniert)" zu kennzeichnen.
 Sicherheit: SSRF-Schutz blockt internal/loopback/Tailnet/private IP-Bereiche.
 """
 
-import ipaddress
 import os
-import socket
 import sys
 from datetime import datetime, timezone
 from urllib.parse import urlparse
@@ -25,34 +23,12 @@ from langchain_core.tools import tool
 sys.path.insert(0, os.path.dirname(__file__))
 
 from ingest import load_source_tiers, classify_source
+# Zentraler SSRF-Schutz (gemeinsam mit Submission-/Ingest-/Crawl-Pfad).
+from net_safety import is_blocked_host as _is_blocked_host
 
 MAX_PAGE_BYTES = 2 * 1024 * 1024
 MAX_TEXT_CHARS = 5000
 NAVIGATION_TIMEOUT_MS = 30_000
-
-
-def _is_blocked_host(hostname: str) -> str | None:
-    """Liefert Begründungs-String wenn Host blockiert, sonst None."""
-    if not hostname:
-        return "leerer Hostname"
-    lower = hostname.lower()
-    if lower in ("localhost", "ip6-localhost"):
-        return "localhost"
-    try:
-        ip_list = socket.getaddrinfo(hostname, None)
-    except socket.gaierror as e:
-        return f"DNS-Auflösung fehlgeschlagen: {e}"
-    for entry in ip_list:
-        try:
-            ip = ipaddress.ip_address(entry[4][0])
-        except (ValueError, IndexError):
-            continue
-        if ip.is_loopback or ip.is_private or ip.is_link_local or ip.is_multicast or ip.is_reserved:
-            return f"Private/Loopback-IP {ip}"
-        # Tailnet CGNAT-Bereich (100.64.0.0/10) — nur für IPv4
-        if isinstance(ip, ipaddress.IPv4Address) and ip in ipaddress.IPv4Network("100.64.0.0/10"):
-            return f"Tailnet-IP {ip}"
-    return None
 
 
 @tool

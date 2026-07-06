@@ -139,21 +139,21 @@ def _fetch_sample(meta: dict, submission_dir: Path) -> tuple[str, str]:
     if meta.get("kind") == "url":
         url = meta.get("url", "")
         try:
-            import requests
+            from net_safety import safe_get  # SSRF-Schutz + geprüfte Redirects
             headers = {"User-Agent": "Athena-KI/1.0 (+review)"}
             # PDF-URLs: herunterladen + Text extrahieren (requests+Tag-Strip ergäbe
             # nur Binär-Müll → LLM bewertet ins Leere → fälschlich needs_human/reject).
             if urlparse(url).path.lower().endswith(".pdf"):
                 import tempfile
                 from pypdf import PdfReader
-                r = requests.get(url, timeout=30, headers={**headers, "Accept": "application/pdf,*/*"})
+                r = safe_get(url, timeout=30, headers={**headers, "Accept": "application/pdf,*/*"})
                 with tempfile.NamedTemporaryFile(suffix=".pdf", delete=True) as tmp:
                     tmp.write(r.content); tmp.flush()
                     reader = PdfReader(tmp.name)
                     text = " ".join((p.extract_text() or "") for p in reader.pages[:5])
                 text = re.sub(r"\s+", " ", text).strip()
                 return url, text[:4000] or "[PDF ohne extrahierbaren Text]"
-            r = requests.get(url, timeout=20, headers=headers)
+            r = safe_get(url, timeout=20, headers=headers)
             text = re.sub(r"<[^>]+>", " ", r.text)
             text = re.sub(r"\s+", " ", text).strip()
             return url, text[:4000]

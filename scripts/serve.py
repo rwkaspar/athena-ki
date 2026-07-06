@@ -747,6 +747,13 @@ async def submit_source(
         parsed = urlparse(clean_url)
         if parsed.scheme not in ("http", "https") or not parsed.netloc:
             raise HTTPException(status_code=400, detail="URL muss http(s) sein.")
+        # SSRF-Schutz: interne/private Ziele (Loopback, Tailnet, Metadaten-IP …)
+        # abweisen, bevor irgendein Hintergrund-Fetch die URL abruft.
+        from net_safety import assert_url_safe, BlockedURLError
+        try:
+            assert_url_safe(clean_url)
+        except BlockedURLError as e:
+            raise HTTPException(status_code=400, detail=f"URL nicht erlaubt: {e}")
         meta["url"] = clean_url
     elif kind == "file":
         if file is None:
