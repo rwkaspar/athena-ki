@@ -715,6 +715,12 @@ async def submit_source(
         # stille Annahme, aber nicht persistieren — Bots merken nichts
         return {"id": "noop", "status": "received"}
 
+    # Rate-Limit: jede Einreichung stößt ClamAV-Scan/Docker-Sandbox bzw. einen
+    # LLM-Review + externen Fetch an → Missbrauch begrenzen.
+    ip = request.client.host if request.client else "?"
+    if not _rate_ok(ip, "submission", 8, 600):
+        raise HTTPException(status_code=429, detail="Zu viele Einreichungen. Bitte später erneut.")
+
     if scope not in LLM_MODEL_FOR_SCOPE[DEFAULT_PROVIDER]:
         raise HTTPException(status_code=400, detail=f"Unbekannter Scope: {scope!r}")
 
@@ -892,6 +898,11 @@ def contact(req: ContactRequest, request: Request):
     if req.honeypot:
         # Bot: stille Annahme, nichts persistieren
         return {"id": "noop", "status": "received"}
+
+    # Rate-Limit: /contact schreibt Dateien und triggert SMTP → Spam begrenzen.
+    ip = request.client.host if request.client else "?"
+    if not _rate_ok(ip, "contact", 8, 600):
+        raise HTTPException(status_code=429, detail="Zu viele Anfragen. Bitte später erneut.")
 
     message = req.message.strip()
     if not message:
@@ -1071,6 +1082,12 @@ def _accounts_load() -> dict:
 def _accounts_save(d: dict):
     ACCOUNTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     ACCOUNTS_FILE.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding="utf-8")
+    # Enthält pw_hash/pw_salt/verify_token → restriktive Rechte erzwingen (nicht
+    # world-readable), sonst setzt der Standard-umask die Datei wieder auf 664.
+    try:
+        os.chmod(ACCOUNTS_FILE, 0o600)
+    except OSError:
+        pass
 
 
 def _hash_pw(pw: str, salt: str) -> str:
@@ -2251,11 +2268,16 @@ def _tail_chat_job(job_id: str, offset: int = 0):
 
 
 @app.post("/chat")
-def chat(req: ChatRequest):
+def chat(req: ChatRequest, request: Request):
     """Streaming-Endpoint (NDJSON: job, sources, token, done, error …).
     Die Antwort wird serverseitig gepuffert (resumable): erstes Event ist
     {type:'job', job_id}. Bricht die Verbindung ab, holt der Client den Rest
     via /chat/resume nach."""
+    # Rate-Limit: jede Anfrage startet einen Inferenz-Job (Thread + LLM-Call) →
+    # Kosten-/Ressourcen-Flut aus einer Quelle begrenzen (großzügig für Menschen).
+    ip = request.client.host if request.client else "?"
+    if not _rate_ok(ip, "chat", 30, 60):
+        raise HTTPException(status_code=429, detail="Zu viele Anfragen in kurzer Zeit. Bitte einen Moment warten.")
     job_id = uuid.uuid4().hex
     with _CHAT_JOBS_LOCK:
         _cleanup_chat_jobs()
