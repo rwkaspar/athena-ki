@@ -323,7 +323,13 @@
   ],
   "evidenz_position": {
     "kurzfassung": "Vollintegration in eine GKV-Bürgerversicherung: Alle Einwohner:innen zahlen einkommensabhängig ein, inklusive Beamte, Selbstständige und Kapitalerträge. Beitragsbemessungsgrenze wird aufgehoben. PKV-Vollversicherung: keine Neuverträge, Bestand mit Bestandsschutz und Übertragbarkeit der Altersrückstellungen. Private Zusatzversicherungen bleiben erlaubt.",
-    "konkret": "beitragsbasis: Einkommen (inkl. Kapitalerträge), keine Beitragsbemessungsgrenze.; zielgruppen: Alle Einwohner:innen, inkl. Beamte, Politiker:innen, Selbstständige.; pkv: Keine Neuverträge für Vollversicherungen; Bestandsschutz für bestehende Verträge mit Übertragbarkeit der Altersrückstellungen (BVerfG 1 BvR 1148/13). Private Zusatzversicherungen bleiben erlaubt.; finanzierung: Beitragsfinanziert, fiskalisch für den Bundeshaushalt ~neutral (GKV ist beitragsfinanziert).; verteilungseffekte: GKV-interne Beitragssenkung durch breitere Risikostreuung und höhere Einnahmen.",
+    "konkret": [
+      "beitragsbasis: Einkommen (inkl. Kapitalerträge), keine Beitragsbemessungsgrenze",
+      "zielgruppen: Alle Einwohner:innen, inkl. Beamte, Politiker:innen, Selbstständige",
+      "pkv: Keine Neuverträge für Vollversicherungen; Bestandsschutz für bestehende Verträge mit Übertragbarkeit der Altersrückstellungen (BVerfG 1 BvR 1148/13). Private Zusatzversicherungen bleiben erlaubt",
+      "finanzierung: Beitragsfinanziert, fiskalisch für den Bundeshaushalt ~neutral (GKV ist beitragsfinanziert)",
+      "verteilungseffekte: GKV-interne Beitragssenkung durch breitere Risikostreuung und höhere Einnahmen"
+    ],
     "warum": "§2 EVIDENZ-Wertekanon (Solidarität) wird stark gestützt. §3 (Marktmechanismen) wird belastet, aber über §3(iii) (Gerechtigkeit) gerechtfertigt. §4 (Tradition des dualen Systems) wird bewusst aufgegeben, da es zu Ungleichheiten führt.",
     "wertannahmen": "solidaritaet: §2: Alle tragen nach Leistungsfähigkeit bei, unabhängig von Risiko oder Status.; gerechtigkeit: §3(iii): Umverteilung reduziert soziale Ungleichheit im Gesundheitssystem.; tradition: §4: Das duale System wird als historisch überholt und ungerecht bewertet.",
     "trade_offs_eingestanden": "Marktmechanismen (§3) werden eingeschränkt, um Solidarität (§2) und Gerechtigkeit (§3(iii)) zu stärken. Die PKV als Vollversicherung wird abgeschafft, um Risikoselektion zu verhindern, was die Wahlfreiheit (§1) einschränkt. Die Übertragbarkeit von Altersrückstellungen mildert diesen Trade-off ab.",

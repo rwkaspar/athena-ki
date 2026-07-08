@@ -343,7 +343,13 @@
   ],
   "evidenz_position": {
     "kurzfassung": "Abgeordneten-Diäten an das 3,5-fache des Medianeinkommens koppeln (~7.000 €/Monat), jährlich dynamisiert. Integration in GKV und GRV, Übergangsgeld auf 6 Monate, Nebeneinkünfte deckeln + Transparenz, eigenständige Altersentschädigung abschaffen.",
-    "konkret": "1. Diäten auf 3,5 × Medianeinkommen (~7.000 €/Monat) senken, jährlich an die Medianentwicklung angepasst. 2. Pflichtmitgliedschaft in GKV und GRV für alle Abgeordneten. 3. Übergangsgeld auf 6 Monate begrenzen. 4. Nebeneinkünfte auf 10 % der Diäten deckeln und vollständig offenlegen. 5. Eigenständige Altersentschädigung abschaffen und in die GRV überführen.",
+    "konkret": [
+      "Diäten auf 3,5 × Medianeinkommen (~7.000 €/Monat) senken, jährlich an die Medianentwicklung angepasst",
+      "Pflichtmitgliedschaft in GKV und GRV für alle Abgeordneten",
+      "Übergangsgeld auf 6 Monate begrenzen",
+      "Nebeneinkünfte auf 10 % der Diäten deckeln und vollständig offenlegen",
+      "Eigenständige Altersentschädigung abschaffen und in die GRV überführen"
+    ],
     "warum": "Die Reform wahrt die amtsangemessene Entschädigung laut BVerfG-Diätenurteil, vermeidet aber eine beliebige Absenkung. Die Integration in GKV/GRV stärkt die Glaubwürdigkeit und Gleichbehandlung. Die Deckelung von Nebeneinkünften und die Begrenzung des Übergangsgelds reduzieren Privilegien. Fiskalisch ist der Effekt symbolisch (niedriger zweistelliger Mio-Bereich), der Wert liegt in der Signalwirkung: bewusster Selbstschaden als Glaubwürdigkeitssignal.",
     "wertannahmen": "Gleichbehandlung aller Bürger:innen vor dem Gesetz ist ein zentraler demokratischer Wert. · Transparenz und Verzicht auf Privilegien stärken das Vertrauen in die Demokratie. · Symbolische Reformen können reale Glaubwürdigkeitsgewinne erzielen.",
     "trade_offs_eingestanden": "Die Diätenkürzung könnte die Attraktivität des Mandats für hochqualifizierte Kandidaten verringern. Die Integration in GKV/GRV könnte kurzfristig höhere Beiträge für Abgeordnete bedeuten. Die Deckelung von Nebeneinkünften könnte die Rekrutierung von Experten aus der Wirtschaft erschweren.",
