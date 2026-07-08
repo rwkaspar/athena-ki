@@ -88,7 +88,7 @@ LLM_MODEL_FOR_SCOPE = {
         "bund": "mistral-large-latest",
     },
 }
-DEFAULT_SCOPE = "pfofeld"
+DEFAULT_SCOPE = "bund"  # Bundespolitik ist der EVIDENZ-Fokus; pfofeld ist nur der (nicht-öffentliche) Pilot
 DEFAULT_PROVIDER = os.getenv("ATHENA_LLM_PROVIDER", "ollama")
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
 
@@ -1359,7 +1359,7 @@ async def verify_decide(request: Request):
         if (lang_code and lang_code not in ("de", "unknown")) or lang_mode:
             to = "-"
             if lang_mode == "translation" and translation_of:
-                to = _resolve_translation_original(meta.get("scope") or "pfofeld", translation_of)
+                to = _resolve_translation_original(meta.get("scope") or DEFAULT_SCOPE, translation_of)
             translation_of = to if to != "-" else translation_of
             n_tag = _set_source_lang_tags(meta, lang_code, to)
             ingest_note += (f" · lang:{lang_code or '—'}"

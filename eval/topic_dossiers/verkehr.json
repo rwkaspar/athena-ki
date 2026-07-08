@@ -3,51 +3,54 @@
   "slug": "verkehr",
   "title": "Verkehr & Mobilität",
   "lead": "Verbrenner-Aus, Tempolimit, ÖPNV, Bahn-Sanierung, Deutschlandticket — wer fordert was, und was sagen Tier-1-Quellen (UBA, KBA, DB, BMDV, ERK, IPCC) zur Wirkung?",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "THG-Emissionen Verkehrssektor 2024",
-      "value": "ca. 145 Mio. t CO₂-Äq",
-      "source_title": "UBA Bilanz März 2025",
-      "source_url": "https://www.umweltbundesamt.de/themen/verkehr-laerm/emissionsdaten",
-      "verify_needed": true,
-      "note": "Sektor verfehlt KSG-Sektorziel seit Jahren, einziger Sektor mit Wachstum statt Reduktion."
+      "value": "ca. 143 Mio. t CO₂-Äq",
+      "source_title": "UBA/BMWE (14.03.2025)",
+      "source_url": "https://www.umweltbundesamt.de/presse/pressemitteilungen",
+      "note": "2024 vorläufig 143,1 Mt (−1,4 % ggü. 2023). KORREKTUR: war 145.",
+      "verified": true
     },
     {
       "label": "Pkw-Bestand Deutschland (01.01.2025)",
-      "value": "ca. 49,1 Mio.",
-      "source_title": "KBA Bestand",
-      "source_url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Bestand/bestand_node.html",
-      "verify_needed": true
+      "value": "ca. 49,3 Mio. (49.339.166)",
+      "source_title": "Kraftfahrt-Bundesamt",
+      "source_url": "https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugbestand/2025/pm10_fz_bestand_pm_komplett.html",
+      "note": "KBA 01.01.2025 = 49.339.166 Pkw. KORREKTUR: war 49,1 Mio.",
+      "verified": true
     },
     {
       "label": "E-Auto-Anteil Neuzulassungen 2024",
       "value": "ca. 13,5 %",
-      "source_title": "KBA Neuzulassungen",
-      "source_url": "https://www.kba.de/DE/Statistik/Fahrzeuge/Neuzulassungen/neuzulassungen_node.html",
-      "verify_needed": true,
-      "note": "Nach Wegfall der Umweltprämie 12/2023 deutlicher Einbruch."
+      "source_title": "Kraftfahrt-Bundesamt Jahresbilanz 2024",
+      "source_url": "https://www.kba.de/DE/Presse/Pressemitteilungen/AlternativeAntriebe/2025/pm03_2025_Antriebe_12_24_komplett.html",
+      "note": "380.609 reine BEV = 13,5 % der Pkw-Neuzulassungen.",
+      "verified": true
     },
     {
       "label": "Deutschlandticket-Abonnent:innen (Stand 2024)",
-      "value": "ca. 13 Mio.",
-      "source_title": "VDV / BMDV",
-      "source_url": "https://www.bmdv.bund.de/SharedDocs/DE/Artikel/K/deutschland-ticket.html",
-      "verify_needed": true
+      "value": "ca. 14 Mio. (Ende 2024)",
+      "source_title": "VDV / Statista",
+      "source_url": "https://de.statista.com/statistik/daten/studie/1411846/umfrage/entwicklung-der-nutzung-des-deutschlandtickets/",
+      "note": "2024 von ~13,7 Mio. (April) auf ~14 Mio. (Jahresende) gestiegen. KORREKTUR: 13 Mio. zu konservativ.",
+      "verified": true
     },
     {
       "label": "DB Fernverkehr Pünktlichkeit 2024",
-      "value": "ca. 62 %",
-      "source_title": "Deutsche Bahn AG Jahresbericht",
-      "source_url": "https://www.deutschebahn.com/de/konzern/im_ueberblick",
-      "verify_needed": true,
-      "note": "Niedrigster Wert seit Beginn der Erfassung."
+      "value": "ca. 62,5 %",
+      "source_title": "Deutsche Bahn Jahresbilanz 2024",
+      "source_url": "https://www.deutschebahn.com/de/presse/pressestart_zentrales_uebersicht/Deutsche-Bahn-auf-Sanierungskurs-Verluste-2024-deutlich-verringert-13325320",
+      "note": "62,5 % pünktlich (<6 Min.); 21-Jahres-Tief.",
+      "verified": true
     },
     {
-      "label": "Investitionsbedarf Schiene bis 2035",
-      "value": "ca. 200 Mrd. €",
-      "source_title": "BMDV / Allianz pro Schiene",
-      "source_url": "https://www.bmdv.bund.de/",
+      "label": "Sanierungsstau Schienennetz",
+      "value": "~110 Mrd. € (2024)",
+      "source_title": "Allianz pro Schiene",
+      "source_url": "https://www.allianz-pro-schiene.de/presse/pressemitteilungen/investitionsstau-im-schienennetz/",
+      "note": "Investitions-/Sanierungsstau Schienennetz ~110 Mrd. € (2024); Gesamtbedarf inkl. Ausbau höher, quellenabhängig.",
       "verify_needed": true
     }
   ],

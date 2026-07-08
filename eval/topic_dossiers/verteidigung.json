@@ -3,7 +3,7 @@
   "slug": "verteidigung",
   "title": "Verteidigung & Sicherheit",
   "lead": "Nato-2-Prozent-Ziel, Sondervermögen, Wehrpflicht, Ukraine-Hilfen, Drohnenkrieg — wer fordert was, und was halten Tier-1-Quellen (SIPRI, NATO, BMVg, Bundestag, ISW) dazu fest?",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Einzelplan 14 (Verteidigung) 2025 Soll",
@@ -16,10 +16,10 @@
     {
       "label": "NATO-2%-Ziel: DE-Quote 2024",
       "value": "ca. 2,12 % BIP",
-      "source_title": "NATO Defence Expenditure Report 2024",
-      "source_url": "https://www.nato.int/cps/en/natohq/news_226465.htm",
-      "verify_needed": true,
-      "note": "Erstmals seit 1992 erreicht; inkl. Sondervermögen."
+      "source_title": "NATO Defence Expenditure of NATO Countries",
+      "source_url": "https://www.nato.int/cps/en/natohq/topics_49198.htm",
+      "note": "NATO-Schätzung DE 2024 ~2,1 %; erstmals wieder >2 % seit ~1992.",
+      "verified": true
     },
     {
       "label": "Sondervermögen Bundeswehr (2022)",
@@ -31,24 +31,26 @@
     {
       "label": "Bundeswehr-Personalstärke 2024",
       "value": "ca. 181.000 Soldat:innen",
-      "source_title": "BMVg",
-      "source_url": "https://www.bundeswehr.de/",
-      "verify_needed": true,
-      "note": "Ziel 203.000 bis 2031 (BMVg-Plan)."
+      "source_title": "Bundeswehr / BMVg",
+      "source_url": "https://www.bundeswehr.de/de/organisation/personal/personalbestand-bundeswehr-5890246",
+      "note": "Jahresende 2024 ~181.150 aktive Soldat:innen.",
+      "verified": true
     },
     {
       "label": "Ukraine-Militärhilfe DE 2022–2024 (kumuliert)",
-      "value": "ca. 28 Mrd. €",
-      "source_title": "Kiel-Institut Ukraine-Support-Tracker",
-      "source_url": "https://www.ifw-kiel.de/topics/war-against-ukraine/ukraine-support-tracker/",
+      "value": "geliefert ~15–17 Mrd. € (Kiel); zugesagt ~55,5 Mrd. € (2026)",
+      "source_title": "Kiel Institute Ukraine Support Tracker / Bundesregierung",
+      "source_url": "https://www.kielinstitut.de/topics/war-against-ukraine/ukraine-support-tracker/",
+      "note": "Zugesagt ≠ geliefert: Kiel-Allokation (geliefert) bis Ende 2024 ~15–17 Mrd.; Bundesregierung 'zugesagt' ~55,5 Mrd. (2026).",
       "verify_needed": true
     },
     {
       "label": "Russland-Verteidigungsausgaben 2024 (SIPRI)",
       "value": "ca. 149 Mrd. USD (+38 % vs. 2023)",
-      "source_title": "SIPRI Yearbook 2024",
-      "source_url": "https://www.sipri.org/publications",
-      "verify_needed": true
+      "source_title": "SIPRI (Release April 2025)",
+      "source_url": "https://www.sipri.org/media/press-release/2025/unprecedented-rise-global-military-expenditure-european-and-middle-east-spending-surges",
+      "note": "~149 Mrd. USD, +38 %, ~7,1 % BIP.",
+      "verified": true
     }
   ],
   "legal_frame": [

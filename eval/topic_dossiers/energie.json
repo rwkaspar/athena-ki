@@ -3,7 +3,7 @@
   "slug": "energie",
   "title": "Energie",
   "lead": "Strompreis, Versorgungssicherheit, Atomausstieg, russisches Gas — wo die Parteien streiten und was die Daten von BNetzA, AGEE-Stat, BDEW, Fraunhofer ISE und ENTSO-E hergeben.",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Anteil Erneuerbare an Bruttostromerzeugung 2024",
@@ -13,17 +13,19 @@
       "verified": true
     },
     {
-      "label": "Anteil Erneuerbare am Bruttostromverbrauch 2024 (BDEW)",
+      "label": "Anteil Erneuerbare am Bruttostromverbrauch 2024",
       "value": "54,4 %",
-      "source_title": "BDEW Energiezahlen 2024",
-      "source_url": "https://www.bdew.de/energie/zahlen-und-grafiken/",
-      "verify_needed": true
+      "source_title": "UBA / AGEE-Stat",
+      "source_url": "https://www.umweltbundesamt.de/themen/klima-energie/erneuerbare-energien/erneuerbare-energien-in-zahlen",
+      "note": "54,4 % ist die UBA/AGEE-Stat-Zahl (BDEW/ZSW nannten ~55 %).",
+      "verified": true
     },
     {
       "label": "Strompreis Industrie 2024 (∅)",
-      "value": "ca. 18 ct/kWh",
-      "source_title": "BNetzA Strommarktbericht 2024",
-      "source_url": "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Monitoring/start.html",
+      "value": "ca. 17 ct/kWh (mittlere Abnahme, bandabhängig)",
+      "source_title": "BDEW-Strompreisanalyse 05/2025",
+      "source_url": "https://www.bdew.de/energie/strompreisanalyse/",
+      "note": "Stark band-/definitionsabhängig (16–20 ct netto; breite Durchschnitte inkl. Abgaben höher).",
       "verify_needed": true
     },
     {
@@ -36,9 +38,10 @@
     {
       "label": "Russland-Gas-Anteil DE 2021 vs. 2024",
       "value": "~55 % → ~0 %",
-      "source_title": "BNetzA Gasmarktbericht 2024",
-      "source_url": "https://www.bundesnetzagentur.de/DE/Fachthemen/ElektrizitaetundGas/Versorgungssicherheit/start.html",
-      "verify_needed": true
+      "source_title": "bpb / Destatis-Außenhandel",
+      "source_url": "https://www.bpb.de/kurz-knapp/hintergrund-aktuell/507243/deutschlands-abhaengigkeit-von-russischem-gas/",
+      "note": "2021 ~55 % der Gasimporte aus RU; Pipeline-Lieferungen seit Sep. 2022 gestoppt.",
+      "verified": true
     }
   ],
   "legal_frame": [

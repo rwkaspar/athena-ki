@@ -3,14 +3,15 @@
   "slug": "parteienfinanzierung",
   "title": "Parteienfinanzierung & Lobby",
   "lead": "Unternehmensspenden, Lobbyregister, Cooling-off-Period, parteinahe Stiftungen — wo welche Partei steht, und was GRECO, OECD, Bundesrechnungshof + Tier-1-Belege dazu sagen.",
-  "stand": "2026-06-13",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Staatliche Teilfinanzierung 2024",
-      "value": "ca. 200 Mio. €",
-      "source_title": "BMI / PartG § 18",
-      "source_url": "https://www.bundeswahlleiter.de/parteien/finanzierung.html",
-      "verify_needed": true
+      "value": "ca. 219 Mio. €",
+      "source_title": "Deutscher Bundestag (hib)",
+      "source_url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1002346",
+      "note": "Absolute Obergrenze 2024 = 219,2 Mio. € (+4,6 %). KORREKTUR: war 200 Mio.",
+      "verified": true
     },
     {
       "label": "Sockel-Wahlkampfkostenerstattung",
@@ -21,17 +22,19 @@
     },
     {
       "label": "Parteinahe Stiftungen 2024",
-      "value": "ca. 700 Mio. € staatliche Förderung",
-      "source_title": "Bundesrechnungshof / BMI",
-      "source_url": "https://www.bundesrechnungshof.de/",
-      "verify_needed": true
+      "value": "ca. 688 Mio. €",
+      "source_title": "Stiftung Aktive Bürgerschaft",
+      "source_url": "https://www.aktive-buergerschaft.de/staat-gab-2024-ueber-687-millionen-euro-fuer-parteinahe-stiftungen-aus/",
+      "note": "Sechs Stiftungen 2024 zusammen 687,5 Mio. € öffentliche Mittel.",
+      "verified": true
     },
     {
       "label": "Lobbyregister-Einträge 2024",
-      "value": "ca. 7.000 Lobbyisten",
-      "source_title": "Lobbyregister Bundestag",
+      "value": "rund 6.000 aktive Interessenvertreter (~7.000 Einträge)",
+      "source_title": "Lobbyregister beim Deutschen Bundestag",
       "source_url": "https://www.lobbyregister.bundestag.de/",
-      "verify_needed": true
+      "note": "~7.164 veröffentlichte Einträge im Zeitraum, ~5.900–6.000 aktiv Ende 2024.",
+      "verified": true
     },
     {
       "label": "Aktuelle Cooling-off-Period (Regierungsmitglieder)",

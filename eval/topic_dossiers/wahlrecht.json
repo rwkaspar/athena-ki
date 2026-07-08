@@ -3,7 +3,7 @@
   "slug": "wahlrecht",
   "title": "Wahlrecht",
   "lead": "Sitzzahl, Sperrklausel, Grundmandatsklausel, Stimmenanteil-Logik — wer fordert was, und was sagen BVerfG-Urteile + Wahl-Statistik dazu?",
-  "stand": "2026-06-13",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Sitzzahl Bundestag (Soll seit Reform 2023)",
@@ -14,10 +14,11 @@
     },
     {
       "label": "Tatsächliche Größe 20. Bundestag (2021–2025)",
-      "value": "735 Sitze (Höchststand)",
-      "source_title": "Bundestag.de",
-      "source_url": "https://www.bundestag.de/",
-      "verify_needed": true
+      "value": "736 Sitze (Höchststand)",
+      "source_title": "Deutscher Bundestag",
+      "source_url": "https://www.bundestag.de/dokumente/textarchiv/2021/kw39-wahlergebnis-859676",
+      "note": "Konstituierung 2021: 736 Mitglieder (Höchststand). KORREKTUR: war 735.",
+      "verified": true
     },
     {
       "label": "Größe 21. Bundestag (ab 2025)",
@@ -42,10 +43,11 @@
     },
     {
       "label": "Wahlbeteiligung BTW 2025",
-      "value": "ca. 82,5 %",
-      "source_title": "Bundeswahlleiter",
-      "source_url": "https://www.bundeswahlleiter.de/",
-      "verify_needed": true
+      "value": "82,5 %",
+      "source_title": "Die Bundeswahlleiterin – BTW 2025 Endergebnis",
+      "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
+      "note": "Amtlicher Endwert 23.02.2025: 82,5 % (vs. 76,4 % 2021).",
+      "verified": true
     }
   ],
   "legal_frame": [

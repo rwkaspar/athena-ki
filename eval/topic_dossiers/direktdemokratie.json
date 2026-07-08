@@ -3,7 +3,7 @@
   "slug": "direktdemokratie",
   "title": "Direkte Demokratie",
   "lead": "Soll es auf Bundesebene Volksentscheide geben — und wenn ja, wie hoch die Hürden, wer gestaltet die Beratung? Was Tier-1-Quellen (BVerfG, IDEA International, Wissenschaftliche Dienste, Irland Citizens' Assembly) dazu sagen.",
-  "stand": "2026-06-13",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Bundesweite Volksentscheide im GG",
@@ -14,24 +14,26 @@
     },
     {
       "label": "Volksentscheide auf Landesebene seit 1946",
-      "value": "ca. 380 Verfahren, davon ~70 zur Abstimmung",
-      "source_title": "Mehr Demokratie e.V. Volksentscheids-Bericht",
-      "source_url": "https://www.mehr-demokratie.de/themen/volksabstimmungen/",
-      "verify_needed": true
+      "value": "ca. 456 Verfahren, davon ~26 Volksentscheide",
+      "source_title": "Mehr Demokratie e.V. – Volksbegehrensbericht 2024",
+      "source_url": "https://www.mehr-demokratie.de/publikationen/volksbegehrensbericht-2024",
+      "note": "Ende 2023: 456 Verfahren (416 aus der Bevölkerung), 26 bürgerinitiierte Volksentscheide. KORREKTUR: war 380/~70.",
+      "verified": true
     },
     {
       "label": "Wahlbeteiligung BTW 2025",
-      "value": "ca. 82,5 %",
-      "source_title": "Bundeswahlleiter",
-      "source_url": "https://www.bundeswahlleiter.de/",
-      "verify_needed": true,
-      "note": "Höchstwert seit 1990."
+      "value": "82,5 %",
+      "source_title": "Die Bundeswahlleiterin – BTW 2025 Endergebnis",
+      "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/29_25_endgueltiges-ergebnis.html",
+      "note": "Amtlicher Endwert 23.02.2025: 82,5 % (höchste seit 1987).",
+      "verified": true
     },
     {
       "label": "Vertrauen in Parteien 2024",
-      "value": "ca. 19 %",
-      "source_title": "Politbarometer / Eurobarometer",
-      "source_url": "https://forschungsgruppe.de/",
+      "value": "niedrig, quellenabhängig (~10–30 %)",
+      "source_title": "Eurobarometer / Körber-Stiftung 2024",
+      "source_url": "https://europa.eu/eurobarometer/",
+      "note": "Kein einheitlicher Primärwert: Eurobarometer H2024 ~32 % Vertrauen, Körber 9 %. Erhebungsabhängig.",
       "verify_needed": true
     },
     {

@@ -3,7 +3,7 @@
   "slug": "rente",
   "title": "Rente & Altersvorsorge",
   "lead": "Demografie, Rentenniveau, Renteneintrittsalter, Aktienrente — die zentralen Streitachsen, mit Tier-1-Bezug auf BMAS, DRV, Rentenversicherungsbericht, SVR und Demografie-Daten.",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Regelaltersgrenze für Jahrgänge ab 1964",
@@ -22,32 +22,34 @@
     {
       "label": "Beitragssatz GRV 2025",
       "value": "18,6 %",
-      "source_title": "DRV / § 158 SGB VI",
-      "source_url": "https://www.deutsche-rentenversicherung.de/",
-      "verify_needed": true,
-      "note": "Prognose: Anstieg bis 2030 auf ca. 20 %, bis 2040 auf 22 %."
+      "source_title": "Bekanntmachung Beitragssätze RV 2025",
+      "source_url": "https://www.gesetze-im-internet.de/rvbeitrsbek_2025/BJNR1700A0024.html",
+      "note": "Allgemeine RV 2025 = 18,6 % (seit 2018 stabil).",
+      "verified": true
     },
     {
       "label": "Erwerbstätigen-Quote 60-64 (2023)",
-      "value": "ca. 64 %",
-      "source_title": "Destatis Mikrozensus",
-      "source_url": "https://www.destatis.de/DE/Themen/Arbeit/_inhalt.html",
-      "verify_needed": true
+      "value": "ca. 67 % (67,2 %)",
+      "source_title": "Destatis – Erwerbstätigkeit Älterer (Mikrozensus)",
+      "source_url": "https://www.destatis.de/DE/Themen/Querschnitt/Demografischer-Wandel/Aeltere-Menschen/erwerbstaetigkeit.html",
+      "note": "60–64 J. 2023 = 67,2 %. KORREKTUR: war 64 %.",
+      "verified": true
     },
     {
       "label": "Bundeszuschuss zur GRV (2024)",
-      "value": "ca. 116 Mrd. €",
-      "source_title": "BMF / DRV",
-      "source_url": "https://www.bundesfinanzministerium.de/Web/DE/Themen/Oeffentliche_Finanzen/bundeshaushalt.html",
-      "verify_needed": true,
-      "note": "ca. 25 % des Bundeshaushalts."
+      "value": "ca. 116 Mrd. € Bundesmittel gesamt",
+      "source_title": "Deutsche Rentenversicherung",
+      "source_url": "https://www.deutsche-rentenversicherung.de/DRV/DE/Ueber-uns-und-Presse/Presse/Meldungen/2024/240719-bundesmittel-bundeszuschuss.html",
+      "note": "116 Mrd. € = gesamte Bundesmittel; Bundeszuschuss i.e.S. ~88 Mrd. €.",
+      "verified": true
     },
     {
       "label": "Demografie: Rentner-zu-Beitragszahler-Quote",
-      "value": "2025 ca. 1:1,8 → 2040 ca. 1:1,3",
-      "source_title": "Destatis Bevölkerungsvorausberechnung",
-      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/_inhalt.html",
-      "verify_needed": true
+      "value": "2025 ca. 1:1,8 → 2040 ca. 1:1,5",
+      "source_title": "Demografieportal (BiB)",
+      "source_url": "https://www.demografie-portal.de/DE/Fakten/altersrentner-beitragszahler.html",
+      "note": "Definitionsabhängig; 2040 ~1,5–1,7 (Altersrentner-Basis). KORREKTUR: 1,3 zu pessimistisch.",
+      "verified": true
     }
   ],
   "legal_frame": [

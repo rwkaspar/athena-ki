@@ -3,7 +3,7 @@
   "slug": "migration",
   "title": "Migration & Asyl",
   "lead": "Wer fordert was — und was sagt die Empirie? Athena prüft jede Partei-Position nach derselben Methodik gegen Tier-1-Quellen (BAMF, BA, IAB, Destatis, Gesetzestexte).",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Asyl-Erstanträge 2024",
@@ -14,25 +14,27 @@
     },
     {
       "label": "Schutzquote 2024 (bereinigt)",
-      "value": "ca. 40–45 %",
-      "source_title": "BAMF Jahresbilanz Asyl 2024",
-      "source_url": "https://www.bamf.de/DE/Themen/Statistik/Asylzahlen/asylzahlen-node.html",
-      "verify_needed": true,
-      "note": "Bereinigte Schutzquote = nur inhaltliche Entscheidungen, ohne Verfahrenseinstellungen."
+      "value": "bereinigt 59,3 % (Gesamtschutzquote 44,4 %)",
+      "source_title": "BAMF – Asylzahlen Gesamtjahr 2024",
+      "source_url": "https://www.bamf.de/SharedDocs/Meldungen/DE/2025/250109-asylzahlen-dezember-und-gesamtjahr-2024.html",
+      "note": "KORREKTUR: 40–45 % war die Gesamtschutzquote (44,4 %); bereinigt (nur inhaltliche Entscheidungen) = 59,3 %.",
+      "verified": true
     },
     {
       "label": "AsylbLG-Ausgaben (Bund+Länder+Kommunen)",
-      "value": "ca. 6,3 Mrd. € (2022)",
-      "source_title": "Destatis Sozialleistungen — Asylbewerberleistungen",
-      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Asylbewerberleistungen/_inhalt.html",
-      "verify_needed": true
+      "value": "ca. 6,7 Mrd. € brutto (2024)",
+      "source_title": "Destatis",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/09/PD25_328_222.html",
+      "note": "Brutto 2024 = 6,7 Mrd. € (+6,8 %), netto ~6,4 Mrd. KORREKTUR: 6,3 Mrd. war ~2023.",
+      "verified": true
     },
     {
-      "label": "Personen mit Migrationshintergrund (Bevölkerung)",
-      "value": "rd. 26 %",
-      "source_title": "Destatis Mikrozensus 2023",
-      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Migration-Integration/_inhalt.html",
-      "verify_needed": true
+      "label": "Bevölkerung mit Einwanderungsgeschichte",
+      "value": "25,6 % (2024; klass. Migrationshintergrund 30,4 %)",
+      "source_title": "Destatis – Mikrozensus 2024",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/05/PD25_181_125.html",
+      "note": "26 % passt zum neuen Konzept 'Einwanderungsgeschichte' (25,6 %); klassischer Migrationshintergrund = 30,4 %.",
+      "verified": true
     }
   ],
   "legal_frame": [

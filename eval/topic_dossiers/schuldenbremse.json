@@ -3,7 +3,7 @@
   "slug": "schuldenbremse",
   "title": "Schuldenbremse & Fiskalpolitik",
   "lead": "Investitionsstau bei Infrastruktur, Klima, Bildung — und gleichzeitig eine Schuldenbremse, die kreditfinanzierte Investitionen eng begrenzt. Wer will was, und was halten Tier-1-Quellen (BVerfG, ERK, SVR, DIW, BMF) davon?",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Strukturelles Defizit Bund max. nach Art. 109 Abs. 3 GG",
@@ -29,9 +29,10 @@
     {
       "label": "Aktuelle Schuldenquote (Maastricht)",
       "value": "ca. 63 % BIP",
-      "source_title": "Destatis / Eurostat",
-      "source_url": "https://www.destatis.de/DE/Themen/Staat/Oeffentliche-Finanzen/_inhalt.html",
-      "verify_needed": true
+      "source_title": "Deutsche Bundesbank",
+      "source_url": "https://www.bundesbank.de/de/presse/pressenotizen/deutsche-staatsschulden-992718",
+      "note": "2024: 62,5 %; 2025: 63,5 %.",
+      "verified": true
     },
     {
       "label": "Sondervermögen Bundeswehr (2022)",

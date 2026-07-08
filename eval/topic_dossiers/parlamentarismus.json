@@ -3,7 +3,7 @@
   "slug": "parlamentarismus",
   "title": "Parlamentarismus-Reform",
   "lead": "Legislaturperiode, Direktwahl des Kanzlers, Geschlechterparität auf Listen — strukturelle Reformfragen. Was Tier-1-Quellen (Wissenschaftliche Dienste, BVerfG, IPU, Israel-Fall, UK Fixed-Term-Akt) dazu sagen.",
-  "stand": "2026-06-13",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Aktuelle Legislaturperiode",
@@ -14,24 +14,27 @@
     },
     {
       "label": "Frauenanteil 21. Bundestag (2025)",
-      "value": "ca. 33 %",
-      "source_title": "Bundestag.de",
-      "source_url": "https://www.bundestag.de/abgeordnete",
-      "verify_needed": true
+      "value": "32,4 %",
+      "source_title": "Deutscher Bundestag – Abgeordneten-Statistik",
+      "source_url": "https://www.bundestag.de/dokumente/textarchiv/2025/kw09-wahlergebnis-statistik-1055550",
+      "note": "204 von 630 Abgeordneten = 32,4 % (Rückgang ggü. 34,8 %).",
+      "verified": true
     },
     {
       "label": "Schweden Frauenanteil Reichstag (freiwillige Quoten)",
-      "value": "ca. 47 %",
-      "source_title": "IPU Parline",
-      "source_url": "https://data.ipu.org/",
-      "verify_needed": true
+      "value": "ca. 46 % (46,1 %)",
+      "source_title": "IPU Parline – Schweden 2022",
+      "source_url": "https://data.ipu.org/parliament/SE/SE-LC01/election/SE-LC01-E20220911/",
+      "note": "Nach Wahl 2022: 46,1 % Frauen im Riksdag.",
+      "verified": true
     },
     {
       "label": "Frankreich Frauenanteil Nationalversammlung (Paritätsgesetz)",
-      "value": "ca. 37 %",
-      "source_title": "IPU Parline",
-      "source_url": "https://data.ipu.org/",
-      "verify_needed": true
+      "value": "ca. 36 %",
+      "source_title": "IPU Parline – Frankreich 2024",
+      "source_url": "https://data.ipu.org/parliament/FR/FR-LC01/election/FR-LC01-E20240630/",
+      "note": "Nach Wahl 2024 ~36 % (Rückgang von 37,3 %). KORREKTUR: war 37 % (Stand 2022).",
+      "verified": true
     },
     {
       "label": "UK Fixed-Term Parliaments Act 2011",

@@ -3,7 +3,7 @@
   "slug": "klima",
   "title": "Klima",
   "lead": "Wo welche Partei beim Klimaschutz steht — und was Athena anhand von Tier-1-Quellen (UBA, IPCC, KSG, BVerfG) dazu sagt.",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "THG-Emissionen Deutschland 2024",
@@ -28,16 +28,18 @@
     },
     {
       "label": "Deutschlands Anteil globaler CO₂-Emissionen",
-      "value": "ca. 1,8 % (2023)",
-      "source_title": "Global Carbon Project / EDGAR",
-      "source_url": "https://edgar.jrc.ec.europa.eu/report_2024",
-      "verify_needed": true
+      "value": "ca. 1,6 % (2023)",
+      "source_title": "Global Carbon Project",
+      "source_url": "https://globalcarbonbudget.org/",
+      "note": "2023 ~1,6 % (fossiles CO₂). KORREKTUR: 1,8 % war der 2022-Wert (UBA).",
+      "verified": true
     },
     {
-      "label": "Klima-Finanzierungslücke DE pro Jahr",
-      "value": "135–255 Mrd. €",
-      "source_title": "Expertenrat für Klimafragen Sondergutachten 2025",
-      "source_url": "https://expertenrat-klima.de/publikationen/",
+      "label": "Klima-Investitionsbedarf DE pro Jahr",
+      "value": "~190 Mrd. € (Gesamtbedarf, KfW)",
+      "source_title": "KfW Research",
+      "source_url": "https://www.kfw.de/%C3%9Cber-die-KfW/Newsroom/Aktuelles/Pressemitteilungen-Details_673344.html",
+      "note": "KfW ~191 Mrd. €/Jahr Gesamtinvestitionsbedarf bis 2045; 'Lücke' (Mehrbedarf) quellenabhängig (~46–100 Mrd.).",
       "verify_needed": true
     }
   ],

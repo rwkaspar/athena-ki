@@ -3,7 +3,7 @@
   "slug": "buergergeld",
   "title": "Bürgergeld & Grundsicherung",
   "lead": "Wie hoch soll die Grundsicherung sein, wie streng die Sanktionen, wer bekommt was und unter welchen Bedingungen? Athena prüft jede Position gegen Tier-1-Quellen (BA, IAB, BMAS, Mindestlohnkommission, BVerfG).",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Regelbedarf Alleinstehende 2026",
@@ -13,40 +13,43 @@
       "verified": true
     },
     {
-      "label": "Bürgergeld-Beziehende (Erwerbsfähige + Angehörige)",
-      "value": "ca. 5,5 Mio.",
-      "source_title": "BA Statistik SGB II",
+      "label": "Bürgergeld-Beziehende (Regelleistungsberechtigte)",
+      "value": "ca. 5,5 Mio. (≈ 4 Mio erwerbsfähig + ≈ 1,5 Mio Angehörige)",
+      "source_title": "BA-Statistik SGB II / Destatis (Jahresdurchschnitt 2024)",
       "source_url": "https://statistik.arbeitsagentur.de/Statistikdaten/Detail/Aktuell/iiia7/grundsicherung-sgbii-grundsicherung-sgbii/grundsicherung-sgbii-d-0-202412-xlsx.xlsx",
-      "verify_needed": true
+      "verified": true
     },
     {
       "label": "Mindestlohn 2026",
-      "value": "12,82 €/h",
-      "source_title": "Mindestlohnkommission Beschluss 2024",
-      "source_url": "https://www.mindestlohn-kommission.de/DE/Bericht/bericht_node.html",
-      "verify_needed": true
+      "value": "13,90 €/h",
+      "source_title": "Mindestlohnkommission / 5. MiLoV (ab 1.1.2026)",
+      "source_url": "https://www.bmas.de/DE/Service/Presse/Pressemitteilungen/2025/mindestlohn-steigt-zum-ersten-januar-2026.html",
+      "note": "2025: 12,82 €; ab 1.1.2027: 14,60 € (Kommissionsbeschluss 27.6.2025).",
+      "verified": true
     },
     {
       "label": "Lohnabstand Mindestlohn 40h vs. Bürgergeld (Alleinstehend, netto)",
-      "value": "rund 400–500 €/Monat zugunsten Erwerbstätigkeit",
-      "source_title": "IW Köln Lohnabstandsrechnung 2024",
+      "value": "mehrere hundert €/Monat zugunsten Erwerbstätigkeit",
+      "source_title": "Modellrechnung (kein amtlicher Einzelwert)",
       "source_url": "https://www.iwkoeln.de/themen/sozialpolitik.html",
-      "verify_needed": true,
-      "note": "Inklusive Wohngeld/Kinderzuschlag bei Erwerbstätigkeit."
+      "note": "Modellhaft und stark haushaltsabhängig (Miete, Wohngeld/Kinderzuschlag). 40 h zum Mindestlohn 13,90 € ≈ 2.400 €/Monat brutto.",
+      "verified": true
     },
     {
-      "label": "Sanktionen 2024 (verhängte Pflichtverletzungen)",
-      "value": "ca. 215.000",
-      "source_title": "BA Sanktionsstatistik",
-      "source_url": "https://statistik.arbeitsagentur.de/",
-      "verify_needed": true
+      "label": "Leistungsminderungen 2024 (SGB II)",
+      "value": "rund 369.200",
+      "source_title": "BA-Statistik: Sanktionen/Leistungsminderungen 2024",
+      "source_url": "https://statistik.arbeitsagentur.de/DE/Navigation/Statistiken/Fachstatistiken/Grundsicherung-fuer-Arbeitsuchende-SGBII/Sanktionen-Widersprueche-Klagen/Sanktionen-Widersprueche-Klagen-Nav.html",
+      "note": "Davon ~86 % Meldeversäumnisse (≈ 318.700); nur ~23.400 wegen Arbeitsverweigerung/Ablehnung einer Maßnahme. +63 % ggü. 2023; Stichtag nur 0,8 % der Erwerbsfähigen betroffen.",
+      "verified": true
     },
     {
-      "label": "Vermittlungsquote SGB II (Übergang in Erwerbstätigkeit/Jahr)",
-      "value": "ca. 19 %",
-      "source_title": "IAB-Forschungsbericht 2024",
-      "source_url": "https://doku.iab.de/forschungsbericht/2024/",
-      "verify_needed": true
+      "label": "Integrationsquote SGB II (§ 48a, Übergang in Arbeit/Ausbildung)",
+      "value": "rund 21 % (2024)",
+      "source_title": "Deutscher Bundestag (hib) / BA § 48a",
+      "source_url": "https://www.bundestag.de/presse/hib/kurzmeldungen-1139688",
+      "note": "Bundesweit 2024 = 21,0 % (2023: 19,8 %; 2025: 21,6 %).",
+      "verified": true
     }
   ],
   "legal_frame": [

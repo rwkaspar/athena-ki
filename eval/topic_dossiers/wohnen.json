@@ -3,44 +3,47 @@
   "slug": "wohnen",
   "title": "Wohnen & Miete",
   "lead": "Mietenexplosion, Neubau-Lücke, Wohngeld, Eigentumsförderung — wer was vorschlägt und was die Empirie (DIW, ifo, BVerfG, Pestel-Institut) dazu sagt.",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Mietsteigerung Bestand 2014-2024 (Bestandsmieten netto)",
-      "value": "ca. +28 %",
-      "source_title": "Destatis Verbraucherpreisindex Wohnen",
+      "value": "ca. +15 % (amtl. VPI Nettokaltmiete)",
+      "source_title": "Destatis – VPI Nettokaltmiete",
       "source_url": "https://www.destatis.de/DE/Themen/Wirtschaft/Preise/Verbraucherpreisindex/_inhalt.html",
-      "verify_needed": true
+      "note": "Amtl. VPI der laufenden Nettokaltmieten 2014–2024 ~+14–16 %. KORREKTUR: +28 % gilt nur für Angebots-/Neuvertragsmieten.",
+      "verified": true
     },
     {
       "label": "Mietsteigerung Neuvermietung Großstädte 2014-2024",
-      "value": "+60–80 % (München, Berlin, Hamburg)",
-      "source_title": "DIW Berliner Mietendeckel-Evaluation + Empirica-Berichte",
-      "source_url": "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
+      "value": "grob +40–65 % je Stadt",
+      "source_title": "BBSR / immowelt",
+      "source_url": "https://www.bbsr.bund.de/",
+      "note": "Angebotsmieten je Stadt unterschiedlich; durchgängige Reihen ab 2014 nur eingeschränkt belegbar.",
       "verify_needed": true
     },
     {
       "label": "Neubau-Fertigstellungen 2024",
-      "value": "ca. 240.000 Wohnungen",
-      "source_title": "Destatis Bautätigkeit",
-      "source_url": "https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Bauen/_inhalt.html",
-      "verify_needed": true,
-      "note": "Ziel der Ampel war 400.000/Jahr — Lücke ca. 160.000."
+      "value": "ca. 252.000 (davon ~216.000 Neubau i.e.S.)",
+      "source_title": "Destatis",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/05/PD25_183_31121.html",
+      "note": "251.900 Wohnungen gesamt (−14,4 %); 215.900 in neuen Wohngebäuden. KORREKTUR: war 240k.",
+      "verified": true
     },
     {
       "label": "Wohngeld-Empfänger 2024",
-      "value": "ca. 1,5 Mio. Haushalte",
-      "source_title": "Destatis Wohngeldstatistik",
-      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Wohngeld/_inhalt.html",
-      "verify_needed": true
+      "value": "ca. 1,24 Mio. Haushalte (Jahresende)",
+      "source_title": "Destatis – Wohngeld",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Soziales/Wohngeld/aktuell-wohngeld.html",
+      "note": "Ende 2024 ~1.242.000 Haushalte. KORREKTUR: war 1,5 Mio.",
+      "verified": true
     },
     {
       "label": "Wohneigentumsquote DE",
-      "value": "rd. 46 %",
-      "source_title": "Destatis Bevölkerung und Wohnen",
-      "source_url": "https://www.destatis.de/DE/Themen/Branchen-Unternehmen/Bauen/_inhalt.html",
-      "verify_needed": true,
-      "note": "EU-Mittel ca. 70 % — Deutschland deutlich unter dem Durchschnitt."
+      "value": "41,9 % (Destatis 2022) / ~46 % (andere Erhebungen)",
+      "source_title": "Destatis – Mikrozensus Eigentumsquote",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Wohnen/Tabellen/tabelle-eigentumsquote.html",
+      "note": "Messgrößenabhängig: Destatis-Mikrozensus 2022 = 41,9 %; Zensus/andere ~46–47 %.",
+      "verify_needed": true
     }
   ],
   "legal_frame": [

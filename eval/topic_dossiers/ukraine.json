@@ -3,14 +3,15 @@
   "slug": "ukraine",
   "title": "Ukraine & Verteidigung",
   "lead": "Waffenlieferungen, Verhandlungen, Sanktionen, NATO-Rolle — wo welche Partei steht und was die Empirie (ISW, SWP, SIPRI, UN-Resolutionen, Putin-Reden) tatsächlich hergibt.",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Deutsche Militärhilfe für Ukraine (kumuliert seit 2022)",
-      "value": "ca. 28 Mrd. € zugesagt",
-      "source_title": "Bundesregierung Übersicht Ukraine-Hilfe",
-      "source_url": "https://www.bundesregierung.de/breg-de/themen/krieg-in-der-ukraine",
-      "verify_needed": true
+      "value": "ca. 55,5 Mrd. € zugesagt (Stand 2026)",
+      "source_title": "Auswärtiges Amt / Bundesregierung",
+      "source_url": "https://www.auswaertiges-amt.de/de/service/laender/ukraine-node/ukraine-solidaritaet-2513956",
+      "note": "~55,5 Mrd. € militärische Hilfe geleistet + für Folgejahre vorgesehen. KORREKTUR: 28 Mrd. war Stand ~Ende 2024.",
+      "verified": true
     },
     {
       "label": "Einzelplan 14 Verteidigung 2025 (ohne Sondervermögen)",
@@ -28,24 +29,27 @@
     },
     {
       "label": "NATO-Quote 2025 (Verteidigungsausgaben/BIP DE)",
-      "value": "ca. 2,12 %",
-      "source_title": "NATO Defence Expenditure Report 2025",
+      "value": "ca. 2,4 % (2025)",
+      "source_title": "NATO Defence Expenditure / BMF",
       "source_url": "https://www.nato.int/cps/en/natohq/topics_49198.htm",
-      "verify_needed": true
+      "note": "2025 ~2,3–2,4 % BIP. KORREKTUR: 2,12 % war der 2024-Wert.",
+      "verified": true
     },
     {
-      "label": "UN-Generalversammlung ES-11/X (Ukraine-Resolutionen)",
-      "value": "141-143 Ja-Stimmen für territoriale Integrität",
-      "source_title": "UN General Assembly Documents",
-      "source_url": "https://www.un.org/en/ga/sessions/emergency.shtml",
-      "verify_needed": true
+      "label": "UN-Generalversammlung Ukraine-Resolutionen",
+      "value": "141–143 Ja-Stimmen (ES-11/1: 141; ES-11/4: 143)",
+      "source_title": "UN GA ES-11/1 & ES-11/4",
+      "source_url": "https://press.un.org/en/2022/ga12458.doc.htm",
+      "note": "ES-11/1 (03/2022) 141 Ja; ES-11/4 (10/2022, territoriale Integrität) 143 Ja.",
+      "verified": true
     },
     {
       "label": "Putin-Maximalforderungen (Stand 06/2024, Rede)",
-      "value": "Anerkennung 4 Oblaste + Demilitarisierung + Neutralität",
-      "source_title": "Kreml-Transkript Rede 14.06.2024",
+      "value": "Abzug aus 4 Oblasten + NATO-Verzicht + Demilitarisierung",
+      "source_title": "Kreml-Transkript, Putin-Rede 14.06.2024",
       "source_url": "http://en.kremlin.ru/events/president/news/74285",
-      "verify_needed": true
+      "note": "Truppenabzug aus Donezk/Luhansk/Saporischschja/Cherson, NATO-Verzicht, Demilitarisierung (+ Sanktionsaufhebung).",
+      "verified": true
     }
   ],
   "legal_frame": [

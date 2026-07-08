@@ -3,7 +3,7 @@
   "slug": "steuersystem",
   "title": "Steuersystem & Verteilung",
   "lead": "Spitzensteuer, Reichensteuer, Vermögensteuer, Erbschaftssteuer — wer fordert was, und was sagen Tier-1-Quellen (BMF, DIW, ifo, SVR, OECD, BVerfG) zur Wirkung und Verteilung?",
-  "stand": "2026-06-09",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "Spitzensteuersatz 2026",
@@ -22,32 +22,34 @@
     {
       "label": "Vermögenskonzentration: Top 1% Anteil",
       "value": "ca. 30–35 % Nettovermögen",
-      "source_title": "DIW Wochenbericht 2024 (HFCS)",
-      "source_url": "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
-      "verify_needed": true
+      "source_title": "Hans-Böckler-Stiftung / DIW",
+      "source_url": "https://www.boeckler.de/de/boeckler-impuls-ein-prozent-besitzt-ein-drittel-6923.htm",
+      "note": "Methodenabhängig: SOEP ~20 %, mit Reichenlisten-Anreicherung (DIW) 31–35 %.",
+      "verified": true
     },
     {
       "label": "Erbschaftsteuer-Aufkommen 2023",
       "value": "ca. 11,8 Mrd. €",
-      "source_title": "Destatis Erbschaftsteuer",
-      "source_url": "https://www.destatis.de/DE/Themen/Staat/Steuern/Steuern-Bundeslaender/_inhalt.html",
-      "verify_needed": true
+      "source_title": "Destatis – Festgesetzte Erbschaft-/Schenkungsteuer",
+      "source_url": "https://www.destatis.de/DE/Presse/Pressemitteilungen/2025/08/PD25_320_736.html",
+      "note": "2023 festgesetzt 11,8 Mrd. €; 2024 gestiegen auf 13,3 Mrd. €.",
+      "verified": true
     },
     {
       "label": "Erbschaftssteuer-effektiver Satz Top-Vermögen",
-      "value": "deutlich unter Tarif (oft <5 %)",
-      "source_title": "DIW + ifo zu Betriebsvermögens-Verschonung",
-      "source_url": "https://www.diw.de/de/diw_01.c.873485.de/publikationen.html",
-      "verify_needed": true,
-      "note": "Wegen Betriebsvermögens-Privilegien (§§ 13a, 13b ErbStG)."
+      "value": "deutlich unter Tarif (Großübertragungen >20 Mio. € ~4,5 %)",
+      "source_title": "Netzwerk Steuergerechtigkeit / DIW auf Destatis-Basis",
+      "source_url": "https://www.netzwerk-steuergerechtigkeit.de/erneut-steuererlasse-in-milliardenhoehe-fuer-erben-von-grossvermoegen/",
+      "note": "Effektiver Satz auf Übertragungen >20 Mio. € 2023 ~4,5 %.",
+      "verified": true
     },
     {
       "label": "Gini-Koeffizient Nettoeinkommen 2023",
-      "value": "ca. 0,29",
-      "source_title": "Destatis SOEP-EVS",
-      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/_inhalt.html",
-      "verify_needed": true,
-      "note": "Mittelwert EU-27 etwa 0,30."
+      "value": "ca. 0,29 (0,294)",
+      "source_title": "Destatis – EU-SILC Einkommensungleichheit",
+      "source_url": "https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Lebensbedingungen-Armutsgefaehrdung/Tabellen/einkommen-ungleichheit-zvgl.html",
+      "note": "Gini des verfügbaren Äquivalenzeinkommens 2023 = 0,294.",
+      "verified": true
     }
   ],
   "legal_frame": [

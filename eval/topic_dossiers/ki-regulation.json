@@ -3,7 +3,7 @@
   "slug": "ki-regulation",
   "title": "KI-Regulation",
   "lead": "EU AI Act, Wahlkampf-Deepfakes, Predictive Policing, KI in der Verwaltung — wer fordert was, und was sagen Tier-1-Quellen (EU-VO 2024/1689, BfDI, BSI, BVerfG, Max-Planck-Institut, MIT)?",
-  "stand": "2026-06-13",
+  "stand": "2026-07-08",
   "facts_at_a_glance": [
     {
       "label": "EU AI Act in Kraft",
@@ -43,10 +43,11 @@
     },
     {
       "label": "BfDI Predictive Policing 2023",
-      "value": "Bewertung sehr kritisch, Empfehlung Verbot Individual-Scoring",
-      "source_title": "BfDI Tätigkeitsbericht 2023",
-      "source_url": "https://www.bfdi.bund.de/",
-      "verify_needed": true
+      "value": "grundrechtlich kritisch (kein pauschales Verbot ausgesprochen)",
+      "source_title": "BfDI – 32. Tätigkeitsbericht 2023",
+      "source_url": "https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Taetigkeitsberichte/32TB_23.pdf",
+      "note": "BfDI: Grundrechtsintensität, Zweifel an Datenvalidität, Ruf nach klaren Leitplanken — aber kein pauschales Verbot. KORREKTUR: 'Empfehlung Verbot' nicht belegt.",
+      "verified": true
     }
   ],
   "legal_frame": [
