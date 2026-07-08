@@ -60,6 +60,15 @@ from tools import TOOLS, TOOLS_BY_NAME
 CHROMA_DB_DIR = os.path.join(os.path.dirname(__file__), "..", "athena-db")
 EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "bge-m3")
 OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+# Optionaler Bearer-Token für den Ollama-Auth-Proxy (H7). Ist er gesetzt, geht jede
+# Ollama-Anfrage (LLM, Embeddings, Health) mit Authorization-Header raus.
+OLLAMA_TOKEN = os.getenv("ATHENA_OLLAMA_TOKEN", "")
+
+
+def _ollama_client_kwargs() -> dict:
+    return {"headers": {"Authorization": f"Bearer {OLLAMA_TOKEN}"}} if OLLAMA_TOKEN else {}
+
+
 RETRIEVER_K = 5
 RETRIEVER_FETCH_K = 20
 # Evidenz-Gate (Anti-Halluzination): Relevanz-Schwelle auf der Similarity.
@@ -249,6 +258,7 @@ def _get_embeddings():
             # Embedding-Modell ebenfalls warm halten (wird bei jedem Retrieval
             # gebraucht; Kaltstart = stille Wartezeit vor dem ersten Token).
             keep_alive=_ollama_keep_alive(),
+            client_kwargs=_ollama_client_kwargs(),
         )
     return _embeddings
 
@@ -273,6 +283,7 @@ def _get_components(scope: str, provider: str = None):
             chat = ChatOllama(
                 model=model_name,
                 base_url=OLLAMA_HOST,
+                client_kwargs=_ollama_client_kwargs(),
                 timeout=600,
                 reasoning=False,
                 # Niedrige Temperatur: ohne explizites Setzen nutzt Ollama Default
@@ -534,7 +545,8 @@ def info(scope: str = DEFAULT_SCOPE, provider: str | None = None):
 def _check_ollama() -> bool:
     """Schneller HEAD-Check ob OLLAMA_HOST erreichbar ist."""
     try:
-        r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=4.0)
+        hdr = {"Authorization": f"Bearer {OLLAMA_TOKEN}"} if OLLAMA_TOKEN else {}
+        r = requests.get(f"{OLLAMA_HOST}/api/tags", timeout=4.0, headers=hdr)
         return r.ok
     except Exception:
         return False

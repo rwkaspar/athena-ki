@@ -56,3 +56,5 @@ logs/
 # Eval-Harness: generierte Outputs (Quellcode + Dossiers werden versioniert)
 eval/runs/
 eval/reports/
+.ollama_proxy.env
+.ollama_proxy_token.env
