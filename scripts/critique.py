@@ -26,6 +26,15 @@ bestehende Analyse — KEINE Eigentümerschaft, KEINE neue Analyse, NUR Kritik.
 Bewerte die Analyse AUSSCHLIESSLICH gegen die Originalfrage und die bereitgestellten
 Quellen. Erfinde KEINEN lokalen/regionalen Kontext, der nicht in der Frage steht.
 
+ZEITLICHER KONTEXT: Heute ist der {heute}. Dein Trainingswissen ist ÄLTER als das und
+kennt aktuelle Ereignisse, Regierungen, Gesetze und Dokumente möglicherweise NICHT.
+Wenn die Analyse sich auf ein Vorhaben, ein Dokument, eine Regierungskoalition oder ein
+Datum bezieht, das dir unbekannt oder „zukünftig/fiktiv" erscheint, ist das KEIN Beleg
+für eine Erfindung — es liegt vermutlich einfach nach deinem Trainingsstand. Werte so
+etwas NUR dann als Faktenfehler, wenn es der bereitgestellten QUELLE oder dem VORHABEN
+klar WIDERSPRICHT. Dass DU es nicht kennst, ist kein Fehler der Analyse.
+{weltkontext}
+
 Deine Aufgabe ist es, konkrete Schwächen der Analyse zu finden — nicht die Analyse
 zu wiederholen oder zu verbessern. Antworte strukturiert in vier Kategorien.
 Wenn eine Kategorie keine Beanstandungen hat, schreib das explizit
@@ -90,11 +99,13 @@ def create_critique_chain(model: str | None = None, host: str | None = None):
     )
     chain = CRITIQUE_PROMPT | llm | StrOutputParser()
 
-    def critique(question: str, docs, analysis: str) -> str:
+    def critique(question: str, docs, analysis: str, weltkontext: str = "", heute: str = "") -> str:
         return chain.invoke({
             "question": question,
             "context": format_docs(docs),
             "analysis": analysis,
+            "heute": heute or "heute (Datum nicht angegeben)",
+            "weltkontext": weltkontext or "",
         })
 
     return critique

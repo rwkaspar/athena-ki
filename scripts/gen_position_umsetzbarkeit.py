@@ -47,7 +47,9 @@ AMPEL = ["hoch", "mittel", "gering", "nicht_umsetzbar"]      # von gut → schle
 RANK = {a: i for i, a in enumerate(AMPEL)}                    # größer = schlechter
 KOSTEN_STUFEN = ["symbolisch", "niedrig", "mittel", "hoch"]
 
-GEN_PROMPT = """Du analysierst, wie realistisch ein konkretes politisches VORHABEN \
+GEN_PROMPT = """Heute ist der {heute}. Bewerte auf diesem Stand; für ein erst kürzlich beschlossenes \
+Vorhaben liegt in aller Regel noch KEINE Wirkungsevidenz vor — das ist dann „unbelegt", keine Schwäche.
+Du analysierst, wie realistisch ein konkretes politisches VORHABEN \
 tatsächlich UMSETZBAR ist — nüchtern, ehrlich, nicht werbend. Bewerte die Umsetzung im \
 deutschen Regierungs-/Verwaltungssystem, gestützt auf die beigegebenen Quellen. Das gilt \
 für Vorhaben JEDER Herkunft (Parteiposition, Regierungsreform, Gesetzentwurf) — du bewertest \
@@ -62,11 +64,24 @@ als „nicht umsetzbar" verbucht werden. Und umgekehrt.
 KEINE Empfehlung: Du BEWERTEST, sprichst aber KEINE Handlungsempfehlung aus (weder für noch gegen). Wo eine
 Entscheidung an einer Wertfrage hängt, benenne die Wertannahmen statt zu empfehlen.
 
+════ QUELLENDISZIPLIN (wichtigste Regel — Verstoß macht die Analyse wertlos) ════
+Jede EMPIRISCHE Tatsachenbehauptung — Zahl, Betrag, Statistik, Prozentwert, Rechtsnorm/Paragraph, sowie jede
+einer dritten Partei zugeschriebene Position (BDA, Gewerkschaft, Behörde …) — MUSS entweder in den QUELLEN
+oder im VORHABEN-Text stehen. Steht sie dort nicht, ERFINDE sie NICHT: lass sie weg oder schreibe wörtlich
+„keine belastbare Quelle". Erfinde KEINE Kostenschätzungen („ca. 1–2 Mrd. €"), KEINE Paragraphen, KEINE
+Statistiken. Bring auch KEINE Fremdthemen ein, die nicht in dieser Maßnahme stehen.
+ERLAUBT ist qualitatives Schließen AUS der Maßnahme selbst (logische Folgen, Zielkonflikte, betroffene Gruppen).
+VERBOTEN sind erfundene empirische Fakten. Lieber eine Achse ehrlich „unbelegt" als mit Erfindung gefüllt.
+
 ════ A) WIRKUNGSANALYSE ════
-(A0) zielerreichung: Erreicht die Maßnahme ihr ERKLÄRTES Ziel, gestützt auf die Evidenz?
-     status "ja"|"teilweise"|"nein" + begruendung (1 Satz mit Beleg).
-(A1) nebenwirkungen: 2–4 unbeabsichtigte/kollaterale Folgen JENSEITS des Ziels (auch wenn das Ziel erreicht würde).
-     je {effekt, richtung "schaedlich"|"neutral"|"positiv", begruendung}.
+(A0) zielerreichung: Erreicht die Maßnahme ihr ERKLÄRTES Ziel? Wähle den Status STRENG nach der Evidenzlage:
+     - "nein"      = die Evidenz WIDERLEGT die Prämisse/Wirkmechanismus (das Problem existiert so nicht, oder der Mechanismus wirkt nachweislich nicht).
+     - "ja"        = die Quellen STÜTZEN, dass der Mechanismus das Ziel erreicht.
+     - "teilweise" = die Evidenz ist gemischt (stützt teils, widerlegt teils) — nur bei ECHTEM Mischbefund.
+     - "unbelegt"  = zu dieser konkreten Wirkung liegt KEINE belastbare Evidenz vor (ehrlicher Default für neue Maßnahmen ohne Wirkungsnachweis — NICHT „teilweise" ausweichen).
+     + begruendung (1 Satz; bei "ja"/"nein"/"teilweise" mit Beleg, bei "unbelegt" die Evidenzlücke benennen).
+(A1) nebenwirkungen: 0–4 unbeabsichtigte Folgen JENSEITS des Ziels — NUR belegte oder logisch ZWINGENDE.
+     Erfinde keine, um die Liste zu füllen; leere Liste ist erlaubt. je {effekt, richtung "schaedlich"|"neutral"|"positiv", begruendung}.
 (A2) kohaerenz: Widerspricht die Maßnahme anderen Zielen — insbesondere den EIGENEN Zielen des Pakets/Programms?
      status "kohaerent"|"spannung"|"widerspruch" + begruendung.
 (A3) verteilung: Wer trägt den Nutzen, wer die Last? gewinner[], verlierer[], begruendung (1 Satz).
@@ -82,8 +97,9 @@ Entscheidung an einer Wertfrage hängt, benenne die Wertannahmen statt zu empfeh
        nur echte Unfinanzierbarkeit (z. B. „Rasenmäher" scheitert an gebundenen Ausgaben) ist „nicht_umsetzbar".
 (B1) schritte: 3–6 konkrete Umsetzungsschritte in Reihenfolge (Gesetz, Verordnung, GG-Änderung, EU-Ebene, Verwaltungsaufbau …).
 (B2) umsetzungsdauer "kurzfristig"|"mittelfristig"|"langfristig"; dauer_jahre (Text, z. B. „1–2 Jahre").
-(B3) betroffene: gesetze/Normen, institutionen, gruppen, kosten ("symbolisch"|"niedrig"|"mittel"|"hoch" + Halbsatz).
-     Rechtsgrundlagen/Paragraphen NUR nennen, wenn sie in den Quellen stehen — sonst „Rechtsgrundlage zu prüfen" statt Norm erfinden.
+(B3) betroffene: gesetze/Normen, institutionen, gruppen, kosten ("symbolisch"|"niedrig"|"mittel"|"hoch"|"unbekannt" + Halbsatz).
+     Rechtsgrundlagen/Paragraphen NUR nennen, wenn sie in den QUELLEN ODER im VORHABEN stehen — sonst „Rechtsgrundlage zu prüfen" statt Norm erfinden.
+     kosten NUR als Stufe schätzen, wenn die Quellen/das Vorhaben das hergeben; sonst "unbekannt". KEINE erfundenen Euro-Beträge.
 Außerdem: reversibilitaet ("leicht"|"mittel"|"schwer"|"irreversibel"), konfidenz ("hoch"|"mittel"|"niedrig").
 
 ════ C) ABWÄGUNG ════
@@ -94,7 +110,7 @@ Außerdem: reversibilitaet ("leicht"|"mittel"|"schwer"|"irreversibel"), konfiden
      Sprich KEINE Empfehlung aus, welche Alternative zu wählen ist.
 
 Antworte NUR als JSON, exakt in dieser Form:
-{"zielerreichung":{"status":"ja|teilweise|nein","begruendung":"<1 Satz mit Beleg>"},
+{"zielerreichung":{"status":"ja|teilweise|nein|unbelegt","begruendung":"<1 Satz>"},
  "nebenwirkungen":[{"effekt":"<…>","richtung":"schaedlich|neutral|positiv","begruendung":"<…>"}],
  "kohaerenz":{"status":"kohaerent|spannung|widerspruch","begruendung":"<…>"},
  "verteilung":{"gewinner":["<…>"],"verlierer":["<…>"],"begruendung":"<…>"},
@@ -147,7 +163,7 @@ def _clean_list(x, n=6, cap=200):
     return [str(s).strip()[:cap] for s in (x or []) if str(s).strip()][:n]
 
 
-def analyze(vorhaben: str, query: str, vs, gen, adv, critique, host, serve):
+def analyze(vorhaben: str, query: str, vs, gen, adv, critique, host, serve, weltkontext: str = "", heute: str = ""):
     """Kern (3-Familien wie die Hauptpipeline): Retrieval → Erzeugung MISTRAL →
     gemma4-Adversarial (Ampeln) → Merge → athena-CRITIQUE (holistischer Review +
     Verdikt, fängt Fabrikationen wie falsche Norm-Nummern). Liefert (rec, docs)."""
@@ -156,7 +172,8 @@ def analyze(vorhaben: str, query: str, vs, gen, adv, critique, host, serve):
     docs = tier_aware_retrieve(vs, query, k=serve.RETRIEVER_K, fetch_k=50, sim_floor=0.4, max_k=12)
     ctx = format_docs(docs)
     # Erzeugung: Mistral (mit RAG faktentreu) — ChatMistralAI liefert eine Message.
-    resp = gen.invoke(GEN_PROMPT.replace("{context}", ctx).replace("{vorhaben}", vorhaben[:8000]))
+    resp = gen.invoke(GEN_PROMPT.replace("{context}", ctx).replace("{vorhaben}", vorhaben[:8000])
+                      .replace("{heute}", heute or "heute"))
     raw = getattr(resp, "content", resp)
     u = _parse_json(raw)
 
@@ -198,13 +215,14 @@ def analyze(vorhaben: str, query: str, vs, gen, adv, critique, host, serve):
     # Wirksamkeit (Zielerreichung) — eigene Achse, getrennt von der Machbarkeit.
     z = u.get("zielerreichung") or {}
     ziel = (z.get("status") or "").strip().lower()
-    if ziel not in ("ja", "teilweise", "nein"):
-        ziel = "teilweise"
+    if ziel not in ("ja", "teilweise", "nein", "unbelegt"):
+        ziel = "unbelegt"   # ehrlicher Default: keine Wirkungsevidenz ≠ „teilweise"
     UMSETZ_LABEL = {"hoch": "gut umsetzbar", "mittel": "umsetzbar mit Aufwand",
                     "gering": "umsetzbar, aber mit großen Hürden", "nicht_umsetzbar": "nicht umsetzbar"}
     umsetz_label = UMSETZ_LABEL[AMPEL[gesamt_rank]]
     fazit = (f"{umsetz_label} — verfehlt aber das erklärte Ziel." if ziel == "nein"
              else f"{umsetz_label}; erreicht das Ziel nur teilweise." if ziel == "teilweise"
+             else f"{umsetz_label}; Zielerreichung ist mangels Evidenz offen." if ziel == "unbelegt"
              else f"{umsetz_label} und zielführend.")
     # Weitere Wirkungs-Achsen
     nebenwirkungen = []
@@ -266,20 +284,28 @@ def analyze(vorhaben: str, query: str, vs, gen, adv, critique, host, serve):
     # + faires Verdikt. Fängt genau Fabrikationen wie falsche Norm-Nummern (§ 630d),
     # übersehene Dimensionen oder eine Verwechslung von Ziel und Maßnahme.
     try:
-        crit = critique(query, docs, _analysis_to_text(rec, vorhaben))
+        crit = critique(query, docs, _analysis_to_text(rec, vorhaben), weltkontext=weltkontext, heute=heute)
         rec["critique"] = crit
         rec["critique_verdict"] = critique_verdict(crit, host)
     except Exception as e:
         print(f"  [warn] critique fehlgeschlagen: {type(e).__name__}", file=sys.stderr)
         rec["critique"] = ""
         rec["critique_verdict"] = {}
+    # Fabrikationsverdacht: der Critique hat unbelegte/erfundene Detail-Behauptungen gefunden
+    # (z. B. erfundene Kostenzahlen, falsch zugeschriebene Positionen). Die Norm-Konsolidierung
+    # bereinigt nur Paragraphen — solche Behauptungen bleiben im Text und MÜSSEN vor Freigabe
+    # von Hand geprüft werden. Als sichtbares Review-Flag führen.
+    rec["fabrikationsverdacht"] = bool((rec.get("critique_verdict") or {}).get("erfundene_fakten"))
 
     # Konsolidierung — schließt die Schleife: erfundene Norm-Nummern (die der Critique
     # bemängelt) deterministisch gegen die Quellen bereinigen → „(Rechtsgrundlage zu prüfen)".
     try:
         from consolidate import consolidate_analysis, build_findings
         findings = build_findings(rec.get("adversarial"), rec.get("critique", ""), rec.get("critique_verdict"))
-        cleaned, aufl = consolidate_analysis(rec, ctx, gen, findings=findings)
+        # Das VORHABEN selbst zählt als Quelle: eine vom Paper GENANNTE Norm (z. B. § 278 StGB)
+        # ist belegt und darf nicht als „unbelegt" umgeschrieben werden. Sonst macht die
+        # Konsolidierung aus einer korrekten Norm eine falsche (§ 278 → § 277/279).
+        cleaned, aufl = consolidate_analysis(rec, vorhaben + "\n\n" + ctx, gen, findings=findings)
         rec["dimensionen"] = cleaned["dimensionen"]
         rec["schritte"] = cleaned["schritte"]
         rec["betroffene"] = cleaned["betroffene"]
@@ -289,6 +315,28 @@ def analyze(vorhaben: str, query: str, vs, gen, adv, critique, host, serve):
     except Exception as e:
         print(f"  [warn] konsolidierung fehlgeschlagen: {type(e).__name__}", file=sys.stderr)
         rec["konsolidierung"] = []
+
+    # Aktuator: wenn der Critique unbelegte Fakten fand, die konkreten Behauptungen inline
+    # als ⟦unbelegt: …⟧ markieren (nicht löschen — Handprüfung entscheidet). Schließt die
+    # Lücke „Detektor ohne Aktuator": das Flag zählt nicht mehr nur, es zeigt WAS zu prüfen ist.
+    rec["fabrikate"] = []
+    if rec.get("fabrikationsverdacht"):
+        try:
+            from consolidate import strip_fabrications
+            findings2 = build_findings(rec.get("adversarial"), rec.get("critique", ""), rec.get("critique_verdict"))
+            # Weltkontext mitgeben, damit der Aktuator reale, belegte Angaben (Koalition, Datum)
+            # nicht als „unbelegt" markiert.
+            akt_src = (weltkontext + "\n\n" if weltkontext else "") + vorhaben + "\n\n" + ctx
+            marked, fabrikate = strip_fabrications(rec, akt_src, gen, findings=findings2)
+            for k in ("zielerreichung", "nebenwirkungen", "kohaerenz", "verteilung",
+                      "verhaeltnismaessigkeit", "dimensionen"):
+                if k in marked:
+                    rec[k] = marked[k]
+            rec["fabrikate"] = fabrikate
+            if fabrikate:
+                print(f"  [aktuator] {len(fabrikate)} unbelegte Behauptung(en) markiert", file=sys.stderr)
+        except Exception as e:
+            print(f"  [warn] aktuator fehlgeschlagen: {type(e).__name__}", file=sys.stderr)
     return rec, docs
 
 
@@ -321,7 +369,7 @@ def _analysis_to_text(rec, vorhaben):
 
 def _print_human(titel, rec):
     ICON = {"hoch": "🟢", "mittel": "🟡", "gering": "🟠", "nicht_umsetzbar": "🔴"}
-    ZICON = {"ja": "🟢", "teilweise": "🟡", "nein": "🔴"}
+    ZICON = {"ja": "🟢", "teilweise": "🟡", "nein": "🔴", "unbelegt": "⚪"}
     z = rec.get("zielerreichung", {})
     print(f"\n╔══ ANALYSE: {titel[:70]}")
     # Zwei getrennte Analysen — nicht unter einen Scheffel.

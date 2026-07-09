@@ -98,6 +98,72 @@ def strip_unsourced_norms(text, source_text):
     return out, removed
 
 
+def strip_fabrications(analysis, source_text, llm, findings=""):
+    """Aktuator gegen Fabrikation: findet die im Text stehenden EMPIRISCHEN Behauptungen
+    (Zahlen, €-Beträge, %, Statistiken, Normen, dritten Parteien zugeschriebene Positionen,
+    Fremdthemen), die WEDER in den Quellen NOCH im Vorhaben belegt sind, und MARKIERT sie
+    inline als ⟦unbelegt: …⟧ — nicht löschen (könnte korrekt-aber-unretrievt sein), sondern
+    für die Handprüfung sichtbar machen. Liefert (markierte_analyse, fabrikate[])."""
+    if llm is None:
+        return analysis, []
+    # Prosa-Felder einsammeln, die empirische Behauptungen tragen können
+    fields = []
+    z = analysis.get("zielerreichung", {})
+    fields.append(z.get("begruendung", ""))
+    for nw in analysis.get("nebenwirkungen", []):
+        fields += [nw.get("effekt", ""), nw.get("begruendung", "")]
+    fields.append((analysis.get("kohaerenz") or {}).get("begruendung", ""))
+    fields.append((analysis.get("verteilung") or {}).get("begruendung", ""))
+    for d in analysis.get("dimensionen", []):
+        fields += [d.get("begruendung", ""), d.get("blocker", "")]
+    fields.append((analysis.get("verhaeltnismaessigkeit") or {}).get("begruendung", ""))
+    joined = "\n".join(t for t in fields if t)
+    if not joined.strip():
+        return analysis, []
+
+    prompt = ("Prüfe die folgende politische Analyse auf ERFUNDENE empirische Behauptungen. Liste JEDE "
+              "Aussage, die eine konkrete Zahl, einen €-Betrag, einen Prozentwert, eine Statistik, eine "
+              "Rechtsnorm/Paragraphen, eine einer dritten Partei zugeschriebene Position ODER ein Thema "
+              "nennt, das WEDER in den QUELLEN NOCH im VORHABEN belegt ist. Gib den betreffenden Textteil "
+              "WÖRTLICH und EXAKT so zurück, wie er in der Analyse steht (kopierfähige Teil-Zeichenkette).\n"
+              "NICHT listen: qualitatives Schließen, Wertungen, Forderungen, Ampel-Begriffe. NUR unbelegte "
+              "empirische FAKTEN.\n\n"
+              f"VORHABEN + QUELLEN:\n{source_text[:5000]}\n\n"
+              f"HINWEISE DES REVIEWERS:\n{findings[:1500]}\n\n"
+              f"ANALYSE-TEXT:\n{joined[:5000]}\n\n"
+              'Gib NUR JSON: {"fabrikate":[{"zitat":"<wörtliche Teil-Zeichenkette aus der Analyse>","grund":"<kurz, warum unbelegt>"}]}')
+    try:
+        obj = _parse(getattr(llm.invoke(prompt), "content", ""))
+    except Exception:
+        return analysis, []
+    fab = [(f.get("zitat", "").strip(), f.get("grund", "").strip())
+           for f in obj.get("fabrikate", []) if len(f.get("zitat", "").strip()) >= 4]
+    if not fab:
+        return analysis, []
+
+    def mark(s):
+        for zitat, _ in fab:
+            if zitat and zitat in s and "⟦unbelegt:" not in s[max(0, s.find(zitat) - 12):s.find(zitat)]:
+                s = s.replace(zitat, f"⟦unbelegt: {zitat}⟧", 1)
+        return s
+
+    a = json.loads(json.dumps(analysis, ensure_ascii=False))  # tiefe Kopie
+    za = a.get("zielerreichung") or {}
+    za["begruendung"] = mark(za.get("begruendung", ""))
+    for nw in a.get("nebenwirkungen", []):
+        nw["effekt"] = mark(nw.get("effekt", ""))
+        nw["begruendung"] = mark(nw.get("begruendung", ""))
+    for key in ("kohaerenz", "verteilung", "verhaeltnismaessigkeit"):
+        d = a.get(key)
+        if isinstance(d, dict):
+            d["begruendung"] = mark(d.get("begruendung", ""))
+    for d in a.get("dimensionen", []):
+        d["begruendung"] = mark(d.get("begruendung", ""))
+        d["blocker"] = mark(d.get("blocker", ""))
+    fabrikate = [{"zitat": z, "grund": g} for z, g in fab]
+    return a, fabrikate
+
+
 def consolidate_analysis(analysis, source_text, llm, findings=""):
     """Konsolidiert eine strukturierte Umsetzungsanalyse (dict): Mistral prüft die
     Rechtsnormen KONTEXTUELL (Quellen + Critique-Funde + Fachwissen) und nennt nur die
@@ -111,6 +177,12 @@ def consolidate_analysis(analysis, source_text, llm, findings=""):
     fields += list(analysis.get("betroffene", {}).get("gesetze", []))
     joined = "\n".join(t for t in fields if t)
     norms = sorted({m.strip() for m in _NORM_RE.findall(joined) if m.strip()})
+    # Deterministischer Beleg-Check: Normen, die WÖRTLICH im Vorhaben/in den Quellen stehen,
+    # sind per Definition belegt (das Paper nennt sie selbst) → gar nicht erst zur Prüfung geben.
+    # Sonst „korrigiert" das Modell mit seinem Fachwissen eine korrekte, quellengenannte Norm
+    # (z. B. § 278 StGB) in eine falsche. Nur wirklich UNbelegte Normen gehen an das LLM.
+    src_key = re.sub(r"\s+", "", source_text or "").lower()
+    norms = [n for n in norms if re.sub(r"\s+", "", n).lower() not in src_key]
     if not norms or llm is None:
         return analysis, []
 
@@ -127,7 +199,16 @@ def consolidate_analysis(analysis, source_text, llm, findings=""):
         obj = _parse(getattr(llm.invoke(prompt), "content", ""))
     except Exception:
         return analysis, []
-    korr = [(k.get("alt", "").strip(), (k.get("neu", "").strip() or "Rechtsgrundlage zu prüfen"))
+    def _clean_neu(neu):
+        """Die Ersetzung muss eine KURZE, saubere Normangabe bleiben — kein Aufsatz.
+        Verbose Begründungen (Klammern, Semikolons, > 45 Zeichen) auf die Standardfloskel
+        zurückstutzen, damit die gesetze-/begruendung-Felder nicht mit Prosa vermüllt werden."""
+        neu = (neu or "").strip()
+        if not neu or len(neu) > 45 or "(" in neu or ";" in neu:
+            return "Rechtsgrundlage zu prüfen"
+        return neu
+
+    korr = [(k.get("alt", "").strip(), _clean_neu(k.get("neu", "")))
             for k in obj.get("korrekturen", []) if k.get("alt", "").strip()]
     if not korr:
         return analysis, []
