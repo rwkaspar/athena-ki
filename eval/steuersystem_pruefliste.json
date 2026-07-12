@@ -1,0 +1,67 @@
+[
+  {
+    "zitat": "~250 Mrd. €",
+    "art": "zahl",
+    "grund": "Keine entsprechende Zahl im Quellentext für Einkommensteuer vorhanden"
+  },
+  {
+    "zitat": "15% + Solidaritätszuschlag (5,5%)",
+    "art": "zahl",
+    "grund": "Kein Beleg für Körperschaftsteuersatz oder Solizuschlag in den Quellen"
+  },
+  {
+    "zitat": "~40 Mrd. €",
+    "art": "zahl",
+    "grund": "Keine Zahl zum Aufkommen der Körperschaftsteuer in den Quellen"
+  },
+  {
+    "zitat": "~60 Mrd. €",
+    "art": "zahl",
+    "grund": "Kein Beleg für Gewerbesteueraufkommen in den Quellen"
+  },
+  {
+    "zitat": "19% Regelsteuersatz, 7% ermäßigt",
+    "art": "zahl",
+    "grund": "Umsatzsteuersätze werden in den Quellen nicht genannt"
+  },
+  {
+    "zitat": "~10 Mrd. €",
+    "art": "zahl",
+    "grund": "Kein Beleg für Abgeltungsteueraufkommen in den Quellen"
+  },
+  {
+    "zitat": "~10 Mrd. €",
+    "art": "zahl",
+    "grund": "Kein Beleg für Erbschaft-/Schenkungsteueraufkommen in den Quellen"
+  },
+  {
+    "zitat": "~600 Mrd. €",
+    "art": "zahl",
+    "grund": "Kein Beleg für Sozialabgabenaufkommen in den Quellen"
+  },
+  {
+    "zitat": "~48% Abgabenlast",
+    "art": "zahl",
+    "grund": "Keine Angabe zur relativen Abgabenlast von Arbeitseinkommen in den Quellen"
+  },
+  {
+    "zitat": "~20.000 Seiten Steuerrecht",
+    "art": "zahl",
+    "grund": "Keine Zahl zur Umfang des Steuerrechts in den Quellen"
+  },
+  {
+    "zitat": "25%",
+    "art": "zahl",
+    "grund": "Kein Beleg für den vorgeschlagenen Einheitssteuersatz im Modell 1"
+  },
+  {
+    "zitat": "12.000 €/Jahr",
+    "art": "zahl",
+    "grund": "Kein Beleg für diesen Grundfreibetrag in den Quellen"
+  },
+  {
+    "zitat": "500 €",
+    "art": "zahl",
+    "grund": "Kein Beleg für diesen monatlichen Betrag in den Quellen"
+  }
+]
