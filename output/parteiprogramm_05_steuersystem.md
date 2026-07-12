@@ -1,9 +1,9 @@
 # 5. Steuersystem — EVIDENZ-Position v0.1
 
-**Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-24 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0
+**Status:** 🟢 entschieden · letzte Aktualisierung: 2026-05-24 · **Modell:** Mistral Large 2 (API) · **Wertekanon-geprüft:** EVIDENZ v1.0 · Critique + Adversarial gegengeprüft (athena: 6/8 Aussagen halten, 2 offen; Critique: Hinweise)
 <!-- TLDR-START -->
 **Worum geht's:** Wie soll das deutsche Steuersystem bei Vermögen, Erbschaft, Spitzeneinkommen, Finanzmärkten, ökologischem Konsum und der Bündelung von Sozialleistungen reformiert werden?
-**EVIDENZ-Position:** EVIDENZ beschließt ein 6-Achsen-Paket und verwirft Status quo und Flachsteuer. Es führt eine Vermögensteuer von 1 % ab 2 Mio. € (mit Ertragsvorbehalt und Exit Tax, erwartetes Aufkommen 11–15 Mrd. €/Jahr) wieder ein, reformiert die Erbschaftsteuer zu einem einheitlichen Satz von 20 % mit 200.000 € Freibetrag pro Erbe statt Verschonungsregeln, und führt neue Spitzensteuerstufen (48 % ab 250.000 €, 55 % ab 500.000 €, 60 % ab 1 Mio. €) samt Integration der Abgeltungsteuer ein. Hinzu kommen eine nur EU-weite Finanzmarktsteuer (0,1 % auf Aktien/Devisen, 1 % auf Krypto) sowie ökologische Konsumsteuern mit CO2-Preis auf 200 €/Tonne bis 2030 und pro Kopf zurückgezahltem Klimageld (~240 €/Person/Jahr). Langfristiges Ziel ist eine negative Einkommensteuer mit Vollintegration der Sozialleistungen, beginnend mit der Kindergrundsicherung.
+**EVIDENZ-Position:** EVIDENZ beschließt ein 6-Achsen-Paket und verwirft Status quo und Flachsteuer. Es führt eine Vermögensteuer von 1 % ab 2 Mio. € (mit Ertragsvorbehalt und Exit Tax, erwartetes Aufkommen 11–15 Mrd. €/Jahr) wieder ein, reformiert die Erbschaftsteuer zu einem einheitlichen Satz von 20 % mit 200.000 € Freibetrag pro Erbe statt Verschonungsregeln, und führt neue Spitzensteuerstufen (48 % ab 250.000 €, 55 % ab 500.000 €, 60 % ab 1 Mio. €) samt Integration der Abgeltungsteuer ein. Hinzu kommen eine nur EU-weite Finanzmarktsteuer (0,1 % auf Aktien/Devisen, 1 % auf Krypto) sowie ökologische Konsumsteuern mit CO2-Preis auf 200 €/Tonne bis 2030 und pro Kopf zurückgezahltem Klimageld (ca. 240 €/Person/Jahr). Langfristiges Ziel ist eine negative Einkommensteuer mit Vollintegration der Sozialleistungen, beginnend mit der Kindergrundsicherung.
 <!-- TLDR-END -->
 
 
@@ -25,7 +25,7 @@ Verworfen: Status quo (belastet §2), Flachsteuer (regressiv).
 
 ---
 
-### Achse 3 — Vermögensteuer wieder einführen
+### Achse 1 — Vermögensteuer wieder einführen
 
 **Konkret:**
 - 1 % Satz ab 2 Mio € Privatvermögen / 5 Mio € Betriebsvermögen
@@ -51,7 +51,7 @@ BVerfG-Urteil 1995 (2 BvL 37/91) hat die Vermögensteuer **nicht generell verbot
 
 ---
 
-### Achse 4 — Erbschaftsteuer reformieren
+### Achse 2 — Erbschaftsteuer reformieren
 
 **Konkret:**
 - Einheitlicher Steuersatz **20 %** für alle Erbschaften (keine Differenzierung nach Verwandtschaftsgrad mehr)
@@ -85,7 +85,7 @@ Das Hauptargument der politischen Gegner ("Erbschaftsteuer treibt Familienuntern
 
 ---
 
-### Achse 5 — Spitzensteuersatz neue Stufen
+### Achse 3 — Spitzensteuersatz neue Stufen
 
 **Konkret:**
 - Bisheriger Tarif bleibt bis 250.000 €
@@ -95,7 +95,7 @@ Das Hauptargument der politischen Gegner ("Erbschaftsteuer treibt Familienuntern
 - **Abgeltungsteuer auf Kapitalerträge** wird in den Einkommensteuer-Tarif integriert (keine 25%-Sonderbehandlung mehr)
 
 **Begründung:**
-Stufentarif — jeder Steuersatz gilt nur für den Anteil über der jeweiligen Schwelle (nie auf das ganze Einkommen). Wer 800.000 € verdient, zahlt nicht 60 % auf alles, sondern Durchschnitt ~43 %. Diese Mathematik muss in der EVIDENZ-Kommunikation aktiv gegen Boulevard-Framing kommuniziert werden.
+Stufentarif — jeder Steuersatz gilt nur für den Anteil über der jeweiligen Schwelle (nie auf das ganze Einkommen). Wer 800.000 € verdient, zahlt nicht 60 % auf alles, sondern Durchschnitt ca. 43 %. Diese Mathematik muss in der EVIDENZ-Kommunikation aktiv gegen Boulevard-Framing kommuniziert werden.
 
 **Internationale Vergleichswerte:**
 - Schweden 55,5 %, Dänemark 55,9 % — beide wettbewerbsfähig und hoch zufrieden
@@ -109,7 +109,7 @@ Stufentarif — jeder Steuersatz gilt nur für den Anteil über der jeweiligen S
 
 ---
 
-### Achse 6 — EU-Finanzmarktsteuer
+### Achse 4 — EU-Finanzmarktsteuer
 
 **Konkret:**
 - **Kein nationaler Alleingang** — nur EU-weit (Schweden-Lehre 1984-1991: 60 % Handelsverlagerung nach London bei nationaler Einführung)
@@ -119,7 +119,7 @@ Stufentarif — jeder Steuersatz gilt nur für den Anteil über der jeweiligen S
 
 **Begründung — ehrlich gewichtet:**
 
-**Primärer Effekt: Aufkommen und Solidarbeitrag.** ~5–10 Mrd €/Jahr EU-weit für Sozialhaushalt. Finanzsektor beteiligt sich an gesellschaftlichen Kosten — historisches Argument: Bankenrettung 2008 hat ~500 Mrd € EU-Steuergelder gebunden, Finanzsektor war daran nicht beteiligt.
+**Primärer Effekt: Aufkommen und Solidarbeitrag.** ca. 5–10 Mrd €/Jahr EU-weit für Sozialhaushalt. Finanzsektor beteiligt sich an gesellschaftlichen Kosten — historisches Argument: Bankenrettung 2008 hat ca. 500 Mrd € EU-Steuergelder gebunden, Finanzsektor war daran nicht beteiligt.
 
 **Sekundärer Effekt: Reduktion von Hochfrequenzhandel** mit fraglichem realwirtschaftlichen Nutzen. FR-Empirie 2014 (Banque de France): HFT-Volumen -50 % nach Einführung 0,3%-Steuer. Argument für HFT-Reduktion: kein direkter gesellschaftlicher Mehrwert außer marginaler Liquidität, "Front Running" auf Mikrosekunden-Ebene extrahiert Spread aus normalen Trades, Flash-Crash-Risiken (Mai 2010).
 
@@ -136,13 +136,13 @@ Stufentarif — jeder Steuersatz gilt nur für den Anteil über der jeweiligen S
 
 ---
 
-### Achse 7 — Ökologische Konsumsteuern + Klimageld
+### Achse 5 — Ökologische Konsumsteuern + Klimageld
 
 **Konkret:**
 - **CO2-Preis dynamisch auf 200 €/Tonne bis 2030** (heute 55 €/t), schrittweise Erhöhung
 - **Plastiksteuer 1 €/kg** auf nicht-recycelbare Verpackungen
 - **Tierwohl-Abgabe 50 ct/kg** auf Fleisch, zweckgebunden für Stallumbau (Borchert-Kommission BMEL 2020)
-- **Klimageld als unverhandelbare Bedingung**: alle Einnahmen aus CO2-Preis pro Kopf an alle Bürger zurückgezahlt (~240 €/Person/Jahr)
+- **Klimageld als unverhandelbare Bedingung**: alle Einnahmen aus CO2-Preis pro Kopf an alle Bürger zurückgezahlt (ca. 240 €/Person/Jahr)
 
 **Begründung:**
 **Schwedische Erfolgsgeschichte:** CO2-Preis seit 1991 (heute 120 €/t, weltweit höchster), Emissionen -25 % seit 1990 trotz Wirtschaftswachstum, hohe gesellschaftliche Akzeptanz. **Funktioniert durch Kompensation** (Einnahmen flossen in Steuersenkungen).
@@ -162,7 +162,7 @@ Stufentarif — jeder Steuersatz gilt nur für den Anteil über der jeweiligen S
 
 ---
 
-### Achse 8 — Negative Einkommensteuer mit Vollintegration (langfristiges Ziel)
+### Achse 6 — Negative Einkommensteuer mit Vollintegration (langfristiges Ziel)
 
 **Konkret — Vision:**
 Alle staatlichen Geldleistungen an Privathaushalte werden über das Finanzamt abgewickelt — Bürgergeld + Wohngeld + Kindergeld + Kinderzuschlag + BAföG + Heizkostenzuschuss + Wohnberechtigungsschein.
@@ -184,7 +184,7 @@ Alle staatlichen Geldleistungen an Privathaushalte werden über das Finanzamt ab
 2. **Mittelfristig (4-8 Jahre)**: Integration weiterer bundeszuständiger steuerfinanzierter Geldleistungen über Finanzamt. Negative Einkommensteuer-Mechanik für arbeitende Geringverdiener.
 3. **Langfristig (10-20 Jahre)**: Föderalismus-Reform mit den Ländern, um Wohngeld und weitere Länderkompetenzen einzubeziehen. Volle negative Einkommensteuer.
 
-**Mehrkosten geschätzt 10-15 Mrd €/Jahr netto** (nach Bürokratie-Einsparungen, die nicht in den 20-30 Mrd Bruttoschätzungen enthalten sind — allein Bürgergeld-Verwaltung kostet ~5-6 Mrd €/Jahr).
+**Mehrkosten geschätzt 10-15 Mrd €/Jahr netto** (nach Bürokratie-Einsparungen, die nicht in den 20-30 Mrd Bruttoschätzungen enthalten sind — allein Bürgergeld-Verwaltung kostet ca. 5-6 Mrd €/Jahr).
 
 **Was die Faktenprüfung geändert hat:**
 - Vollintegration als langfristige Vision formuliert (nicht kurzfristige Reform) — kein Land hat sie umgesetzt
@@ -202,19 +202,19 @@ Alle staatlichen Geldleistungen an Privathaushalte werden über das Finanzamt ab
 
 ## Mapping auf den EVIDENZ-Wertekanon
 
-- **§1 (Sorgepflicht, künftige Generationen, Ökosysteme)**: gestützt durch Achsen 4, 5, 7, 8
+- **§1 (Sorgepflicht, künftige Generationen, Ökosysteme)**: gestützt durch Achsen 2, 3, 5, 6
 - **§2 (Verteilung, Rawls)**: **maximal gestützt** — fast alle Achsen wirken progressiv
-- **§3 (Freiheit)**: belastet bei Achsen 3, 4, 5; neutral bei 6, 7; gestützt bei 8 (weniger Bürokratie)
-- **§4 (Tradition)**: belastet bei Achse 4 (Familienbetrieb-Vererbung); neutral sonst
+- **§3 (Freiheit)**: belastet bei Achsen 1, 2, 3; neutral bei 4, 5; gestützt bei 6 (weniger Bürokratie)
+- **§4 (Tradition)**: belastet bei Achse 2 (Familienbetrieb-Vererbung); neutral sonst
 - **§5 (Wissenschaft + Faktentransparenz)**: gestützt — DIW, ifo, RWI, OECD, Piketty, Borchert als Belege
-- **§6 (Vorsicht gegen irreversible Risiken)**: differenziert wie in Schuldenbremse — Klima-Risiken (irreversibel, Achse 7) wiegen schwer, Markt-Risiken (reversibel, Achsen 5/6) leichter
+- **§6 (Vorsicht gegen irreversible Risiken)**: differenziert wie in Schuldenbremse — Klima-Risiken (irreversibel, Achse 5) wiegen schwer, Markt-Risiken (reversibel, Achsen 3/4) leichter
 - **§7 (Demokratie als organisierter Konflikt mit Faktentransparenz)**: gestützt durch Klarstellung der Maßnahmen und Verteilungswirkungen
 
 ## Bewusst akzeptierte Trade-offs
 
 - **§3-Eingriff bei Vermögen, Erbschaft, Spitzensteuer**: starker Eingriff in Eigentumsfreiheit. Gerechtfertigt durch §3(iii) kumulativ: wissenschaftlicher Konsens (DIW, OECD, Piketty), Schutz Schwächerer und künftiger Generationen, transparentes Verfahren.
 - **Kapitalflucht-Restrisiko**: Wegzugsbesteuerung adressiert es nur teilweise. Akzeptiert als Preis für §2-Konsequenz.
-- **Lange Reformphase bei Achse 8**: Vollintegration ist 10-20-Jahres-Projekt. Akzeptiert als langfristiges Ziel, Kindergrundsicherung als kurzfristiger erster Schritt.
+- **Lange Reformphase bei Achse 6**: Vollintegration ist 10-20-Jahres-Projekt. Akzeptiert als langfristiges Ziel, Kindergrundsicherung als kurzfristiger erster Schritt.
 - **Politische Isolierung**: trifft alle etablierten Parteien (FDP: Vermögen + Spitzensteuer; SPD: Stiftungs-Verschärfung; Union: Erbschaft; alle: Vollverbot Verschonungsregeln). Bewusst akzeptiert als Glaubwürdigkeitssignal.
 
 ## Bewusst nicht geteilte Wertannahmen aus alternativen Positionen
@@ -227,12 +227,12 @@ Alle staatlichen Geldleistungen an Privathaushalte werden über das Finanzamt ab
 ## Konfidenz und Verifikationspfad
 
 **Konfidenz pro Achse:**
-- Achse 3 (Vermögensteuer): mittel-hoch — DIW-Studien als solide Basis, Verwaltungsumsetzung muss konkret ausgearbeitet werden
-- Achse 4 (Erbschaftsteuer): hoch — Empirie gegen Mittelstandssterben-Argument eindeutig, internationale Vergleichsdaten reichhaltig
-- Achse 5 (Spitzensteuer): hoch — internationale Empirie eindeutig, mathematische Wirkung klar
-- Achse 6 (EU-Finanzmarktsteuer): mittel — FR-Wirksamkeit nachgewiesen, EU-Durchsetzung politisch unsicher
-- Achse 7 (CO2/Klimageld): hoch — Schweden-Empirie eindeutig, Klimageld-Mechanik gut verstanden
-- Achse 8 (Negative ESt Vollintegration): niedrig-mittel — Vision ohne 1:1-Vorbild, drei harte Grenzen, lange Umsetzungsphase
+- Achse 1 (Vermögensteuer): mittel-hoch — DIW-Studien als solide Basis, Verwaltungsumsetzung muss konkret ausgearbeitet werden
+- Achse 2 (Erbschaftsteuer): hoch — Empirie gegen Mittelstandssterben-Argument eindeutig, internationale Vergleichsdaten reichhaltig
+- Achse 3 (Spitzensteuer): hoch — internationale Empirie eindeutig, mathematische Wirkung klar
+- Achse 4 (EU-Finanzmarktsteuer): mittel — FR-Wirksamkeit nachgewiesen, EU-Durchsetzung politisch unsicher
+- Achse 5 (CO2/Klimageld): hoch — Schweden-Empirie eindeutig, Klimageld-Mechanik gut verstanden
+- Achse 6 (Negative ESt Vollintegration): niedrig-mittel — Vision ohne 1:1-Vorbild, drei harte Grenzen, lange Umsetzungsphase
 
 **Verifikationspfad (vor Wahlkampf-Einsatz zu klären):**
 - Konkrete DIW/ifo/RWI-Studienzitate gegen Tier-1-Quellen verifizieren — Mistral hat plausible Aktenzeichen genannt (z. B. DIW Wochenbericht 11/2019, ifo Studie 87/2017), die nicht alle im RAG belegt sind
@@ -270,4 +270,4 @@ Status: 🟢 entschieden — 6-Achsen-Paket
 
 ## Roadmap-Update
 
-Neuer Eintrag **"Rente & Altersvorsorge"** für die Schwedenfonds-Idee (kostenloser staatlicher Renten-ETF, steuerbegünstigt im Auszahlungsfall) — entstanden aus Diskussion zur Finanzmarktsteuer (Achse 6).
+Neuer Eintrag **"Rente & Altersvorsorge"** für die Schwedenfonds-Idee (kostenloser staatlicher Renten-ETF, steuerbegünstigt im Auszahlungsfall) — entstanden aus Diskussion zur Finanzmarktsteuer (Achse 4).
