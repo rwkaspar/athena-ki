@@ -136,8 +136,12 @@ def strip_fabrications(analysis, source_text, llm, findings=""):
         obj = _parse(getattr(llm.invoke(prompt), "content", ""))
     except Exception:
         return analysis, []
-    fab = [(f.get("zitat", "").strip(), f.get("grund", "").strip())
-           for f in obj.get("fabrikate", []) if len(f.get("zitat", "").strip()) >= 4]
+    # NUR Marken behalten, deren Zitat WÖRTLICH im Analyse-Text steht — sonst halluziniert
+    # das Modell eine Fabrikat-Liste, die gar nicht in der Analyse vorkommt (Phantom-Marken).
+    fab = [(z, f.get("grund", "").strip())
+           for f in obj.get("fabrikate", [])
+           for z in [f.get("zitat", "").strip()]
+           if len(z) >= 4 and z in joined]
     if not fab:
         return analysis, []
 

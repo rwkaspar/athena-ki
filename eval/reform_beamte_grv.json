@@ -1,0 +1,185 @@
+{
+  "titel": "Beamte in die gesetzliche Rentenversicherung — ob und wie?",
+  "zielerreichung": {
+    "status": "unbelegt",
+    "begruendung": "Es liegt keine belastbare Evidenz vor, dass die Einbeziehung von Beamten in die GRV die erklärten Ziele (Gleichbehandlung, Verbreiterung der Beitragsbasis) nachhaltig erreicht. Die Quellen (Sachverständigenrat) zeigen, dass kurzfristige Mehreinnahmen durch spätere Rentenansprüche"
+  },
+  "nebenwirkungen": [
+    {
+      "effekt": "Kurzfristige Mehrbelastung der öffentlichen Haushalte",
+      "richtung": "schaedlich",
+      "begruendung": "Die öffentlichen Haushalte müssen gleichzeitig GRV-Beiträge für neue Beamte, betriebliche Altersvorsorge und laufende Versorgungsleistungen für Bestandsbeamte finanzieren (Sachverständigenrat, Ziffer 396)."
+    },
+    {
+      "effekt": "Langfristige Verschlechterung des GRV-Verhältnisses von Beitragszahlern zu Rentenbeziehern",
+      "richtung": "schaedlich",
+      "begruendung": "Beamte haben eine höhere Lebenserwartung, was die Relation von Beitragszahlern zu Rentenbeziehern in der GRV verschlechtert (Sachverständigenrat, Abbildung 120)."
+    },
+    {
+      "effekt": "Transparenzsteigerung bei Beamtenversorgung",
+      "richtung": "positiv",
+      "begruendung": "Eine separate Beitragskasse für Beamte würde die Finanzierung transparenter machen (Sachverständigenrat, Ziffer 397)."
+    },
+    {
+      "effekt": "Erhöhte Akzeptanz von Rentenreformen",
+      "richtung": "positiv",
+      "begruendung": "Die Integration sichert die wirkungsgleiche Umsetzung von GRV-Reformen für Beamte, was die gesellschaftliche Akzeptanz steigern könnte (Sachverständigenrat, Ziffer 397)."
+    }
+  ],
+  "kohaerenz": {
+    "status": "spannung",
+    "begruendung": "Die Maßnahme widerspricht dem Alimentationsprinzip (Art. 33 Abs. 5 GG), das eine amtsangemessene, lebenslange Versorgung durch den Dienstherrn vorsieht. Gleichzeitig soll sie Gleichbehandlung fördern, was mit dem Grundsatz der hergebrachten Beamtenrechte kollidiert."
+  },
+  "verteilung": {
+    "gewinner": [
+      "Kurzfristig: GRV (Beitragsmehreinnahmen)",
+      "Langfristig: Steuerzahler (theoretische Entlastung durch kapitalgedeckte Elemente)"
+    ],
+    "verlierer": [
+      "Öffentliche Haushalte (doppelte Last: GRV-Beiträge + Bestandsversorgung)",
+      "Neue Beamte (ggf. geringere Nettobezüge durch GRV-Beiträge)",
+      "Bestandsbeamte (Risiko der Aushöhlung des Alimentationsprinzips)"
+    ],
+    "begruendung": "⟦unbelegt: Die öffentlichen Haushalte tragen die Hauptlast der Übergangsfinanzierung, während neue Beamte durch Beitragspflichten belastet werden. Die GRV profitiert kurzfristig von Mehreinnahmen, langfristig steigen jedoch ihre Au⟧"
+  },
+  "gesamt": "gering",
+  "verhaeltnismaessigkeit": {
+    "status": "fraglich",
+    "begruendung": "Der Nutzen (Gleichbehandlung, kurzfristige Beitragsmehreinnahmen) steht in keinem klaren Verhältnis zum Aufwand (GG-Änderung, föderale Hürden, doppelte Haushaltslast). Die langfristigen Effekte auf die GRV sind negativ (höhere Rentenansprüche durch Beamte)."
+  },
+  "alternativen": [
+    {
+      "option": "Einrichtung separater Beitragskassen für Beamte in der GRV (ohne Quersubventionierung)",
+      "begruendung": "Vermeidet die Verschiebung des Finanzierungsproblems und erhöht die Transparenz (Sachverständigenrat, Ziffer 397). Erfordert keine GG-Änderung, aber Länderkooperation."
+    },
+    {
+      "option": "Beibehaltung des Status quo mit schrittweisen Reformen der Beamtenversorgung (z. B. höhere Eigenbeteiligung, Anpassung der Ruhegehaltsätze)",
+      "begruendung": "Vermeidet verfassungsrechtliche und föderale Konflikte, erreicht aber keine Gleichbehandlung mit der GRV."
+    },
+    {
+      "option": "Maßnahme ersatzlos streichen",
+      "begruendung": "Die Prämissen der Maßnahme (Gleichbehandlung, Finanzierungsvorteile) sind empirisch nicht belegt (Sachverständigenrat). Die Umsetzungshürden überwiegen den Nutzen."
+    }
+  ],
+  "fazit": "umsetzbar, aber mit großen Hürden; Zielerreichung ist mangels Evidenz offen.",
+  "umsetzungsdauer": "langfristig",
+  "dauer_jahre": "10+ Jahre (GG-Änderung, Landesgesetze, V",
+  "reversibilitaet": "schwer",
+  "konfidenz": "mittel",
+  "dimensionen": [
+    {
+      "dimension": "rechtlich",
+      "ampel": "gering",
+      "begruendung": "Die Maßnahme erfordert eine Grundgesetzänderung (Art. 33 Abs. 5 GG) und die Zustimmung der Länder (Bundesrat), da diese für Landes- und Kommunalbeamte zuständig sind. ⟦unbelegt: Das BVerfG hat die Beihilfe als hergebrachten Grundsa⟧",
+      "blocker": "⟦unbelegt: Verfassungsänderung (2/3-Mehrheit in Bundestag und Bundesrat) und Länderkooperation erforderlich.⟧"
+    },
+    {
+      "dimension": "administrativ",
+      "ampel": "gering",
+      "begruendung": "Die Umsetzung erfordert neue Verwaltungsstrukturen (z. B. Beitragseinzug für den öffentlichen Dienst, Datenübermittlung an die Deutsche Rentenversicherung) und Kapazitäten für die Anrechnung bereits erdienter Anwartschaf",
+      "blocker": "Keine grundsätzlichen Kapazitätsengpässe, aber erheblicher Umstellungsaufwand. · Adversarial: Die Koordination der Übergangsregeln für die Anrechnung bereits erdienter Anwartschaften sowie die parallele Abrechnung von Beihilfe und gesetzlicher Krankenversicherung erfordert eine massive, bisher unvorhergesehene IT- und Organisationsstruktur in den Personalamtsbehörden."
+    },
+    {
+      "dimension": "politisch",
+      "ampel": "gering",
+      "begruendung": "⟦unbelegt: Hoher Widerstand von Beamtenverbänden (dbb), Ländern (föderale Zuständigkeit) und Teilen der Union/SPD (Tradition des Berufsbeamtentums).⟧ ⟦unbelegt: Eine 2/3-Mehrheit für GG-Änderung ist unwahrscheinlich ohne breite Konsensbildung.⟧",
+      "blocker": "Fehlende politische Mehrheit für GG-Änderung und föderale Blockade."
+    },
+    {
+      "dimension": "finanziell",
+      "ampel": "gering",
+      "begruendung": "⟦unbelegt: Die Maßnahme ist finanzierbar, da die Kosten (GRV-Beiträge + Bestandsversorgung) im Rahmen der öffentlichen Haushalte liegen. Allerdings entsteht eine „doppelte Last“ für die Übergangsgeneration, die durch Steuererhöhung⟧",
+      "blocker": "Keine echte Unfinanzierbarkeit, aber erhebliche Haushaltsbelastung. · Adversarial: Die 'doppelte Last' ist nicht nur ein Haushaltsrisiko, sondern durch die sofortigen Mehrausgaben für GRV-Beiträge bei gleichzeitigem Fortbestand der Versorgungsverpflichtungen ein unmittelbarer Schock für die laufenden Haushalte ohne zeitnahen Ausgleich."
+    }
+  ],
+  "schritte": [
+    "1. Grundgesetzänderung (Art. 33 Abs. 5 GG) zur Aufhebung des Alimentationsprinzips für neue Beamte (2/3-Mehrheit in Bundestag und Bundesrat).",
+    "2. Bundesgesetz zur Überführung neuer Bundesbeamter in die GRV (mit Übergangsregelungen für Bestandsbeamte).",
+    "3. Länder müssen eigene Landesbeamtengesetze anpassen (Zustimmung der Landesparlamente erforderlich).",
+    "4. Einrichtung einer separaten Beitragskasse für Beamte in der GRV (Vermeidung von Quersubventionierung).",
+    "5. Anpassung der Deutschen Rentenversicherung (Datenübermittlung, Beitragseinzug für den öffentlichen Dienst).",
+    "6. Übergangsregelungen für Bestandsbeamte (z. B. schrittweise Reduzierung der Beihilfe über 10 Jahre)."
+  ],
+  "abhaengigkeiten": [
+    "Zustimmung der Länder (Bundesrat) für GG-Änderung und Landesbeamtengesetze.",
+    "Kooperation der Deutschen Rentenversicherung für Beitragseinzug und Datenmanagement.",
+    "Politische Konsensbildung mit Beamtenverbänden (dbb) und Gewerkschaften."
+  ],
+  "betroffene": {
+    "gesetze": [
+      "Art. 33 Abs. 5 GG (Grundgesetz)",
+      "Beamtenversorgungsgesetze des Bundes und der Länder",
+      "Sozialgesetzbuch VI (GRV)"
+    ],
+    "institutionen": [
+      "Bundestag und Bundesrat (GG-Änderung)",
+      "Deutsche Rentenversicherung (Beitragseinzug)",
+      "Landesparlamente (Landesbeamtengesetze)",
+      "Beamtenverbände (dbb, ver.di)"
+    ],
+    "gruppen": [
+      "Neue Bundes-, Landes- und Kommunalbeamte (Beitragspflicht)",
+      "Bestandsbeamte (Risiko der Aushöhlung des Alimentationsprinzips)",
+      "Öffentliche Haushalte (Bund, Länder, Kommunen)",
+      "Steuerzahler (ggf. höhere Abgaben zur Finanzierung der Übergangsphase)"
+    ],
+    "kosten": "hoch — Die öffentlichen Haushalte müssen GRV-Beiträge für neue Beamte zahlen, während sie gleichzeitig die Versorgungsansprüche der Bestandsbeamten bedienen (do"
+  },
+  "adversarial": [
+    {
+      "dimension": "administrativ",
+      "einwand": "Die Koordination der Übergangsregeln für die Anrechnung bereits erdienter Anwartschaften sowie die parallele Abrechnung von Beihilfe und gesetzlicher Krankenversicherung erfordert eine massive, bisher unvorhergesehene IT- und Organisationsstruktur in den Personalamtsbehörden.",
+      "empfohlene_ampel": "gering"
+    },
+    {
+      "dimension": "finanziell",
+      "einwand": "Die 'doppelte Last' ist nicht nur ein Haushaltsrisiko, sondern durch die sofortigen Mehrausgaben für GRV-Beiträge bei gleichzeitigem Fortbestand der Versorgungsverpflichtungen ein unmittelbarer Schock für die laufenden Haushalte ohne zeitnahen Ausgleich.",
+      "empfohlene_ampel": "gering"
+    }
+  ],
+  "revision_needed": false,
+  "quellen": [
+    "https://www.sachverstaendigenrat-wirtschaft.de/fileadmin/dateiablage/gutachten/jg202324/JG202324_Gesamtausgabe.pdf",
+    "https://www.sachverstaendigenrat-wirtschaft.de/fileadmin/dateiablage/gutachten/jg202324/JG202324_Gesamtausgabe.pdf",
+    "https://www.sachverstaendigenrat-wirtschaft.de/fileadmin/dateiablage/gutachten/jg202324/JG202324_Gesamtausgabe.pdf",
+    "https://www.sachverstaendigenrat-wirtschaft.de/fileadmin/dateiablage/gutachten/jg202324/JG202324_Gesamtausgabe.pdf",
+    "https://www.sachverstaendigenrat-wirtschaft.de/fileadmin/dateiablage/gutachten/jg202324/JG202324_Gesamtausgabe.pdf",
+    "output/parteiprogramm_12_gesundheit_buergerversicherung.md",
+    "output/parteiprogramm_12_gesundheit_buergerversicherung.md",
+    "https://www.gesetze-im-internet.de/ao_1977/BJNR006130976.html"
+  ],
+  "critique": "Hier ist die strukturierte Kritik der vorliegenden Analyse gegen die bereitgestellten Quellen und den methodischen Auftrag.\n\n### 1. Faktische Stimmigkeit gegen Quellen\n\nDie Analyse enthält mehrere Faktenbehauptungen, die im Widerspruch zu den bereitgestellten Quellen stehen oder dort nicht belegt sind:\n\n*   **Widerspruch zur Finanzierungsneutralität:**\n    *   *Analyse-Stelle:* \"Finanzierung und Umverteilung ... Mehreinnahmen (20–30 Mrd. €/Jahr, zu verifizieren) werden genutzt, um: Den durchschnittlichen Beitragssatz um 0,5–1 Prozentpunkt zu senken.\" sowie \"Kostenneutral ließe sich eine Integration ... mit separaten Beitragskassen umsetzen.\"\n    *   *Kritik:* Die Analyse suggeriert eine direkte Senkung des GRV-Beitragssatzes als primäres Ergebnis oder zumindest eine klare Kostenneutralität durch die bloße Integration. Der Sachverständigenrat (Quelle 1, Ziff. 396) stellt jedoch klar: \"Ein nachhaltigere Finanzierung ... wird so auch deshalb nicht erreicht, da die Rentenbeiträge in der GRV sofort wieder verausgabt werden und dadurch die Finanzierung der aus der Integration resultierenden Rentenan sprüche unverändert in die Zukunft verschoben wird.\" Eine Senkung des Beitragssatzes im *gesamten* System ist ohne separate Kassen (Ziff. 397) nicht evidenzbasiert, da die Mehreinnahmen sofort für neue Rentenansprüche verbraucht werden (\"sofortige Verausgabung\"). Die Analyse vermischt hier das Konzept der \"separaten Beitragskassen\" (das nur Transparenz schafft, aber keine langfristige Entlastung im Umlageverfahren bringt) mit einer allgemeinen Beitragssatzsenkung.\n*   **Fehlerhafte Einordnung der Beihilfe/Alimentation:**\n    *   *Analyse-Stelle:* \"Verfassungsrecht: Art. 33 GG (Beamtenprivileg): Kritisch. Das BVerfG hat die Beihilfe als hergebrachte Grundsätze des Berufsbeamtentums anerkannt ... Eine Abschaffung erfordert Übergangsregelungen.\"\n    *   *Kritik:* Die Analyse behauptet implizit, die *Beihilfe* sei der geschützte Kern. Der Sachverständigenrat (Quelle 1) diskutiert primär die *Integration in die GRV*. Zwar ist das Alimentationsprinzip (Art. 33 Abs. 5 GG) der verfassungsrechtliche Rahmen, aber die Quelle hebt hervor, dass eine Integration mit separaten Kassen \"kostenneutral umgesetzt werden\" kann und die \"wirkungsgleiche Umsetzung von Reformen der GRV bei der Beamtenversorgung\" sichert. Die Analyse ignoriert die in den Quellen (Ziff. 397) explizit genannte Option der *separaten Beitragskassen* als Mittel zur Lösung des Finanzierungsproblems, behandelt sie aber nicht als gleichwertige Alternative im Hauptteil, sondern nur am Rande.\n*   **Falsche Zuordnung von \"Kapitaldeckung\" als Standardlösung:**\n    *   *Analyse-Stelle:* \"Langfristig: Steuerzahler (theoretische Entlastung durch kapitalgedeckte Elemente)\" unter Gewinner.\n    *   *Kritik:* Die Quelle (Sachverständigenrat, Ziff. 396/397) warnt explizit davor, dass bei Umlagefinanzierung (Standard GRV) die Finanzierung \"in die Zukunft verschoben\" wird. Eine Kapitaldeckung ist in der GRV nicht das Regime für Neueinsteiger im Sinne einer direkten Entlastung der Steuerzahler *durch* die Integration in die bestehende GRV. Die Quelle erwähnt Sondervermögen bei Ländern/Kommunen (Quelle 2, dbb-Text), aber dies ist kein Merkmal der *GRV-Integration* an sich, sondern eine parallele Entwicklung. Die Analyse vermischt hier zwei verschiedene Finanzierungsmodelle (Umlage vs. Kapitaldeckung) und stellt die Kapitaldeckung fälschlicherweise als inhärentes Ergebnis der GRV-Integration dar.\n\n### 2. Methodische Lücken\n\n*   **Fehlende explizite Gegenüberstellung der \"Separaten Beitragskasse\":**\n    Die Quelle (Ziff. 397) stellt die *separate Beitragskasse* als diejenige Option dar, die eine Integration *kostenneutral* und *periodengerecht* macht. Die Analyse listet diese zwar unter \"Alternativen\", aber nicht als *Ausgestaltungsoption der Integration selbst*. Es fehlt die klare methodische Trennung zwischen:\n    1.  Integration in den allgemeinen GRV-Topf (belastet kurzfristig, verschiebt Last).\n    2.  Integration mit separater Beitragskasse (kostenneutral, transparent).\n    Die Analyse behandelt \"Integration\" weitgehend homogen als belastend, obwohl die Quelle eine kosteneffiziente Variante explizit benennt.\n*   **Fehlende Einordnung der \"betrieblichen Altersvorsorge\" (bAV):**\n    Die Quelle (Ziff. 397) erwähnt explizit, dass neben der GRV-Integration eine *betriebliche Altersvorsorge (bAV)* gewährt werden sollte, um Gestaltungsspielräume zu schaffen und die Attraktivität des Öffentlichen Dienstes zu sichern. Die Analyse ignoriert dieses Element vollständig. Es fehlt die Option, die bAV als finanziellen Ausgleich für die Beitragslast in der GRV zu nutzen (Quersubventionierung vermeiden).\n*   **Fehlender Vergleich mit dem Status Quo der \"Sondervermögen\":**\n    Die Quelle 2 (dbb-Text) erwähnt, dass bei den meisten Ländern und Kommunen bereits Sondervermögen für kapitalgedeckte Elemente unterhalten werden. Ein direkter Vergleich zwischen dem aktuellen Fragmentierungsgrad (Länder/Kommunen lösen es unterschiedlich über Sondervermögen) und der vorgeschlagenen Bundeslösung fehlt. Dies wäre ein relevanter empirischer Fall zur Frage der Umsetzbarkeit und Harmonisierung.\n\n### 3. Sprachliche Schmuggelware\n\n*   **Implizite Abwertung der Maßnahme:**\n    *   *Zitat:* \"Wirkung — Ziel erreicht?: unbelegt — Es liegt keine belastbare Evidenz vor, dass die Einbeziehung von Beamten in die GRV die erklärten Ziele ... nachhaltig erreicht.\"\n    *   *Kritik:* Diese Formulierung ist normativ geladen. Sie stellt die *Zielerreichung* als nicht gegeben dar, obwohl die Quelle (Sachverständigenrat) feststellt, dass sie \"wirkungsgleich\" sein kann und die Akzeptanz steigert. Die Analyse interpretiert die fehlende *langfristige Finanzierungsneutralität im Umlagesystem* als Scheitern der *Ziele Gleichbehandlung/Beitragsbasis*, was eine normative Wertung ist.\n*   **Wertender Adjektivgebrauch:**\n    *   *Zitat:* \"Nebenwirkungen: schaedlich: Kurzfristige Mehrbelastung ... | schaedlich: Langfristige Verschlechterung ...\"\n    *   *Kritik:* Die Begriffe \"schädlich\" sind normative Bewertungen. Die Quelle spricht von \"zusätzliche[n] Belastungen\" (faktisch) und \"Verschiebung des Finanzierungsproblems\" (strukturell). Die Analyse übersetzt dies in eine moralische/ökonomische Verurteilung (\"schädlich\"), was die neutrale Optionsanalyse unterbricht.\n*   **Voreilige Schlussfolgerung:**\n    *   *Zitat:* \"Fazit: umsetzbar, aber mit großen Hürden; Zielerreichung ist mangels Evidenz offen.\"\n    *   *Kritik:* Das Wort \"offen\" suggeriert eine Unwissenheit der Analyse, wo die Quelle klare Mechanismen beschreibt (Verschiebung vs. Neutralität bei Kassen). Es ist keine offene Frage, ob Ziele erreicht werden, sondern wie sie erreicht werden (mit welchen Trade-offs).\n\n### 4. Quellenverwendung und Tier-Disziplin\n\n*   **Verletzung der Quellenbindung (Training vs. Kontext):**\n    *   *Zitat:* \"Mehreinnahmen (20–30 Mrd. €/Jahr, zu verifizieren)\" und \"Senkung des Beitragssatzes um 0,5–1 Prozentpunkt\".\n    *   *Kritik:* Diese spezifischen Zahlen (20-30 Mrd., 0,5-1 pp.) stammen **nicht** aus den bereitgestellten Quellen. Die Quelle 1 (Sachverständigenrat) liefert keine solchen aggregierten Bundeszahlen für diesen spezifischen Reformpfad in diesem Ausmaß. Die Analyse greift hier auf externes Trainingswissen oder andere nicht bereitgestellte Studien zurück, kennzeichnet dies aber nicht als \"Annahme\" oder \"externes Wissen\", sondern präsentiert es als Teil der Faktenlage (\"Mehreinnahmen ... werden genutzt\"). Dies verstößt gegen das Prinzip der Transparenz und Quellenbindung.\n*   **Inkohärente Quellenintegration:**\n    *   Die Analyse zitiert Art. 33 GG und BVerfG-Rechtsprechung (BVerfGE 61, 43) als Fakten. Diese sind korrekt im Sinne des deutschen Verfassungsrechts, aber sie sind **nicht** in den bereitgestellten Textschnipseln enthalten. Während das allgemeine Verfassungsrecht als Hintergrundwissen akzeptabel sein kann, sollte die Analyse klarstellen, dass diese rechtlichen Bewertungen *außerhalb* der vorliegenden Quellen liegen. Die Quelle 1 konzentriert sich auf volkswirtschaftliche Effekte, nicht auf verfassungsrechtliche Detailurteile.\n*   **Fehlende Kennzeichnung von \"bAV\" und \"Sondervermögen\":**\n    Die Quelle 2 (dbb-Text) wird zwar als Quelle für die Sondervermögen genannt, aber die Analyse nutzt diese Information nur implizit oder ignoriert sie weitgehend zugunsten der GRV-Fokus. Die Trennung zwischen dem, was in den Quellen steht (Sachverständigenrat: Kostenverschiebung; dbb: Kapitaldeckung bei Ländern), und dem, was die Analyse daraus macht (allgemeine GRV-Integration senkt Beitragssatz), ist nicht transparent genug.\n\n**Zusammenfassendes Urteil:** Die Analyse enthält signifikante Faktenfehler im Hinblick auf die Interpretation der Finanzierungsneutralität (Verwechslung von Umlage und Kapitaldeckungseffekten) und nutzt nicht bereitgestellte Zahlen als Faktum. Sie vermischt normative Bewertungen (\"schädlich\") mit faktischen Beschreibungen und blendet die in den Quellen explizit genannte Option der \"separaten Beitragskassen\" als gleichwertige Ausgestaltungsmöglichkeit weitgehend aus.",
+  "critique_verdict": {
+    "erfundene_fakten": true,
+    "icon": "⚠️",
+    "fazit": "Die Analyse enthält echte Erfindungen, da sie nicht in den Quellen enthaltene Zahlen (20–30 Mrd. €/Jahr; Senkung des Beitragssatzes um 0,5–1 Prozentpunkt) als Fakten präsentiert und zudem die Finanzierungsmechanismen der Quellen (Umlage vs. Kapitaldeckung) faktisch falsch wiedergibt."
+  },
+  "fabrikationsverdacht": true,
+  "konsolidierung": [],
+  "fabrikate": [
+    {
+      "zitat": "Die öffentlichen Haushalte tragen die Hauptlast der Übergangsfinanzierung, während neue Beamte durch Beitragspflichten belastet werden. Die GRV profitiert kurzfristig von Mehreinnahmen, langfristig steigen jedoch ihre Au",
+      "grund": "Unbelegte Behauptung über konkrete finanzielle Auswirkungen (z.B. 'Hauptlast', 'Mehreinnahmen' ohne spezifische Zahlen oder Quellenbezug)"
+    },
+    {
+      "zitat": "Verfassungsänderung (2/3-Mehrheit in Bundestag und Bundesrat) und Länderkooperation erforderlich.",
+      "grund": "Behauptung einer erforderlichen 2/3-Mehrheit ist eine Rechtsnorminterpretation, die im Vorhaben nicht explizit als zwingend belegt ist (nur als Möglichkeit genannt)."
+    },
+    {
+      "zitat": "Das BVerfG hat die Beihilfe als hergebrachten Grundsa",
+      "grund": "Unvollständiger Satz, aber implizit wird eine konkrete Position des BVerfG zugeschrieben, die nicht in den Quellen belegt ist."
+    },
+    {
+      "zitat": "Hoher Widerstand von Beamtenverbänden (dbb), Ländern (föderale Zuständigkeit) und Teilen der Union/SPD (Tradition des Berufsbeamtentums).",
+      "grund": "Zuschreibung konkreter Positionen (Widerstand) an dritte Parteien (dbb, Union/SPD) ohne Quellenbeleg."
+    },
+    {
+      "zitat": "Eine 2/3-Mehrheit für GG-Änderung ist unwahrscheinlich ohne breite Konsensbildung.",
+      "grund": "Empirische Behauptung über politische Mehrheitsverhältnisse ohne Beleg."
+    },
+    {
+      "zitat": "Die Maßnahme ist finanzierbar, da die Kosten (GRV-Beiträge + Bestandsversorgung) im Rahmen der öffentlichen Haushalte liegen. Allerdings entsteht eine „doppelte Last“ für die Übergangsgeneration, die durch Steuererhöhung",
+      "grund": "Unbelegte Behauptung über Finanzierbarkeit und Steuererhöhung als Lösung (keine Quelle oder Zahl)."
+    }
+  ]
+}

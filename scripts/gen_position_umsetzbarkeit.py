@@ -19,7 +19,7 @@ Aufruf:
   OLLAMA_HOST=… python scripts/gen_position_umsetzbarkeit.py [--only slug] [--limit N]
   OLLAMA_HOST=… python scripts/gen_position_umsetzbarkeit.py --reform "Abschaffung der …" --out x.json
 """
-import argparse, json, os, re, sys, pathlib
+import argparse, datetime, json, os, re, sys, pathlib
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT_MD = ROOT / "output"
@@ -447,7 +447,8 @@ def main():
     if reform:
         titel = a.title or reform.strip().split("\n")[0][:70]
         print(f"… Standalone-Umsetzungsanalyse: {titel}", file=sys.stderr)
-        rec, _ = analyze(reform, reform.strip()[:300], vs, gen, adv, critique, host, serve)
+        rec, _ = analyze(reform, reform.strip()[:300], vs, gen, adv, critique, host, serve,
+                         heute=datetime.date.today().isoformat())
         _print_human(titel, rec)
         if a.out:
             pathlib.Path(a.out).write_text(json.dumps({"titel": titel, **rec}, ensure_ascii=False, indent=2), encoding="utf-8")
